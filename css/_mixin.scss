@@ -1,0 +1,8 @@
+@mixin colorLogo($couleur){
+    fill: $couleur;
+  }
+  
+@mixin Tonlook($taille, $couleur){
+color: $couleur;
+font-size: $taille;
+}

@@ -1,0 +1,66 @@
+@import "mixin"; @import "variables";
+
+.logo {
+    svg {
+      width: 50vw;
+    }
+  }
+
+h2{
+  @include Tonlook(5em, #54c0ff);
+}
+h3{
+  @include Tonlook(4em, black);
+}
+
+h4{
+  @include Tonlook(3em, black);
+}
+
+video{
+  border: 6px solid #040037;
+}
+
+#mask-noir .path {
+  -webkit-animation: dash 1s ease-out;
+  -moz-animation: dash 1s ease-out;
+  -o-animation: dash 1s ease-out;
+  animation: dash 1s ease-out;
+  opacity: 1;
+  
+}
+
+
+@keyframes dash {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    @include colorLogo(#54c0ff); 
+  }
+
+  100%{
+    opacity: 1;
+    @include colorLogo(#040037); 
+  }
+}
+
+
+
+
+
+}
+
+#Exploration{
+
+  p{
+    display: none;
+  }
+  img{
+    &:active + p{
+      display: block;
+    }
+  }
+  background-color: #586171;
+}
+

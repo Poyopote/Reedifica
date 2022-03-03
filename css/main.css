@@ -1,0 +1,73 @@
+.logo svg {
+  width: 50vw;
+}
+
+h2 {
+  color: #54c0ff;
+  font-size: 5em;
+}
+
+h3 {
+  color: black;
+  font-size: 4em;
+}
+
+h4 {
+  color: black;
+  font-size: 3em;
+}
+
+video {
+  border: 6px solid #040037;
+}
+
+#mask-noir .path {
+  -webkit-animation: dash 1s ease-out;
+  animation: dash 1s ease-out;
+  opacity: 1;
+}
+
+@-webkit-keyframes dash {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    fill: #54c0ff;
+  }
+  100% {
+    opacity: 1;
+    fill: #040037;
+  }
+}
+
+@keyframes dash {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    fill: #54c0ff;
+  }
+  100% {
+    opacity: 1;
+    fill: #040037;
+  }
+}
+
+#banniere {
+  background: #586171;
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+
+#Exploration {
+  background-color: #586171;
+}
+
+#Exploration p {
+  display: none;
+}
+
+#Exploration img:active + p {
+  display: block;
+}
+/*# sourceMappingURL=main.css.map */
