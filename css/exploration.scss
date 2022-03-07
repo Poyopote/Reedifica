@@ -1,0 +1,9 @@
+@import "mixin"; @import "variables";
+
+h3{
+    @include Tonlook(5em, #54c0ff);
+}
+
+h4{
+    @include Tonlook(3em, #0e0000);
+}

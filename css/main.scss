@@ -2,65 +2,34 @@
 
 .logo {
     svg {
-      width: 50vw;
+      width: 30vw;
     }
   }
 
-main {
-  h2{
-    @include Tonlook(5em, #54c0ff);
-  }
-  h3{
-    @include Tonlook(4em, black);
-  }
-  
-  h4{
-    @include Tonlook(3em, black);
-  }
+main{
+  padding-top: 20vh;
 }
 
-video{
-  border: 6px solid #586171;
+#mask-noir .path {
+  -webkit-animation: dash 1s ease-out;
+  -moz-animation: dash 1s ease-out;
+  -o-animation: dash 1s ease-out;
+  animation: dash 1s ease-out;
+  opacity: 1; 
 }
 
-#nav {
 
-  svg{
-    display: none;
+@keyframes dash {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    @include colorLogo(#54c0ff); 
   }
 
-  
-  #menu-princiapl{
-    text-align: center;
-    overflow: hidden;
-    padding-top: 44px;
-
-
-
-    li{
-        display: inline-block;
-        position: relative;
-        @include Tonlook(1.4em, #7d685b);
-        font-weight: bold;
-
-        &:hover ul{
-          top: 36px;
-          left: 0;
-          z-index: 100;
-
-        }
-    }
-    ul{
-      display: none;
-      a{
-        display: block;
-      }
-    }
-    a{
-      display: block;
-      padding: 3px 10px;
-      // text-align: center;
-    }
+  100%{
+    opacity: 1;
+    @include colorLogo(#040037); 
   }
 }
 

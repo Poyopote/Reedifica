@@ -9,44 +9,66 @@ body{
     background-color: #edf0ea; 
     }
 
-main{
-    @include padding-droite-gauche(5vw)
-}
 
-h1,h2,h3,h4{
+main {
+  @include padding-droite-gauche(5vw);
+
+  h1,h2,h3,h4{
     font-family: 'Marck Script', cursive;
-}    
+  } 
+
+  h2{
+    @include Tonlook(5em, #54c0ff);
+  }
+  h3{
+    @include Tonlook(4em, black);
+  }
+  
+  h4{
+    @include Tonlook(3em, black);
+  }
+}
 
 p{
     font-size: 1.5em;
 }
 
-
-
-#mask-noir .path {
-    -webkit-animation: dash 1s ease-out;
-    -moz-animation: dash 1s ease-out;
-    -o-animation: dash 1s ease-out;
-    animation: dash 1s ease-out;
-    opacity: 1;
-    
-  }
-  
-  
-  @keyframes dash {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      @include colorLogo(#54c0ff); 
-    }
-  
-    100%{
-      opacity: 1;
-      @include colorLogo(#040037); 
-    }
+#nav {
+  svg{
+    display: none;
   }
 
+  #menu-princiapl{
+    text-align: center;
+    overflow: hidden;
+    padding-top: 44px;
+
+    li{
+        display: inline-block;
+        position: relative;
+        @include Tonlook(1.4em, #7d685b);
+        font-weight: bold;
+
+        &:hover ul{
+          top: 36px;
+          left: 0;
+          z-index: 100;
+
+        }
+    }
+    ul{
+      display: none;
+      a{
+        display: block;
+      }
+    }
+    a{
+      display: block;
+      padding: 3px 10px;
+      // text-align: center;
+    }
+  }
+}
 
 footer{
     background-color: #040037;
