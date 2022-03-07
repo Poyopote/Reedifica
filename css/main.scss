@@ -6,62 +6,94 @@
     }
   }
 
-h2{
-  @include Tonlook(5em, #54c0ff);
-}
-h3{
-  @include Tonlook(4em, black);
-}
-
-h4{
-  @include Tonlook(3em, black);
+main {
+  h2{
+    @include Tonlook(5em, #54c0ff);
+  }
+  h3{
+    @include Tonlook(4em, black);
+  }
+  
+  h4{
+    @include Tonlook(3em, black);
+  }
 }
 
 video{
-  border: 6px solid #040037;
+  border: 6px solid #586171;
 }
 
-#mask-noir .path {
-  -webkit-animation: dash 1s ease-out;
-  -moz-animation: dash 1s ease-out;
-  -o-animation: dash 1s ease-out;
-  animation: dash 1s ease-out;
-  opacity: 1;
+#nav {
+
+  svg{
+    display: none;
+  }
+
   
+  #menu-princiapl{
+    text-align: center;
+    overflow: hidden;
+    padding-top: 44px;
+
+
+
+    li{
+        display: inline-block;
+        position: relative;
+        @include Tonlook(1.4em, #7d685b);
+        font-weight: bold;
+
+        &:hover ul{
+          top: 36px;
+          left: 0;
+          z-index: 100;
+
+        }
+    }
+    ul{
+      display: none;
+      a{
+        display: block;
+      }
+    }
+    a{
+      display: block;
+      padding: 3px 10px;
+      // text-align: center;
+    }
+  }
 }
 
 
-@keyframes dash {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    @include colorLogo(#54c0ff); 
+#header {
+
+  nav#user {
+    position: fixed;
+    right: 0;
+    top: 0;
+    display: inline-block;
+    padding: 20px;
+
   }
 
-  100%{
-    opacity: 1;
-    @include colorLogo(#040037); 
+  div#banniere {
+    background: #586171;  /* fallback for old browsers */
+    &::after {
+      background: #586171;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to bottom, #586171, #edf0ea);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to bottom, #586171, #edf0ea); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      display: block;
+      width: 44px;
+      content: "";
+    }
+    
   }
 }
 
-header#banniere {
-  background: #586171;
-  transition: all 1s ease-out;
-  // &:hover{
-  //   background: #040037;
 
-  //   #mask-noir .path{
-  //     @include colorLogo(#54c0ff); 
-  //   }
-
-  //   ul{
-  //     color: white;
-  //   }
-
-
-
-
+nav#nav{
+  background: rgb(237,240,234);
+  background: linear-gradient(0deg, rgba(237,240,234,1) 75%, rgba(88,97,113,1) 100%); 
 }
 
 #Exploration{

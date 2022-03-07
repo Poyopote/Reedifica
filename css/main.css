@@ -2,61 +2,91 @@
   width: 50vw;
 }
 
-h2 {
+main h2 {
   color: #54c0ff;
   font-size: 5em;
 }
 
-h3 {
+main h3 {
   color: black;
   font-size: 4em;
 }
 
-h4 {
+main h4 {
   color: black;
   font-size: 3em;
 }
 
 video {
-  border: 6px solid #040037;
+  border: 6px solid #586171;
 }
 
-#mask-noir .path {
-  -webkit-animation: dash 1s ease-out;
-  animation: dash 1s ease-out;
-  opacity: 1;
+#nav svg {
+  display: none;
 }
 
-@-webkit-keyframes dash {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    fill: #54c0ff;
-  }
-  100% {
-    opacity: 1;
-    fill: #040037;
-  }
+#nav #menu-princiapl {
+  text-align: center;
+  overflow: hidden;
+  padding-top: 44px;
 }
 
-@keyframes dash {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    fill: #54c0ff;
-  }
-  100% {
-    opacity: 1;
-    fill: #040037;
-  }
+#nav #menu-princiapl li {
+  display: inline-block;
+  position: relative;
+  color: #7d685b;
+  font-size: 1.4em;
+  font-weight: bold;
 }
 
-header#banniere {
+#nav #menu-princiapl li:hover ul {
+  top: 36px;
+  left: 0;
+  z-index: 100;
+}
+
+#nav #menu-princiapl ul {
+  display: none;
+}
+
+#nav #menu-princiapl ul a {
+  display: block;
+}
+
+#nav #menu-princiapl a {
+  display: block;
+  padding: 3px 10px;
+}
+
+#header nav#user {
+  position: fixed;
+  right: 0;
+  top: 0;
+  display: inline-block;
+  padding: 20px;
+}
+
+#header div#banniere {
   background: #586171;
-  -webkit-transition: all 1s ease-out;
-  transition: all 1s ease-out;
+  /* fallback for old browsers */
+}
+
+#header div#banniere::after {
+  background: #586171;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, left bottom, from(#586171), to(#edf0ea));
+  background: linear-gradient(to bottom, #586171, #edf0ea);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  display: block;
+  width: 44px;
+  content: "";
+}
+
+nav#nav {
+  background: #edf0ea;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(75%, #edf0ea), to(#586171));
+  background: linear-gradient(0deg, #edf0ea 75%, #586171 100%);
 }
 
 #Exploration {

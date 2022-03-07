@@ -6,3 +6,8 @@
 color: $couleur;
 font-size: $taille;
 }
+
+@mixin padding-droite-gauche($taille) {
+  padding-left: $taille;
+  padding-right: $taille;
+}

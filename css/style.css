@@ -7,11 +7,53 @@ body {
   background-color: #edf0ea;
 }
 
+main {
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
 h1, h2, h3, h4 {
   font-family: 'Marck Script', cursive;
 }
 
 p {
   font-size: 1.5em;
+}
+
+#mask-noir .path {
+  -webkit-animation: dash 1s ease-out;
+  animation: dash 1s ease-out;
+  opacity: 1;
+}
+
+@-webkit-keyframes dash {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    fill: #54c0ff;
+  }
+  100% {
+    opacity: 1;
+    fill: #040037;
+  }
+}
+
+@keyframes dash {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    fill: #54c0ff;
+  }
+  100% {
+    opacity: 1;
+    fill: #040037;
+  }
+}
+
+footer {
+  background-color: #040037;
+  color: #edf0ea;
 }
 /*# sourceMappingURL=style.css.map */
