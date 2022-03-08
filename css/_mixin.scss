@@ -11,3 +11,8 @@ font-size: $taille;
   padding-left: $taille;
   padding-right: $taille;
 }
+
+@mixin texte($taille, $couleur, $fond) {
+  @include Tonlook($taille, $couleur);
+  background-color: $fond;
+}

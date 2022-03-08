@@ -8,6 +8,10 @@
 
 main{
   padding-top: 20vh;
+
+  article{
+    clear: both;
+  }
 }
 
 #mask-noir .path {
@@ -59,6 +63,24 @@ main{
   }
 }
 
+#accueil{
+  
+  h2+img+p, h2+img{
+    float: left;
+  }
+  h2+img+p{
+    width: 40%;
+    padding: 1em;
+    @include Tonlook (2em, #586171 )
+  }
+  h2+img{
+    width: 50%;
+    padding: 1em;
+  }
+}
+
+
+
 
 nav#nav{
   background: rgb(237,240,234);
@@ -66,15 +88,49 @@ nav#nav{
 }
 
 #Exploration{
-
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;  
+    
   p{
     display: none;
+    width: 25vw;
+    @include texte (16px, $couleursecon , $couleurprin)
   }
   img{
+    width: 25vw;
     &:active + p{
       display: block;
+      position: absolute;
+      bottom: 0px;
+      z-index: 2;
+      height: 80%;
     }
   }
+  padding: 1em;
   background-color: #586171;
+  flex-direction: row;
+  h3{
+    text-align: center;
+    grid-area: 1 / 1 / 2 / 4; 
+    padding-bottom: 1em;
+ +section {
+    grid-area: 2 / 1 / 3 / 2;
+
+    +section{
+      grid-area: 2 / 2 / 3 / 3; 
+
+      +section{
+        grid-area: 2 / 3 / 3 / 4;
+      }
+    }
+  }
+  }
+
+  section{
+    position: relative;
+  }
 }
 

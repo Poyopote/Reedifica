@@ -22,13 +22,17 @@ main h2 {
 }
 
 main h3 {
-  color: black;
+  color: #040037;
   font-size: 4em;
 }
 
 main h4 {
-  color: black;
+  color: #171717;
   font-size: 3em;
+}
+
+main article {
+  border: red 1px solid;
 }
 
 p {
@@ -74,7 +78,59 @@ p {
 }
 
 footer {
-  background-color: #040037;
+  background: #040037;
+  background: -webkit-gradient(linear, left top, right top, from(#171717), to(#040037));
+  background: linear-gradient(90deg, #171717 0%, #040037 100%);
   color: #edf0ea;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 2em;
+  overflow: hidden;
+}
+
+footer .boite {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+#sky {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#shootingstars {
+  margin: 0;
+  padding: 0;
+  width: 150vh;
+  height: 100vw;
+  position: fixed;
+  overflow: hidden;
+  -webkit-transform: translatex(calc(50vw - 50%)) translatey(calc(50vh - 50%)) rotate(120deg);
+          transform: translatex(calc(50vw - 50%)) translatey(calc(50vh - 50%)) rotate(120deg);
+}
+
+.wish {
+  height: 2px;
+  top: 300px;
+  width: 100px;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  background-color: white;
+  position: absolute;
+  background: linear-gradient(-45deg, white, rgba(0, 0, 255, 0));
+  -webkit-filter: drop-shadow(0 0 6px white);
+          filter: drop-shadow(0 0 6px white);
+  overflow: hidden;
 }
 /*# sourceMappingURL=style.css.map */
