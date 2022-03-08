@@ -1,1 +1,18 @@
-/* No CSS *//*# sourceMappingURL=histoire.css.map */
+main section {
+  border-radius: 50px;
+  padding: 1em;
+  color: #edf0ea;
+  font-size: 16px;
+  background-color: #7d685b;
+}
+
+main section p {
+  padding: 1em;
+}
+
+main section img {
+  display: block;
+  margin: 0 auto;
+  width: 30vw;
+}
+/*# sourceMappingURL=histoire.css.map */

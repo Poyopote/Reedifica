@@ -1,0 +1,21 @@
+@import "mixin"; @import "variables";
+
+main{
+    // background: $couleurancien;
+
+    section{
+        border-radius: 50px;
+        padding: 1em;
+        @include texte(16px, $extremeblanc, $couleurancien);
+        p{
+            padding: 1em; 
+            
+        }
+        img{
+            display: block;
+            margin: 0 auto;
+            width: 30vw;
+        }
+    }
+}
+

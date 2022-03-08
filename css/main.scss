@@ -28,12 +28,12 @@ main{
     opacity: 0;
   }
   50% {
-    @include colorLogo(#54c0ff); 
+    @include colorLogo($couleursecon); 
   }
 
   100%{
     opacity: 1;
-    @include colorLogo(#040037); 
+    @include colorLogo($couleurprin); 
   }
 }
 
@@ -50,11 +50,11 @@ main{
   }
 
   div#banniere {
-    background: #586171;  /* fallback for old browsers */
+    background: $extremegris;  /* fallback for old browsers */
     &::after {
-      background: #586171;  /* fallback for old browsers */
-      background: -webkit-linear-gradient(to bottom, #586171, #edf0ea);  /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to bottom, #586171, #edf0ea); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: $extremegris;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to bottom, $extremegris, $extremeblanc);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to bottom, $extremegris, $extremeblanc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       display: block;
       width: 44px;
       content: "";
@@ -71,7 +71,7 @@ main{
   h2+img+p{
     width: 40%;
     padding: 1em;
-    @include Tonlook (2em, #586171 )
+    @include Tonlook (2em, $extremegris )
   }
   h2+img{
     width: 50%;
@@ -83,8 +83,8 @@ main{
 
 
 nav#nav{
-  background: rgb(237,240,234);
-  background: linear-gradient(0deg, rgba(237,240,234,1) 75%, rgba(88,97,113,1) 100%); 
+  background: $extremeblanc;
+  background: linear-gradient(0deg, $extremeblanc 75%, $extremegris 100%); 
 }
 
 #Exploration{
@@ -110,7 +110,7 @@ nav#nav{
     }
   }
   padding: 1em;
-  background-color: #586171;
+  background-color: $extremegris;
   flex-direction: row;
   h3{
     text-align: center;
