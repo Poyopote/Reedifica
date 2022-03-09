@@ -45,8 +45,8 @@ p {
 
 #nav #menu-princiapl {
   text-align: center;
-  overflow: hidden;
   padding-top: 44px;
+  position: absolute;
 }
 
 #nav #menu-princiapl li {
@@ -57,6 +57,10 @@ p {
   font-weight: bold;
 }
 
+#nav #menu-princiapl li:hover {
+  color: #54c0ff;
+}
+
 #nav #menu-princiapl li:hover ul {
   top: 36px;
   left: 0;
@@ -64,17 +68,22 @@ p {
   display: block;
 }
 
-#nav #menu-princiapl ul {
+#nav #menu-princiapl li ul {
   display: none;
 }
 
-#nav #menu-princiapl ul a {
+#nav #menu-princiapl li ul li {
   display: block;
 }
 
-#nav #menu-princiapl a {
+#nav #menu-princiapl li ul a {
   display: block;
   padding: 3px 10px;
+  text-align: center;
+}
+
+#nav #menu-princiapl li a {
+  padding: 18px 0;
 }
 
 footer {

@@ -44,14 +44,20 @@ p{
 
   #menu-princiapl{
     text-align: center;
-    overflow: hidden;
+    // overflow: hidden;
     padding-top: 44px;
-
+    position: absolute;
+    
+    
     li{
         display: inline-block;
         position: relative;
         @include Tonlook(1.4em, $couleurancien);
         font-weight: bold;
+
+        &:hover{
+          color: $couleursecon;
+        }
 
         &:hover ul{
           top: 36px;
@@ -59,18 +65,24 @@ p{
           z-index: 100;
           display: block;
         }
+
+        ul{
+          display: none;
+          li{
+            display: block;
+          }
+          a{
+            display: block;
+            padding: 3px 10px;
+            text-align: center;
+            
+          }
+        }
+
+        a{padding: 18px 0;}
     }
-    ul{
-      display: none;
-      a{
-        display: block;
-      }
-    }
-    a{
-      display: block;
-      padding: 3px 10px;
-      // text-align: center;
-    }
+    
+
   }
 }
 
