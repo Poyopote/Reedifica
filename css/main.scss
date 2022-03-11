@@ -1,6 +1,6 @@
 @import "mixin"; @import "variables";
 
-.logo {
+h1.logo {
     svg {
       width: 30vw;
     }
@@ -38,29 +38,23 @@ main{
 }
 
 
-#header {
+#banniere {
+  background: $extremegris;  /* fallback for old browsers */
 
   nav#user {
-    position: fixed;
+    // position: fixed;
     right: 0;
     top: 0;
     display: inline-block;
-    padding: 20px;
-
-  }
-
-  div#banniere {
-    background: $extremegris;  /* fallback for old browsers */
-    &::after {
-      background: $extremegris;  /* fallback for old browsers */
-      background: -webkit-linear-gradient(to bottom, $extremegris, $extremeblanc);  /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to bottom, $extremegris, $extremeblanc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-      display: block;
-      width: 44px;
-      content: "";
-    }
+    // padding: 20px;
+    background-color: aqua;
     
   }
+}
+
+#navbar{
+  background: $extremeblanc;
+  background: linear-gradient(0deg, $extremeblanc 75%, $extremegris 100%);
 }
 
 #accueil{
@@ -79,13 +73,6 @@ main{
   }
 }
 
-
-
-
-nav#nav{
-  background: $extremeblanc;
-  background: linear-gradient(0deg, $extremeblanc 75%, $extremegris 100%); 
-}
 
 #Exploration{
     display: grid;

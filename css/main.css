@@ -1,4 +1,4 @@
-.logo svg {
+h1.logo svg {
   width: 30vw;
 }
 
@@ -42,29 +42,22 @@ main article {
   }
 }
 
-#header nav#user {
-  position: fixed;
+#banniere {
+  background: #586171;
+  /* fallback for old browsers */
+}
+
+#banniere nav#user {
   right: 0;
   top: 0;
   display: inline-block;
-  padding: 20px;
+  background-color: aqua;
 }
 
-#header div#banniere {
-  background: #586171;
-  /* fallback for old browsers */
-}
-
-#header div#banniere::after {
-  background: #586171;
-  /* fallback for old browsers */
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-gradient(linear, left top, left bottom, from(#586171), to(#edf0ea));
-  background: linear-gradient(to bottom, #586171, #edf0ea);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  display: block;
-  width: 44px;
-  content: "";
+#navbar {
+  background: #edf0ea;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(75%, #edf0ea), to(#586171));
+  background: linear-gradient(0deg, #edf0ea 75%, #586171 100%);
 }
 
 #accueil h2 + img + p, #accueil h2 + img {
@@ -81,12 +74,6 @@ main article {
 #accueil h2 + img {
   width: 50%;
   padding: 1em;
-}
-
-nav#nav {
-  background: #edf0ea;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(75%, #edf0ea), to(#586171));
-  background: linear-gradient(0deg, #edf0ea 75%, #586171 100%);
 }
 
 #Exploration {

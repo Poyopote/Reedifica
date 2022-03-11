@@ -39,51 +39,82 @@ p {
   font-size: 1.5em;
 }
 
-#nav svg {
+nav#navbar {
+  height: 6rem;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  text-transform: uppercase;
+}
+
+nav#navbar .logo {
+  float: left;
+}
+
+nav#navbar ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav#navbar ul li {
+  display: block;
+  cursor: pointer;
+  padding: 0 1.5rem;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+nav#navbar ul li ul {
   display: none;
-}
-
-#nav #menu-princiapl {
-  text-align: center;
-  padding-top: 44px;
-  position: absolute;
-}
-
-#nav #menu-princiapl li {
-  display: inline-block;
   position: relative;
+}
+
+nav#navbar ul li:hover a {
+  color: #171717;
+}
+
+nav#navbar ul li:hover ul {
+  display: block;
+  padding: 1em;
+}
+
+nav#navbar ul li:hover ul li:hover {
+  background: #bdb09e;
+}
+
+nav#navbar ul li a {
+  text-decoration: none;
+  letter-spacing: 2px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   color: #7d685b;
-  font-size: 1.4em;
-  font-weight: bold;
 }
 
-#nav #menu-princiapl li:hover {
-  color: #54c0ff;
+.sticky {
+  padding: 5px 100px;
+  z-index: 99;
+  background: #edf0ea;
+  position: fixed;
+  top: 0;
 }
 
-#nav #menu-princiapl li:hover ul {
-  top: 36px;
-  left: 0;
-  z-index: 100;
-  display: block;
-}
-
-#nav #menu-princiapl li ul {
-  display: none;
-}
-
-#nav #menu-princiapl li ul li {
-  display: block;
-}
-
-#nav #menu-princiapl li ul a {
-  display: block;
-  padding: 3px 10px;
-  text-align: center;
-}
-
-#nav #menu-princiapl li a {
-  padding: 18px 0;
+.sticky ul li a {
+  color: #171717;
 }
 
 footer {

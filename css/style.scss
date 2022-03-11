@@ -5,9 +5,9 @@
 @import "mixin"; @import "variables";
 
 body{
-    font-family: 'Outfit', sans-serif;
-    background-color: $extremeblanc; 
-    }
+  font-family: 'Outfit', sans-serif;
+  background-color: $extremeblanc; 
+}
 
 
 main {
@@ -34,57 +34,78 @@ main {
 }
 
 p{
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
-#nav {
-  svg{
-    display: none;
-  }
 
-  #menu-princiapl{
-    text-align: center;
-    // overflow: hidden;
-    padding-top: 44px;
-    position: absolute;
+
+nav#navbar{
+  height: 6rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: 0.6s;
+  text-transform: uppercase;
+
+.logo {
+  float: left;
+}
+
+
+  ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
     
+
     li{
-        display: inline-block;
-        position: relative;
-        @include Tonlook(1.4em, $couleurancien);
-        font-weight: bold;
-
-        &:hover{
-          color: $couleursecon;
-        }
-
-        &:hover ul{
-          top: 36px;
-          left: 0;
-          z-index: 100;
-          display: block;
-        }
+      display: block;
+      cursor: pointer;
+      padding: 0 1.5rem;
+      transition: 0.5s;
 
         ul{
           display: none;
-          li{
-            display: block;
-          }
-          a{
-            display: block;
-            padding: 3px 10px;
-            text-align: center;
-            
-          }
+          position: relative;         
         }
 
-        a{padding: 18px 0;}
+        &:hover{
+          a{
+            color: $extremenoir;
+          }
+          ul{
+              display: block;
+              padding: 1em;
+               li:hover{
+                background: rgb(189, 176, 158);
+              }
+            }
+        }
+       a{
+         text-decoration: none;
+         letter-spacing: 2px;
+         transition: 0.5s;
+         color: $couleurancien;
+       }
     }
-    
+  }
 
+}
+
+.sticky{
+  padding: 5px 100px;
+  z-index: 99;
+
+  background: $extremeblanc;
+  position: fixed;
+  top: 0;
+  ul li a{
+    color: $extremenoir;
   }
 }
+
 
 footer{
     background: $couleurprin;
