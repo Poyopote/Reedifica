@@ -10,6 +10,11 @@ body{
 }
 
 
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
 main {
   @include padding-droite-gauche(5vw);
 
@@ -36,7 +41,14 @@ main {
 p{
   font-size: 1.5em;
 }
-
+  nav#user {
+    // position: fixed;
+   
+    display: inline-block;
+    // padding: 20px;
+    width: 100%;
+  
+  }
 
 
 nav#navbar{
@@ -50,6 +62,7 @@ nav#navbar{
 
 .logo {
   float: left;
+
 }
 
 
@@ -94,13 +107,20 @@ nav#navbar{
 
 }
 
+.sticky2{
+  position: fixed;
+  top: 0;
+  background-color: $extremegris;
+  height: 25px;
+}
+
 .sticky{
   padding: 5px 100px;
   z-index: 99;
 
   background: $extremeblanc;
   position: fixed;
-  top: 0;
+  top: 25px;
   ul li a{
     color: $extremenoir;
   }
@@ -120,37 +140,3 @@ footer{
     }
 }
 
-
-#sky {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-}
-
-#shootingstars {
-  margin: 0;
-  padding: 0;
-  width: 150vh;
-  height: 100vw;
-  position: fixed;
-  overflow: hidden;
-  transform: translatex(calc(50vw - 50%)) translatey(calc(50vh - 50%))
-    rotate(120deg);
-}
-
-.wish {
-  height: 2px;
-  top: 300px;
-  width: 100px;
-  margin: 0;
-  opacity: 0;
-  padding: 0;
-  background-color: white;
-  position: absolute;
-  background: linear-gradient(-45deg, white, rgba(0, 0, 255, 0));
-  filter: drop-shadow(0 0 6px white);
-  overflow: hidden;
-}

@@ -7,6 +7,11 @@ body {
   background-color: #edf0ea;
 }
 
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
 main {
   padding-left: 5vw;
   padding-right: 5vw;
@@ -33,6 +38,11 @@ main h4 {
 
 p {
   font-size: 1.5em;
+}
+
+nav#user {
+  display: inline-block;
+  width: 100%;
 }
 
 nav#navbar {
@@ -101,12 +111,19 @@ nav#navbar ul li a {
   color: #7d685b;
 }
 
+.sticky2 {
+  position: fixed;
+  top: 0;
+  background-color: #586171;
+  height: 25px;
+}
+
 .sticky {
   padding: 5px 100px;
   z-index: 99;
   background: #edf0ea;
   position: fixed;
-  top: 0;
+  top: 25px;
 }
 
 .sticky ul li a {
@@ -133,40 +150,5 @@ footer .boite {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-}
-
-#sky {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-}
-
-#shootingstars {
-  margin: 0;
-  padding: 0;
-  width: 150vh;
-  height: 100vw;
-  position: fixed;
-  overflow: hidden;
-  -webkit-transform: translatex(calc(50vw - 50%)) translatey(calc(50vh - 50%)) rotate(120deg);
-          transform: translatex(calc(50vw - 50%)) translatey(calc(50vh - 50%)) rotate(120deg);
-}
-
-.wish {
-  height: 2px;
-  top: 300px;
-  width: 100px;
-  margin: 0;
-  opacity: 0;
-  padding: 0;
-  background-color: white;
-  position: absolute;
-  background: linear-gradient(-45deg, white, rgba(0, 0, 255, 0));
-  -webkit-filter: drop-shadow(0 0 6px white);
-          filter: drop-shadow(0 0 6px white);
-  overflow: hidden;
 }
 /*# sourceMappingURL=style.css.map */

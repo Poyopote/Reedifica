@@ -47,13 +47,6 @@ main article {
   /* fallback for old browsers */
 }
 
-#banniere nav#user {
-  right: 0;
-  top: 0;
-  display: inline-block;
-  background-color: aqua;
-}
-
 #navbar {
   background: #edf0ea;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(75%, #edf0ea), to(#586171));
