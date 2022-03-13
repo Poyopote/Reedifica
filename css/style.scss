@@ -42,8 +42,8 @@ p{
   font-size: 1.5em;
 }
   nav#user {
-    // position: fixed;
-   
+    position: fixed;
+    z-index: 99;
     display: inline-block;
     // padding: 20px;
     width: 100%;
@@ -120,7 +120,7 @@ nav#navbar{
 
   background: $extremeblanc;
   position: fixed;
-  top: 25px;
+  top: 0px;
   ul li a{
     color: $extremenoir;
   }

@@ -41,6 +41,8 @@ p {
 }
 
 nav#user {
+  position: fixed;
+  z-index: 99;
   display: inline-block;
   width: 100%;
 }
@@ -123,7 +125,7 @@ nav#navbar ul li a {
   z-index: 99;
   background: #edf0ea;
   position: fixed;
-  top: 25px;
+  top: 0px;
 }
 
 .sticky ul li a {

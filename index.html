@@ -22,14 +22,7 @@
 </head>
 <body>
   <header id="banniere">
-    <nav id="user">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-      </svg>
-      <button type="button"><a href="Page/Utilisateur/sign-up.html">Connexion</a></button>
-      <button type="button">Inscription</button>
-    </nav> 
+    
     <h1 class="logo">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 617.65 179.25">
         <title>Ré.édifica</title>
@@ -126,12 +119,11 @@
       </svg>             
     </h1>
       <p>Une histoire à écrire.</p>
-      <video></video>
+      <!-- <video></video> -->
+      <img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
   </header>
     <nav id="navbar">
-      <!-- <div class="logo">
-        salut
-      </div> -->
+      
       <ul>
         <li><a href="index.html"><i class="bi bi-house"></i> Accueil</a></li>
         <li><a href="#"><i class="bi bi-book"></i> Histoire</a>
@@ -150,11 +142,16 @@
           </ul>
         </li>
       </ul>
+      <div id="user">
+        <!-- <i class="bi bi-person-circle"></i> -->
+        <p><a href="Page/Utilisateur/sign-up.html">Connexion</a> | <a href="Page/Utilisateur/Profil.html">Inscription</a></p>
+      </div> 
     </nav>
     <main>
         <section id="accueil">
           <header>
             <h2>Bienvenue</h2>
+       
             <img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg" alt="image">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                 Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. 
@@ -162,14 +159,20 @@
                 nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
             </p>
           </header>
-            <article>
+            <article id="actualite">
                 <h3>Actualités</h3>
-                <img src="image.jpg">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. 
-                    Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, 
-                    nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
-                </p>
+                <div id="carousel">
+                  <a class="carousel_button" onclick="changeImgLeft()"><i class="bi bi-arrow-left-circle-fill"></i></a>
+                  
+                  <img id="slideImg" name="slide">
+                  
+                  <div id="carousel_text">
+                      <h1 name="carousel_text"></h1>
+                  </div>
+                  <a class="carousel_button" onclick="changeImgRight()"><i class="bi bi-arrow-right-circle-fill"></i></a>
+              </div>
+                
+                
             </article>
             <article id="Exploration">
                 <h3>Exploration</h3>
@@ -219,10 +222,9 @@
         <p>lorem ipsum</p>
       </div>
     </footer>
-    <script src="script/sign-up.js"></script>
     <script src="script/menu.js"></script>
     
-    <!-- <script src="script/footer_etoilee.js"></script> -->
+    <script src="script/carosel.js"></script>
     <script src="script/logo.js"></script>
 </body>
 </html>

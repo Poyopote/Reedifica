@@ -1,6 +1,10 @@
 @import "mixin"; @import "variables";
 
+
+
+
 h1.logo {
+  // padding: 1em;
     svg {
       width: 30vw;
     }
@@ -39,6 +43,22 @@ main{
 
 
 #banniere {
+  padding: 1em;
+  // text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    
+    h1 { grid-area: 1 / 1 / 2 / 2; }
+    p { grid-area: 2 / 1 / 3 / 2; }
+    img { grid-area: 1 / 2 / 3 / 4;
+      width: 100%;
+      height: 75vh;
+     }
+    
   background: $extremegris;  /* fallback for old browsers */
 
 
@@ -64,7 +84,26 @@ main{
     padding: 1em;
   }
 }
+#actualite{
+  margin-bottom: 1em;
 
+
+
+  #carousel{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  #slideImg{
+    width: 36vw;
+  }
+
+  a{
+    font-size: 44px;
+  }
+}
 
 #Exploration{
     display: grid;
