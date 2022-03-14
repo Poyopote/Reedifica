@@ -175,6 +175,7 @@ main article {
   -ms-grid-column-span: 3;
   grid-area: 1 / 1 / 2 / 4;
   padding-bottom: 1em;
+  color: #54c0ff;
 }
 
 #Exploration h3 + section {
