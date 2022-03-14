@@ -1,0 +1,13 @@
+$pointsRupture: (Petit:320px, Moyen:768px, Large:1023px, Geant:1130px);
+
+
+@mixin plus-petit-que($point) { 
+    $width: map-get($pointsRupture, $point);
+    @media screen and (max-width: $width) { @content;}
+}
+
+@mixin plus-large-que($point) {
+    $width: map-get($pointsRupture, $point);
+    @media screen and (min-width: $width) { @content;}
+    
+}

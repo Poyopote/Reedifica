@@ -16,3 +16,16 @@ font-size: $taille;
   @include Tonlook($taille, $couleur);
   background-color: $fond;
 }
+
+// @mixin body($fond, $police){
+
+// }
+ 
+
+$mise-en-page: (fond: (clair: #edf0ea, sombre: #171717 ),
+police: (classique: 'Outfit', manuscrit: 'Marck Script', basique: arial));
+
+@function body($element){
+    @return map-get(map-get($mise-en-page, $element), $variante);
+}
+
