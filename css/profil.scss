@@ -1,0 +1,31 @@
+@import "mixin"; @import "variables"; @import "responsive";
+
+@include plus-large-que(Large){
+    main {
+        section{
+            float: left;
+            width: 50%;
+            min-height: 70vh;
+
+            
+        }
+        
+    }
+}
+
+.date{
+    @include Tonlook (auto, mix($extremegris, $couleursecon));
+}
+
+.clear{clear: both;}
+article{
+    
+    h4{
+        @include Tonlook (2em, auto);
+        font-family: police(police,classique);
+       &:hover{
+        color: mix($couleursecon, $violet);
+       }
+    }
+    
+}

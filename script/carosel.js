@@ -8,7 +8,7 @@ images[1] = 'https://www.w3schools.com/bootstrap/chicago.jpg';
 images[2] = 'https://www.w3schools.com/bootstrap/ny.jpg';
 
 // text list
-texts = ['Text0','Text1','Text2'];
+texts = ['Lorem us accumsan et viverra penatibus et magnis  dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.','Text1','Text2'];
 
 // change image
 function changeImgLeft() {

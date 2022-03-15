@@ -1,0 +1,27 @@
+@media screen and (min-width: 1023px) {
+  main section {
+    float: left;
+    width: 50%;
+    min-height: 70vh;
+  }
+}
+
+.date {
+  color: #5691b8;
+  font-size: auto;
+}
+
+.clear {
+  clear: both;
+}
+
+article h4 {
+  color: auto;
+  font-size: 2em;
+  font-family: "Outfit";
+}
+
+article h4:hover {
+  color: #6b91c6;
+}
+/*# sourceMappingURL=profil.css.map */
