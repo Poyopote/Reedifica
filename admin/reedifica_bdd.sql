@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 07 mars 2022 à 20:32
+-- Généré le : ven. 18 mars 2022 à 18:11
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `ability` (
   `bio_ability` text NOT NULL,
   `symbole` varchar(50) NOT NULL,
   PRIMARY KEY (`id_ability`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `actu` (
   `media` varchar(20) NOT NULL,
   PRIMARY KEY (`id_actu`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `statut` (
   `name_statut` varchar(25) NOT NULL,
   `bio_statut` text NOT NULL,
   PRIMARY KEY (`id_statut`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `story` (
   PRIMARY KEY (`id_story`),
   KEY `id_user` (`id_user`),
   KEY `id_under_world` (`id_under_world`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `sujet` (
   PRIMARY KEY (`id_sujet`),
   KEY `id_user` (`id_user`),
   KEY `id_story` (`id_story`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `under world` (
   PRIMARY KEY (`id_under_world`),
   KEY `id_world` (`id_world`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -136,12 +136,19 @@ CREATE TABLE IF NOT EXISTS `user` (
   `prenom` varchar(15) NOT NULL,
   `image` varchar(50) NOT NULL,
   `grade` enum('novise','avance','accompli') NOT NULL,
-  `mdp` int NOT NULL,
+  `mdp` char(60) NOT NULL,
   `email` varchar(319) NOT NULL,
   `date` date NOT NULL,
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id_user`, `pseudo`, `nom`, `prenom`, `image`, `grade`, `mdp`, `email`, `date`, `description`) VALUES
+(1, 'Voltamaster', 'X', 'Valto', 'Voltamaster.jpg', 'novise', '$2y$10$DIHIo97eHPsA7OHoXOaKM.1ay0v9H7iZsfgG7CHJ1gntyyJLizfqK', 'exemple@email.fr', '2022-03-17', 'je suis génial');
 
 -- --------------------------------------------------------
 
@@ -155,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `userxability` (
   `id_ability` int NOT NULL,
   KEY `id_user` (`id_user`),
   KEY `id_ability` (`id_ability`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -169,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `userxstatut` (
   `id_user` int NOT NULL,
   KEY `id_statut` (`id_statut`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -186,36 +193,7 @@ CREATE TABLE IF NOT EXISTS `world` (
   `media` varchar(30) NOT NULL,
   PRIMARY KEY (`id_world`),
   KEY `id_user` (`id_user`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Contraintes pour les tables déchargées
---
-
---
--- Contraintes pour la table `story`
---
-ALTER TABLE `story`
-  ADD CONSTRAINT `story_ibfk_1` FOREIGN KEY (`id_under_world`) REFERENCES `under world` (`id_under_world`);
-
---
--- Contraintes pour la table `sujet`
---
-ALTER TABLE `sujet`
-  ADD CONSTRAINT `sujet_ibfk_1` FOREIGN KEY (`id_story`) REFERENCES `story` (`id_story`);
-
---
--- Contraintes pour la table `userxability`
---
-ALTER TABLE `userxability`
-  ADD CONSTRAINT `userxability_ibfk_2` FOREIGN KEY (`id_ability`) REFERENCES `ability` (`id_ability`);
-
---
--- Contraintes pour la table `userxstatut`
---
-ALTER TABLE `userxstatut`
-  ADD CONSTRAINT `userxstatut_ibfk_1` FOREIGN KEY (`id_statut`) REFERENCES `statut` (`id_statut`),
-  ADD CONSTRAINT `userxstatut_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
