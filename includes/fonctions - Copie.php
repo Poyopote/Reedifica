@@ -136,4 +136,30 @@
 		return $resultat;
 	}
 
+// PROFIL UTILISATEUR
+
+	function image_de_profil($bdd,$login,$valeur){
+		$change_image = $bdd->prepare("UPDATE `user` SET `image` = :valeur WHERE `user`.`pseudo` = :user");
+		$change_image->bindParam(":valeur", $valeur);
+		$change_image->bindParam(":user", $login);
+		$change_image->execute();
+
+		$resultat = $change_image->fetch();
+		return $resultat;
+	}
+
+
+	function info_utilisateur_profil($bdd,$login){
+		$info_user = $bdd->prepare("SELECT `prenom`, `nom`,`image`, `grade`,`date`,`description` FROM `user` WHERE `pseudo` = :user");
+		$info_user->bindParam(":user", $login);
+		$info_user->execute();
+
+		$resultat = $info_user->fetch();
+		return $resultat;
+	}
+
+	// function recherche_image($bdd,$login,$valeur){
+
+	// }
+
 ?>

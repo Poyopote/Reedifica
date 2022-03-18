@@ -1,10 +1,69 @@
 <?php
+//INCLUSION DES FONCTIONS
+
+include("../../includes/fonctions - Copie.php");
+
+//INCLUSION DE LA BDD
+
+include("../../includes/init_BDD.php");
+	$bdd = connexion_bdd();
+
+$error ="";
   session_start();
   $user_pseudo = $_SESSION["login"];
-  if(empty($user_pseudo)){
+  // Vérifie s'il y une session utilisateur
+  if(empty($user_pseudo))
+  {
+    //pas connecter ? donc redirection vers la page de connexion
     header("Location: ../../Page/Utilisateur/connexion.php");
-    }
+  }
+  //sinon tout va bien on change le menu de connexion.
   else $lien_user = '<a href="Profil.php">Profil</a> | <a href="../../includes/deconnexion.php">Déconnexion</a>';
+
+  $tableau_utilisateur = info_utilisateur_profil($bdd,$user_pseudo);
+  
+  $filename = '../../Docs/'.$user_pseudo;
+  
+
+  if (isset($_POST['send'])) {
+
+
+
+    if (file_exists($filename)) {
+      // echo "Le fichier $filename existe.";
+      // $test = $_POST['MAX_FILE_SIZE'];
+      $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');//limite les types de fichiers qu'on importe --> l'user ne pourra pas importer un virus
+      $extensionUpload = strtolower(substr(strrchr($_FILES['userfile']['name'], '.'), 1)); //extension du fichier chargé. substr = ignorer un caractère (ici le premier de la chaîne car on a mis le 1 comme limite). strrchr = prendre l'extension du fichier (avec le point) puisqu'on prend à partir du point. '.' = caractère que la chaîne ne va pas prendre en compte. 1 = limite de la chaîne
+      if($_FILES['userfile']['size'] <= $_POST['MAX_FILE_SIZE']) {
+        if(in_array($extensionUpload, $extensionsValides)) {//vérifie que l'extension du fichier chargé correspond aux extensions acceptées (d'abord la variable sur laquelle on applique la fonction in_array et ensuite les variables qu'on veut tester sur la chaîne
+          // $filename.".".$extensionUpload;//chemin où sera upload la photo
+          $new_image = $user_pseudo.".".$extensionUpload;
+          $resultat = move_uploaded_file($_FILES['userfile']['tmp_name'], $filename."/".$new_image);//déplacer le fichier de nom (paramètre1) jusqu'à (paramètre2). tmp_name = chemin temporaire du fichier
+          
+          if($resultat){//vérifier que le déplacement s'est bien effectué
+              image_de_profil($bdd,$user_pseudo,$new_image);
+          }
+          else{
+            $error = "<script> alert('Erreur durant l'importation de votre photo de profil')";
+          }
+        }
+        else{
+          $error = "<script> alert('Votre photo de profil doit être au format jpg, jpeg, gif ou png');</script>";
+        }
+
+      }
+      else{
+        $error = "<script> alert('Poids limité à 4Mo');</script>";
+      }
+      
+
+    }
+    else {
+      $error = "<script> alert('Recommence stp');</script>";
+      mkdir($filename);
+    }
+    // header('Location: Profil.php');
+  }
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +76,7 @@
     <meta name="theme-color" content="#5b99c2">
     <meta name="Author" content="Steven Ladour" />
     <link rel="icon" href="../../img/Logo_favicon.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/profil.css">
 
@@ -29,6 +88,11 @@
     <meta property="og:site_name" content="Ré.édifica"/>
     <meta property=”og:title” content="Laissez parler votre imaginaire." />
     <meta name="description" content="Ré.édifica, le forum RP. "/>
+    <style>
+      img{
+        width: 15%;
+      }
+    </style>
 </head>
 <body>
 <header>
@@ -61,15 +125,20 @@
   <h2>Mon compte</h2>
   <section id="presentation">
     <h3>Bio</h3>
-    <img src="" alt="image-de-profil">
-    <p>Valto X</p>
+    <?php
+      // print_r($tableau_utilisateur);
+    ?>
+    <img 
+    <?php    echo ("src='".$filename."/".$tableau_utilisateur["image"])."'";?>
+     alt="image-de-profil">
+    <?php    echo ("<p>".$tableau_utilisateur["prenom"]." ".$tableau_utilisateur["nom"]."</p>");    ?>
     <p>Symbole : Lunette correctionnelle</p>
-    
-    <p>Rang : Moderateur</p>
+    <?php    echo ("<p>Grade : ".$tableau_utilisateur["grade"]."</p>");    ?>
     <p>Capacités : </p>
-    <!-- <p>Contacte : jesaispas@Reedifica.fr</p> -->
-    <p>Pseudo Voltamaster</p>
+    <p><?php echo ("Pseudo : ". $user_pseudo);?></p>
   </section>
+
+  
   <section id="">
     <h3>Mon Histoire</h3>
     <article>
@@ -87,6 +156,28 @@
           <hr>
     </article>
   </section>
+  <aside>
+    <h5>Que souhaites-tu changer ?</h5>
+      
+        <form enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+          <input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
+          <input type="hidden" name="voir_form" value="1" />
+          <fieldset>
+            <legend>Biographie</legend>
+            <h6>Texte actuel :</h6>
+            <p>fgdfgs</p>
+            <textarea id="bio" type="text" name="bio"></textarea>
+          </fieldset>
+          <fieldset>
+            <legend>Photo de profil</legend>
+            <?php if($error != "") echo $error ?>
+            <input id="idfile" name="userfile" type="file"/>
+          </fieldset>
+          <input name="send" type="submit" value="Envoyer"/>
+          <input type="reset" value="Annuler"/>          
+        </form>
+      
+  </aside>
 </main>
 <div class="clear"></div>
 <footer id="footer">
@@ -106,5 +197,6 @@
   </div>
 </footer>
 <script src="script/menu.js"></script>
+<script src="script/formulaire-profil_bio.js"></script>
 </body>
 </html>

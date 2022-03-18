@@ -64,9 +64,9 @@ session_start();
             <form id="formulaire" action="../../includes/connexion_inscription.php" method="POST">
                 <fieldset>
                     <label for="login"><i class="bi bi-person-fill"></i> Pseudo :</label>
-                    <input type="text" id="login" name="login">
+                    <input type="text" id="login" name="login" required>
                     <label for="mdp"><i class="bi bi-lock-fill"></i> Mot de passe :</label>
-                    <input type="password" id="mdp" name="mdp">
+                    <input type="password" id="mdp" name="mdp" required>
                     <input name="formulaire" type="hidden" value="0">
                     <p><?php printf($message_erreur); ?></p>
                     <!-- <hr> -->
