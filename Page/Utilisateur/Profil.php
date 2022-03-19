@@ -8,9 +8,10 @@ include("../../includes/fonctions - Copie.php");
 include("../../includes/init_BDD.php");
 	$bdd = connexion_bdd();
 
-$error ="";
+
   session_start();
   $user_pseudo = $_SESSION["login"];
+  $error ="";
   // Vérifie s'il y une session utilisateur
   if(empty($user_pseudo))
   {
@@ -76,7 +77,6 @@ $error ="";
     <meta name="theme-color" content="#5b99c2">
     <meta name="Author" content="Steven Ladour" />
     <link rel="icon" href="../../img/Logo_favicon.svg">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/profil.css">
 
