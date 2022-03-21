@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<title>Site de vente en ligne</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="style-ecommerce.css"/>
+	</head>
+	<body>
+		<header class="page">
+			<h1>Site de vente en ligne</h1>
+			<div id="identification">
+{% if not connecte %}
+	{% if identifie %}
+				<p>Bonjour {{le_client}}! <a href='deconnexion.php'>Déconnexion</a></p>
+		    {% else %}
+				<p>Bienvenue! <a href='identification.php?retour=indexE'>Identification</a></p>
+		    {% endif %}
+	{% elseif deconnecte %}
+				<p>Vous avez été deconnecté.<br>Bienvenue! <a href='identification.php?retour=index'>Identification</a></p>
+	{% else %} 
+				<p>Bonjour {{le_client}}! <a href='deconnexion.php'>Déconnexion</a></p>
+{% endif %}
+			</div>
+			<div id="panier">
+{% if le_panier  %}
+				<p>
+					<img src='Images/basket.png' width='20px'/> Il y a {{ nb_articles }}  article(s) dans le panier. </p>
+				<form method='POST' action='index_panier.php'>
+					<input type='submit' name='reset' value='Vider le panier'/>
+				</form>
+				<form method='POST' action='affichage_panier.php'>
+					<input type='submit' name='commande' value='Voir mon panier'/>
+				</form>
+{% else %} 
+				<p><img src='Images/basket.png' width='20px'/> Panier vide.</p>
+{% endif %}
+			</div>
+			<div class="clear"></div>
+		</header>	
+		<section>
+			<header>
+				<h2>Choisir un article</h2>
+			</header>
+			<article>
+{% for un_produit in produits %}
+				<form method="POST" action="index_panier.php?id_article={{un_produit.id_produit}}"/>
+					<p>{{un_produit.designation}}, au prix de <strong>{{un_produit.prix}}</strong> €
+						<input type='submit' name='ajout' value='Ajouter au panier'/></p>
+				</form>
+{% endfor %}
+			</article>
+			<footer>
+				<form method='POST' action='verification_identite.php'>
+					<input type='submit' name='commande' value='Passer commande'/>
+				</form>
+			</footer>
+		</section>
+		<footer class="page">
+			<h3> Footer du site de vente en ligne</h3>
+		</footer>
+	</body>
+</html>
