@@ -43,6 +43,7 @@ include("../../includes/init_BDD.php");
           
           if($resultat){//vérifier que le déplacement s'est bien effectué
               image_de_profil($bdd,$user_pseudo,$new_image);
+              header('Location: Profil.php');
           }
           else{
             $error = "<script> alert('Erreur durant l'importation de votre photo de profil')";
