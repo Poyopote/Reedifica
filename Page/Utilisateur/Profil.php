@@ -108,7 +108,7 @@ include("../../includes/init_BDD.php");
         </ul>
       </li> 
       <li><a href="../../Page/Exploration/Mondes.php"><i class="bi bi-send"></i> Exploration</a></li>
-      <li><a href="../../Page/Membres/Liste.php"a><i class="bi bi-people"></i> Membres</a></li>
+      <li><a href="../../Page/Membres/Liste.php"><i class="bi bi-people"></i> Membres</a></li>
       <li><a href="#"><i class="bi bi-question-octagon-fill"></i> Guide</a>
         <ul>
           <li><a href="../../Page/Guide/Tutoriel.php">Tutoriel</a></li>
@@ -140,7 +140,7 @@ include("../../includes/init_BDD.php");
   </section>
 
   
-  <section id="">
+  <section>
     <h3>Mon Histoire</h3>
     <article>
       <h4>Une monde pas comme les autres...</h4>
@@ -177,7 +177,6 @@ include("../../includes/init_BDD.php");
           <input name="send" type="submit" value="Envoyer"/>
           <input type="reset" value="Annuler"/>          
         </form>
-      
   </aside>
 </main>
 <div class="clear"></div>

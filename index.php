@@ -133,7 +133,7 @@
         </ul>
       </li> 
       <li><a href="Page/Exploration/Mondes.php"><i class="bi bi-send"></i> Exploration</a></li>
-      <li><a href="Page/Membres/Liste.php"a><i class="bi bi-people"></i> Membres</a></li>
+      <li><a href="Page/Membres/Liste.php"><i class="bi bi-people"></i> Membres</a></li>
       <li><a href="#"><i class="bi bi-question-octagon-fill"></i> Guide</a>
         <ul>
           <li><a href="Page/Guide/Tutoriel.php">Tutoriel</a></li>
@@ -164,7 +164,7 @@
           <div id="carousel">
             <a class="carousel_button" onclick="changeImgLeft()"><i class="bi bi-arrow-left-circle-fill"></i></a>
             
-            <img id="slideImg" name="slide">
+            <img id="slideImg" src="" name="slide" alt="actu">
             
             <div id="carousel_text">
                 <p name="carousel_text"></p>
@@ -224,8 +224,8 @@
     </div>
   </footer>
   <script src="script/menu.js"></script>
-  
-  <script src="script/carosel.js"></script>
+
+  <script src="script/carousel.js"></script>
   <script src="script/logo.js"></script>
 </body>
 </html>
