@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["login"])){
+      $lien_user = '<a href="Page/Utilisateur/connexion.php">Connexion</a> | <a href="Page/Utilisateur/inscription.php">Inscription</a>';
+    }
+    else {
+      $user_pseudo = $_SESSION["login"];
+      $lien_user = '<a href="Page/Utilisateur/Profil.php">Profil</a> | <a href="includes/deconnexion.php">Déconnexion</a>';
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -144,7 +155,7 @@
     </ul>
     <div id="user">
       <!-- <p><i class="bi bi-person-circle"></i></p> -->
-      <p><a href="Page/Utilisateur/connexion.php">Connexion</a> | <a href="Page/Utilisateur/inscription.php">Inscription</a></p>
+      <p><?php echo $lien_user ?></p>
     </div> 
   </nav>
   <main>

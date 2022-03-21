@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["login"])){
+      $lien_user = '<a href="../../Page/Utilisateur/connexion.php">Connexion</a> | <a href="../../Page/Utilisateur/inscription.php">Inscription</a>';
+    }
+    else {
+      $user_pseudo = $_SESSION["login"];
+      $lien_user = '<a href="../../Page/Utilisateur/Profil.php">Profil</a> | <a href="../../includes/deconnexion.php">Déconnexion</a>';
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -25,25 +35,25 @@
     <header>
         <nav id="navbar">
             <ul>
-                <li><a href="../../index.html"><i class="bi bi-house"></i> Accueil</a></li>
+                <li><a href="../../index.php"><i class="bi bi-house"></i> Accueil</a></li>
                 <li><a href="#"><i class="bi bi-book"></i> Histoire</a>
                   <ul>
-                    <li><a href="../../Page/Histoire/contexte.html">Il était une fois...</a></li>
-                    <li><a href="../../Page/Histoire/nouveauté/info.html">Nouveauté</a></li>
+                    <li><a href="../../Page/Histoire/contexte.php">Il était une fois...</a></li>
+                    <li><a href="../../Page/Histoire/nouveauté/info.php">Nouveauté</a></li>
                   </ul>
                 </li> 
-                <li><a href="../../Page/Exploration/Mondes.html"><i class="bi bi-send"></i> Exploration</a></li>
-                <li><a href="../../Page/Membres/Liste.html"a><i class="bi bi-people"></i> Membres</a></li>
+                <li><a href="../../Page/Exploration/Mondes.php"><i class="bi bi-send"></i> Exploration</a></li>
+                <li><a href="../../Page/Membres/Liste.php"a><i class="bi bi-people"></i> Membres</a></li>
                 <li><a href="#"><i class="bi bi-question-octagon-fill"></i> Guide</a>
                   <ul>
-                    <li><a href="../../Page/Guide/Tutoriel.html">Tutoriel</a></li>
-                    <li><a href="../../Page/Guide/Réglementation.html">Réglementation</a></li>
-                    <li><a href="../../Page/Guide/F-A-Q.html">F.A.Q</a></li>
+                    <li><a href="../../Page/Guide/Tutoriel.php">Tutoriel</a></li>
+                    <li><a href="../../Page/Guide/Réglementation.php">Réglementation</a></li>
+                    <li><a href="../../Page/Guide/F-A-Q.php">F.A.Q</a></li>
                   </ul>
                 </li>
               </ul>
               <div id="user">
-                <p><i class="bi bi-person-circle"></i> <a href="../../Page/Utilisateur/sign-up.html">Connexion</a> | <a href="../../Page/Utilisateur/Profil.html">Inscription</a></p>
+                <p><i class="bi bi-person-circle"></i><?php echo $lien_user ?></p>
               </div>
         </nav>
     </header>
@@ -128,6 +138,6 @@
             <img src="../../img/Logo_complet.svg" alt="logo-footer">
         </div>
     </footer>
-    <script src="script/menu.js"></script>
+    <script src="../../script/menu.js"></script>
 </body>
 </html>

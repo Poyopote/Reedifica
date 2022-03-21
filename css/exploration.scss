@@ -1,11 +1,14 @@
 @import "mixin"; @import "variables";
 
-h3{
-    @include Tonlook(5em, $couleursecon);
-}
+main{
+    h3{
+        @include Tonlook(5em, $couleursecon);
+    }
+    
+    h4{
+        @include Tonlook(3em, darken($extremenoir, 20%));
+    }
 
-h4{
-    @include Tonlook(3em, darken($extremenoir, 20%));
 }
 
     

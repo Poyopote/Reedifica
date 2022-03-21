@@ -35,7 +35,8 @@ include("../../includes/init_BDD.php");
       // $test = $_POST['MAX_FILE_SIZE'];
       $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');//limite les types de fichiers qu'on importe --> l'user ne pourra pas importer un virus
       $extensionUpload = strtolower(substr(strrchr($_FILES['userfile']['name'], '.'), 1)); //extension du fichier chargé. substr = ignorer un caractère (ici le premier de la chaîne car on a mis le 1 comme limite). strrchr = prendre l'extension du fichier (avec le point) puisqu'on prend à partir du point. '.' = caractère que la chaîne ne va pas prendre en compte. 1 = limite de la chaîne
-      if($_FILES['userfile']['size'] <= $_POST['MAX_FILE_SIZE']) {
+      // if($_FILES['userfile']['size'] <= $_POST['MAX_FILE_SIZE']) {
+        if($_FILES['userfile']['size'] <= 2000000 ) {
         if(in_array($extensionUpload, $extensionsValides)) {//vérifie que l'extension du fichier chargé correspond aux extensions acceptées (d'abord la variable sur laquelle on applique la fonction in_array et ensuite les variables qu'on veut tester sur la chaîne
           // $filename.".".$extensionUpload;//chemin où sera upload la photo
           $new_image = $user_pseudo.".".$extensionUpload;
@@ -46,16 +47,15 @@ include("../../includes/init_BDD.php");
               header('Location: Profil.php');
           }
           else{
-            $error = "<script> alert('Erreur durant l'importation de votre photo de profil')";
+            $error = "<script> alert('Erreur durant l'importation de votre photo de profil');</script>";
           }
         }
         else{
           $error = "<script> alert('Votre photo de profil doit être au format jpg, jpeg, gif ou png');</script>";
         }
-
       }
       else{
-        $error = "<script> alert('Poids limité à 4Mo');</script>";
+        $error = "<script> alert('Poids limité à 2Mo');</script>";
       }
       
 
@@ -91,11 +91,12 @@ include("../../includes/init_BDD.php");
     <meta name="description" content="Ré.édifica, le forum RP. "/>
     <style>
       img{
-        width: 15%;
+        width: 15vw;
       }
     </style>
 </head>
 <body>
+
 <header>
   <nav id="navbar">
   <h1>Profil de <?php echo $user_pseudo ?></h1>
@@ -171,7 +172,7 @@ include("../../includes/init_BDD.php");
           </fieldset>
           <fieldset>
             <legend>Photo de profil</legend>
-            <?php if($error != "") echo $error ?>
+            
             <input id="idfile" name="userfile" type="file"/>
           </fieldset>
           <input name="send" type="submit" value="Envoyer"/>
@@ -196,6 +197,7 @@ include("../../includes/init_BDD.php");
     <p>Plan du site</p>
   </div>
 </footer>
+<?php if($error != "") echo $error ?>
 <script src="script/menu.js"></script>
 <script src="script/formulaire-profil_bio.js"></script>
 </body>
