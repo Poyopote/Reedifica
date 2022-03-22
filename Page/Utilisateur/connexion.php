@@ -9,27 +9,6 @@ session_start();
         $message_erreur = "";
     }
 
-
-//     $password = "mdp";
-// echo "Password is:", $password;
-// echo "<br><br>";
-// echo "Hashed password using CRYPT_BLOWFISH: ",
-//     password_hash($password, PASSWORD_BCRYPT);
-// echo "<br><br>";
- 
-// echo "Hashed password using Argon2i: ",
-//     password_hash($password, PASSWORD_ARGON2I);
-// echo "<br><br>";
- 
-// echo "Hashed password using bcrypt: ",
-// $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-//     echo "<br><br>";
-
-//     if (password_verify($password, $hashed_password)) {
-//         echo 'Password is valid!';
-//     } else {
-//         echo 'Invalid password.';
-//     }
 ?>
 
 <!DOCTYPE html>
