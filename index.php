@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require "includes/init_twig.php";
     if(!isset($_SESSION["login"])){
       $lien_user = '<a href="Page/Utilisateur/connexion.php">Connexion</a> | <a href="Page/Utilisateur/inscription.php">Inscription</a>';
     }
@@ -7,12 +8,30 @@
       $user_pseudo = $_SESSION["login"];
       $lien_user = '<a href="Page/Utilisateur/Profil.php">Profil</a> | <a href="includes/deconnexion.php">Déconnexion</a>';
     }
+
+    $user_pseudo = false;
+    $user_pseudo = isset($_SESSION["login"]);
+
+
+// HEAD
+
+    $lang = "fr";
+    $titre ="Accueil - Ré.édifica";
+    $css_style = "css/style.css";
+    $css_page = "css/main.css";
+    $icon = "img/Logo_favicon.svg";
+
+
+
+    echo $twig->render('head.html.twig', 
+    array('lang' => $lang,
+    'titre' => $titre,
+    'css_style' => $css_style,
+    'css_page' => $css_page,
+    'icon' => $icon));
+
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<?php
-  include "includes/header.php"
-?>
+
 <body>
   <header id="banniere">
     <h1 class="logo">
@@ -142,7 +161,7 @@
   <main>
     <section id="accueil">
       <header id="intro">
-        <h2>Bienvenue</h2>
+        <h2>Bienvenue <?php echo $user_pseudo ?></h2>
     
         <img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg" alt="image">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
