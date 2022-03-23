@@ -84,7 +84,7 @@ section#accueil{
     width: 40%;
     margin-left: 1em;
     @include Tonlook (2em, $extremegris );
-    overflow: scroll;
+    overflow: auto;
     height: 40vh;
     padding: 0.3em;
    
@@ -92,6 +92,7 @@ section#accueil{
   }
   h2+img{
     width: 50%;
+    
   }
 
 }
@@ -108,22 +109,42 @@ section#accueil{
     padding: 1em;
     // align-items: flex-start;
   }
+  #carousel_text{
+    button {
+      margin: 1em auto;
+      border: 1px solid $extremenoir;
+      color: $extremegris;
+      padding: 0 15px;
+      height: 36px;
+      background: none;
+      letter-spacing: 0.2em;
+      &:hover{
+        cursor: pointer;
+        border-color: $couleursecon;
+        color: $couleursecon;
+      }
+    }
+    
+  }
 
   a{
-    font-size: 44px;
+    font-size: 2em;
   }
  
 
 }
 
 #Exploration{
+  margin-top: 44px;
   text-align: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(auto, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;  
-   
+    box-shadow: inset 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+    -moz-box-shadow: inset 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+    -webkit-box-shadow: inset 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
     
 
   section{

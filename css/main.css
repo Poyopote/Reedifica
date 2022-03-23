@@ -86,7 +86,7 @@ section#accueil article + article {
   margin-left: 1em;
   color: #586171;
   font-size: 2em;
-  overflow: scroll;
+  overflow: auto;
   height: 40vh;
   padding: 0.3em;
 }
@@ -115,11 +115,28 @@ section#accueil article + article {
   padding: 1em;
 }
 
+#actualite #carousel_text button {
+  margin: 1em auto;
+  border: 1px solid #171717;
+  color: #586171;
+  padding: 0 15px;
+  height: 36px;
+  background: none;
+  letter-spacing: 0.2em;
+}
+
+#actualite #carousel_text button:hover {
+  cursor: pointer;
+  border-color: #54c0ff;
+  color: #54c0ff;
+}
+
 #actualite a {
-  font-size: 44px;
+  font-size: 2em;
 }
 
 #Exploration {
+  margin-top: 44px;
   text-align: center;
   display: -ms-grid;
   display: grid;
@@ -129,6 +146,9 @@ section#accueil article + article {
       grid-template-rows: repeat(auto, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  box-shadow: inset 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+  -moz-box-shadow: inset 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+  -webkit-box-shadow: inset 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
   padding: 1em;
   background-color: #586171;
   -webkit-box-orient: horizontal;

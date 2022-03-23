@@ -85,10 +85,12 @@
             
             <div id="carousel_text">
                 <p name="carousel_text"></p>
+                <button>Aller voir</button>
             </div>
             <a class="carousel_button" onclick="changeImgRight()"><i class="bi bi-arrow-right-circle-fill"></i></a>
           </div> 
         </article>
+        <hr>
         <article id="Exploration">
             <h3>Exploration</h3>
             <section>
