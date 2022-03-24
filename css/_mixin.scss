@@ -7,9 +7,24 @@ color: $couleur;
 font-size: $taille;
 }
 
+@mixin padding-haut-bas($taille) {
+  padding-top: $taille;
+  padding-bottom: $taille;
+}
+
 @mixin padding-droite-gauche($taille) {
   padding-left: $taille;
   padding-right: $taille;
+}
+
+@mixin margin-droite-gauche($taille) {
+  margin-left: $taille;
+  margin-right: $taille;
+}
+
+@mixin margin-haut-bas($taille) {
+  margin-top: $taille;
+  margin-bottom: $taille;
 }
 
 @mixin texte($taille, $couleur, $fond) {
