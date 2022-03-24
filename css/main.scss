@@ -2,7 +2,6 @@
 
 
 h1.logo {
-  // padding: 1em;
     svg {
       width: 30vw;
     }
@@ -39,29 +38,26 @@ main{
 #banniere {
   padding: 1em;
   text-align: center;
- 
-    
-h1,p{
-  position: absolute;
+  background: $extremegris;
+
+  h1,p{  position: absolute;}
+
+  h1 { right: 50%; }
+
+  img { width: 60vw; }
+
+  p { display: none;}
 }
-
-    h1 { right: 50%; }
-    p { display: none;}
-    img { 
-      
-      width: 60vw;
-
-     }
-    
-  background: $extremegris; 
-
-
+@include plus-large-que(Large){
+  #navbar{
+    background: $extremeblanc;
+    background: linear-gradient(0deg, $extremeblanc 75%, $extremegris 100%);
+  }
 }
-
-#navbar{
+#navbar.sticky{
   background: $extremeblanc;
-  background: linear-gradient(0deg, $extremeblanc 75%, $extremegris 100%);
 }
+
 
 
 section#accueil{
@@ -71,28 +67,21 @@ section#accueil{
 }
 
 #intro{
-  float: left;
-  margin-bottom: 25px;
+
 
   h2+img+p, h2+img{
-    float: left;
-    margin-top: 1em;
+ 
+    display:inline-block;
+    width: calc(50% - 20px); 
     
   }
   h2+img+p{
     border: $extremenoir 1px dotted;
-    width: 40%;
-    margin-left: 1em;
+    margin-left: 10px;
     @include Tonlook (2em, $extremegris );
     overflow: auto;
     height: 40vh;
-    padding: 0.3em;
-   
-    
-  }
-  h2+img{
-    width: 50%;
-    
+    padding: 0.3em; 
   }
 
 }
@@ -102,8 +91,14 @@ section#accueil{
     align-items: center;
     flex-direction: row;
     justify-content: space-around;
+    @include margin-haut-bas(30px)
   }
   
+  img{
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.39); 
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.39);
+  }
+
   #slideImg, #carousel_text{
     width: 50%;
     padding: 1em;
@@ -127,8 +122,11 @@ section#accueil{
     
   }
 
-  a{
-    font-size: 2em;
+  a.carousel_button{
+    font-size: 3.3em;
+    padding: 1em;
+    &:hover{color: mix($extremenoir, $extremeblanc );}
+    &:active{color: mix($couleurprin, $couleursecon );}
   }
  
 
@@ -137,54 +135,73 @@ section#accueil{
 #Exploration{
   margin-top: 44px;
   text-align: center;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(auto, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;  
-    box-shadow: inset 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
-    -moz-box-shadow: inset 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
-    -webkit-box-shadow: inset 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
-    
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;  
+  padding: 1em;
+  @include padding-haut-bas(30px);
+  background-color: $extremegris;
+
+  box-shadow: inset 0px 0px 10px 4px rgba($extremenoir, .75);
+  -moz-box-shadow: inset 0px 0px 10px 4px rgba($extremenoir, .75);
+  -webkit-box-shadow: inset 0px 0px 10px 4px rgba($extremenoir, .75);
 
   section{
     max-width: 25vw;
     margin: 0 auto;
   }
-  img{
-    width: 100%;
-  }
+  img{    width: 100%;  }
 
-  padding: 1em;
-  background-color: $extremegris;
-  flex-direction: row;
-
-  
   h3{
-    
     grid-area: 1 / 1 / 2 / 4; 
     padding-bottom: 1em;
-    color: $couleursecon;
- +section {
-    grid-area: 2 / 1 / 3 / 2;
+    color: saturate($couleursecon,20%);
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $couleursecon, 0 0 30px $couleursecon, 0 0 40px $couleursecon, 0 0 55px $couleursecon, 0 0 75px $couleursecon, 0px 1px 18px rgba(206,206,206,0);
 
-    +section{
-      grid-area: 2 / 2 / 3 / 3; 
-
-      +section{
-        grid-area: 2 / 3 / 3 / 4;
-      }
-    }
-  }
+    +section {  grid-area: 2 / 1 / 3 / 2;
+      +section{ grid-area: 2 / 2 / 3 / 3; 
+        +section{ grid-area: 2 / 3 / 3 / 4; } } }
   }
 
-  section{
-    position: relative;
-  }
+  ul li { @include Tonlook(2em, $extremeblanc); padding: 0.2em; text-shadow: 2px 2px 2px $extremenoir;}
+
 }
 
 @include plus-large-que(Geant){
   #banniere {
-    p { right: 60%;top: 160px; font-size: 2em; display: inline;}
+    p { right: 60%;top: 25vh; font-size: 2em; display: inline;}
   }
 }
+
+
+// @include plus-petit-que(Large){
+  
+// }
+
+@include plus-petit-que(Moyen){
+  #actualite, #banniere { display: none;}
+  #intro{
+    h2+img{
+      display:block;
+      width: 100%;
+      @include margin-haut-bas(1em);
+    }
+    h2+img+p{
+      
+      display:inline;
+      border: 0;
+      overflow: visible;
+    }
+  }
+  #Exploration{
+    display: block;
+    section {
+      max-width: 90%;
+      @include margin-haut-bas(2em);
+    }
+  }
+
+}
+
