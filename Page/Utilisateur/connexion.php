@@ -33,7 +33,7 @@ session_start();
     <meta property="og:site_name" content="Ré.édifica"/>
     <meta name="description" content="Ré.édifica, le forum RP. "/>
 </head>
-<body>
+<body id="connexion-body">
     <main id="connexion-main">
         <nav>
             <a href="../../index.php">Retour à l'accueil</a>

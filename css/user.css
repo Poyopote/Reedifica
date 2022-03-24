@@ -1,3 +1,54 @@
+#connexion-body {
+  background-image: url("../img/connexion.jpg");
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  overflow: hidden;
+}
+
 #connexion-main {
   width: 50vw;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#connexion-main input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  background-color: #C9D8FF;
+  border: 1px solid rgba(84, 192, 255, 0.6);
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #040037;
+}
+
+#connexion-main input[type="submit"]:hover {
+  width: 100%;
+  background-color: #040037;
+  color: rgba(84, 192, 255, 0.6);
+  padding: 14px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#connexion-main label {
+  color: #edf0ea;
+  font-size: 3em;
+}
+
+#connexion-main nav {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#connexion-main nav a {
+  padding: 1em;
+  font-size: 2rem;
+  color: #edf4e6;
+  text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #54c0ff, 0 0 30px #54c0ff, 0 0 40px #54c0ff, 0 0 55px #54c0ff, 0 0 75px #54c0ff, 0px 1px 18px rgba(206, 206, 206, 0);
 }

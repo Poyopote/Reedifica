@@ -36,9 +36,11 @@
 <body>
   <header></header>
   <nav id="navbar">
+    <input type="checkbox" id="menu-bouton">
+    <label for="menu" aria-describedby="label"><i class="bi bi-list-task"></i></label>
     <ul>
       <li><a href="../../index.php"><i class="bi bi-house"></i> Accueil</a></li>
-      <li><a href="#"><i class="bi bi-book"></i> Histoire</a>
+      <li><i class="bi bi-book"></i> Histoire
         <ul>
           <li><a href="../../Page/Histoire/contexte.php">Il était une fois...</a></li>
           <li><a href="../../Page/Histoire/nouveauté/info.php">Nouveauté</a></li>
@@ -46,7 +48,7 @@
       </li> 
       <li><a href="../../Page/Exploration/Mondes.php"><i class="bi bi-send"></i> Exploration</a></li>
       <li><a href="../../Page/Membres/Liste.php"a><i class="bi bi-people"></i> Membres</a></li>
-      <li><a href="#"><i class="bi bi-question-octagon-fill"></i> Guide</a>
+      <li><i class="bi bi-question-octagon-fill"></i> Guide
         <ul>
           <li><a href="../../Page/Guide/Tutoriel.php">Tutoriel</a></li>
           <li><a href="../../Page/Guide/Réglementation.php">Réglementation</a></li>

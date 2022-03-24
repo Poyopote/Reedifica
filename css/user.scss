@@ -1,7 +1,54 @@
 @import "mixin"; @import "variables"; @import "responsive";
 
+#connexion-body{
+    background-image: url("../img/connexion.jpg");
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    overflow: hidden;
+    // background-repeat: no-repeat;
+}
+
+
 #connexion-main{
     width: 50vw;
-    // text-align: center;
-    // @include padding-droite-gauche(50%);
+
+    // background: rgba($extremeblanc, 0.1);
+    margin-top: 100px;
+    @include margin-droite-gauche(auto);
+    input {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        background-color: #C9D8FF;
+        border: 1px solid rgba($couleursecon, 0.6);
+        border-radius: 4px;
+        box-sizing: border-box;
+        color: $couleurprin;
+    }
+
+    input[type="submit"]:hover {
+        width: 100%;
+        background-color: $couleurprin;
+        color: rgba($couleursecon, 0.6);
+        padding: 14px 20px;
+        border: none;
+        cursor: pointer;
+    }
+
+    label{
+        @include Tonlook(3em, $extremeblanc)
+    }
+    nav{
+        text-align: center;
+        @include margin-haut-bas(10px);
+        a{
+            padding: 1em;
+            font-size: 2rem;
+            color: saturate($extremeblanc,20%);
+            text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $couleursecon, 0 0 30px $couleursecon, 0 0 40px $couleursecon, 0 0 55px $couleursecon, 0 0 75px $couleursecon, 0px 1px 18px rgba(206,206,206,0);
+
+        }
+    }
 }

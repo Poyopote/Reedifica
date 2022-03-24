@@ -40,10 +40,11 @@
       <img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
   </header>
   <nav id="navbar">
-    <a href="" id="menu-bouton"><i class="bi bi-grid-3x3-gap"></i></a>
+  <input type="checkbox" id="menu-bouton">
+  <label for="menu" aria-describedby="label"><i class="bi bi-list-task"></i></label>
     <ul>
       <li><a href="index.php"><i class="bi bi-house"></i> Accueil</a></li>
-      <li><a href="#"><i class="bi bi-book"></i> Histoire</a>
+      <li><i class="bi bi-book"></i> Histoire
         <ul>
           <li><a href="Page/Histoire/contexte.php">Il était une fois...</a></li>
           <li><a href="Page/Histoire/nouveauté/info.php">Nouveauté</a></li>
@@ -51,7 +52,7 @@
       </li> 
       <li><a href="Page/Exploration/Mondes.php"><i class="bi bi-send"></i> Exploration</a></li>
       <li><a href="Page/Membres/Liste.php"><i class="bi bi-people"></i> Membres</a></li>
-      <li><a href="#"><i class="bi bi-question-octagon-fill"></i> Guide</a>
+      <li><i class="bi bi-question-octagon-fill"></i> Guide
         <ul>
           <li><a href="Page/Guide/Tutoriel.php">Tutoriel</a></li>
           <li><a href="Page/Guide/Réglementation.php">Réglementation</a></li>
@@ -60,14 +61,13 @@
       </li>
     </ul>
     <div id="user">
-      <!-- <p><i class="bi bi-person-circle"></i></p> -->
       <p><?php echo $lien_user ?></p>
     </div> 
   </nav>
   <main>
     <section id="accueil">
       <header id="intro">
-        <h2>Bienvenue <?php echo $user_pseudo ?></h2>
+        <h2>Bienvenue</h2>
     
         <img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg" alt="image">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -90,35 +90,40 @@
             <a class="carousel_button" onclick="changeImgRight()"><i class="bi bi-arrow-right-circle-fill"></i></a>
           </div> 
         </article>
-        <hr>
         <article id="Exploration">
             <h3>Exploration</h3>
             <section>
                 <h4>Monde 1</h4>
-                <img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. 
-                    Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, 
-                    nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+                <p><img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
                 </p>
+                <hr>
+                <ul>
+                  <li>Sous-lieu 1</li>
+                  <li>Sous-lieu 2</li>
+                </ul>
             </section>
             <section>
                 <h4>Monde 2</h4>
-                <img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. 
-                    Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, 
-                    nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+                <p><img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
                 </p>
+                <hr>
+                <ul>
+                  <li>Sous-lieu 1</li>
+                  <li>Sous-lieu 2</li>
+                </ul>
             </section>
             <section>
                 <h4>Monde 3</h4>
-                <img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. 
-                    Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, 
-                    nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+                <p><img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
                 </p>
+                <hr>
+                <ul>
+                  <li>Sous-lieu 1</li>
+                  <li>Sous-lieu 2</li>
+                </ul>
             </section>
         </article>
     </section>
@@ -131,7 +136,7 @@
     <div class="boite">
     <h3>Liens util</h3>
     <p><i class="bi bi-globe2"></i> Langue : <a href="?lang=fr">FR</a> | <a href="?lang=en">EN</a> </p>
-    <p><a href="https://github.com/Poyopote"><i class="bi bi-github"></i> Poyopote/Réédifica</a></p>
+    <p><i class="bi bi-github"></i><a href="https://github.com/Poyopote"> Poyopote/Réédifica</a></p>
     </div>
     <div class="boite">
       <h3>Pages</h3>
