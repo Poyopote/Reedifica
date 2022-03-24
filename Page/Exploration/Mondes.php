@@ -1,4 +1,13 @@
 <?php
+//INCLUSION DES FONCTIONS
+
+include("../../includes/fonctions - Copie.php");
+
+//INCLUSION DE LA BDD
+
+  include("../../includes/init_BDD.php");
+  $bdd = connexion_bdd();
+
     session_start();
     if(!isset($_SESSION["login"])){
       $lien_user = '<a href="../../Page/Utilisateur/connexion.php">Connexion</a> | <a href="../../Page/Utilisateur/inscription.php">Inscription</a>';
@@ -7,6 +16,9 @@
       $user_pseudo = $_SESSION["login"];
       $lien_user = '<a href="../../Page/Utilisateur/Profil.php">Profil</a> | <a href="../../includes/deconnexion.php">Déconnexion</a>';
     }
+    
+    $choix = list_monde($bdd);
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -34,9 +46,11 @@
 <body>
     <header>
         <nav id="navbar">
+            <input type="checkbox" id="menu-bouton">
+            <label for="menu" aria-describedby="label"><i class="bi bi-list-task"></i></label>
             <ul>
                 <li><a href="../../index.php"><i class="bi bi-house"></i> Accueil</a></li>
-                <li><a href="#"><i class="bi bi-book"></i> Histoire</a>
+                <li><i class="bi bi-book"></i> Histoire
                   <ul>
                     <li><a href="../../Page/Histoire/contexte.php">Il était une fois...</a></li>
                     <li><a href="../../Page/Histoire/nouveauté/info.php">Nouveauté</a></li>
@@ -44,7 +58,7 @@
                 </li> 
                 <li><a href="../../Page/Exploration/Mondes.php"><i class="bi bi-send"></i> Exploration</a></li>
                 <li><a href="../../Page/Membres/Liste.php"a><i class="bi bi-people"></i> Membres</a></li>
-                <li><a href="#"><i class="bi bi-question-octagon-fill"></i> Guide</a>
+                <li><i class="bi bi-question-octagon-fill"></i> Guide
                   <ul>
                     <li><a href="../../Page/Guide/Tutoriel.php">Tutoriel</a></li>
                     <li><a href="../../Page/Guide/Réglementation.php">Réglementation</a></li>
@@ -58,34 +72,28 @@
         </nav>
     </header>
     <main>
-        <h2>Exploration</h2>
+        <h2><i class="bi bi-send"></i> Exploration</h2>
         <section id="monde">
             <h3>Choisi ta destination</h3>
             <article>
-                <h4>Monde 1</h4>
-                <img>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.
-                </p>
-            </article>
-            <article>
-                <h4>Monde 2</h4>
-                <img src="#">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.
-                </p>
-            </article>
-            <article>
-                <h4>Monde 3</h4>
-                <img>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.
-                </p>
+                <?php
+                    echo "<select onchange='showUser(this.value)'>";
+                    echo "<option value=''>Sélection ton monde</option>";
+                    $i=0;
+                    foreach ($choix as $key => $value) {
+                        $i++;
+                        echo "<option value='".$i."' >".$value["name_world"]."</option>";
+            
+                    }
+                    echo "</select>";
+                ?>
+                <br>
+                <div id="txtHint"><b>Sélectionne un monde</b></div>
             </article>
         </section>
         <section id="sous-monde">
             <h3>sous monde disponible</h3>
-            <article>
+            <!-- <article>
                 <h4>sous monde 1</h4>
                 <img>
                 <p>
@@ -112,11 +120,7 @@
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.
                 </p>
-            </article>
-
-            <article>
- 
-            </article>
+            </article> -->
         </section>
     </main>
     <footer id="footer">
@@ -138,6 +142,7 @@
             <img src="../../img/Logo_complet.svg" alt="logo-footer">
         </div>
     </footer>
+    <script src="../../script/select-monde.js" ></script>
     <script src="../../script/menu.js"></script>
 </body>
 </html>

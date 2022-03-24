@@ -117,11 +117,6 @@ hr {
   color: #171717;
 }
 
-main section article {
-  margin-top: 20vh;
-  margin-bottom: 20vh;
-}
-
 footer {
   background: #040037;
   background: -webkit-gradient(linear, left top, right top, from(#171717), to(#040037));

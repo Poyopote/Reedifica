@@ -138,7 +138,8 @@
 
 // PROFIL UTILISATEUR
 
-	function image_de_profil($bdd,$login,$valeur){
+	function image_de_profil($bdd,$login,$valeur)
+	{
 		$change_image = $bdd->prepare("UPDATE `user` SET `image` = :valeur WHERE `user`.`pseudo` = :user");
 		$change_image->bindParam(":valeur", $valeur);
 		$change_image->bindParam(":user", $login);
@@ -149,7 +150,8 @@
 	}
 
 
-	function info_utilisateur_profil($bdd,$login){
+	function info_utilisateur_profil($bdd,$login)
+	{
 		$info_user = $bdd->prepare("SELECT `prenom`, `nom`,`image`, `grade`,`date`,`description` FROM `user` WHERE `pseudo` = :user");
 		$info_user->bindParam(":user", $login);
 		$info_user->execute();
@@ -158,8 +160,31 @@
 		return $resultat;
 	}
 
-	// function recherche_image($bdd,$login,$valeur){
 
-	// }
+// EXPLORATION
 
+	function recherche_monde($bdd,$id_monde)
+	{
+		$info_monde = $bdd->prepare("SELECT `name_world`, `bio_world`, `media`, `pseudo` FROM `world` INNER JOIN `user` ON world.`id_user` = user.`id_user` WHERE `id_world` = :id");
+		$info_monde->bindParam(":id", $id_monde);
+		$info_monde->execute();
+		$resultat = $info_monde->fetch();
+		return $resultat;
+	}
+
+	function recherche_sous_monde($bdd,$id_monde)
+	{
+		$info_monde = $bdd->prepare("SELECT `tiltle`,`bio`,`media` FROM `under world` WHERE `id_world` = :id");
+		$info_monde->bindParam(":id", $id_monde);
+		$info_monde->execute();
+		$resultat = $info_monde->fetchAll();
+		return $resultat;
+	}
+
+	function list_monde($bdd){
+		$info_monde = $bdd->query("SELECT `name_world` FROM `world` WHERE 1");
+		$info_monde->execute();
+		$resultat = $info_monde->fetchAll();
+		return $resultat;
+	}
 ?>

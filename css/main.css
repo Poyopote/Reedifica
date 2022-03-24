@@ -6,6 +6,11 @@ main {
   padding-top: 20vh;
 }
 
+main section article {
+  margin-top: 20vh;
+  margin-bottom: 20vh;
+}
+
 #mask-noir .path, #mask-noir:hover .path {
   -webkit-animation: dash 1s ease-out;
   animation: dash 1s ease-out;
