@@ -8,6 +8,12 @@ main h2 {
   font-size: 5em;
 }
 
+main::after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
 main h4 {
   color: black;
   font-size: 3em;
@@ -15,15 +21,21 @@ main h4 {
 
 @media screen and (min-width: 768px) {
   main article {
-    width: 33%;
-    padding: 10px;
     background: #a1d8f5;
   }
   main article:hover {
     background: #2c609b;
   }
+  main section {
+    float: left;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 50%;
+    margin-bottom: 15px;
+    padding: 0px 15.5px;
+  }
 }
 
-main #monde img {
-  max-width: 200px;
+main img {
+  max-width: 300px;
 }

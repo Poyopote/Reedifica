@@ -1,0 +1,27 @@
+
+<?php
+//INCLUSION DES FONCTIONS
+
+include("fonctions - Copie.php");
+
+//INCLUSION DE LA BDD
+
+  include("init_BDD.php");
+  $bdd = connexion_bdd();
+     
+  $id_monde = intval($_GET['q']);
+
+    
+    $liste_sous_monde = recherche_sous_monde($bdd,$id_monde);
+
+    $liste_sous_monde = recherche_sous_monde($bdd,$id_monde);
+    foreach ($liste_sous_monde as $key => $sous_monde) {
+        echo "<article>";
+        echo "<h4>".$sous_monde["title"]."</h4>";
+        echo "<img src='../../img/".$sous_monde["media"]."' alt='illustration'>";
+        echo "<p>".$sous_monde["bio"]."</p>";
+        echo "</article>";
+    }
+
+?>
+    

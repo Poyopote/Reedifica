@@ -174,7 +174,7 @@
 
 	function recherche_sous_monde($bdd,$id_monde)
 	{
-		$info_monde = $bdd->prepare("SELECT `tiltle`,`bio`,`media` FROM `under world` WHERE `id_world` = :id");
+		$info_monde = $bdd->prepare("SELECT `title`,`bio`,`media` FROM `under world` WHERE `id_world` = :id");
 		$info_monde->bindParam(":id", $id_monde);
 		$info_monde->execute();
 		$resultat = $info_monde->fetchAll();

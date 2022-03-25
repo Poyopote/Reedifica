@@ -19,7 +19,7 @@ include("fonctions - Copie.php");
     
 
     $monde = recherche_monde($bdd,$id_monde);
-    $sous_monde = recherche_sous_monde($bdd,$id_monde);
+
 
     echo "<h4>".$monde["name_world"]."</h4>";
     echo "<img src='../../img/".$monde["media"]."' alt='illustration'>";

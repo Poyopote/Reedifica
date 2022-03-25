@@ -6,6 +6,11 @@ main{
     min-height: 100vh;
     h2{@include Tonlook(5em, $extremeblanc); }
 
+      &::after {
+        clear: both;
+        content: '';
+        display: block;
+      }
     
     h4{
         @include Tonlook(3em, darken($extremenoir, 20%));
@@ -16,23 +21,29 @@ main{
 
         
         article{
-            width: 33%;
-            padding:10px;
-            // text-align:justify;
-            // vertical-align: middle;
-            // display: table-cell;
             background: mix($extremeblanc, $couleursecon);
-            // border: ;
-
             &:hover{
                 background: mix($couleursecon,$couleurprin);
             }
         }
+        section {
+            float: left;
+            box-sizing: border-box;
+            width: 50%;
+            margin-bottom: 15px;
+            padding: 0px 15.5px;
+    
+            // &:nth-child(2n + 1) {
+            //     clear: both;
+            // }
+        }
     }
 
-    #monde{
-        img{max-width: 200px;}
-    }
+ 
+        img{max-width: 300px;}
+
+
+
 }
 
     

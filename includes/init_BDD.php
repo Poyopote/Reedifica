@@ -7,7 +7,7 @@
         $user = "root";    // Identifiant de connexion (par défaut : "root")
         $pass = "";    // Mot de passe de connexion (par défaut : "")
         $charset = "utf8"; // Encodage des caractères (par défaut : "utf8")
-        $port = "3306";    // Port de connexion (par défaut : "3306" sur MySQL et "3307" sur MariaDB)Z 3308 pour l'école
+        $port = "3308";    // Port de connexion (par défaut : "3306" sur MySQL et "3307" sur MariaDB)Z 3308 pour l'école
 
 
 		$dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";

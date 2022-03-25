@@ -88,39 +88,35 @@ include("../../includes/fonctions - Copie.php");
                     echo "</select>";
                 ?>
                 <br>
-                <div id="txtHint"><b>Sélectionne un monde</b></div>
+                <div id="txtHint">
+                    <?php
+                        $id_monde = 1;
+                        $monde = recherche_monde($bdd,$id_monde);
+                        
+
+                        echo "<h4>".$monde["name_world"]."</h4>";
+                        echo "<img src='../../img/".$monde["media"]."' alt='illustration'>";
+                        echo "<p>".$monde["bio_world"]."</p>";
+                    ?>
+                </div>
             </article>
         </section>
         <section id="sous-monde">
+           
             <h3>sous monde disponible</h3>
-            <!-- <article>
-                <h4>sous monde 1</h4>
-                <img>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.
-                </p>
-            </article>
-            <article>
-                <h4>sous monde 2</h4>
-                <img>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.
-                </p>
-            </article>
-            <article>
-                <h4>sous monde 3</h4>
-                <img>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.
-                </p>
-            </article>
-            <article>
-                <h4>sous monde 4</h4>
-                <img>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.
-                </p>
-            </article> -->
+            <div id="txtHint2">
+            <?php
+                $liste_sous_monde = recherche_sous_monde($bdd,$id_monde);
+                foreach ($liste_sous_monde as $key => $sous_monde) {
+                    echo "<article>";
+                    echo "<h4>".$sous_monde["title"]."</h4>";
+                    echo "<img src='../../img/".$sous_monde["media"]."' alt='illustration'>";
+                    echo "<p>".$sous_monde["bio"]."</p>";
+                    echo "</article>";
+                }
+                
+            ?>
+            </div>
         </section>
     </main>
     <footer id="footer">

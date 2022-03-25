@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#5b99c2">
     <meta name="Author" content="Steven Ladour" />
-    <link rel="icon" href="img/Logo_favicon.svg">
+    <link rel="icon" href="../../../img/Logo_favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../../css/monde.css">
@@ -36,21 +36,24 @@
 <body>
     <header>
         <nav id="navbar">
+        <input type="checkbox" id="menu-bouton">
+  <label for="menu" aria-describedby="label"><i class="bi bi-list-task"></i></label>
+
             <ul>
-                <li><a href="../../index.php"><i class="bi bi-house"></i> Accueil</a></li>
-                <li><a href="#"><i class="bi bi-book"></i> Histoire</a>
+                <li><a href="../../../index.php"><i class="bi bi-house"></i> Accueil</a></li>
+                <li><i class="bi bi-book"></i> Histoire
                   <ul>
-                    <li><a href="../../Page/Histoire/contexte.php">Il était une fois...</a></li>
-                    <li><a href="../../Page/Histoire/nouveauté/info.php">Nouveauté</a></li>
+                    <li><a href="../../../Page/Histoire/contexte.php">Il était une fois...</a></li>
+                    <li><a href="../../../Page/Histoire/nouveauté/info.php">Nouveauté</a></li>
                   </ul>
                 </li> 
-                <li><a href="../../Page/Exploration/Mondes.php"><i class="bi bi-send"></i> Exploration</a></li>
-                <li><a href="../../Page/Membres/Liste.php"a><i class="bi bi-people"></i> Membres</a></li>
-                <li><a href="#"><i class="bi bi-question-octagon-fill"></i> Guide</a>
+                <li><a href="../../../Page/Exploration/Mondes.php"><i class="bi bi-send"></i> Exploration</a></li>
+                <li><a href="../../../Page/Membres/Liste.php"a><i class="bi bi-people"></i> Membres</a></li>
+                <li><i class="bi bi-question-octagon-fill"></i> Guide
                   <ul>
-                    <li><a href="../../Page/Guide/Tutoriel.php">Tutoriel</a></li>
-                    <li><a href="../../Page/Guide/Réglementation.php">Réglementation</a></li>
-                    <li><a href="../../Page/Guide/F-A-Q.php">F.A.Q</a></li>
+                    <li><a href="../../../Page/Guide/Tutoriel.php">Tutoriel</a></li>
+                    <li><a href="../../../Page/Guide/Réglementation.php">Réglementation</a></li>
+                    <li><a href="../../../Page/Guide/F-A-Q.php">F.A.Q</a></li>
                   </ul>
                 </li>
             </ul>
@@ -59,9 +62,12 @@
             </div>
         </nav>
     </header>
+    <main>
+      <div id="user"><?php $user_pseudo ?></div>
+    </main>
 <div>
     <form method="post">
-        <textarea id="tiny"></textarea>
+        <textarea id="tiny" rows="15" cols="80" style="width: 80%"></textarea>
         <button name="submitbtn">Poster</button>
    </form>
  </div>
@@ -70,14 +76,36 @@
     tinymce.init({
       selector: 'textarea', //selecteur pour tiny
       language: 'fr_FR', // pour changer la langue du menu
-      plugins: 'advlist link image lists', //le plugine sont des modul qu'on rajoute
+      plugins: 'advlist link image lists save', //le plugine sont des modul qu'on rajoute
+      toolbar: "save",
+      save_enablewhendirty: true,
+      save_onsavecallback: function()
+      {
+
+
+        const text = encodeURIComponent(tinyMCE.get('tiny').getContent());
+        // var user = tinyMCE.get('tiny').getContent()
+
+        console.log(text);
+        
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) { // 4 si l'opération est terminer
+            alert("Requête effectuée !")
+            console.log(this.responseText)
+          }
+        };
+        xmlhttp.open("POST", "test.php", true);
+        xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xmlhttp.send(`text=${ text }&user=$user_pseudo`);
+      },
       menu:{
         format: { title: 'Format', items: 'bold italic underline strikethrough superscript subscript | blockformats fontformats fontsizes align lineheight | forecolor backcolor | removeformat' },
       }
-    
-    //   save_onsavecallback: function () { console.log('Saved'); } 
+      
     });
   </script>
+  <script src="../../../script/redaction.js"></script>
     <script src="../../../script/menu.js"></script>
 
 </body>
