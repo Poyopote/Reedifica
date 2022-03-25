@@ -23,47 +23,33 @@
 
 
 
-    echo $twig->render('head.html.twig', 
+    echo $twig->render('index.html.twig', 
     array('lang' => $lang,
-    'titre' => $titre,
-    'css_style' => $css_style,
-    'css_page' => $css_page,
-    'icon' => $icon));
+    'titre' => "Accueil - Ré.édifica",
+    'css_style' => "css/style.css",
+    'css_page' => "css/main.css",
+    'icon' => "img/Logo_favicon.svg",
+    'index' => "index.php",
+    'contexte' => "Page/Histoire/contexte.php",
+    'info' => "Page/Histoire/nouveauté/info.php",
+    'Mondes' => "Page/Exploration/Mondes.php",
+    'Liste' => "Page/Membres/Liste.php",
+    'Tutoriel' => "Page/Guide/Tutoriel.php",
+    'Réglementation' => "Page/Guide/Réglementation.php",
+    'FAQ' => "Page/Guide/F-A-Q.php",
+    'connecter' => !isset($_SESSION["login"]),
+    'Profil' => "Page/Utilisateur/Profil.php",
+    'deconnexion' => "includes/deconnexion.php",
+    'connexion' => "Page/Utilisateur/connexion.php",
+    'inscription' => "Page/Utilisateur/inscription.php"
+
+  
+  ));
 
 ?>
 
-<body>
-  <header id="banniere">
-    <?php echo $twig->render("svg_logo.html.twig") ?>
-      <p>Une histoire à écrire.</p>
-      <!-- <video></video> -->
-      <img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
-  </header>
-  <nav id="navbar">
-  <input type="checkbox" id="menu-bouton">
-  <label for="menu" aria-describedby="label"><i class="bi bi-list-task"></i></label>
-    <ul>
-      <li><a href="index.php"><i class="bi bi-house"></i> Accueil</a></li>
-      <li><i class="bi bi-book"></i> Histoire
-        <ul>
-          <li><a href="Page/Histoire/contexte.php">Il était une fois...</a></li>
-          <li><a href="Page/Histoire/nouveauté/info.php">Nouveauté</a></li>
-        </ul>
-      </li> 
-      <li><a href="Page/Exploration/Mondes.php"><i class="bi bi-send"></i> Exploration</a></li>
-      <li><a href="Page/Membres/Liste.php"><i class="bi bi-people"></i> Membres</a></li>
-      <li><i class="bi bi-question-octagon-fill"></i> Guide
-        <ul>
-          <li><a href="Page/Guide/Tutoriel.php">Tutoriel</a></li>
-          <li><a href="Page/Guide/Réglementation.php">Réglementation</a></li>
-          <li><a href="Page/Guide/F-A-Q.php">F.A.Q</a></li>
-        </ul>
-      </li>
-    </ul>
-    <div id="user">
-      <p><?php echo $lien_user ?></p>
-    </div> 
-  </nav>
+
+  
   <main>
     <section id="accueil">
       <header id="intro">

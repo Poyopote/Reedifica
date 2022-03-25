@@ -2,7 +2,7 @@
 //INCLUSION DES FONCTIONS
 
 include("../../includes/fonctions - Copie.php");
-
+require "../../includes/init_twig.php";
 //INCLUSION DE LA BDD
 
   include("../../includes/init_BDD.php");
@@ -14,63 +14,41 @@ include("../../includes/fonctions - Copie.php");
     }
     else {
       $user_pseudo = $_SESSION["login"];
-      $lien_user = '<a href="../../Page/Utilisateur/Profil.php">Profil</a> | <a href="../../includes/deconnexion.php">Déconnexion</a>';
+      $lien_user = "<a href='../../Page/Utilisateur/Profil.php'>Profil</a> | <a href='../../includes/deconnexion.php'>Déconnexion</a>";
     }
     
     $choix = list_monde($bdd);
 
-?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="Language" content="fr" />
-    <meta name="copyright" content="© REEDIFICA.FR 2022" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#5b99c2">
-    <meta name="Author" content="Steven Ladour" />
-    <link rel="icon" href="img/Logo_favicon.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../../css/exploration.css">
 
-    <title>Les Mondes - Ré.édifica</title>
-    <!-- SEO  -->
-    <!-- <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/> -->
-    <meta property="og:region" content="fr_FR"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:site_name" content="Ré.édifica"/>
-    <meta property=”og:title” content="Laissez parler votre imaginaire." />
-    <meta name="description" content="Ré.édifica, le forum RP. "/>
-</head>
-<body>
-    <header>
-        <nav id="navbar">
-            <input type="checkbox" id="menu-bouton">
-            <label for="menu" aria-describedby="label"><i class="bi bi-list-task"></i></label>
-            <ul>
-                <li><a href="../../index.php"><i class="bi bi-house"></i> Accueil</a></li>
-                <li><i class="bi bi-book"></i> Histoire
-                  <ul>
-                    <li><a href="../../Page/Histoire/contexte.php">Il était une fois...</a></li>
-                    <li><a href="../../Page/Histoire/nouveauté/info.php">Nouveauté</a></li>
-                  </ul>
-                </li> 
-                <li><a href="../../Page/Exploration/Mondes.php"><i class="bi bi-send"></i> Exploration</a></li>
-                <li><a href="../../Page/Membres/Liste.php"a><i class="bi bi-people"></i> Membres</a></li>
-                <li><i class="bi bi-question-octagon-fill"></i> Guide
-                  <ul>
-                    <li><a href="../../Page/Guide/Tutoriel.php">Tutoriel</a></li>
-                    <li><a href="../../Page/Guide/Réglementation.php">Réglementation</a></li>
-                    <li><a href="../../Page/Guide/F-A-Q.php">F.A.Q</a></li>
-                  </ul>
-                </li>
-              </ul>
-              <div id="user">
-                <p><i class="bi bi-person-circle"></i><?php echo $lien_user ?></p>
-              </div>
-        </nav>
-    </header>
+    $lang = "fr";
+    
+
+
+
+    echo $twig->render('monde.html.twig', 
+    array('lang' => $lang,
+    'titre' => "Exploration - Ré.édifica",
+    'css_style' => "../../css/style.css",
+    'css_page' => "../../css/exploration.css",
+    'icon' => "../../img/Logo_favicon.svg",
+    'index' => "../../index.php",
+    'contexte' => "../../Page/Histoire/contexte.php",
+    'info' => "../../Page/Histoire/nouveauté/info.php",
+    'Mondes' => "../../Page/Exploration/Mondes.php",
+    'Liste' => "../../Page/Membres/Liste.php",
+    'Tutoriel' => "../../Page/Guide/Tutoriel.php",
+    'Réglementation' => "../../Page/Guide/Réglementation.php",
+    'FAQ' => "../../Page/Guide/F-A-Q.php",
+    'connecter' => !isset($_SESSION["login"]),
+    'Profil' => "../../Page/Utilisateur/Profil.php",
+    'deconnexion' => "../../includes/deconnexion.php",
+    'connexion' => "../../Page/Utilisateur/connexion.php",
+    'inscription' => "../../Page/Utilisateur/inscription.php"
+
+));
+
+?>
+
     <main>
         <h2><i class="bi bi-send"></i> Exploration</h2>
         <section id="monde">
