@@ -118,6 +118,7 @@
         </g>
       </svg>             
     </h1>
+<<<<<<< Updated upstream:index.html
       <p>Une histoire à écrire.</p>
       <!-- <video></video> -->
       <img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
@@ -151,6 +152,15 @@
     <section id="accueil">
       <header id="intro">
         <h2>Bienvenue</h2>
+=======
+      <h6>Une histoire à écrire.</h6>
+      <video controls width="800">
+      <source src="img/Illustration_acc" type="video/mp4">
+      </video>
+      {# <img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg"> #}
+  </div>
+    <header>
+>>>>>>> Stashed changes:templates/index.html.twig
     
         <img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg" alt="image">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -169,6 +179,36 @@
             <div id="carousel_text">
                 <p name="carousel_text"></p>
             </div>
+<<<<<<< Updated upstream:index.html
+=======
+        </nav>
+    </header>
+{% endblock %}
+
+{% block main %}
+    <section id="accueil">
+      <header id="intro">
+        <h2>Bienvenue</h2>
+    
+        <img src="img/bienvenue.jpg" alt="image">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. 
+            Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, 
+            nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+        </p>
+      </header>
+        <article id="actualite">
+          <h3>Actualités</h3>
+          <div id="carousel">
+            <a class="carousel_button" onclick="changeImgLeft()"><i class="bi bi-arrow-left-circle-fill"></i></a>
+            
+            <img id="slideImg" src="" name="slide" alt="actu">
+            
+            <div id="carousel_text">
+                <p name="carousel_text"></p>
+                <button>Aller voir</button>
+            </div>
+>>>>>>> Stashed changes:templates/index.html.twig
             <a class="carousel_button" onclick="changeImgRight()"><i class="bi bi-arrow-right-circle-fill"></i></a>
           </div> 
         </article>
@@ -176,6 +216,7 @@
             <h3>Exploration</h3>
             <section>
                 <h4>Monde 1</h4>
+<<<<<<< Updated upstream:index.html
                 <img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                     Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. 
@@ -229,3 +270,45 @@
   <script src="script/logo.js"></script>
 </body>
 </html>
+=======
+                <p><img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+                </p>
+                <hr>
+                <ul>
+                  <li>Sous-lieu 1</li>
+                  <li>Sous-lieu 2</li>
+                </ul>
+            </section>
+            <section>
+                <h4>Monde 2</h4>
+                <p><img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+                </p>
+                <hr>
+                <ul>
+                  <li>Sous-lieu 1</li>
+                  <li>Sous-lieu 2</li>
+                </ul>
+            </section>
+            <section>
+                <h4>Monde 3</h4>
+                <p><img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+                </p>
+                <hr>
+                <ul>
+                  <li>Sous-lieu 1</li>
+                  <li>Sous-lieu 2</li>
+                </ul>
+            </section>
+        </article>
+    </section>
+{% endblock %}
+
+{% block script %}
+  <script src="script/menu.js"></script>
+  <script src="script/carousel.js"></script>
+  <script src="script/logo.js"></script>
+{% endblock %}
+>>>>>>> Stashed changes:templates/index.html.twig

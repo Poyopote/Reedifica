@@ -44,7 +44,7 @@ main {
   background: #586171;
 }
 
-#banniere h1, #banniere p {
+#banniere h1, #banniere h6 {
   position: absolute;
 }
 
@@ -52,7 +52,15 @@ main {
   right: 50%;
 }
 
+<<<<<<< Updated upstream
 #banniere p {
+=======
+#banniere img, #banniere video {
+  width: 60vw;
+}
+
+#banniere h6 {
+>>>>>>> Stashed changes
   display: none;
 }
 
@@ -185,7 +193,7 @@ section#accueil article + article {
 }
 
 @media screen and (min-width: 1130px) {
-  #banniere p {
+  #banniere h6 {
     right: 60%;
     top: 160px;
     font-size: 2em;

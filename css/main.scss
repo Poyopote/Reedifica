@@ -45,17 +45,25 @@ h1,p{
   position: absolute;
 }
 
+<<<<<<< Updated upstream
     h1 { right: 50%; }
     p { display: none;}
     img { 
       
       width: 60vw;
+=======
+  h1,h6{  position: absolute;}
+>>>>>>> Stashed changes
 
      }
     
   background: $extremegris; 
 
 
+<<<<<<< Updated upstream
+=======
+  h6 { display: none;}
+>>>>>>> Stashed changes
 }
 
 #navbar{
@@ -106,7 +114,6 @@ section#accueil{
   #slideImg, #carousel_text{
     width: 50%;
     padding: 1em;
-    // align-items: flex-start;
   }
 
   a{
@@ -134,9 +141,22 @@ section#accueil{
     width: 100%;
   }
 
+<<<<<<< Updated upstream
   padding: 1em;
   background-color: $extremegris;
   flex-direction: row;
+=======
+  ul li { @include Tonlook(2em, $extremeblanc); padding: 0.2em; text-shadow: 2px 2px 2px $extremenoir;}
+
+}
+
+@include plus-large-que(Geant){
+  #banniere {
+    h6 { right: 60%;top: 25vh; font-size: 2em; display: inline;}
+  }
+}
+
+>>>>>>> Stashed changes
 
   
   h3{
