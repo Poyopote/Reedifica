@@ -55,7 +55,7 @@
       <header id="intro">
         <h2>Bienvenue</h2>
     
-        <img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg" alt="image">
+        <img src="img/bienvenue.jpg" alt="image">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
             Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. 
             Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, 

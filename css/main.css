@@ -57,7 +57,7 @@ main section article {
   right: 50%;
 }
 
-#banniere img {
+#banniere img, #banniere video {
   width: 60vw;
 }
 
@@ -81,19 +81,27 @@ section#accueil article + article {
   margin-top: 100px;
 }
 
-#intro h2 + img + p, #intro h2 + img {
-  display: inline-block;
-  width: calc(50% - 20px);
-}
-
-#intro h2 + img + p {
-  border: #171717 1px dotted;
-  margin-left: 10px;
-  color: #586171;
-  font-size: 2em;
-  overflow: auto;
-  height: 40vh;
-  padding: 0.3em;
+@media screen and (min-width: 768px) {
+  #intro {
+    padding: 0.3%;
+  }
+  #intro h2 + img + p, #intro h2 + img {
+    display: inline-block;
+  }
+  #intro h2 + img + p {
+    width: 60%;
+    border: #171717 1px dotted;
+    margin-left: 10px;
+    color: #586171;
+    font-size: 2em;
+    overflow: auto;
+    height: 40vh;
+    padding-left: 0.3%;
+    padding-right: 0.3%;
+  }
+  #intro h2 + img {
+    height: 40vh;
+  }
 }
 
 #actualite #carousel {
