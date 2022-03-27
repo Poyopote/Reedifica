@@ -49,7 +49,7 @@ main section article {
   background: #586171;
 }
 
-#banniere h1, #banniere p {
+#banniere h1, #banniere h6 {
   position: absolute;
 }
 
@@ -57,11 +57,11 @@ main section article {
   right: 50%;
 }
 
-#banniere img, #banniere video {
+#banniere video {
   width: 60vw;
 }
 
-#banniere p {
+#banniere h6 {
   display: none;
 }
 
@@ -232,7 +232,7 @@ section#accueil article + article {
 }
 
 @media screen and (min-width: 1130px) {
-  #banniere p {
+  #banniere h6 {
     right: 60%;
     top: 25vh;
     font-size: 2em;

@@ -41,13 +41,13 @@ main{
   text-align: center;
   background: $extremegris;
 
-  h1,p{  position: absolute;}
+  h1,h6{  position: absolute;}
 
   h1 { right: 50%; }
 
-  img,video { width: 60vw; }
+  video { width: 60vw; }
 
-  p { display: none;}
+  h6 { display: none;}
 }
 @include plus-large-que(Large){
   #navbar{
@@ -180,7 +180,7 @@ section#accueil{
 
 @include plus-large-que(Geant){
   #banniere {
-    p { right: 60%;top: 25vh; font-size: 2em; display: inline;}
+    h6 { right: 60%;top: 25vh; font-size: 2em; display: inline;}
   }
 }
 
