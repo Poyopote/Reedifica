@@ -2,13 +2,14 @@ h1.logo svg {
   width: 30vw;
 }
 
-main {
-  padding-top: 20vh;
-}
-
-main section article {
-  margin-top: 20vh;
-  margin-bottom: 20vh;
+@media screen and (min-width: 768px) {
+  main {
+    padding-top: 20vh;
+  }
+  main section article {
+    margin-top: 20vh;
+    margin-bottom: 20vh;
+  }
 }
 
 #mask-noir .path, #mask-noir:hover .path {

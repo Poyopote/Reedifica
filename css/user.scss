@@ -17,28 +17,32 @@
     margin-top: 100px;
     @include margin-droite-gauche(auto);
     input {
+        color: $extremeblanc;
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
         display: inline-block;
-        background-color: #C9D8FF;
-        border: 1px solid rgba($couleursecon, 0.6);
+        background-color: $extremenoir;
+        border: 1px double rgba($couleurprin, 0.6);
         border-radius: 4px;
         box-sizing: border-box;
-        color: $couleurprin;
+    }
+    input[type="submit"]{
+        width: 50%;
+        border: double;
+        @include margin-droite-gauche(25%)
     }
 
     input[type="submit"]:hover {
-        width: 100%;
-        background-color: $couleurprin;
-        color: rgba($couleursecon, 0.6);
-        padding: 14px 20px;
-        border: none;
+        
+        background-color: $extremeblanc;
+        color: $extremenoir;
+        border-color: $extremenoir;
         cursor: pointer;
     }
 
     label{
-        @include Tonlook(3em, $extremeblanc)
+        @include Tonlook(1em, $extremeblanc)
     }
     nav{
         text-align: center;

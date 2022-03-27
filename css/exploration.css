@@ -1,6 +1,8 @@
 main {
+  padding-top: 1em;
   min-height: 100vh;
-  background: #54c0ff;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2c609b), to(#54c0ff));
+  background: linear-gradient(180deg, #2c609b 0%, #54c0ff 100%);
 }
 
 main h2 {
@@ -20,22 +22,45 @@ main h4 {
 }
 
 @media screen and (min-width: 768px) {
-  main article {
-    background: #a1d8f5;
-  }
-  main article:hover {
-    background: #2c609b;
-  }
-  main section {
-    float: left;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    width: 50%;
-    margin-bottom: 15px;
-    padding: 0px 15.5px;
+  main h3, main select {
+    display: inline-block;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
   }
 }
 
 main img {
   max-width: 300px;
+}
+
+#monde select {
+  color: #edf0ea;
+  background-color: black;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+
+#monde img, #monde p, #sous-monde img, #sous-monde p {
+  padding: 0.2rem;
+  border: 5px double #edf0ea;
+  float: left;
+}
+
+#monde h4, #sous-monde h4 {
+  color: #edf0ea;
+  font-size: 5em;
+  background-color: #040037;
+  font-family: "Outfit";
+  background: rgba(4, 0, 55, 0.25);
+  text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(4, 0, 55, 0.1), 0 0 5px rgba(4, 0, 55, 0.1), 0 1px 3px rgba(4, 0, 55, 0.3), 0 3px 5px rgba(4, 0, 55, 0.2), 0 5px 10px rgba(4, 0, 55, 0.25), 0 10px 10px rgba(4, 0, 55, 0.2), 0 20px 20px rgba(4, 0, 55, 0.15);
+  text-align: center;
+  padding: 0.2rem;
+  border: 5px double #040037;
+}
+
+#monde article {
+  background-size: cover;
 }

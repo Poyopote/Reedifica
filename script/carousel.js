@@ -3,9 +3,9 @@ var images = [];
 var texts = [];
 
 // image list
-images[0] = 'https://www.w3schools.com/bootstrap/la.jpg';
-images[1] = 'https://www.w3schools.com/bootstrap/chicago.jpg';
-images[2] = 'https://www.w3schools.com/bootstrap/ny.jpg';
+images[0] = 'img/20210407_160305.gif';
+images[1] = 'img/20210407_161306.gif';
+images[2] = 'img/20210729_191043.gif';
 
 // text list
 texts = ['Lorem us accumsan et viverra penatibus et magnis  dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.','Text1','Text2'];

@@ -1,4 +1,3 @@
-
 <?php
 //INCLUSION DES FONCTIONS
 
@@ -9,13 +8,9 @@ include("fonctions - Copie.php");
   include("init_BDD.php");
   $bdd = connexion_bdd();
      
-    // if(!isset($_GET['q'])){
-    //     $id_monde = 1;
-    // }
-    // else   {
-        $id_monde = intval($_GET['q']);
-        // echo intval($_GET['q']); 
-    // }
+
+  $id_monde = intval($_GET['q']);
+
     
 
     $monde = recherche_monde($bdd,$id_monde);

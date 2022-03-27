@@ -7,9 +7,11 @@ h1.logo {
     }
   }
 
-main{
-  padding-top: 20vh;
-  section article { @include margin-haut-bas(20vh)}
+@include plus-large-que(Moyen){
+  main{
+    padding-top: 20vh;
+    section article { @include margin-haut-bas(20vh)}
+  }
 }
 
 #mask-noir .path, #mask-noir:hover .path {

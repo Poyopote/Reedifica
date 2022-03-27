@@ -14,30 +14,35 @@
 }
 
 #connexion-main input {
+  color: #edf0ea;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  background-color: #C9D8FF;
-  border: 1px solid rgba(84, 192, 255, 0.6);
+  background-color: #171717;
+  border: 1px double rgba(4, 0, 55, 0.6);
   border-radius: 4px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  color: #040037;
+}
+
+#connexion-main input[type="submit"] {
+  width: 50%;
+  border: double;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 #connexion-main input[type="submit"]:hover {
-  width: 100%;
-  background-color: #040037;
-  color: rgba(84, 192, 255, 0.6);
-  padding: 14px 20px;
-  border: none;
+  background-color: #edf0ea;
+  color: #171717;
+  border-color: #171717;
   cursor: pointer;
 }
 
 #connexion-main label {
   color: #edf0ea;
-  font-size: 3em;
+  font-size: 1em;
 }
 
 #connexion-main nav {

@@ -3,6 +3,7 @@
 
 
 main{
+    padding-top: 1em;
     min-height: 100vh;
     h2{@include Tonlook(5em, $extremeblanc); }
 
@@ -15,37 +16,68 @@ main{
     h4{
         @include Tonlook(3em, darken($extremenoir, 20%));
     }
-    background: $couleursecon;
+    background: linear-gradient(180deg, mix($couleurprin, $couleursecon) 0%, $couleursecon 100%);
+    
 
     @include plus-large-que(Moyen){
 
-        
-        article{
-            background: mix($extremeblanc, $couleursecon);
-            &:hover{
-                background: mix($couleursecon,$couleurprin);
-            }
+        h3, select{
+            display: inline-block;
+            text-align: center;
+            @include padding-droite-gauche(1em);
         }
-        section {
-            float: left;
-            box-sizing: border-box;
-            width: 50%;
-            margin-bottom: 15px;
-            padding: 0px 15.5px;
+
+        // section {
+        //     float: left;
+        //     box-sizing: border-box;
+        //     width: 50%;
+        //     margin-bottom: 15px;
+        //     padding: 0px 15.5px;
     
-            // &:nth-child(2n + 1) {
-            //     clear: both;
-            // }
-        }
+        //     // &:nth-child(2n + 1) {
+        //     //     clear: both;
+        //     // }
+        // }
     }
 
+
+
  
-        img{max-width: 300px;}
-
-
-
+    img{max-width: 300px;}
 }
 
+
+
+#monde select{
+    color: $extremeblanc;
+    background-color: rgb(0, 0, 0);
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+}
+
+#monde, #sous-monde {
+
+    img, p {
+        padding: 0.2rem;
+        border: 5px double $extremeblanc;
+        float: left;
+    }
+    h4 {
+        @include titre-h4-monde(5em,$extremeblanc,$couleurprin);
+        text-align: center;
+        padding: 0.2rem;
+        border: 5px double $couleurprin;
+    }
+
+}
+#monde   article{
+    // background: $couleurancien;
+    // background: url("../img/bois.jpg");
+    background-size: cover;
+    
+}
     
 
 

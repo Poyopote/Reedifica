@@ -6,6 +6,10 @@
   }
 }
 
+img {
+  max-width: 50%;
+}
+
 .date {
   color: #5691b8;
   font-size: auto;

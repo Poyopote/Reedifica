@@ -97,7 +97,7 @@
       </svg>             
     </h1>
       <h6>Une histoire à écrire.</h6>
-      <video controls width="800">
+      <video autoplay="" muted="" loop=""  width="800">
       <source src="img/Illustration_acc" type="video/mp4">
       </video>
       {# <img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg"> #}
@@ -203,6 +203,7 @@
 {% endblock %}
 
 {% block script %}
+  <script > document.querySelector('video').playbackRate = 0.5;</script>
   <script src="script/menu.js"></script>
   <script src="script/carousel.js"></script>
   <script src="script/logo.js"></script>

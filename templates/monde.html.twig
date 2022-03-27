@@ -3,26 +3,25 @@
 
 {% block main %}
 <h2><i class="bi bi-send"></i> Exploration</h2>
+<hr>
 <section id="monde">
     <h3>Choisi ta destination</h3>
-    <article>
     <select onchange='showUser(this.value)'>
         <option value=''>Sélection ton monde</option>
         {% set i = 0 %}
         {% for key, monde in choix %}
         {% set i = i + 1 %}
-        
-            <option value='{{i}}' >{{monde.name_world}}</option>
+        <option value='{{i}}' >{{monde.name_world}}</option>
         {% endfor %}
     </select>
-    <br>
-    <div id="txtHint">
+
+    <article id="txtHint">
     {% set id_monde = 1 %}
     <h4>{{monde.name_world}}</h4>
     <img src='../../img/{{monde.media}}' alt='illustration'>
     <p>{{monde.bio_world}}</p>
-    </div>
-</article>
+    </article>
+
 </section>
 <section id="sous-monde">
     <h3>sous monde disponible</h3>
@@ -30,7 +29,7 @@
         {% for key, sous_monde in liste %}
         <article>
             <h4>{{sous_monde.title}}</h4>
-            <img src='../../img/{{sous_monde.media}}' alt='illustration'>
+            <a href="monde/sous-monde.php{{getmonde}}"><img src='../../img/{{sous_monde.media}}' alt='illustration'></a>
             <p>{{sous_monde.bio}}</p>
         </article>
         {% endfor %}

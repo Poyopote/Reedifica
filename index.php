@@ -1,16 +1,21 @@
 <?php
+//INCLUSION DES FONCTIONS
+
+include("includes/fonctions - Copie.php");
+
+//INCLUSION DE LA BDD
+
+  include("includes/init_BDD.php");
+  $bdd = connexion_bdd();
+
     session_start();
     require "includes/init_twig.php";
-    if(!isset($_SESSION["login"])){
-      $lien_user = '<a href="Page/Utilisateur/connexion.php">Connexion</a> | <a href="Page/Utilisateur/inscription.php">Inscription</a>';
-    }
-    else {
-      $user_pseudo = $_SESSION["login"];
-      $lien_user = '<a href="Page/Utilisateur/Profil.php">Profil</a> | <a href="includes/deconnexion.php">Déconnexion</a>';
-    }
 
     $user_pseudo = false;
     $user_pseudo = isset($_SESSION["login"]);
+
+    // $monde = recherche_monde($bdd,$id_monde);
+    // $sous_monde = recherche_sous_monde($bdd,$id_monde);
 
 
 // HEAD

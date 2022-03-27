@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 18 mars 2022 à 18:11
+-- Généré le : dim. 27 mars 2022 à 22:06
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
@@ -55,16 +55,26 @@ CREATE TABLE IF NOT EXISTS `actu` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `statut`
+-- Structure de la table `role`
 --
 
-DROP TABLE IF EXISTS `statut`;
-CREATE TABLE IF NOT EXISTS `statut` (
-  `id_statut` int NOT NULL AUTO_INCREMENT,
-  `name_statut` varchar(25) NOT NULL,
-  `bio_statut` text NOT NULL,
-  PRIMARY KEY (`id_statut`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE IF NOT EXISTS `role` (
+  `id_role` int NOT NULL AUTO_INCREMENT,
+  `name_role` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `bio_role` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id_role`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `role`
+--
+
+INSERT INTO `role` (`id_role`, `name_role`, `bio_role`) VALUES
+(1, 'Administrateur', 'Maître du jeu, de l\'histoire et de ses règles.'),
+(2, 'Moderateur', 'Un modérateur ou modératrice de communauté, assure une mission de prévention et de surveillance sur le contenu des échanges entre les membres. Son rôle lui permet d\'évincer les personnes qui ne respectent pas les règles de la communauté.\r\nIl lui est aussi possible de créer des événements, des mondes. Mais n\'est pas au-dessus de l\'administrateur qui lui peut tout faire.'),
+(3, 'Joueur', 'Jouer un personnage né tout droit de votre imaginaire dans l\'univers incroyable de réédifica.'),
+(4, 'Guide', 'Soutien des modérateurs exclusifs pour les joueurs. Aucune capacité supplémentaire, mais permettent d\'indiquer si le joueur est expérimenté et peut servir d\'aide pour les autres joueurs.');
 
 -- --------------------------------------------------------
 
@@ -113,14 +123,23 @@ DROP TABLE IF EXISTS `under world`;
 CREATE TABLE IF NOT EXISTS `under world` (
   `id_under_world` int NOT NULL AUTO_INCREMENT,
   `id_world` int NOT NULL,
-  `tiltle` varchar(50) NOT NULL,
+  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `bio` text NOT NULL,
   `media` varchar(30) NOT NULL,
   `id_user` int NOT NULL,
   PRIMARY KEY (`id_under_world`),
   KEY `id_world` (`id_world`),
   KEY `id_user` (`id_user`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `under world`
+--
+
+INSERT INTO `under world` (`id_under_world`, `id_world`, `title`, `bio`, `media`, `id_user`) VALUES
+(1, 1, 'Le bureau des rencontres', 'bla bla', '_rose_texture_2.png', 2),
+(2, 3, 'Le Lac', 'htytryry', 'lac.jpg', 1),
+(3, 2, 'Grotte de cristal', 'Maison de Rénata, elle accueille toujours les Bonnes âmes. Ici, tu peux découvrir ton avenir.', '', 2);
 
 -- --------------------------------------------------------
 
@@ -141,14 +160,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `date` date NOT NULL,
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`id_user`, `pseudo`, `nom`, `prenom`, `image`, `grade`, `mdp`, `email`, `date`, `description`) VALUES
-(1, 'Voltamaster', 'X', 'Valto', 'Voltamaster.jpg', 'novise', '$2y$10$DIHIo97eHPsA7OHoXOaKM.1ay0v9H7iZsfgG7CHJ1gntyyJLizfqK', 'exemple@email.fr', '2022-03-17', 'je suis génial');
+(1, 'Voltamaster', 'X', 'Valto', 'Voltamaster.jpg', 'accompli', '$2y$10$DIHIo97eHPsA7OHoXOaKM.1ay0v9H7iZsfgG7CHJ1gntyyJLizfqK', 'exemple@email.fr', '2022-03-17', 'je suis génial'),
+(2, 'DameBleu', '', 'Rénata', 'Damebleu.jpg', 'avance', '$2y$10$.8md5emsNx6b4o5yMb3p2.6Fl997rEme3vvp6QcNpxKWw67jKx0wC', '', '2022-03-24', '');
 
 -- --------------------------------------------------------
 
@@ -167,16 +187,26 @@ CREATE TABLE IF NOT EXISTS `userxability` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `userxstatut`
+-- Structure de la table `userxrole`
 --
 
-DROP TABLE IF EXISTS `userxstatut`;
-CREATE TABLE IF NOT EXISTS `userxstatut` (
+DROP TABLE IF EXISTS `userxrole`;
+CREATE TABLE IF NOT EXISTS `userxrole` (
   `id_statut` int NOT NULL,
   `id_user` int NOT NULL,
   KEY `id_statut` (`id_statut`),
   KEY `id_user` (`id_user`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `userxrole`
+--
+
+INSERT INTO `userxrole` (`id_statut`, `id_user`) VALUES
+(1, 1),
+(3, 1),
+(2, 2),
+(3, 2);
 
 -- --------------------------------------------------------
 
@@ -193,7 +223,16 @@ CREATE TABLE IF NOT EXISTS `world` (
   `media` varchar(30) NOT NULL,
   PRIMARY KEY (`id_world`),
   KEY `id_user` (`id_user`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `world`
+--
+
+INSERT INTO `world` (`id_world`, `name_world`, `bio_world`, `id_user`, `media`) VALUES
+(1, 'Le Bercail', 'Lieu de départ pour tous les aventuriers. C\'est notre maison mère.', 1, '696364.jpg'),
+(2, 'Champ de bataille', 'Lieu d\'affrontement contre les ténèbres. Ici, c\'est la survie qui prime.\r\nUn conseil, trouve-toi de bons alliés et partez à l\'aventure ensemble.', 1, '_rose_texture_2.png'),
+(3, 'Bivouac', '', 2, '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
