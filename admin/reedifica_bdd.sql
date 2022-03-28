@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 27 mars 2022 à 22:06
+-- Généré le : lun. 28 mars 2022 à 20:55
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `under world` (
   PRIMARY KEY (`id_under_world`),
   KEY `id_world` (`id_world`),
   KEY `id_user` (`id_user`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `under world`
@@ -139,7 +139,9 @@ CREATE TABLE IF NOT EXISTS `under world` (
 INSERT INTO `under world` (`id_under_world`, `id_world`, `title`, `bio`, `media`, `id_user`) VALUES
 (1, 1, 'Le bureau des rencontres', 'bla bla', '_rose_texture_2.png', 2),
 (2, 3, 'Le Lac', 'htytryry', 'lac.jpg', 1),
-(3, 2, 'Grotte de cristal', 'Maison de Rénata, elle accueille toujours les Bonnes âmes. Ici, tu peux découvrir ton avenir.', '', 2);
+(3, 2, 'Grotte de cristal', 'Maison de Rénata, elle accueille toujours les Bonnes âmes. Ici, tu peux découvrir ton avenir.', '', 2),
+(4, 3, 'Sable rouge', '', 'Matte painting 98.jpg', 1),
+(5, 3, 'La Jungle', '', 'Matte painting 95.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -231,8 +233,8 @@ CREATE TABLE IF NOT EXISTS `world` (
 
 INSERT INTO `world` (`id_world`, `name_world`, `bio_world`, `id_user`, `media`) VALUES
 (1, 'Le Bercail', 'Lieu de départ pour tous les aventuriers. C\'est notre maison mère.', 1, '696364.jpg'),
-(2, 'Champ de bataille', 'Lieu d\'affrontement contre les ténèbres. Ici, c\'est la survie qui prime.\r\nUn conseil, trouve-toi de bons alliés et partez à l\'aventure ensemble.', 1, '_rose_texture_2.png'),
-(3, 'Bivouac', '', 2, '');
+(2, 'Champ de bataille', 'Lieu d\'affrontement contre les ténèbres. Ici, c\'est la survie qui prime.\r\nUn conseil, trouve-toi de bons alliés et partez à l\'aventure ensemble.', 1, 'bataille_vue1.jpg'),
+(3, 'Bivouac', '', 2, 'Matte painting 94.jpg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
