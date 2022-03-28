@@ -152,7 +152,7 @@
 
 	function info_utilisateur_profil($bdd,$login)
 	{
-		$info_user = $bdd->prepare("SELECT `prenom`, `nom`,`image`, `grade`,`date`,`description` FROM `user` WHERE `pseudo` = :user");
+		$info_user = $bdd->prepare("SELECT `pseudo`, `prenom`, `nom`,`image`, `grade`,`date`,`description` FROM `user` WHERE `pseudo` = :user");
 		$info_user->bindParam(":user", $login);
 		$info_user->execute();
 

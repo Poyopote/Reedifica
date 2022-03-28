@@ -1,20 +1,36 @@
 <?php
-    $user_pseudo = $_SESSION["login"];
     $error ="";
-    // Vérifie s'il y une session utilisateur
-    if(empty($user_pseudo))
-    {
-      //pas connecter ? donc redirection vers la page de connexion
-      header("Location: ../../Page/Utilisateur/connexion.php");
-    }
-    //sinon tout va bien on change le menu de connexion.
-    else $lien_user = '<a href="Profil.php">Profil</a> | <a href="../../includes/deconnexion.php">Déconnexion</a>';
+
+  $bonjour = "";
+
   
+$mon_compte = false;
+// Vérifie si la personne est connecter
+if(isset($_SESSION["login"])){
+  $user_pseudo = $_SESSION["login"];
+  $lien_user = '<a href="../../Page/Utilisateur/Profil.php">Profil</a> | <a href="../../includes/deconnexion.php">Déconnexion</a>';
+  //   Vérifie si c'est son profil qu'il veut voir
+  if (isset($_GET['utilisateur']) && $_GET['utilisateur'] != $user_pseudo) {
+    $tableau_utilisateur = info_utilisateur_profil($bdd,$_GET['utilisateur']);
+    $filename = '../../Docs/'.$_GET['utilisateur'];
+  }
+  // ou Le profil d'un autre
+  else {
     $tableau_utilisateur = info_utilisateur_profil($bdd,$user_pseudo);
-    
-    $filename = '../../Docs/'.$user_pseudo;
-    
-  
+    $filename = '../../Docs/'.$user_pseudo;   
+    $mon_compte = true; 
+  }
+}
+// Sinon statut d'invité, vérifie si recherche_monde
+else if (isset($_GET['utilisateur'])){
+  $tableau_utilisateur = info_utilisateur_profil($bdd,$_GET['utilisateur']);
+  $filename = '../../Docs/'.$_GET['utilisateur'];
+  $lien_user = '<a href="../../Page/Utilisateur/connexion.php">Connexion</a> | <a href="../../Page/Utilisateur/inscription.php">Inscription</a>';
+}
+// sinon propose de se connecter
+else header("Location: ../../Page/Utilisateur/connexion.php");
+
+
     if (isset($_POST['send'])) {
   
   

@@ -62,7 +62,7 @@ hr {
           }
   
           &:hover, &:focus{
-  
+            color: $extremenoir;
             ul{
                 display: block;
                 padding: 1em;
@@ -74,7 +74,16 @@ hr {
 
       }
     }
-  
+    a{
+      text-decoration: none;
+      color: $couleurancien;
+     &:visited {
+       color: $couleurancien;
+     }
+     &:hover{
+       color: $extremenoir;
+     }
+    }
   }
 
   
@@ -90,21 +99,6 @@ hr {
     }
   }
 }
-
-#navbar{
-  a{
-    text-decoration: none;
-   &:visited {
-     color: $couleurancien;
-   }
-   &:hover{
-     color: $extremenoir;
-   }
-  }
-}
-
-
-
 
 
 footer{

@@ -87,12 +87,25 @@ hr {
     display: none;
     position: relative;
   }
+  #navbar ul li:hover, #navbar ul li:focus {
+    color: #171717;
+  }
   #navbar ul li:hover ul, #navbar ul li:focus ul {
     display: block;
     padding: 1em;
   }
   #navbar ul li:hover ul li:hover, #navbar ul li:focus ul li:hover {
     background: #bdb09e;
+  }
+  #navbar a {
+    text-decoration: none;
+    color: #7d685b;
+  }
+  #navbar a:visited {
+    color: #7d685b;
+  }
+  #navbar a:hover {
+    color: #171717;
   }
   .sticky {
     z-index: 99;
@@ -103,18 +116,6 @@ hr {
   .sticky ul li a {
     color: #171717;
   }
-}
-
-#navbar a {
-  text-decoration: none;
-}
-
-#navbar a:visited {
-  color: #7d685b;
-}
-
-#navbar a:hover {
-  color: #171717;
 }
 
 footer {

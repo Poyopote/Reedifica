@@ -9,7 +9,7 @@
 
             
         }
-        
+
     }
 }
 
@@ -32,4 +32,36 @@ article{
        }
     }
     
+}
+
+aside{
+    background: mix($extremenoir, $extremegris);
+    clear: both;
+    // padding: 1em;
+    min-height: 30vw;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.39); 
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.39);
+
+    border-radius: 30px 30px 0 0 ;
+
+    // legend {
+    //     padding: 3px 12px;
+    // }
+    form{
+        padding: 1em;
+      
+    }
+
+
+
+    legend{
+        @include texte(2em, $extremeblanc, none);
+    }
+
+    h5{
+        @include texte(3em, $extremeblanc, mix($couleurancien, $extremegris));
+        border-radius: 30px 30px 0 0 ;
+        text-align: center;
+        padding: 0.3em;
+    }
 }

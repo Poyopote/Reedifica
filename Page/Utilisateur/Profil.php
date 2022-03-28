@@ -2,12 +2,12 @@
 //INCLUSION DES FONCTIONS
 
   include("../../includes/fonctions - Copie.php");
-
+  require "../../includes/init_twig.php";
 //INCLUSION DE LA BDD
 
   include("../../includes/init_BDD.php");
   $bdd = connexion_bdd();
-
+  
 
   session_start();
   include("../../includes/profil_fonctions.php");
@@ -40,7 +40,7 @@
 
 <header>
   <nav id="navbar">
-  <h1>Profil de <?php echo $user_pseudo ?></h1>
+  <?php echo $bonjour?>
   <input type="checkbox" id="menu-bouton">
   <label for="menu" aria-describedby="label"><i class="bi bi-list-task"></i></label>
     <ul>
@@ -80,7 +80,11 @@
     <p>Symbole : Lunette correctionnelle</p>
     <?php    echo ("<p>Grade : ".$tableau_utilisateur["grade"]."</p>");    ?>
     <p>Capacités : </p>
-    <p><?php echo ("Pseudo : ". $user_pseudo);?></p>
+    <p><?php echo ("Pseudo : ". $tableau_utilisateur["pseudo"]);?></p>
+  <br>
+  <input type="color" name="couleur">
+
+  <input type="button" value="Modifier profil">
   </section>
 
   
@@ -96,11 +100,11 @@
     <article>
       <h4>Drôle de coq.</h4>
       <p class="date">Créé le 15/03/2022</p>
-      <p>Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. 
-        .<p>
-          <hr>
+      <p>Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.<p>
+      <hr>
     </article>
   </section>
+  
   <aside>
     <h5>Que souhaites-tu changer ?</h5>
       
@@ -113,7 +117,7 @@
             <p>fgdfgs</p>
             <textarea id="bio" type="text" name="bio"></textarea>
           </fieldset>
-          <fieldset>
+          <fieldset >
             <legend>Photo de profil</legend>
             
             <input id="idfile" name="userfile" type="file"/>
@@ -141,7 +145,9 @@
   </div>
 </footer>
 <?php if($error != "") echo $error ?>
-<script src="script/menu.js"></script>
-<script src="script/formulaire-profil_bio.js"></script>
+<!-- <script src="../../script/menu.js"></script> -->
+<!-- <script src="../../script/redaction.js"></script> -->
+
+<script src="../../script/formulaire-profil_bio.js"></script>
 </body>
 </html>
