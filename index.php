@@ -11,8 +11,8 @@ include("includes/fonctions - Copie.php");
     session_start();
     require "includes/init_twig.php";
 
-    $user_pseudo = false;
-    $user_pseudo = isset($_SESSION["login"]);
+    // $user_pseudo = false;
+    // $user_pseudo = isset($_SESSION["login"]);
 
     // $monde = recherche_monde($bdd,$id_monde);
     // $sous_monde = recherche_sous_monde($bdd,$id_monde);

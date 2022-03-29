@@ -187,4 +187,13 @@
 		$resultat = $info_monde->fetchAll();
 		return $resultat;
 	}
+
+
+// PAGE MEMBRES
+
+	// function liste_des_membres($bdd)
+	// {
+	// 	$info_membres = $bdd->query()
+	// }
+
 ?>
