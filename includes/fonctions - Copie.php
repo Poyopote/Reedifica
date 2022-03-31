@@ -174,7 +174,7 @@
 
 	function recherche_sous_monde($bdd,$id_monde)
 	{
-		$info_monde = $bdd->prepare("SELECT `title`,`bio`,`media` FROM `under world` WHERE `id_world` = :id");
+		$info_monde = $bdd->prepare("SELECT `id_under_world`, `title`,`bio`,`media` FROM `under world` WHERE `id_world` = :id");
 		$info_monde->bindParam(":id", $id_monde);
 		$info_monde->execute();
 		$resultat = $info_monde->fetchAll();
@@ -191,9 +191,20 @@
 
 // PAGE MEMBRES
 
-	// function liste_des_membres($bdd)
-	// {
-	// 	$info_membres = $bdd->query()
-	// }
+	function liste_des_membres($bdd)
+	{
+		$info_membres = $bdd->query("SELECT `pseudo`,`prenom`,`nom`,`image`,`grade`, `date`, Count(id_story) nbm_histoire FROM user LEFT JOIN sujet ON sujet.`id_user` = user.`id_user` GROUP BY `pseudo`");
+		$info_membres->execute();
+		$resultat = $info_membres->fetchAll();
+		return $resultat;
+	}
+
+	function nombre_user($bdd)
+	{
+		$nombre_user = $bdd->query("SELECT COUNT(`id_user`) FROM user");
+		$nombre_user->execute();
+		$resultat = $nombre_user->fetch();
+		return $resultat;
+	}
 
 ?>

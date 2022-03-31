@@ -1,8 +1,37 @@
 {% extends "base.html.twig" %}
 
-{# {% block main %}
+{% block main %}
 
-{% endblock %} #}
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Pseudo</th>
+      <th colspan="2">Surnom</th>
+      <th>grade</th>
+      <th>date</th>
+      <th>nombre histoire</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for key, membre in membres %}
+    <tr>
+      <td><a href="../../Page/Utilisateur/Profil.php?utilisateur={{membre.pseudo}}">
+      <img src="../../Docs/{{membre.pseudo}}/{{membre.image}}" alt="image_profil"/>
+      </a></td>
+      <td><a href="../../Page/Utilisateur/Profil.php?utilisateur={{membre.pseudo}}">{{membre.pseudo}}</a></td>
+      <td>{{membre.prenom}}</td>
+      <td>{{membre.nom}}</td>
+      <td>{{membre.grade}}</td>
+      <td>{{membre.date}}</td>
+      <td>{{membre.nbm_histoire}}</td>
+    </tr>
+      {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
 
 {% block script %}
     <script src="../../script/menu.js"></script>

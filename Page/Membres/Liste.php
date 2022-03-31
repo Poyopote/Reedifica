@@ -35,7 +35,7 @@ require "../../includes/init_twig.php";
     "reedifica" => "../../img/Logo_complet.svg",
 
     // donnée de la page
-
+    "membres" => liste_des_membres($bdd),
     'connecter' => !isset($_SESSION["login"])
 
 ));
