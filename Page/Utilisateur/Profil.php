@@ -11,6 +11,9 @@
 
   session_start();
   include("../../includes/profil_fonctions.php");
+
+  $toto= nombre_user($bdd);
+  $toto[] = "salut";
 ?>
 
 <!DOCTYPE html>
@@ -93,7 +96,7 @@
     <article>
       <h4>Une monde pas comme les autres...</h4>
       <p class="date">Créé le 15/03/2022</p>
-      <p>Alors par où commencer j'étais tranquille devant la télé...<p>
+      <p>Alors par où commencer j'étais tranquille devant la télé... <?php print_r($toto)  ?><p>
       <hr>
     </article>
     
