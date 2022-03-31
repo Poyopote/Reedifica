@@ -10,7 +10,10 @@ require "../../../includes/init_twig.php";
 
     session_start();
 
-
+    if(isset($_GET["lieu"])){
+        $lieu = $_GET["lieu"];   
+    }
+    else header("Location: ../Mondes.php");
 
     $lang = "fr";
 
@@ -38,6 +41,8 @@ require "../../../includes/init_twig.php";
 
     // donnée de la page
 
-    'connecter' => !isset($_SESSION["login"])
+    'connecter' => !isset($_SESSION["login"]),
+    'liste' => get_sous_monde($bdd,$lieu)
 
 ));
+?>

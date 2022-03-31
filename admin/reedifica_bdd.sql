@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 28 mars 2022 à 20:55
+-- Généré le : jeu. 31 mars 2022 à 18:42
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
@@ -30,11 +30,18 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `ability`;
 CREATE TABLE IF NOT EXISTS `ability` (
   `id_ability` int NOT NULL AUTO_INCREMENT,
-  `name_ability` text NOT NULL,
+  `name_ability` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `bio_ability` text NOT NULL,
   `symbole` varchar(50) NOT NULL,
   PRIMARY KEY (`id_ability`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `ability`
+--
+
+INSERT INTO `ability` (`id_ability`, `name_ability`, `bio_ability`, `symbole`) VALUES
+(1, 'Feu', '<h2>3 niveaux de puissance</h2>', '001.png');
 
 -- --------------------------------------------------------
 
@@ -79,6 +86,25 @@ INSERT INTO `role` (`id_role`, `name_role`, `bio_role`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `rp`
+--
+
+DROP TABLE IF EXISTS `rp`;
+CREATE TABLE IF NOT EXISTS `rp` (
+  `id_rp` int NOT NULL AUTO_INCREMENT,
+  `id_user` int NOT NULL,
+  `id_story` int NOT NULL,
+  `contente` text NOT NULL,
+  `avant` int NOT NULL,
+  `apres` int NOT NULL,
+  PRIMARY KEY (`id_rp`),
+  KEY `id_user` (`id_user`),
+  KEY `id_story` (`id_story`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `story`
 --
 
@@ -89,6 +115,7 @@ CREATE TABLE IF NOT EXISTS `story` (
   `id_user` int NOT NULL,
   `id_under_world` int NOT NULL,
   `bio` text NOT NULL,
+  `date` date NOT NULL,
   PRIMARY KEY (`id_story`),
   KEY `id_user` (`id_user`),
   KEY `id_under_world` (`id_under_world`)
@@ -97,30 +124,11 @@ CREATE TABLE IF NOT EXISTS `story` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `sujet`
+-- Structure de la table `under_world`
 --
 
-DROP TABLE IF EXISTS `sujet`;
-CREATE TABLE IF NOT EXISTS `sujet` (
-  `id_sujet` int NOT NULL AUTO_INCREMENT,
-  `id_user` int NOT NULL,
-  `id_story` int NOT NULL,
-  `contente` text NOT NULL,
-  `avant` int NOT NULL,
-  `apres` int NOT NULL,
-  PRIMARY KEY (`id_sujet`),
-  KEY `id_user` (`id_user`),
-  KEY `id_story` (`id_story`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `under world`
---
-
-DROP TABLE IF EXISTS `under world`;
-CREATE TABLE IF NOT EXISTS `under world` (
+DROP TABLE IF EXISTS `under_world`;
+CREATE TABLE IF NOT EXISTS `under_world` (
   `id_under_world` int NOT NULL AUTO_INCREMENT,
   `id_world` int NOT NULL,
   `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
@@ -133,13 +141,13 @@ CREATE TABLE IF NOT EXISTS `under world` (
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `under world`
+-- Déchargement des données de la table `under_world`
 --
 
-INSERT INTO `under world` (`id_under_world`, `id_world`, `title`, `bio`, `media`, `id_user`) VALUES
+INSERT INTO `under_world` (`id_under_world`, `id_world`, `title`, `bio`, `media`, `id_user`) VALUES
 (1, 1, 'Le bureau des rencontres', 'bla bla', '_rose_texture_2.png', 2),
 (2, 3, 'Le Lac', 'htytryry', 'lac.jpg', 1),
-(3, 2, 'Grotte de cristal', 'Maison de Rénata, elle accueille toujours les Bonnes âmes. Ici, tu peux découvrir ton avenir.', '', 2),
+(3, 2, 'Grotte de cristal', 'Maison de Rénata, elle accueille toujours les Bonnes âmes. Ici, tu peux découvrir ton avenir.', 'lac.jpg', 2),
 (4, 3, 'Sable rouge', '', 'Matte painting 98.jpg', 1),
 (5, 3, 'La Jungle', '', 'Matte painting 95.jpg', 2);
 

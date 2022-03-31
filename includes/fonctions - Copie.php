@@ -174,7 +174,7 @@
 
 	function recherche_sous_monde($bdd,$id_monde)
 	{
-		$info_monde = $bdd->prepare("SELECT `id_under_world`, `title`,`bio`,`media` FROM `under world` WHERE `id_world` = :id");
+		$info_monde = $bdd->prepare("SELECT `id_under_world`, `title`,`bio`,`media` FROM `under_world` WHERE `id_world` = :id");
 		$info_monde->bindParam(":id", $id_monde);
 		$info_monde->execute();
 		$resultat = $info_monde->fetchAll();
@@ -188,12 +188,30 @@
 		return $resultat;
 	}
 
+	function get_sous_monde($bdd,$get_element)
+	{
+		$info_sous_monde = $bdd->prepare("SELECT `title`,`media`,`bio`,`pseudo` FROM `under_world` JOIN `user` ON user.`id_user` = under_world.`id_user` WHERE `id_under_world`  = :id");
+		$info_sous_monde->bindParam(":id", $get_element);
+		$info_sous_monde->execute();
+		$resultat = $info_sous_monde->fetch();
+		return $resultat;
+	}
+
+	function nbr_histoire($bdd,$get_element)
+	{
+		$info_sous_monde = $bdd->prepare("SELECT COUNT(`id_story`) nbr_histoire FROM story WHERE `id_under_world` = :id");
+		$info_sous_monde->bindParam(":id", $get_element);
+		$info_sous_monde->execute();
+		$resultat = $info_sous_monde->fetch();
+		return $resultat;
+	}
+
 
 // PAGE MEMBRES
 
 	function liste_des_membres($bdd)
 	{
-		$info_membres = $bdd->query("SELECT `pseudo`,`prenom`,`nom`,`image`,`grade`, `date`, Count(id_story) nbm_histoire FROM user LEFT JOIN sujet ON sujet.`id_user` = user.`id_user` GROUP BY `pseudo`");
+		$info_membres = $bdd->query("SELECT `pseudo`,`prenom`,`nom`,`image`,`grade`, `date`, Count(id_story) nbm_histoire FROM user LEFT JOIN rp ON rp.`id_user` = user.`id_user` GROUP BY `pseudo`");
 		$info_membres->execute();
 		$resultat = $info_membres->fetchAll();
 		return $resultat;
