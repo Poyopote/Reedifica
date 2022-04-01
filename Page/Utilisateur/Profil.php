@@ -112,7 +112,7 @@
     <h5>Que souhaites-tu changer ?</h5>
       
         <form enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-          <input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
+          <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
           <input type="hidden" name="voir_form" value="1" />
           <fieldset>
             <legend>Biographie</legend>

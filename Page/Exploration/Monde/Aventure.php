@@ -79,6 +79,7 @@
       plugins: 'advlist link image lists save', //le plugine sont des modul qu'on rajoute
       toolbar: "save",
       save_enablewhendirty: true,
+      images_upload_url: '../../../includes/postAcceptor.php',
       save_onsavecallback: function()
       {
 
@@ -97,7 +98,7 @@
         };
         xmlhttp.open("POST", "test.php", true);
         xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xmlhttp.send(`text=${ text }&user=$user_pseudo`);
+        xmlhttp.send(`text=${ text }&user=<?php echo $user_pseudo; ?>`);
       },
       menu:{
         format: { title: 'Format', items: 'bold italic underline strikethrough superscript subscript | blockformats fontformats fontsizes align lineheight | forecolor backcolor | removeformat' },
