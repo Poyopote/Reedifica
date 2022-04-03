@@ -20,7 +20,6 @@ include("includes/fonctions - Copie.php");
 
 // HEAD
 
-    $lang = "fr";
     $titre ="Accueil - Ré.édifica";
     $css_style = "css/style.css";
     $css_page = "css/main.css";

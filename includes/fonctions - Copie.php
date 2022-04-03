@@ -205,6 +205,14 @@
 		$resultat = $info_sous_monde->fetch();
 		return $resultat;
 	}
+	
+
+	function creer_une_histoire($bdd, $pseudo, $sous_monde, $titre, $bio){
+		$date = new DateTime("now", new DateTimeZone('Europe/Paris') );
+		$date = $date->format('Y-m-d H:i:s');
+		$bdd->query("INSERT INTO `story`(`title`, `id_user`, `id_under_world`, `bio`, `date`) VALUES ('$titre',(SELECT `id_user` FROM `user` WHERE `pseudo` = '$pseudo'),'$sous_monde','$bio','$date')");
+
+	}
 
 
 // PAGE MEMBRES
@@ -225,4 +233,12 @@
 		return $resultat;
 	}
 
+//LANGUE
+	if (isset($_SESSION["lang"])) {
+		$lang = "en";
+	}
+	else {
+		$lang = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+	}
+	
 ?>

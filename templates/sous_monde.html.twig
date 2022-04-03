@@ -1,7 +1,22 @@
 {% extends "base.html.twig" %}
 
 {% block main %}
-    <h1>{{liste.title}}</h1>
-<img src="../../../img/{{liste.media}}" alt="image_du_lieu">
+    <header class="banniere-lieu">
+        <h1>{{liste.title}}</h1>
+        <img src="../../img/{{liste.media}}" alt="image_du_lieu">
+    </header>
+    {% if false == connecter %}
+    <section>
+        <form action="aventure.php" method="post">
+            <input type="text" name="titre"  id="titre" placeholder="Écris ton Titre"><br>
+            <textarea name="bio" id="bio" cols="30" rows="5" placeholder="Écris ton préface"></textarea>
+            <input type="hidden" name="createur" value="{{user}}">
+            <input type="hidden" name="lieu" value="{{lieu}}">
+            <br><input type="submit" name="fh">
+        </form>
+    </section>
+    {% endif %}
+    
+    
 
 {% endblock %}

@@ -28,8 +28,8 @@
     <div id="txtHint2">
         {% for key, sous_monde in liste %}
         <article>
-            <h4>{{sous_monde.title}}</h4>
-            <a href="monde/sous-monde.php?lieu={{sous_monde.id_under_world}}"><img src='../../img/{{sous_monde.media}}' alt='illustration'></a>
+            <h5>{{sous_monde.title}}</h5>
+            <a href="sous-monde.php?lieu={{sous_monde.id_under_world}}"><img src='../../img/{{sous_monde.media}}' alt='illustration'></a>
             <p>{{sous_monde.bio}}</p>
         </article>
         {% endfor %}

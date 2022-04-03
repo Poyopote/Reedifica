@@ -18,7 +18,7 @@ include("fonctions - Copie.php");
     foreach ($liste_sous_monde as $key => $sous_monde) {
         echo "<article>";
         echo "<h4>".$sous_monde["title"]."</h4>";
-        echo "<a href='monde/sous-monde.php?lieu=".$sous_monde["id_under_world"]."'><img src='../../img/".$sous_monde["media"]."' alt='illustration'></a>";
+        echo "<a href='sous-monde.php?lieu=".$sous_monde["id_under_world"]."'><img src='../../img/".$sous_monde["media"]."' alt='illustration'></a>";
         echo "<p>".$sous_monde["bio"]."</p>";
         echo "</article>";
     }
