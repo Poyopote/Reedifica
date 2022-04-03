@@ -19,8 +19,6 @@ require "../../includes/init_twig.php";
       $user_pseudo = $_SESSION["login"];
     }
     else $user_pseudo="";
-    $date = new DateTime("now", new DateTimeZone('Europe/Paris') );
-		echo $date->format('Y-m-d H:i:s');
 
     echo $twig->render('sous_monde.html.twig', 
     array('lang' => $lang,

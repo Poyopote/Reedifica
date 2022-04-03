@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 31 mars 2022 à 18:42
+-- Généré le : dim. 03 avr. 2022 à 18:07
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `rp` (
   `id_rp` int NOT NULL AUTO_INCREMENT,
   `id_user` int NOT NULL,
   `id_story` int NOT NULL,
-  `contente` text NOT NULL,
+  `date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   `avant` int NOT NULL,
   `apres` int NOT NULL,
   PRIMARY KEY (`id_rp`),
@@ -115,11 +115,18 @@ CREATE TABLE IF NOT EXISTS `story` (
   `id_user` int NOT NULL,
   `id_under_world` int NOT NULL,
   `bio` text NOT NULL,
-  `date` date NOT NULL,
+  `date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_story`),
   KEY `id_user` (`id_user`),
   KEY `id_under_world` (`id_under_world`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `story`
+--
+
+INSERT INTO `story` (`id_story`, `title`, `id_user`, `id_under_world`, `bio`, `date`) VALUES
+(1, 'natation', 2, 5, 'salut', '2022-04-03 19:57:46');
 
 -- --------------------------------------------------------
 
@@ -164,10 +171,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   `nom` varchar(30) NOT NULL,
   `prenom` varchar(15) NOT NULL,
   `image` varchar(50) NOT NULL,
-  `grade` enum('novise','avance','accompli') NOT NULL,
+  `grade` enum('Novise','Apprenti','Accompli','Soutien') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `mdp` char(60) NOT NULL,
   `email` varchar(319) NOT NULL,
-  `date` date NOT NULL,
+  `date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_user`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -177,8 +184,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id_user`, `pseudo`, `nom`, `prenom`, `image`, `grade`, `mdp`, `email`, `date`, `description`) VALUES
-(1, 'Voltamaster', 'X', 'Valto', 'Voltamaster.jpg', 'accompli', '$2y$10$DIHIo97eHPsA7OHoXOaKM.1ay0v9H7iZsfgG7CHJ1gntyyJLizfqK', 'exemple@email.fr', '2022-03-17', 'je suis génial'),
-(2, 'DameBleu', '', 'Rénata', 'Damebleu.jpg', 'avance', '$2y$10$.8md5emsNx6b4o5yMb3p2.6Fl997rEme3vvp6QcNpxKWw67jKx0wC', '', '2022-03-24', '');
+(1, 'Voltamaster', 'X', 'Valto', 'Voltamaster.jpg', 'Accompli', '$2y$10$DIHIo97eHPsA7OHoXOaKM.1ay0v9H7iZsfgG7CHJ1gntyyJLizfqK', 'exemple@email.fr', '2022-03-17 00:00:00', 'je suis génial'),
+(2, 'DameBleu', '', 'Rénata', 'Damebleu.jpg', 'Soutien', '$2y$10$.8md5emsNx6b4o5yMb3p2.6Fl997rEme3vvp6QcNpxKWw67jKx0wC', '', '2022-04-02 21:17:13', '');
 
 -- --------------------------------------------------------
 
