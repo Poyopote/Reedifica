@@ -35,7 +35,7 @@ require "../../includes/init_twig.php";
     'Réglementation' => "../../Page/Réglementation.php",
     'FAQ' => "../../Page/Guide/F-A-Q.php",
     'Profil' => "../../Page/Utilisateur/Profil.php",
-    'deconnexion' => "../../Page/includes/deconnexion.php",
+    'deconnexion' => "../../includes/deconnexion.php",
     'connexion' => "../../Page/Utilisateur/connexion.php",
     'inscription' => "../../Page/Utilisateur/inscription.php",
 
