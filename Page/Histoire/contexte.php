@@ -1,7 +1,7 @@
 <?php
 //INCLUSION DES FONCTIONS
 
-include("../../includes/fonctions - Copie.php");
+include("../../includes/fonctions.php");
 require "../../includes/init_twig.php";
 //INCLUSION DE LA BDD
 

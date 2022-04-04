@@ -1,7 +1,7 @@
 <?php
 //INCLUSION DES FONCTIONS
 
-include("includes/fonctions - Copie.php");
+include("includes/fonctions.php");
 
 //INCLUSION DE LA BDD
 

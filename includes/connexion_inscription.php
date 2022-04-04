@@ -2,7 +2,7 @@
 
 //INCLUSION DES FONCTIONS
 
-	require_once("fonctions - Copie.php");
+	require_once("fonctions.php");
 
 //INCLUSION DE LA BDD
 
