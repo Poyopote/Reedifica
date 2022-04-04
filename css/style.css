@@ -118,6 +118,15 @@ hr {
   }
 }
 
+#user img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 44px;
+  height: 44px;
+  border: solid 1px #CCC;
+  border-radius: 50%;
+}
+
 footer {
   background: #040037;
   background: -webkit-gradient(linear, left top, right top, from(#171717), to(#040037));

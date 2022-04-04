@@ -200,6 +200,7 @@
 	function nbr_histoire($bdd,$get_element)
 	{
 		$info_sous_monde = $bdd->prepare("SELECT COUNT(`id_story`) nbr_histoire FROM story WHERE `id_under_world` = :id");
+		// $info_sous_monde = $bdd->prepare("SELECT COUNT(story.`id_story`) nbr_histoire, COUNT(`id_rp`) message FROM story LEFT JOIN rp ON rp.`id_story` = story.`id_story` WHERE `id_under_world` = ");
 		$info_sous_monde->bindParam(":id", $get_element);
 		$info_sous_monde->execute();
 		$resultat = $info_sous_monde->fetch();

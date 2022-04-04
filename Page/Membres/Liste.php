@@ -10,8 +10,6 @@ require "../../includes/init_twig.php";
 
     session_start();
 
-    $lang = "fr";
-
     echo $twig->render('liste.html.twig', 
     array('lang' => $lang,
     'titre' => "Membres - Ré.édifica",
