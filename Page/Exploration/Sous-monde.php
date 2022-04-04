@@ -9,16 +9,15 @@ require "../../includes/init_twig.php";
   $bdd = connexion_bdd();
 
     session_start();
+    $user_pseudo = user_connect();
+
 
     if(isset($_GET["lieu"])){
         $lieu = $_GET["lieu"];   
     }
     else header("Location: Mondes.php");
     
-    if (isset($_SESSION["login"])) {
-      $user_pseudo = $_SESSION["login"];
-    }
-    else $user_pseudo="";
+
     print_r(nbr_histoire($bdd,$lieu)) ;
     
 
@@ -40,15 +39,15 @@ require "../../includes/init_twig.php";
     'deconnexion' => "../../includes/deconnexion.php",
     'connexion' => "../../Page/Utilisateur/connexion.php",
     'inscription' => "../../Page/Utilisateur/inscription.php",
+    "chemin_image_user" => "../../docs",
 
     // lien footer
     "reedifica" => "../../img/Logo_complet.svg",
 
     // donnée de la page
-
     'connecter' => !isset($_SESSION["login"]),
     'liste' => get_sous_monde($bdd,$lieu),
-    'user' => $user_pseudo,
+    'user' => info_utilisateur_profil($bdd,$user_pseudo),
     'lieu' => $lieu,
     'nbr_histoire' =>nbr_histoire($bdd,$lieu)
     

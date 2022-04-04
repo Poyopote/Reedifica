@@ -9,6 +9,7 @@ require "../../includes/init_twig.php";
   $bdd = connexion_bdd();
 
     session_start();
+    $user_pseudo = user_connect();
 
     echo $twig->render('liste.html.twig', 
     array('lang' => $lang,
@@ -28,12 +29,14 @@ require "../../includes/init_twig.php";
     'deconnexion' => "../../includes/deconnexion.php",
     'connexion' => "../../Page/Utilisateur/connexion.php",
     'inscription' => "../../Page/Utilisateur/inscription.php",
+    "chemin_image_user" => "../../docs",
 
     // lien footer
     "reedifica" => "../../img/Logo_complet.svg",
 
     // donnée de la page
     "membres" => liste_des_membres($bdd),
+    'user' => info_utilisateur_profil($bdd,$user_pseudo),
     'connecter' => !isset($_SESSION["login"])
 
 ));

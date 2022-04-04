@@ -17,6 +17,8 @@ include("includes/fonctions.php");
     // $monde = recherche_monde($bdd,$id_monde);
     // $sous_monde = recherche_sous_monde($bdd,$id_monde);
 
+    $user_pseudo = user_connect();
+
 
 // HEAD
 
@@ -41,12 +43,19 @@ include("includes/fonctions.php");
     'Tutoriel' => "Page/Guide/Tutoriel.php",
     'Réglementation' => "Page/Guide/Réglementation.php",
     'FAQ' => "Page/Guide/F-A-Q.php",
-    'connecter' => !isset($_SESSION["login"]),
     'Profil' => "Page/Utilisateur/Profil.php",
     'deconnexion' => "includes/deconnexion.php",
     'connexion' => "Page/Utilisateur/connexion.php",
     'inscription' => "Page/Utilisateur/inscription.php",
-    "reedifica" => "img/Logo_complet.svg"
+    "chemin_image_user" => "docs",
+    
+
+    // lien footer
+    "reedifica" => "img/Logo_complet.svg",
+
+    // donnée de la page
+    'connecter' => !isset($_SESSION["login"]),
+    'user' => info_utilisateur_profil($bdd,$user_pseudo)
 
   ));
 

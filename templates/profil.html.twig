@@ -1,7 +1,6 @@
 {% extends "base.html.twig" %}
 
 {% block main %}
-
   <h2>Mon compte</h2>
   <section id="presentation">
     <h3>Bio</h3>
@@ -11,16 +10,13 @@
     <p>Grade : {{tableau_utilisateur.grade}}</p>
     <p>Capacités : </p>
     <p>Pseudo : {{tableau_utilisateur.pseudo}}</p>
-
   </section>
-
-  
   <section>
     <h3>Mon Histoire</h3>
     <article>
       <h4>Une monde pas comme les autres...</h4>
       <p class="date">Créé le 15/03/2022</p>
-      <p>Alors par où commencer j'étais tranquille devant la télé... <?php print_r($toto)  ?><p>
+      <p>Alors par où commencer j'étais tranquille devant la télé...<p>
       <hr>
     </article>
     
@@ -31,40 +27,32 @@
       <hr>
     </article>
   </section>
- {% if mon_compte %}
-    <aside>
-        <h5>Que souhaites-tu changer ?</h5>
-        <br>
+{% if mon_compte %}
+  <aside>
+    <h5>Que souhaites-tu changer ?</h5><br>
     <input type="color" name="couleur">
-
     <input type="button" value="Modifier profil">
-        
-            <form enctype="multipart/form-data" action="{{form}}" method="post">
-            <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
-            <input type="hidden" name="voir_form" value="1" />
-            <fieldset>
-                <legend>Biographie</legend>
-                <h6>Texte actuel :</h6>
-                <p>fgdfgs</p>
-                <textarea id="bio" type="text" name="bio"></textarea>
-            </fieldset>
-            <fieldset >
-                <legend>Photo de profil</legend>
-                
-                <input id="idfile" name="userfile" type="file"/>
-            </fieldset>
-            <input name="send" type="submit" value="Envoyer"/>
-            <input type="reset" value="Annuler"/>          
-            </form>
-    </aside>
+    <form enctype="multipart/form-data" action="{{form}}" method="post">
+      <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
+      <input type="hidden" name="voir_form" value="1" />
+      <fieldset>
+        <legend>Biographie</legend>
+        <h6>Texte actuel :</h6>
+        <p>fgdfgs</p>
+        <textarea id="bio" type="text" name="bio"></textarea>
+      </fieldset>
+      <fieldset >
+        <legend>Photo de profil</legend>
+        <input id="idfile" name="userfile" type="file"/>
+      </fieldset>
+      <input name="send" type="submit" value="Envoyer"/>
+      <input type="reset" value="Annuler"/>          
+    </form>
+  </aside>
  {% endif %}
-
-
+ <div class="clear"></div>
 {% endblock %}
 
 {% block script %}
-<script src="../../script/menu.js"></script>
-<!-- <script src="../../script/redaction.js"></script> -->
-
-<script src="../../script/formulaire-profil_bio.js"></script>
+  <script src="../../script/menu.js"></script>
 {% endblock %}

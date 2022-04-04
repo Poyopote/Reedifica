@@ -96,115 +96,110 @@
         </g>
       </svg>             
     </h1>
-      <h6>Une histoire à écrire.</h6>
-      <video autoplay="" muted="" loop=""  width="800">
+    <h6>Une histoire à écrire.</h6>
+    <video autoplay="" muted="" loop=""  width="800">
       <source src="img/Illustration_acc" type="video/mp4">
-      </video>
-      {# <img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg"> #}
+    </video>
   </div>
-    <header>
-    
-        <nav id="navbar">
-        <input type="checkbox" id="menu-bouton">
-            <label for="menu" aria-describedby="label"><i class="bi bi-list-task"></i></label>
-            <ul>
-                <li><a href="{{index}}"><i class="bi bi-house"></i> Accueil</a></li>
-                <li><i class="bi bi-book"></i> Histoire
-                    <ul>
-                    <li><a href="{{contexte}}">Il était une fois...</a></li>
-                    <li><a href="{{info}}">Nouveauté</a></li>
-                    </ul>
-                </li> 
-                <li><a href="{{Mondes}}"><i class="bi bi-send"></i> Exploration</a></li>
-                <li><a href="{{Liste}}"><i class="bi bi-people"></i> Membres</a></li>
-                <li><i class="bi bi-question-octagon-fill"></i> Guide
-                    <ul>
-                    <li><a href="{{Tutoriel}}">Tutoriel</a></li>
-                    <li><a href="{{Réglementation}}">Réglementation</a></li>
-                    <li><a href="{{FAQ}}">F.A.Q</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <div id="user">
-            <p>
-              {% if connecter %}
-                <i class="bi bi-person-circle"></i><a href="{{connexion}}">Connexion</a> | <a href="{{inscription}}">Inscription</a>
-              {% else %}
-              <a href="{{Profil}}"><img src="" alt="image_profil"/></a>
-                    <a href='{{Profil}}'>Profil</a> | <a href='{{deconnexion}}'>Déconnexion</a>
-              {% endif %}
-           </p>
-            </div>
-        </nav>
-    </header>
+  <header>
+    <nav id="navbar">
+      <input type="checkbox" id="menu-bouton">
+      <label for="menu" aria-describedby="label"><i class="bi bi-list-task"></i></label>
+      <ul>
+          <li><a href="{{index}}"><i class="bi bi-house"></i> Accueil</a></li>
+          <li><i class="bi bi-book"></i> Histoire
+              <ul>
+              <li><a href="{{contexte}}">Il était une fois...</a></li>
+              <li><a href="{{info}}">Nouveauté</a></li>
+              </ul>
+          </li> 
+          <li><a href="{{Mondes}}"><i class="bi bi-send"></i> Exploration</a></li>
+          <li><a href="{{Liste}}"><i class="bi bi-people"></i> Membres</a></li>
+          <li><i class="bi bi-question-octagon-fill"></i> Guide
+              <ul>
+              <li><a href="{{Tutoriel}}">Tutoriel</a></li>
+              <li><a href="{{Réglementation}}">Réglementation</a></li>
+              <li><a href="{{FAQ}}">F.A.Q</a></li>
+              </ul>
+          </li>
+      </ul>
+      <div id="user">
+        <p>{% if connecter %}
+            <i class="bi bi-person-circle"></i> <a href="{{connexion}}">Connexion</a> | <a href="{{inscription}}">Inscription</a>
+          {% else %}
+          <a href="{{Profil}}"><img src="{{chemin_image_user}}/{{tableau_utilisateur.pseudo}}/{{tableau_utilisateur.image}}" alt="image_profil"/></a> <a href='{{Profil}}'>Profil</a> | <a href='{{deconnexion}}'>Déconnexion</a>
+{% endif %}</p>
+      </div>
+    </nav>
+  </header>
 {% endblock %}    
 {% block main %}
-    <section id="accueil">
-      <header id="intro">
-        <h2>Bienvenue</h2>
-    
-        <img src="img/bienvenue.jpg" alt="image">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. 
-            Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, 
-            nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
-        </p>
-      </header>
-        <article id="actualite">
-          <h3>Actualités</h3>
-          <div id="carousel">
-            <a class="carousel_button" onclick="changeImgLeft()"><i class="bi bi-arrow-left-circle-fill"></i></a>
-            
-            <img id="slideImg" src="" name="slide" alt="actu">
-            
-            <div id="carousel_text">
-                <p name="carousel_text"></p>
-                <button>Aller voir</button>
-            </div>
-            <a class="carousel_button" onclick="changeImgRight()"><i class="bi bi-arrow-right-circle-fill"></i></a>
-          </div> 
-        </article>
-        <article id="Exploration">
-            <h3>Exploration</h3>
-            <section>
-                <h4>Monde 1</h4>
-                <p><img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
-                </p>
-                <hr>
-                <ul>
-                  <li>Sous-lieu 1</li>
-                  <li>Sous-lieu 2</li>
-                </ul>
-            </section>
-            <section>
-                <h4>Monde 2</h4>
-                <p><img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
-                </p>
-                <hr>
-                <ul>
-                  <li>Sous-lieu 1</li>
-                  <li>Sous-lieu 2</li>
-                </ul>
-            </section>
-            <section>
-                <h4>Monde 3</h4>
-                <p><img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
-                </p>
-                <hr>
-                <ul>
-                  <li>Sous-lieu 1</li>
-                  <li>Sous-lieu 2</li>
-                </ul>
-            </section>
-        </article>
-    </section>
+  <section id="accueil">
+    <header id="intro">
+      <h2>Bienvenue</h2>
+  
+      <img src="img/bienvenue.jpg" alt="image">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. 
+          Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, 
+          nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+      </p>
+    </header>
+    <article id="actualite">
+      <h3>Actualités</h3>
+      <div id="carousel">
+        <a class="carousel_button" onclick="changeImgLeft()"><i class="bi bi-arrow-left-circle-fill"></i></a>
+        
+        <img id="slideImg" src="" name="slide" alt="actu">
+        
+        <div id="carousel_text">
+            <p name="carousel_text"></p>
+            <button>Aller voir</button>
+        </div>
+        <a class="carousel_button" onclick="changeImgRight()"><i class="bi bi-arrow-right-circle-fill"></i></a>
+      </div> 
+    </article>
+    <article id="Exploration">
+        <h3>Exploration</h3>
+        <section>
+            <h4>Monde 1</h4>
+            <p><img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+            </p>
+            <hr>
+            <ul>
+              <li>Sous-lieu 1</li>
+              <li>Sous-lieu 2</li>
+            </ul>
+        </section>
+        <section>
+            <h4>Monde 2</h4>
+            <p><img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+            </p>
+            <hr>
+            <ul>
+              <li>Sous-lieu 1</li>
+              <li>Sous-lieu 2</li>
+            </ul>
+        </section>
+        <section>
+            <h4>Monde 3</h4>
+            <p><img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+            </p>
+            <hr>
+            <ul>
+              <li>Sous-lieu 1</li>
+              <li>Sous-lieu 2</li>
+            </ul>
+        </section>
+    </article>
+  </section>
 {% endblock %}
 
 {% block script %}
-  <script > document.querySelector('video').playbackRate = 0.35;</script>
+  <script> document.querySelector('video').playbackRate = 0.35;</script>
   <script src="script/menu.js"></script>
   <script src="script/carousel.js"></script>
   <script src="script/logo.js"></script>

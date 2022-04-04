@@ -136,6 +136,11 @@
 		return $resultat;
 	}
 
+	function user_connect(){
+		if (isset($_SESSION["login"])) return $_SESSION["login"];
+		else return "";
+	}
+
 // PROFIL UTILISATEUR
 
 	function image_de_profil($bdd,$login,$valeur)

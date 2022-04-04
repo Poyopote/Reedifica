@@ -13,7 +13,7 @@
   $error ="";
 
   $bonjour = "";
-
+  $user_pseudo = user_connect();
   
 $mon_compte = false;
 // Vérifie si la personne est connecter
@@ -86,7 +86,7 @@ else header("Location: ../../Page/Utilisateur/connexion.php");
 
   echo $twig->render('profil.html.twig', 
   array('lang' => $lang,
-  'titre' => "Profil de ".$nom_page." - Ré.édifica",
+  'titre' => "Profil de ".$tableau_utilisateur["pseudo"]." - Ré.édifica",
   'css_style' => "../../css/style.css",
   'css_page' => "../../css/profil.css",
   'icon' => "../../img/Logo_favicon.svg",
@@ -102,17 +102,19 @@ else header("Location: ../../Page/Utilisateur/connexion.php");
   'deconnexion' => "../../includes/deconnexion.php",
   'connexion' => "connexion.php",
   'inscription' => "inscription.php",
+  "chemin_image_user" => "../../docs",
 
   // lien footer
   "reedifica" => "../../img/Logo_complet.svg",
 
   // donnée de la page
+  'connecter' => !isset($_SESSION["login"]),
   'filename' => $filename,
   'tableau_utilisateur' => $tableau_utilisateur,
   'form' => htmlspecialchars($_SERVER["PHP_SELF"]),
   'error' => $error,
   'mon_compte' => $mon_compte,
-  'profil' => $nom_page
+  'user' => info_utilisateur_profil($bdd,$user_pseudo)
 
 ));
 ?>
