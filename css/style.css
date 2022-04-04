@@ -129,28 +129,62 @@ hr {
 
 footer {
   background: #040037;
-  background: -webkit-gradient(linear, left top, right top, from(#171717), to(#040037));
-  background: linear-gradient(90deg, #171717 0%, #040037 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#040037), to(#171717));
+  background: linear-gradient(90deg, #040037 0%, #171717 100%);
   color: #edf0ea;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  padding: 2em;
-  overflow: hidden;
+  padding: 80px 0 50px;
 }
 
 footer .boite {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  padding: 0 15px;
+  min-height: 100px;
+}
+
+@media screen and (min-width: 1023px) {
+  footer .fin {
+    margin: 0 15px 0 auto;
+  }
 }
 
 footer img {
-  min-width: 200px;
+  min-height: calc(88px - 22px);
+}
+
+footer nav {
+  width: 80%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+footer nav ul {
+  margin: 0 45px 0 0;
+  padding: 0 0 0 15px;
+}
+
+footer nav ul li {
+  display: inline-block;
+  margin-right: 24px;
+}
+
+footer nav a {
+  text-decoration: none;
+}
+
+footer nav a:visited {
+  color: #edf0ea;
+  font-size: auto;
+}
+
+footer nav a:hover {
+  color: #6994ad;
+  font-size: auto;
 }
 
 @media screen and (max-width: 768px) {

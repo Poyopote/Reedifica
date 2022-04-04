@@ -58,23 +58,34 @@
 {% block main %}{% endblock %}
 </main>
 <footer id="footer">
-  <div class="boite">
-    <h3>Contacter Nous</h3>
-    <p><i class="bi bi-mailbox"></i> Reedifica@Reedifica.fr</p>
-  </div>
-  <div class="boite">
-    <h3>Liens util</h3>
-    <p><i class="bi bi-globe2"></i> Langue : <a href="?lang=fr">FR</a> | <a href="?lang=en">EN</a> </p>
-    <p><i class="bi bi-github"></i><a href="https://github.com/Poyopote/Reedifica/tree/php"> Poyopote/Réédifica</a></p>
-  </div>
-  <div class="boite">
-    <h3>Pages</h3>
-    <p>Mentions Légals</p>
-    <p>Plan du site</p>
-  </div>
-  <div class="boite">
-    <img src="{{reedifica}}" alt="logo-footer"> {# img/Logo_complet.svg #}
-  </div>
+  <nav>
+    <div class="boite">
+      <a href="{{index}}"><img src="{{reedifica}}" alt="logo-footer"></a>
+    </div>
+    <div class="boite">
+      <h3>Contacter Nous</h3>
+      <p><i class="bi bi-mailbox"></i> Reedifica@Reedifica.fr</p>
+    </div>
+    <div class="boite">
+      <h3>Pages</h3>
+      <p>Mentions Légals</p>
+      <p>Plan du site</p>
+    </div>
+    <div class="boite fin">
+      <h3>Liens util</h3>
+      <p><i class="bi bi-globe2"></i> Langue : <a href="?lang=fr">FR</a> | <a href="?lang=en">EN</a> </p>
+      <p><i class="bi bi-github"></i><a href="https://github.com/Poyopote/Reedifica/tree/php"> Poyopote/Réédifica</a></p>
+    </div>
+    <div>
+    <ul>
+      <li><a href="{{index}}"><i class="bi bi-house"></i> Accueil</a></li>
+      <li>Histoire <i class="bi bi-book"></i> <a href="{{contexte}}">Il était une fois...</a> | <a href="{{info}}">Nouveauté</a></li>
+      <li><a href="{{Mondes}}"><i class="bi bi-send"></i> Exploration</a></li>
+      <li><a href="{{Liste}}"><i class="bi bi-people"></i> Membres</a></li>
+      <li>Guide <i class="bi bi-question-octagon-fill"></i> <a href="{{Tutoriel}}">Tutoriel</a> | <a href="{{Réglementation}}">Réglementation</a> | <a href="{{FAQ}}">F.A.Q</a></li>
+    </ul>
+    </div>
+  </nav>
 </footer>
 {% block script %}{% endblock %}
 </body>

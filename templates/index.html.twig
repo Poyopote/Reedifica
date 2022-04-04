@@ -127,7 +127,7 @@
         <p>{% if connecter %}
             <i class="bi bi-person-circle"></i> <a href="{{connexion}}">Connexion</a> | <a href="{{inscription}}">Inscription</a>
           {% else %}
-          <a href="{{Profil}}"><img src="{{chemin_image_user}}/{{tableau_utilisateur.pseudo}}/{{tableau_utilisateur.image}}" alt="image_profil"/></a> <a href='{{Profil}}'>Profil</a> | <a href='{{deconnexion}}'>Déconnexion</a>
+          <a href="{{Profil}}"><img src="{{chemin_image_user}}/{{user.pseudo}}/{{user.image}}" alt="image_profil"/></a> <a href='{{Profil}}'>Profil</a> | <a href='{{deconnexion}}'>Déconnexion</a>
 {% endif %}</p>
       </div>
     </nav>
