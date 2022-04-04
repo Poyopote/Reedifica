@@ -160,6 +160,10 @@
 		return $resultat;
 	}
 
+	function profil(){
+		
+	}
+
 
 // EXPLORATION
 
@@ -257,4 +261,12 @@
 		return $bdd->query("SELECT * FROM `projet` WHERE 1;")->fetchAll();
 	}
 	
+
+// ALERT
+
+	function function_alert($message) {
+		
+		// Display the alert box 
+		echo "<script>alert('$message');</script>";
+	}
 ?>
