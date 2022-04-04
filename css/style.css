@@ -118,6 +118,10 @@ hr {
   }
 }
 
+#user a {
+  display: inline-block;
+}
+
 #user img {
   -o-object-fit: cover;
      object-fit: cover;
