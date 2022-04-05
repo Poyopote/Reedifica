@@ -157,13 +157,15 @@
 
 	function info_utilisateur_profil($bdd,$login)
 	{
-		$info_user = $bdd->prepare("SELECT `pseudo`, `prenom`, `nom`,`image`, `grade`,`date`,`description` FROM `user` WHERE `pseudo` = :user");
+		$info_user = $bdd->prepare("SELECT `id_user`, `pseudo`, `prenom`, `nom`,`image`, `grade`,`date`,`description` FROM `user` WHERE `pseudo` = :user");
 		$info_user->bindParam(":user", $login);
 		$info_user->execute();
 
 		$resultat = $info_user->fetch();
 		return $resultat;
 	}
+
+
 
 	function profil(){
 		
@@ -172,6 +174,7 @@
 
 // EXPLORATION
 
+	// Fourni le nom d'un monde, sa description, l'image, et le créateur du monde en fonction de son id.
 	function recherche_monde($bdd,$id_monde)
 	{
 		$info_monde = $bdd->prepare("SELECT `name_world`, `bio_world`, `media`, `pseudo` FROM `world` INNER JOIN `user` ON world.`id_user` = user.`id_user` WHERE `id_world` = :id");
@@ -181,6 +184,7 @@
 		return $resultat;
 	}
 
+	// Fourni tous les sous-monde et leurs info en fonction de l'id du Du monde auquel ils sont liés.
 	function recherche_sous_monde($bdd,$id_monde)
 	{
 		$info_monde = $bdd->prepare("SELECT `id_under_world`, `title`,`bio`,`media` FROM `under_world` WHERE `id_world` = :id");
@@ -190,6 +194,7 @@
 		return $resultat;
 	}
 
+	// Fournit une liste de tous les mondes.
 	function list_monde($bdd){
 		$info_monde = $bdd->query("SELECT `name_world` FROM `world` WHERE 1");
 		$info_monde->execute();
@@ -197,9 +202,10 @@
 		return $resultat;
 	}
 
+	// Fournit les informations d'un sous monde selon son idée.
 	function get_sous_monde($bdd,$get_element)
 	{
-		$info_sous_monde = $bdd->prepare("SELECT `title`,`media`,`bio`,`pseudo` FROM `under_world` JOIN `user` ON user.`id_user` = under_world.`id_user` WHERE `id_under_world`  = :id");
+		$info_sous_monde = $bdd->prepare("SELECT `title`,`media`,`bio`,`pseudo` FROM `under_world` JOIN `user` ON user.`id_user` = under_world.`id_user` WHERE `id_under_world` = :id");
 		$info_sous_monde->bindParam(":id", $get_element);
 		$info_sous_monde->execute();
 		$resultat = $info_sous_monde->fetch();
@@ -215,13 +221,53 @@
 		$resultat = $info_sous_monde->fetch();
 		return $resultat;
 	}
+
+	function list_histoire($bdd,$get_element)
+	{
+		$histoire = $bdd->prepare(
+		"SELECT `pseudo`, `image`, `title`, `bio`,s.`date` FROM user AS u INNER JOIN story AS s ON u.`id_user` = s.`id_user` WHERE s.`id_under_world` = :id");
+		$histoire->bindParam(":id", $get_element);
+		$histoire->execute();
+		$resultat = $histoire->fetchAll();
+		return $resultat;
+	}
+
+	function verification_histoire_non_existante($bdd, $id_user, $titre){
+		$histoire = $bdd->prepare("SELECT * FROM `story` WHERE `title` = :titre AND `id_user` = :id_user"); 
+		$histoire->bindParam(":titre", $titre);
+		$histoire->bindParam(":id_user", $id_user);
+		$histoire->execute();
+		$resultat = $histoire->fetch();
+		
+		if ($resultat=="") {
+			return array(TRUE, "") ;
+		}
+		else return array(FALSE, $resultat) ;
+	}
 	
 
-	function creer_une_histoire($bdd, $pseudo, $sous_monde, $titre, $bio){
+	function creer_une_histoire($bdd, $id_user, $sous_monde, $titre, $bio){
 		$date = new DateTime("now", new DateTimeZone('Europe/Paris') );
 		$date = $date->format('Y-m-d H:i:s');
-		$bdd->query("INSERT INTO `story`(`title`, `id_user`, `id_under_world`, `bio`, `date`) VALUES ('$titre',(SELECT `id_user` FROM `user` WHERE `pseudo` = '$pseudo'),'$sous_monde','$bio','$date')");
 
+		$test = $bdd->query("INSERT INTO `story`(`title`, `id_user`, `id_under_world`, `bio`, `date`)
+		VALUES ('$titre','$id_user','$sous_monde','$bio','$date')");
+		$last_id_creer = $bdd->lastInsertId(); 
+		$bdd->query("INSERT INTO `rp`(`id_user`, `id_story`, `date`, `avant`, `apres`)
+		VALUES ('$id_user','$last_id_creer','$date',NULL,NULL)");
+
+		if($test){
+			$histoire = $bdd->query("SELECT * FROM `rp` WHERE id_rp = $last_id_creer");
+			$histoire->execute();
+			$resultat = $histoire->fetchAll();
+			return array(function_alert("ça marche"),$resultat);
+
+		}
+		else {
+			return function_alert("problème");
+			header("Location: sous-monde.php");
+			exit();
+		}
 	}
 
 

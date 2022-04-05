@@ -10,16 +10,29 @@ require "../../includes/init_twig.php";
 
     session_start();
     $user_pseudo = user_connect();
+    // $id_user = info_utilisateur_profil($bdd,$user_pseudo);
 
 
     if(isset($_GET["lieu"])){
-        $lieu = $_GET["lieu"];   
+        $lieu = $_GET["lieu"];
+        
+        if(get_sous_monde($bdd,$lieu) == ""){
+          header("Location: Mondes.php");
+        }
     }
     else header("Location: Mondes.php");
-    
 
-    print_r(nbr_histoire($bdd,$lieu)) ;
+
+    if(isset($_GET["error"])){
+      $tableau = $_SESSION["sous_monde"];
+      $error =false;
+    }
+    else {
+      $tableau = $_SESSION["sous_monde"] = "";
+      $error =true;
+    }
     
+    // print_r(nbr_histoire($bdd,$lieu)) ;
 
     echo $twig->render('sous_monde.html.twig', 
     array('lang' => $lang,
@@ -49,7 +62,11 @@ require "../../includes/init_twig.php";
     'liste' => get_sous_monde($bdd,$lieu),
     'user' => info_utilisateur_profil($bdd,$user_pseudo),
     'lieu' => $lieu,
-    'nbr_histoire' =>nbr_histoire($bdd,$lieu)
+    'error' => $error,
+    'probleme' => $tableau,
+    'source' => htmlspecialchars($_SERVER["PHP_SELF"])."?lieu=".$lieu,
+    'histoires' =>nbr_histoire($bdd,$lieu)
+
     
 
 ));

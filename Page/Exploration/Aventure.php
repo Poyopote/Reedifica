@@ -8,16 +8,28 @@ include("../../includes/fonctions.php");
   include("../../includes/init_BDD.php");
   $bdd = connexion_bdd();
     session_start();
+    $user_pseudo = user_connect();
+    if(isset($_POST["creer"]) ){
+      $test = verification_histoire_non_existante($bdd,$_POST["id_createur"],htmlspecialchars($_POST["titre"],ENT_QUOTES));
 
-    if($_SESSION["login"] == $_POST["createur"] && isset($_SESSION["login"]) )
-    creer_une_histoire($bdd,$_POST["createur"],$_POST["lieu"],$_POST["titre"],$_POST["bio"]);
+      if($test[0] == true){
+        $reponse = creer_une_histoire($bdd,$_POST["id_createur"],$_POST["lieu"],htmlspecialchars($_POST["titre"],ENT_QUOTES),htmlspecialchars($_POST["bio"],ENT_QUOTES));
+        echo $reponse[0];
+        $table_histoire = $reponse[1];
+      }
+      else {
+        $_SESSION["sous_monde"] = $test[1];
+        header('Location: '.$_POST["source"].'&error=existe');
+      }
+      
+    }
+    
     else header('Location: sous-monde.php');
 
     if(!isset($_SESSION["login"])){
       $lien_user = '<a href="../../Page/Utilisateur/connexion.php">Connexion</a> | <a href="../../Page/Utilisateur/inscription.php">Inscription</a>';
     }
     else {
-      $user_pseudo = $_SESSION["login"];
       $lien_user = '<a href="../../Page/Utilisateur/Profil.php">Profil</a> | <a href="../../includes/deconnexion.php">Déconnexion</a>';
     }
 

@@ -1,6 +1,6 @@
 main {
   padding-top: 1em;
-  min-height: 100vh;
+  min-height: 80vh;
   background: -webkit-gradient(linear, left top, left bottom, from(#2c609b), to(#54c0ff));
   background: linear-gradient(180deg, #2c609b 0%, #54c0ff 100%);
 }

@@ -4,19 +4,35 @@
     <header class="banniere-lieu">
         <h1>{{liste.title}}</h1>
         <img src="../../img/{{liste.media}}" alt="image_du_lieu">
+        {% if error == false %}
+        <p>Ton titre "{{probleme.title}}" est le même, qu'une histoire que tu as créé le [{{probleme.date}}]</p>
+        <p>Change de nom, si tu veux créer une nouvelle histoire.</p>
+        {% endif %}
     </header>
     {% if false == connecter %}
     <section>
         <form action="aventure.php" method="post">
             <input type="text" name="titre"  id="titre" placeholder="Écris ton Titre"><br>
             <textarea name="bio" id="bio" cols="30" rows="5" placeholder="Écris ton préface"></textarea>
+            <input type="hidden" name="id_createur" value="{{user.id_user}}">
             <input type="hidden" name="createur" value="{{user.pseudo}}">
             <input type="hidden" name="lieu" value="{{lieu}}">
-            <br><input type="submit">
+            <input type="hidden" name="source" value="{{source}}">
+            <br><input type="submit" name="creer" value="Créer une histoire">
         </form>
     </section>
     {% endif %}
     <section>
+    {% if histoires.nbr_histoire == 0 %}
+        <p>Il {{histoires.nbr_histoire}} récits, soyez le premier à la créer.</p>
+    {% else %}
+        {% if histoires.nbr_histoire == 1 %}
+        <p>Il y a {{histoires.nbr_histoire}} histoire dans ce lieu </p>
+        {% else %}
+        <p>Il y a {{histoires.nbr_histoire}} histoires dans ce lieu </p>
+        {% endif %}  
+    {% endif %}
+
      {# {% for item in items %}
          
      {% endfor %}    #}
