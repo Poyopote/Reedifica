@@ -232,6 +232,9 @@
 		return $resultat;
 	}
 
+
+	// Lorsqu'un utilisateur remplit le formulaire de sous-monde pour créer une histoire,
+	//  cette fonction vérifie si l'information transmise n'existe pas déjà.
 	function verification_histoire_non_existante($bdd, $id_user, $titre){
 		$histoire = $bdd->prepare("SELECT * FROM `story` WHERE `title` = :titre AND `id_user` = :id_user"); 
 		$histoire->bindParam(":titre", $titre);
@@ -239,28 +242,39 @@
 		$histoire->execute();
 		$resultat = $histoire->fetch();
 		
+		// Si le tableau de la requête est vide.
+		// La fonction retourne un tableau avec pour première valeur vraie et le résultat de la requête.
 		if ($resultat=="") {
 			return array(TRUE, "") ;
 		}
+		// Sinon, elle retournera un tableau avec pour première valeur faux et le résultat de la requête.
 		else return array(FALSE, $resultat) ;
 	}
 	
-
+	// Ajoutent une ligne À la table Story, avec les informations fournies par l'utilisateur.
+	// Après vérification des données du formulaire sous monde.
+	// Puis créer un premier RP dans la table, appartenant au créateur de l'histoire.
 	function creer_une_histoire($bdd, $id_user, $sous_monde, $titre, $bio){
 		$date = new DateTime("now", new DateTimeZone('Europe/Paris') );
-		$date = $date->format('Y-m-d H:i:s');
+		$date = $date->format('Y-m-d H:i:s'); // Fournit la date de la FRANCE
 
-		$test = $bdd->query("INSERT INTO `story`(`title`, `id_user`, `id_under_world`, `bio`, `date`)
+
+		$creer = $bdd->query("INSERT INTO `story`(`title`, `id_user`, `id_under_world`, `bio`, `date`)
 		VALUES ('$titre','$id_user','$sous_monde','$bio','$date')");
-		$last_id_creer = $bdd->lastInsertId(); 
+		$last_id_creer = $bdd->lastInsertId(); // Récupère la clé primaire, créé par la requête précédente.
 		$bdd->query("INSERT INTO `rp`(`id_user`, `id_story`, `date`, `avant`, `apres`)
 		VALUES ('$id_user','$last_id_creer','$date',NULL,NULL)");
 
-		if($test){
-			$histoire = $bdd->query("SELECT * FROM `rp` WHERE id_rp = $last_id_creer");
+
+		if($creer){
+			$rp_first = $bdd->query("SELECT * FROM `rp` WHERE id_story = $last_id_creer && `avant`= NULL");
+			$rp_first->execute();
+			$resultat_1 = $rp_first->fetchAll();
+			
+			$histoire = $bdd->query("SELECT * FROM `story` WHERE id_story = $last_id_creer");
 			$histoire->execute();
-			$resultat = $histoire->fetchAll();
-			return array(function_alert("ça marche"),$resultat);
+			$resultat_2 = $histoire->fetchAll();
+			return array(function_alert("ça marche"),$resultat_1,$resultat_2);
 
 		}
 		else {
