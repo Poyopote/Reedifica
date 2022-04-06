@@ -35,7 +35,7 @@ if (!isset($_SESSION["histoire"])) {
   else header('Location: sous-monde.php');
 }
 else $table_histoire = $_SESSION["histoire"];
-print_r($table_histoire);
+// print_r($table_histoire);
 
     if(!isset($_SESSION["login"])){
       $lien_user = '<a href="../../Page/Utilisateur/connexion.php">Connexion</a> | <a href="../../Page/Utilisateur/inscription.php">Inscription</a>';
@@ -58,9 +58,9 @@ print_r($table_histoire);
     <link rel="icon" href="../../img/Logo_favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../../css/monde.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../../css/exploration.css"> -->
 
-    <title><?php echo $table_histoire["title"]?> - Ré.édifica</title>
+    <title><?php echo htmlspecialchars_decode($table_histoire["title"])?> - Ré.édifica</title>
     <!-- SEO  -->
     <!-- <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/> -->
     <meta property="og:region" content="fr_FR"/>
@@ -111,7 +111,6 @@ print_r($table_histoire);
 <div>
     <form method="post">
         <textarea id="tiny" rows="15" cols="80" style="width: 80%"></textarea>
-        <button name="submitbtn" onclick="sauvegarde()">Poster</button>
    </form>
  </div>
   <script src="../../script/redaction.js"></script>
