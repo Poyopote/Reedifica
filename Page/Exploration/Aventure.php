@@ -9,22 +9,33 @@ include("../../includes/fonctions.php");
   $bdd = connexion_bdd();
     session_start();
     $user_pseudo = user_connect();
-    if(isset($_POST["creer"]) ){
-      $test = verification_histoire_non_existante($bdd,$_POST["id_createur"],htmlspecialchars($_POST["titre"],ENT_QUOTES));
+    $error = FALSE;
+    // $_SESSION["histoire"] = null;
 
-      if($test[0] == true){
-        $reponse = creer_une_histoire($bdd,$_POST["id_createur"],$_POST["lieu"],htmlspecialchars($_POST["titre"],ENT_QUOTES),htmlspecialchars($_POST["bio"],ENT_QUOTES));
-        echo $reponse[0];
-        $table_histoire = $reponse[1];
-      }
-      else {
-        $_SESSION["sous_monde"] = $test[1];
-        header('Location: '.$_POST["source"].'&error=existe');
-      }
-      
+    if(isset($_POST["creer"]) && isset($_SESSION["histoire"]) ){
+      $error = TRUE;
     }
-    
-    else header('Location: sous-monde.php');
+
+
+if (!isset($_SESSION["histoire"])) {
+  if(isset($_POST["creer"]) ){
+    $test = verification_histoire_non_existante($bdd,$_POST["id_createur"],htmlspecialchars($_POST["titre"],ENT_QUOTES));
+
+    if($test[0] == true){
+      $reponse = creer_une_histoire($bdd,$_POST["id_createur"],$_POST["lieu"],htmlspecialchars($_POST["titre"],ENT_QUOTES),htmlspecialchars($_POST["bio"],ENT_QUOTES));
+      echo $reponse[0];
+      $_SESSION["histoire"] = $reponse[2][0];
+      header('Location: '.htmlspecialchars($_SERVER["PHP_SELF"]));
+    }
+    else {
+      $_SESSION["sous_monde"] = $test[1];
+      header('Location: '.$_POST["source"].'&error=existe');
+    }
+  } 
+  else header('Location: sous-monde.php');
+}
+else $table_histoire = $_SESSION["histoire"];
+print_r($table_histoire);
 
     if(!isset($_SESSION["login"])){
       $lien_user = '<a href="../../Page/Utilisateur/connexion.php">Connexion</a> | <a href="../../Page/Utilisateur/inscription.php">Inscription</a>';
@@ -49,7 +60,7 @@ include("../../includes/fonctions.php");
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/monde.css">
 
-    <title><?php echo $_POST["titre"]?> - Ré.édifica</title>
+    <title><?php echo $table_histoire["title"]?> - Ré.édifica</title>
     <!-- SEO  -->
     <!-- <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/> -->
     <meta property="og:region" content="fr_FR"/>
@@ -91,6 +102,11 @@ include("../../includes/fonctions.php");
     </header>
     <main>
       <div id="user"><?php echo $user_pseudo ?></div>
+    <?php
+      if ($error) {
+        echo "<p>une histoire est déjà en cours d'écriture</p>";
+      }
+    ?>
     </main>
 <div>
     <form method="post">
