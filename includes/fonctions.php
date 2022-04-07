@@ -284,6 +284,16 @@
 		}
 	}
 
+	function faire_un_rp($bdd,$numero){
+		
+	}
+
+	function recherche_histoire($bdd,$numero){
+		$histoire = $bdd->query("SELECT * FROM `rp` WHERE id_story = $numero");
+		$histoire->execute();
+		$resultat = $histoire->fetchAll();
+		return $resultat;
+	}
 
 // PAGE MEMBRES
 

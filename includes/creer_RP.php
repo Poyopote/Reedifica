@@ -14,7 +14,7 @@ if ( array_key_exists('text', $_POST) ) {
     $table_rp = $_SESSION["rp"];
     
     $text = $_POST["text"];
-    $text = htmlspecialchars_decode($text);
+    $text = urldecode($text);
     // do stuff with params  echo($text);
     
 
@@ -22,19 +22,8 @@ if ( array_key_exists('text', $_POST) ) {
     
 $file = $_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp/".$table_rp["id_rp"].'.txt';
 
-if (file_exists($file)) {
-    // echo "Le fichier $file existe.";
-} else {
+    file_put_contents($file, $text);
 
-    // Ouvre un fichier pour lire un contenu existant
-    $current = file_get_contents($file);
-    // Ajoute une personne
-    $current .= $text;
-    // Écrit le résultat dans le fichier
-    file_put_contents($file, $current);
-
-    
-}
 
     echo $table_histoire["id_story"];
     // echo 'Yes, it works!';
