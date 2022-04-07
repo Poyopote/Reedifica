@@ -267,7 +267,7 @@
 
 
 		if($creer){
-			$rp_first = $bdd->query("SELECT * FROM `rp` WHERE id_story = $last_id_creer && `avant`= NULL");
+			$rp_first = $bdd->query("SELECT * FROM `rp` WHERE id_story = $last_id_creer AND `avant` IS NULL");
 			$rp_first->execute();
 			$resultat_1 = $rp_first->fetchAll();
 			
@@ -333,5 +333,27 @@
 		
 		// Display the alert box 
 		echo "<script>alert('$message');</script>";
+	}
+
+// NETTOYAGE
+
+	function clear($bdd){
+		$info_table = $bdd->query("SELECT * FROM `story`");
+		$info_table->execute();
+		$resultat = $info_table->fetchAll();
+		$dir = $_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp";
+//		mkdir($dir);
+		if(empty($resultat)){
+			if (!is_dir($dir)) {
+				mkdir($dir);
+			}
+			else{
+				rmdir ($dir);
+				mkdir($dir);
+			}
+			$bdd->query("TRUNCATE TABLE `rp`");
+			return function_alert("la table story et vide rp va être reset");
+		}
+		else return function_alert("tout va bien");
 	}
 ?>

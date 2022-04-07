@@ -7,13 +7,18 @@ tinymce.init({
   images_upload_url: '../../../includes/postAcceptor.php',
   save_onsavecallback: function()
   {
+    const rp = encodeURIComponent(tinyMCE.get('tiny').getContent());
     // let user = $("#user").text;
-    const text = encodeURIComponent(tinyMCE.get('tiny').getContent());
 
     // console.log(text);
-    $.post( "test.php", { text: text})
+    $.post( "../../includes/creer_RP.php", { text: rp})
     .done(function( data ) {
-    alert( "Data Loaded: " + data );
+      let text = "OK Pour aller vers l'histoire\n Cancel pour rester ici.";
+      if (confirm(text) == true) {
+        window.location.href = 'Aventure.php?num='+data;
+      } 
+    // alert( "Data Loaded: " + data );
+    // window.location.href = 'Aventure.php?histoire='+data;
     });
     // var xmlhttp = new XMLHttpRequest();
     // xmlhttp.open("POST", "test.php", true);
@@ -33,23 +38,3 @@ tinymce.init({
   }
   
 });
-  
-// function sauvegarde() {
-//   {
-//     // let user = $("#user").text;
-//     const text = encodeURIComponent(tinyMCE.get('tiny').getContent());
-
-//     // console.log(text);
-
-//     var xmlhttp = new XMLHttpRequest();
-//     xmlhttp.onreadystatechange = function() {
-//       if (this.readyState == 4 && this.status == 200) { // 4 si l'opération est terminer
-//         alert("Requête effectuée !")
-//         // console.log(this.responseText)
-//       }
-//     };
-//     xmlhttp.open("POST", "test.php", true);
-//     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-//     xmlhttp.send(`text=${ text }`);
-//   }
-// }
