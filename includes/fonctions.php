@@ -196,7 +196,7 @@
 
 	// Fournit une liste de tous les mondes.
 	function list_monde($bdd){
-		$info_monde = $bdd->query("SELECT `name_world` FROM `world` WHERE 1");
+		$info_monde = $bdd->query("SELECT * FROM `world` WHERE 1");
 		$info_monde->execute();
 		$resultat = $info_monde->fetchAll();
 		return $resultat;

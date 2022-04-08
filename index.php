@@ -26,8 +26,7 @@ include("includes/fonctions.php");
     $css_style = "css/style.css";
     $css_page = "css/main.css";
     $icon = "img/Logo_favicon.svg";
-
-
+    $choix = list_monde($bdd);
 
     echo $twig->render('index.html.twig', 
     array('lang' => $lang,
@@ -55,7 +54,8 @@ include("includes/fonctions.php");
 
     // donnée de la page
     'connecter' => !isset($_SESSION["login"]),
-    'user' => info_utilisateur_profil($bdd,$user_pseudo)
+    'user' => info_utilisateur_profil($bdd,$user_pseudo),
+    'choix' => $choix
 
   ));
 

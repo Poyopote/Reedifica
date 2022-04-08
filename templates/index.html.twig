@@ -160,40 +160,18 @@
       </div> 
     </article>
     <article id="Exploration">
-        <h3>Exploration</h3>
-        <section>
-            <h4>Monde 1</h4>
-            <p><img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
-            </p>
-            <hr>
-            <ul>
-              <li>Sous-lieu 1</li>
-              <li>Sous-lieu 2</li>
-            </ul>
-        </section>
-        <section>
-            <h4>Monde 2</h4>
-            <p><img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
-            </p>
-            <hr>
-            <ul>
-              <li>Sous-lieu 1</li>
-              <li>Sous-lieu 2</li>
-            </ul>
-        </section>
-        <section>
-            <h4>Monde 3</h4>
-            <p><img src="https://cdn.pixabay.com/photo/2018/01/25/17/48/fantasy-3106688_960_720.jpg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
-            </p>
-            <hr>
-            <ul>
-              <li>Sous-lieu 1</li>
-              <li>Sous-lieu 2</li>
-            </ul>
-        </section>
+      <h3>Exploration</h3>
+      {% for key, monde in choix %}
+      <section>
+        <img src="img/{{monde.media}}" alt="illustration_monde">
+        <h4>{{monde.name_world}}</h4>
+        <p>{{monde.bio_world}}</p>
+        <ul>
+          <li>Sous-lieu 1</li>
+          <li>Sous-lieu 2</li>
+        </ul>
+      </section>
+      {% endfor %}
     </article>
   </section>
 {% endblock %}
