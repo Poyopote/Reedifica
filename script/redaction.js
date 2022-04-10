@@ -7,7 +7,7 @@ tinymce.init({
   menubar: false,
   save_enablewhendirty: true,
   fontsize_formats: '8pt 10pt 12pt 14pt 16pt 18pt 24pt 36pt 48pt',
-  images_upload_url: '../../../includes/postAcceptor.php',
+  images_upload_url: '../../includes/postAcceptor.php',
   content_style:
     "@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap');",
   font_formats: "Arial=arial,helvetica,sans-serif; Courier New=courier new,courier,monospace; Outfit=Outfit; Marck Script='Marck Script'",

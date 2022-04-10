@@ -1,44 +1,14 @@
-main {
-  padding-top: 1em;
-  min-height: 80vh;
-  background: -webkit-gradient(linear, left top, left bottom, from(#2c609b), to(#54c0ff));
-  background: linear-gradient(180deg, #2c609b 0%, #54c0ff 100%);
+#monde h2 + img {
+  background-size: cover;
+  position: fixed;
+  top: 96px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
 }
 
-main h2 {
-  color: #edf0ea;
-  font-size: 5em;
-}
-
-main::after {
-  clear: both;
-  content: '';
-  display: block;
-}
-
-main h4 {
-  color: black;
-  font-size: 3em;
-}
-
-@media screen and (min-width: 768px) {
-  main h3, main select {
-    display: inline-block;
-    text-align: center;
-    padding-left: 1em;
-    padding-right: 1em;
-  }
-  main section#monde, main section#sous-monde {
-    float: left;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    width: 50%;
-    margin-bottom: 15px;
-    padding: 0px 15.5px;
-  }
-}
-
-#monde select {
+select {
   color: #edf0ea;
   background-color: black;
   padding: 8px 16px;
@@ -47,30 +17,18 @@ main h4 {
   cursor: pointer;
 }
 
-#monde img, #monde p, #sous-monde img, #sous-monde p {
-  padding: 0.2rem;
-  border: 5px double #edf0ea;
-  float: left;
+.sous_monde {
+  background-color: rgba(237, 240, 234, 0.9);
+  margin-top: 5vw;
+  margin-bottom: 5vw;
 }
 
-#monde h4, #monde h5, #sous-monde h4, #sous-monde h5 {
-  color: #edf0ea;
-  font-size: 5em;
-  background-color: #040037;
-  font-family: "Outfit";
-  background: rgba(4, 0, 55, 0.25);
-  text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(4, 0, 55, 0.1), 0 0 5px rgba(4, 0, 55, 0.1), 0 1px 3px rgba(4, 0, 55, 0.3), 0 3px 5px rgba(4, 0, 55, 0.2), 0 5px 10px rgba(4, 0, 55, 0.25), 0 10px 10px rgba(4, 0, 55, 0.2), 0 20px 20px rgba(4, 0, 55, 0.15);
-  text-align: center;
-  padding: 0.2rem;
-  border: 5px double #040037;
-}
-
-#monde img, #sous-monde img {
+.sous_monde img {
   max-width: 300px;
 }
 
-#monde article {
-  background-size: cover;
+.sous_monde a, .sous_monde p {
+  display: inline-block;
 }
 
 .banniere-lieu {
@@ -96,4 +54,34 @@ form {
   min-height: 40px;
   font-size: larger;
   padding: 1em;
+}
+
+article.rp {
+  border: solid 2px black;
+  padding: 1em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+article.rp h1, article.rp h2, article.rp h3, article.rp h4, article.rp h5, article.rp h6, article.rp p {
+  font-family: initial;
+  font-size: initial;
+  color: initial;
+}
+
+@media screen and (min-width: 768px) {
+  aside {
+    padding: 1em;
+    float: left;
+  }
+  aside img {
+    max-width: 190px;
+  }
+  article.rp {
+    float: left;
+  }
+}
+
+.clear {
+  clear: both;
 }

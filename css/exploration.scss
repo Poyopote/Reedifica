@@ -1,55 +1,19 @@
 @import "mixin"; @import "variables"; @import "responsive";
 
-
-
-main{
-    padding-top: 1em;
-    min-height: 80vh;
-    h2{@include Tonlook(5em, $extremeblanc); }
-
-      &::after {
-        clear: both;
-        content: '';
-        display: block;
-      }
-    
-    h4{
-        @include Tonlook(3em, darken($extremenoir, 20%));
+#monde{
+    h2 + img{
+        background-size: cover;
+        position: fixed;
+        top: 96px;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
     }
-    background: linear-gradient(180deg, mix($couleurprin, $couleursecon) 0%, $couleursecon 100%);
-    
-
-    @include plus-large-que(Moyen){
-
-        h3, select{
-            display: inline-block;
-            text-align: center;
-            @include padding-droite-gauche(1em);
-        }
-
-          section#monde, section#sous-monde  {
-            float: left;
-            box-sizing: border-box;
-            width: 50%;
-            margin-bottom: 15px;
-            padding: 0px 15.5px;
-    
-            // &:nth-child(2n + 1) {
-            //     clear: both;
-            // }
-            
-        }
-    }
-
-
-
- 
-    
 }
 
 
-
-#monde select{
+select{
     color: $extremeblanc;
     background-color: rgb(0, 0, 0);
     padding: 8px 16px;
@@ -58,27 +22,13 @@ main{
     cursor: pointer;
 }
 
-#monde, #sous-monde {
-
-    img, p {
-        padding: 0.2rem;
-        border: 5px double $extremeblanc;
-        float: left;
-    }
-    h4, h5 {
-        @include titre-h4-monde(5em,$extremeblanc,$couleurprin);
-        text-align: center;
-        padding: 0.2rem;
-        border: 5px double $couleurprin;
-    }
+.sous_monde {
     img{max-width: 300px;}
-
-}
-#monde   article{
-    // background: $couleurancien;
-    // background: url("../img/bois.jpg");
-    background-size: cover;
-    
+    background-color: rgba($extremeblanc, 0.9);
+    @include margin-haut-bas(5vw);
+    a , p{
+        display: inline-block;
+    }
 }
     
 
@@ -103,4 +53,33 @@ form{
     min-height: 40px;
     font-size: larger;
     padding: 1em;
+}
+
+
+article.rp{
+    border: solid 2px black;
+    padding: 1em;
+    @include margin-haut-bas(10px);
+    
+    h1,h2,h3,h4,h5,h6,p {
+        font-family: initial;
+        font-size: initial;
+        color: initial;
+    }
+
+}
+
+
+@include plus-large-que(Moyen){
+    aside{
+        padding: 1em;
+        float: left;
+        img{max-width: 190px;}
+    }
+    article.rp{
+        float: left;
+    }
+}
+.clear{
+	clear: both;
 }

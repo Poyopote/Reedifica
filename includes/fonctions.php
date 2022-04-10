@@ -166,9 +166,14 @@
 	}
 
 
+	function profil($bdd,$id)
+	{
+		$info_user = $bdd->prepare("SELECT * FROM `user` WHERE `id_user` = :user");
+		$info_user->bindParam(":user", $id);
+		$info_user->execute();
 
-	function profil(){
-		
+		$resultat = $info_user->fetch();
+		return $resultat;
 	}
 
 
@@ -205,7 +210,7 @@
 	// Fournit les informations d'un sous monde selon son idée.
 	function get_sous_monde($bdd,$get_element)
 	{
-		$info_sous_monde = $bdd->prepare("SELECT `title`,`media`,`bio`,`pseudo` FROM `under_world` JOIN `user` ON user.`id_user` = under_world.`id_user` WHERE `id_under_world` = :id");
+		$info_sous_monde = $bdd->prepare("SELECT under_world.`id_world`, `title`,`media`,`bio`,`pseudo` FROM `under_world` JOIN `user` ON user.`id_user` = under_world.`id_user` WHERE `id_under_world` = :id");
 		$info_sous_monde->bindParam(":id", $get_element);
 		$info_sous_monde->execute();
 		$resultat = $info_sous_monde->fetch();
@@ -232,6 +237,15 @@
 		return $resultat;
 	}
 
+	// Fourni tous les sous-monde et leurs info en fonction de l'id du Du monde auquel ils sont liés.
+	function get_histoire($bdd,$id_story)
+	{
+		$histoire = $bdd->prepare("SELECT * FROM `story` WHERE `id_story` = :id");
+		$histoire->bindParam(":id", $id_story);
+		$histoire->execute();
+		$resultat = $histoire->fetch();
+		return $resultat;
+	}
 
 	// Lorsqu'un utilisateur remplit le formulaire de sous-monde pour créer une histoire,
 	//  cette fonction vérifie si l'information transmise n'existe pas déjà.

@@ -1,6 +1,7 @@
 {% extends "base.html.twig" %}
 
 {% block main %}
+<main>
     <header class="banniere-lieu">
         <h1>{{liste.title}}</h1>
         <img src="../../img/{{liste.media}}" alt="image_du_lieu">
@@ -37,7 +38,5 @@
          
      {% endfor %}    #}
     </section>
-    
-    
-
+</main>
 {% endblock %}

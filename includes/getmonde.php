@@ -16,10 +16,10 @@ include("fonctions.php");
     $monde = recherche_monde($bdd,$id_monde);
 
 
-    echo "<h4>".$monde["name_world"]."</h4>";
+    echo "<h2>".$monde["name_world"]."</h2>";
     echo "<img src='../../img/".$monde["media"]."' alt='illustration'>";
     echo "<p>".$monde["bio_world"]."</p>";
-
+    echo "<div class='clear'></div>";
     // print_r($choix);
 
 ?>
