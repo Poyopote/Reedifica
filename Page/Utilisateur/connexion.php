@@ -9,6 +9,10 @@ session_start();
         $message_erreur = "";
     }
 
+    if(isset($_SESSION["login"])){
+        header("Location: ../../index.php");
+    }
+
 ?>
 
 <!DOCTYPE html>

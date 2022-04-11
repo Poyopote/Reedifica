@@ -134,48 +134,46 @@
   </header>
 {% endblock %}    
 {% block main %}
-<main>
-  <section id="accueil">
-    <header id="intro">
-      <h2>Bienvenue</h2>
-  
-      <img src="img/bienvenue.jpg" alt="image">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. 
-          Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, 
-          nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
-      </p>
-    </header>
-    <article id="actualite">
-      <h3>Actualités</h3>
-      <div id="carousel">
-        <a class="carousel_button" onclick="changeImgLeft()"><i class="bi bi-arrow-left-circle-fill"></i></a>
-        
-        <img id="slideImg" src="" name="slide" alt="actu">
-        
-        <div id="carousel_text">
-            <p name="carousel_text"></p>
-            <button>Aller voir</button>
-        </div>
-        <a class="carousel_button" onclick="changeImgRight()"><i class="bi bi-arrow-right-circle-fill"></i></a>
-      </div> 
-    </article>
-    <article id="Exploration">
-      <h3>Exploration</h3>
-      {% for key, monde in choix %}
-      <section>
-        <img src="img/{{monde.media}}" alt="illustration_monde">
-        <h4>{{monde.name_world}}</h4>
-        <p>{{monde.bio_world}}</p>
-        <ul>
-          <li>Sous-lieu 1</li>
-          <li>Sous-lieu 2</li>
-        </ul>
-      </section>
-      {% endfor %}
-    </article>
-  </section>
-</main>
+<section id="accueil">
+  <header id="intro">
+    <h2>Bienvenue</h2>
+
+    <img src="img/bienvenue.jpg" alt="image">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. 
+        Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, 
+        nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+    </p>
+  </header>
+  <article id="actualite">
+    <h3>Actualités</h3>
+    <div id="carousel">
+      <a class="carousel_button" onclick="changeImgLeft()"><i class="bi bi-arrow-left-circle-fill"></i></a>
+      
+      <img id="slideImg" src="" name="slide" alt="actu">
+      
+      <div id="carousel_text">
+          <p name="carousel_text"></p>
+          <button>Aller voir</button>
+      </div>
+      <a class="carousel_button" onclick="changeImgRight()"><i class="bi bi-arrow-right-circle-fill"></i></a>
+    </div> 
+  </article>
+  <article id="Exploration">
+    <h3>Exploration</h3>
+    {% for key, monde in choix %}
+    <section>
+      <img src="img/{{monde.media}}" alt="illustration_monde">
+      <h4>{{monde.name_world}}</h4>
+      <p>{{monde.bio_world}}</p>
+      <ul>
+        <li>Sous-lieu 1</li>
+        <li>Sous-lieu 2</li>
+      </ul>
+    </section>
+    {% endfor %}
+  </article>
+</section>
 {% endblock %}
 
 {% block script %}

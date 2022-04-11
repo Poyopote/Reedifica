@@ -1,3 +1,0 @@
-<h1>Histoire de nuit</h1>
-<p>je parle <span style="text-decoration: underline;">ici</span></p>
-<p>je peux changer de <span style="color: blue;">couleur </span>et de <strong>profondeur</strong>.</p>

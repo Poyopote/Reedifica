@@ -9,20 +9,21 @@ include("../../includes/fonctions.php");
   $bdd = connexion_bdd();
     session_start();
     $user_pseudo = user_connect();
+    $tableau_utilisateur = info_utilisateur_profil($bdd,$user_pseudo);
     $error = FALSE;
     // $_SESSION["histoire"] = null;
 
-    if(isset($_POST["creer"]) && isset($_SESSION["histoire"]) ){
-      $error = TRUE;
-    }
+    // if(isset($_POST["creer"]) && isset($_SESSION["histoire"]) ){
+    //   $error = TRUE;
+    // }
 
 
 if (!isset($_SESSION["histoire"])) {
   if(isset($_POST["creer"]) ){
-    $test = verification_histoire_non_existante($bdd,$_POST["id_createur"],htmlspecialchars($_POST["titre"],ENT_QUOTES));
+    $test = verification_histoire_non_existante($bdd,$_POST["id_createur"],$_POST["titre"]);
 
     if($test[0] == true){
-      $reponse = creer_une_histoire($bdd,$_POST["id_createur"],$_POST["lieu"],htmlspecialchars($_POST["titre"],ENT_QUOTES),htmlspecialchars($_POST["bio"],ENT_QUOTES));
+      $reponse = creer_une_histoire($bdd,$_POST["id_createur"],$_POST["lieu"],$_POST["titre"],$_POST["bio"]);
       echo $reponse[0];
       $_SESSION["histoire"] = $reponse[2][0];
       $_SESSION["rp"] = $reponse[1][0];
@@ -32,13 +33,29 @@ if (!isset($_SESSION["histoire"])) {
       $_SESSION["sous_monde"] = $test[1];
       header('Location: '.$_POST["source"].'&error=existe');
     }
-  } 
+  }
+  else if(isset($_POST["repondre"])){
+    $numero_H = $_POST["numero_H"];
+    $_SESSION["histoire"] = get_histoire($bdd,$numero_H);
+    $_SESSION["rp"] = faire_un_rp($bdd,$numero_H,$tableau_utilisateur["id_user"]);
+    header('Location: '.htmlspecialchars($_SERVER["PHP_SELF"]));
+  }
+  else if(isset($_POST["modifier"])){
+    $numero_H = $_POST["numero_H"];
+    $_SESSION["histoire"] = get_histoire($bdd,$numero_H);
+    $_SESSION["rp"] = modifier($bdd,$numero_H);
+    header('Location: '.htmlspecialchars($_SERVER["PHP_SELF"]));
+  }
+  else if(isset($_POST["supprimer"])){
+    $numero_H = $_POST["numero_H"];
+    supprimer($bdd,$numero_H);
+    header('Location: Aventure.php?num='.$numero_H);
+  }
   else header('Location: sous-monde.php');
 }
 else {
   $table_histoire = $_SESSION["histoire"];
   $table_rp = $_SESSION["rp"];
-
 }
 
     if(!isset($_SESSION["login"])){
@@ -105,7 +122,6 @@ else {
         </nav>
     </header>
     <main>
-      <div id="user"><?php echo $user_pseudo ?></div>
     <?php
       if ($error) {
         echo "<p>une histoire est déjà en cours d'écriture</p>";
@@ -114,7 +130,16 @@ else {
     </main>
 <div>
     <form method="post">
-        <textarea id="tiny" rows="15" cols="80" style="width: 80%"></textarea>
+      <textarea id="tiny" rows="15" cols="80" style="width: 80%">
+      <?php
+        if (file_exists('../../docs/rp/'.$table_rp['id_rp'].'.txt')) {
+          $lines = file('../../docs/rp/'.$table_rp['id_rp'].'.txt');
+          foreach($lines as $line_num => $line) {
+            echo $line;
+          }
+        }
+      ?>
+      </textarea>
    </form>
  </div>
   <script src="../../script/redaction.js"></script>

@@ -1,59 +1,59 @@
 {% extends "base.html.twig" %}
 
 {% block main %}
-<main>
-  <h2>Mon compte</h2>
-  <section id="presentation">
-    <h3>Bio</h3>
-    <img src='{{filename}}/{{tableau_utilisateur.image}}'  alt="image-de-profil">
-    <p>{{tableau_utilisateur.prenom}} {{tableau_utilisateur.nom}}</p>
-    <p>Symbole : Lunette correctionnelle</p>
-    <p>Grade : {{tableau_utilisateur.grade}}</p>
-    <p>Capacités : </p>
-    <p>Pseudo : {{tableau_utilisateur.pseudo}}</p>
-  </section>
-  <section>
-    <h3>Mon Histoire</h3>
-    <article>
-      <h4>Une monde pas comme les autres...</h4>
-      <p class="date">Créé le 15/03/2022</p>
-      <p>Alors par où commencer j'étais tranquille devant la télé...<p>
-      <hr>
-    </article>
-    
-    <article>
-      <h4>Drôle de coq.</h4>
-      <p class="date">Créé le 15/03/2022</p>
-      <p>Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.<p>
-      <hr>
-    </article>
-  </section>
+<h2>Mon compte</h2>
+<section id="presentation">
+  <h3>Bio</h3>
+  <img src='{{filename}}/{{tableau_utilisateur.image}}'  alt="image-de-profil">
+  <p>{{tableau_utilisateur.prenom}} {{tableau_utilisateur.nom}}</p>
+  <p>Symbole : Lunette correctionnelle</p>
+  <p>Grade : {{tableau_utilisateur.grade}}</p>
+  <p>Capacités : </p>
+  <p>Pseudo : {{tableau_utilisateur.pseudo}}</p>
+</section>
+<section>
+  <h3>Mon Histoire</h3>
+  {% if histoires is empty %}
+  <article>
+    <h4>Pas encore d'histoire ?</h4>
+    <p><a href="../../Page/Exploration/Mondes.php">Vient explorer notre monde</a></p>
+  </article>
+  {% else %}
+  {% for key, histoire in histoires %}
+  <article>
+    <h4><a href="../../Page/Exploration/Aventure.php?num={{histoire.id_story}}">{{histoire.title}}</a></h4>
+    <p class="date">Créé le {{histoire.date}}</p>
+    <p>{{histoire.bio}}<p>
+    <hr>
+  </article>
+  {% endfor %}
+  {% endif %}
+  
+</section>
 {% if mon_compte %}
-  <aside>
-    <h5>Que souhaites-tu changer ?</h5><br>
-    <input type="color" name="couleur">
-    <input type="button" value="Modifier profil">
-    <form enctype="multipart/form-data" action="{{form}}" method="post">
-      <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
-      <input type="hidden" name="voir_form" value="1" />
-      <fieldset>
-        <legend>Biographie</legend>
-        <h6>Texte actuel :</h6>
-        <p>fgdfgs</p>
-        <textarea id="bio" type="text" name="bio"></textarea>
-      </fieldset>
-      <fieldset >
-        <legend>Photo de profil</legend>
-        <input id="idfile" name="userfile" type="file"/>
-      </fieldset>
-      <input name="send" type="submit" value="Envoyer"/>
-      <input type="reset" value="Annuler"/>          
-    </form>
-  </aside>
- {% endif %}
- <div class="clear"></div>
-</main>
-
+<aside>
+  <h5>Que souhaites-tu changer ?</h5><br>
+  <input type="color" name="couleur">
+  <input type="button" value="Modifier profil">
+  <form enctype="multipart/form-data" action="{{form}}" method="post">
+    <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
+    <input type="hidden" name="voir_form" value="1" />
+    <fieldset>
+      <legend>Biographie</legend>
+      <h6>Texte actuel :</h6>
+      <p>fgdfgs</p>
+      <textarea id="bio" type="text" name="bio"></textarea>
+    </fieldset>
+    <fieldset >
+      <legend>Photo de profil</legend>
+      <input id="idfile" name="userfile" type="file"/>
+    </fieldset>
+    <input name="send" type="submit" value="Envoyer"/>
+    <input type="reset" value="Annuler"/>          
+  </form>
+</aside>
+{% endif %}
+<div class="clear"></div>
 {% endblock %}
 
 {% block script %}

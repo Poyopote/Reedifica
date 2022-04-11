@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `story` (
 
 INSERT INTO `story` (`id_story`, `title`, `id_user`, `id_under_world`, `bio`, `date`) VALUES
 (1, 'La fabuleuse histoire de ', 1, 1, 'gdfqgfgdf', '2022-04-06 13:54:25'),
-(2, 'Petite baignade', 1, 1, 'dsffdgfds', '2022-04-06 14:32:56'),
+(2, 'Petite baignade 2', 1, 1, 'dsffdgfds', '2022-04-06 14:32:56'),
 (3, 'dort', 1, 1, 'dfbrtzze&#039;&quot;(&quot;&#039;', '2022-04-06 14:43:58'),
 (4, 'La fabuleuse histoire de ', 1, 2, 'gfbfgs', '2022-04-06 14:48:38'),
 (5, 'dfgqfdgdf', 1, 2, 'dggqdgfd', '2022-04-06 14:48:51'),

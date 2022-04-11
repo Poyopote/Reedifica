@@ -25,10 +25,12 @@ $file = $_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp/".$table_rp["id_rp"].'.tx
     file_put_contents($file, $text);
 
 
-    echo $table_histoire["id_story"];
+
+    echo $table_histoire["id_story"];    $_SESSION["histoire"] = null;
     // echo 'Yes, it works!';
 
 } else {
     echo 'Invalid parameters!';
+    // header('Location: '.$_SERVER['DOCUMENT_ROOT'].'/'."reedifica/");
 }
 ?>

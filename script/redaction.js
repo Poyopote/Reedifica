@@ -8,8 +8,7 @@ tinymce.init({
   save_enablewhendirty: true,
   fontsize_formats: '8pt 10pt 12pt 14pt 16pt 18pt 24pt 36pt 48pt',
   images_upload_url: '../../includes/postAcceptor.php',
-  content_style:
-    "@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap');",
+  content_style:"@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap');",
   font_formats: "Arial=arial,helvetica,sans-serif; Courier New=courier new,courier,monospace; Outfit=Outfit; Marck Script='Marck Script'",
   save_onsavecallback: function()
   {
@@ -19,10 +18,7 @@ tinymce.init({
     // console.log(text);
     $.post( "../../includes/creer_RP.php", { text: rp})
     .done(function( data ) {
-      let text = "OK Pour aller vers l'histoire\n Cancel pour rester ici.";
-      if (confirm(text) == true) {
-        window.location.href = 'Aventure.php?num='+data;
-      } 
+      window.location.href = 'Aventure.php?num='+data;
     // alert( "Data Loaded: " + data );
     // window.location.href = 'Aventure.php?histoire='+data;
     });

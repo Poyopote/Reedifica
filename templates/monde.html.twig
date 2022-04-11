@@ -2,40 +2,37 @@
 
 
 {% block main %}
-<main>
-    <h1><i class="bi bi-send"></i> Exploration</h1>
-    <hr>
-    <select onchange='showUser(this.value)'>
-        <option value=''>Sélection ton monde</option>
-        {% set i = 0 %}
-        {% for key, monde in choix %}
-        {% set i = i + 1 %}
-        <option value='{{i}}' >{{monde.name_world}}</option>
-        {% endfor %}
-    </select>
-    <section id="monde">
-        <article id="txtHint">
-        {% set id_monde = 1 %}
-        <h2>{{monde.name_world}}</h2>
-        <img src='../../img/{{monde.media}}' alt='illustration'>
-        <p>{{monde.bio_world}}</p>
-        
-        </article>
-        <h4>sous monde disponible</h4>
-        <div id="txtHint2">
-            {% for key, sous_monde in liste %}
-            <article class="sous_monde">
-                <h3>{{sous_monde.title}}</h3>
-                <a href="sous-monde.php?lieu={{sous_monde.id_under_world}}"><img src='../../img/{{sous_monde.media}}' alt='illustration'></a>
-                <p>{{sous_monde.bio}}</p>
-            </article>
-            {% endfor %}
-            <div class='clear'></div>
-        </div>
-        
-    </section>
+<h1><i class="bi bi-send"></i> Exploration</h1>
+<hr>
+<select onchange='showUser(this.value)'>
+    <option value=''>Sélection ton monde</option>
+    {% set i = 0 %}
+    {% for key, monde in choix %}
+    {% set i = i + 1 %}
+    <option value='{{i}}' >{{monde.name_world}}</option>
+    {% endfor %}
+</select>
+<section id="monde">
+    <article id="txtHint">
+    {% set id_monde = 1 %}
+    <h2>{{monde.name_world}}</h2>
+    <img src='../../img/{{monde.media}}' alt='illustration'>
+    <p>{{monde.bio_world}}</p>
     
-</main>
+    </article>
+    <h4>sous monde disponible</h4>
+    <div id="txtHint2">
+        {% for key, sous_monde in liste %}
+        <article class="sous_monde">
+            <h3>{{sous_monde.title}}</h3>
+            <a href="sous-monde.php?lieu={{sous_monde.id_under_world}}"><img src='../../img/{{sous_monde.media}}' alt='illustration'></a>
+            <p>{{sous_monde.bio}}</p>
+        </article>
+        {% endfor %}
+        <div class='clear'></div>
+    </div>
+    
+</section>
 {% endblock %}
 
 {% block script %}

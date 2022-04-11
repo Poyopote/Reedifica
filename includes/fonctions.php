@@ -298,12 +298,65 @@
 		}
 	}
 
-	function faire_un_rp($bdd,$numero){
+	function correction_story($bdd,$histoire,$user){
+		$date = new DateTime("now", new DateTimeZone('Europe/Paris') );
+		$date = $date->format('Y-m-d H:i:s'); // Fournit la date de la FRANCE
 		
+		$bdd->query("INSERT INTO `rp`(`id_user`, `id_story`, `date`, `avant`, `apres`)
+		VALUES ('$user','$histoire','$date',NULL,NULL)");
+		$last_id_creer = $bdd->lastInsertId(); // Récupère la clé primaire, créé par la requête précédente.
+
+		$file = $_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp/".$last_id_creer.'.txt';
+
+		file_put_contents($file, "");
+	}
+
+	function faire_un_rp($bdd,$histoire,$user){
+		$avant_rp = $bdd->query("SELECT id_rp FROM `rp` WHERE id_story = $histoire AND `apres` IS NULL");
+		$avant_rp->execute();
+		$avant_rp = $avant_rp->fetch();
+		
+		$date = new DateTime("now", new DateTimeZone('Europe/Paris') );
+		$date = $date->format('Y-m-d H:i:s'); // Fournit la date de la FRANCE
+
+		$bdd->query("INSERT INTO `rp`(`id_user`, `id_story`, `date`, `avant`, `apres`)
+		VALUES ('$user','$histoire','$date',".$avant_rp['id_rp'].",NULL)");
+		$last_id_creer = $bdd->lastInsertId(); // Récupère la clé primaire, créé par la requête précédente.
+		$bdd->query("UPDATE `rp` SET `apres` = $last_id_creer WHERE `id_rp` = ".$avant_rp['id_rp']);
+
+		$apres_rp = $bdd->query("SELECT * FROM `rp` WHERE id_story = $histoire AND `apres` IS NULL");
+		$apres_rp->execute();
+		$resultat = $apres_rp->fetch();
+		return $resultat;
+	}
+
+	function modifier($bdd,$histoire){
+		$apres_rp = $bdd->query("SELECT * FROM `rp` WHERE id_story = $histoire AND `apres` IS NULL");
+		$apres_rp->execute();
+		$resultat = $apres_rp->fetch();
+		return $resultat;
+	}
+	function supprimer($bdd,$histoire){
+		$actuel_rp = $bdd->query("SELECT * FROM `rp` WHERE id_story = $histoire AND `apres` IS NULL");
+		$actuel_rp->execute();
+		$resultat = $actuel_rp->fetch();
+		$avant_rp = $resultat["avant"];
+
+		$bdd->query("DELETE FROM `rp` WHERE id_story = $histoire AND `apres` IS NULL");
+		$bdd->query("UPDATE `rp` SET `apres` = NULL WHERE `id_rp` = $avant_rp");
+
+		unlink($_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp/".$resultat["id_rp"].'.txt');
+
 	}
 
 	function recherche_histoire($bdd,$numero){
 		$histoire = $bdd->query("SELECT * FROM `rp` WHERE id_story = $numero");
+		$histoire->execute();
+		$resultat = $histoire->fetchAll();
+		return $resultat;
+	}
+	function recherche_histoire_user($bdd,$id_user){
+		$histoire = $bdd->query("SELECT * FROM `story` WHERE id_user = $id_user");
 		$histoire->execute();
 		$resultat = $histoire->fetchAll();
 		return $resultat;

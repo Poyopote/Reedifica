@@ -12,7 +12,7 @@
   session_start();
   $error ="";
 
-  $bonjour = "";
+  $les_histoire = "";
   $user_pseudo = user_connect();
   
 $mon_compte = false;
@@ -23,30 +23,30 @@ if(isset($_SESSION["login"])){
   if (isset($_GET['utilisateur']) && $_GET['utilisateur'] != $user_pseudo) {
     $tableau_utilisateur = info_utilisateur_profil($bdd,$_GET['utilisateur']);
     $filename = '../../Docs/'.$_GET['utilisateur'];
+    $les_histoire = recherche_histoire_user($bdd,$tableau_utilisateur["id_user"]);
   }
   // ou son profil qu'il veut voir
   else {
     $tableau_utilisateur = info_utilisateur_profil($bdd,$user_pseudo);
     $filename = '../../Docs/'.$user_pseudo;   
     $mon_compte = true;
+    $les_histoire = recherche_histoire_user($bdd,$tableau_utilisateur["id_user"]);
   }
 }
 // Sinon statut d'invité, vérifie si recherche_monde
 else if (isset($_GET['utilisateur'])){
   $tableau_utilisateur = info_utilisateur_profil($bdd,$_GET['utilisateur']);
   $filename = '../../Docs/'.$_GET['utilisateur'];
+  $les_histoire = recherche_histoire_user($bdd,$tableau_utilisateur["id_user"]);
 }
 // sinon propose de se connecter
 else header("Location: ../../Page/Utilisateur/connexion.php");
-
-
     if (isset($_POST['send'])) {
 
       if (file_exists($filename)) {
         $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');//limite les types de fichiers qu'on importe --> l'user ne pourra pas importer un virus
         $extensionUpload = strtolower(substr(strrchr($_FILES['userfile']['name'], '.'), 1)); //extension du fichier chargé. substr = ignorer un caractère (ici le premier de la chaîne car on a mis le 1 comme limite). strrchr = prendre l'extension du fichier (avec le point) puisqu'on prend à partir du point. '.' = caractère que la chaîne ne va pas prendre en compte. 1 = limite de la chaîne
         
-        // if($_FILES['userfile']['size'] <= $_POST['MAX_FILE_SIZE']) {
           if($_FILES['userfile']['size'] <= 3000000 ) {
           if(in_array($extensionUpload, $extensionsValides)) {//vérifie que l'extension du fichier chargé correspond aux extensions acceptées (d'abord la variable sur laquelle on applique la fonction in_array et ensuite les variables qu'on veut tester sur la chaîne
             
@@ -111,7 +111,8 @@ else header("Location: ../../Page/Utilisateur/connexion.php");
   'form' => htmlspecialchars($_SERVER["PHP_SELF"]),
   'error' => $error,
   'mon_compte' => $mon_compte,
-  'user' => info_utilisateur_profil($bdd,$user_pseudo)
+  'user' => info_utilisateur_profil($bdd,$user_pseudo),
+  'histoires' => $les_histoire
 
 ));
 ?>

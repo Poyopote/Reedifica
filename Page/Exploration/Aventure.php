@@ -2,18 +2,22 @@
 include("../../includes/fonctions.php");
 // require "../../includes/init_twig.php";
 //INCLUSION DE LA BDD
-
+$vide_fichier = FALSE;
   include("../../includes/init_BDD.php");
   $bdd = connexion_bdd();
     session_start();
     $user_pseudo = user_connect();
-
+    $tableau_utilisateur = info_utilisateur_profil($bdd,$user_pseudo);
+  
 
     if(!isset($_GET["num"])){
         header("Location: Mondes.php");
     }
     $numero_H = $_GET["num"];
     $histoire = get_histoire($bdd,$numero_H);
+    if(empty($histoire)){
+      header("Location: Mondes.php");
+    }
     $aventure = recherche_histoire($bdd,$numero_H);
     
     $message = "";
@@ -21,7 +25,12 @@ include("../../includes/fonctions.php");
     $sous_monde = get_sous_monde($bdd,$histoire["id_under_world"]);
     $monde = recherche_monde($bdd,$sous_monde["id_world"]);
     
-
+    if(!isset($_SESSION["login"])){
+      $lien_user = '<a href="../../Page/Utilisateur/connexion.php">Connexion</a> | <a href="../../Page/Utilisateur/inscription.php">Inscription</a>';
+    }
+    else {
+      $lien_user = '<a href="../../Page/Utilisateur/Profil.php">Profil</a> | <a href="../../includes/deconnexion.php">Déconnexion</a>';
+    }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -68,8 +77,7 @@ include("../../includes/fonctions.php");
       </li>
     </ul>
     <div id="user">
-      <p>      <i class="bi bi-person-circle"></i> <a href="../../Page/Utilisateur/connexion.php">Connexion</a> | <a href="../../Page/Utilisateur/inscription.php">Inscription</a>
-            </p>
+      <p><i class="bi bi-person-circle"></i><?php echo $lien_user ?></p>
     </div>
     </nav>
 </header>
@@ -83,31 +91,70 @@ include("../../includes/fonctions.php");
     <p><?php echo $histoire["bio"]?></p>
 </header>
 <section id="histoire">
-    <?php
+<?php
 
-    foreach($aventure as $key => $rp){
-        $personnage = profil($bdd,$rp['id_user']);
-        echo "<aside>";
+if(empty($aventure)){
+  correction_story($bdd,$numero_H,$histoire['id_user']);
+  header('Location: Aventure.php?num='.$numero_H);
+}
+  foreach($aventure as $key => $rp)
+  {
+    $personnage = profil($bdd,$rp['id_user']);
+    echo "<aside>";
 
-        echo '<img src="../../docs/'.$personnage["pseudo"].'/'.$personnage["image"].'" alt="image de profil">';
-        echo "</aside>";
-        
-        $lines = file('../../docs/rp/'.$rp['id_rp'].'.txt');
-        echo '<article class="rp">';
+    echo '<img src="../../docs/'.$personnage["pseudo"].'/'.$personnage["image"].'" alt="image de profil">';
+    echo "</aside>";
+    
+    if (file_exists('../../docs/rp/'.$rp['id_rp'].'.txt')) {
+      $lines = file('../../docs/rp/'.$rp['id_rp'].'.txt');
+      echo '<article class="rp">';
+
+      $octet=filesize('../../docs/rp/'.$rp['id_rp'].'.txt');
+      if ($octet==0)
+      {
+        $lines = file('../../docs/rp/rien.txt');
         foreach($lines as $line_num => $line) {
-            echo $line;
+          echo $line;
         }
-        echo "</article>";
-        if($rp["apres"] == NULL){
-            echo "<div class='clear'></div>";
-            echo "<aside>";
-            echo 'jsddmq';
-            echo "</aside>";
+        $vide_fichier = TRUE;
+      }
+      else {
+        foreach($lines as $line_num => $line) {
+        echo $line;
         }
-        echo "<div class='clear'></div>";
+      }
     }
+    else{
+      file_put_contents('../../docs/rp/'.$rp['id_rp'].'.txt', "");
+      header("Location: Aventure.php?num=".$numero_H);
+    }
+    echo "</article><div class='clear'></div>";
+    // Si le dernier RP.N'appartient pas à l'utilisateur.Il peut créer un nouveau RP.
+    if($tableau_utilisateur["id_user"] != $rp["id_user"] && ($rp["apres"] == NULL) && $vide_fichier == FALSE){
+      ?>
+      <aside>
+      <form action="Redaction.php" method="post">
+        <input type="hidden" name="numero_H" value="<?php echo $numero_H?> ">
+        <input type="submit" name="repondre"  value="Répondre">
+      </form>
+      </aside>
+      <?php
+    }
+    if($tableau_utilisateur["id_user"] == $rp["id_user"] && ($rp["apres"] == NULL)){
+      ?>
+      <aside>
+      <form action="Redaction.php" method="post">
+        <input type="hidden" name="numero_H" value="<?php echo $numero_H?> ">
+        <input type="submit" name="modifier" value="Modifier">
+        <input type="submit" name="supprimer" value="Supprimer">
+      </form>
+      </aside>
+      <?php
+    }
+    echo "<div class='clear'></div>";
+  }
 
-    ?>
+?>
         
 </section>
 
