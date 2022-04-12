@@ -153,8 +153,13 @@ footer .boite {
   }
 }
 
-footer img {
-  min-height: calc(88px - 22px);
+footer .titre_logo {
+  font-family: "Marck Script", "Courier New", Courier, monospace;
+  font-size: 66px;
+}
+
+footer .titre_logo:hover {
+  color: #54c0ff;
 }
 
 footer nav {

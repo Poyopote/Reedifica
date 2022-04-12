@@ -16,7 +16,8 @@
     <article id="txtHint">
     {% set id_monde = 1 %}
     <h2>{{monde.name_world}}</h2>
-    <img src='../../img/{{monde.media}}' alt='illustration'>
+    <img class="font" src='../../img/{{monde.media}}' alt='illustration'>
+    <img class="seul" src='../../img/{{monde.media}}' alt='illustration'>
     <p>{{monde.bio_world}}</p>
     
     </article>
@@ -29,9 +30,9 @@
             <p>{{sous_monde.bio}}</p>
         </article>
         {% endfor %}
-        <div class='clear'></div>
+        
     </div>
-    
+    <div class='clear'></div>
 </section>
 {% endblock %}
 

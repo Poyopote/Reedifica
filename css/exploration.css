@@ -1,4 +1,4 @@
-#monde h2 + img {
+#monde h2 + img.font {
   background-size: cover;
   position: fixed;
   top: 96px;
@@ -6,6 +6,45 @@
   width: 100vw;
   height: 100vh;
   z-index: -1;
+  -webkit-filter: grayscale(70%);
+          filter: grayscale(70%);
+}
+
+#monde img.seul {
+  background-size: cover;
+  width: 770px;
+  height: 520px;
+  -webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#monde img.seul + p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 1em;
+}
+
+#monde #txtHint, #monde #txtHint2 {
+  float: left;
+  width: 45%;
+}
+
+#monde #txtHint p, #monde #txtHint2 p {
+  background-color: #edf0ea;
+}
+
+#monde #txtHint h3, #monde #txtHint2 h3 {
+  color: #FFFFFF;
+  text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+#monde h4 {
+  text-align: right;
+}
+
+#monde #txtHint2 {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 select {
@@ -18,17 +57,32 @@ select {
 }
 
 .sous_monde {
-  background-color: rgba(237, 240, 234, 0.9);
-  margin-top: 5vw;
-  margin-bottom: 5vw;
+  padding: 25px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: (auto)[2];
+      grid-template-rows: repeat(2, auto);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 
 .sous_monde img {
-  max-width: 300px;
+  width: 100%;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-area: 2 / 1 / 3 / 2;
 }
 
-.sous_monde a, .sous_monde p {
-  display: inline-block;
+.sous_monde h3 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 1 / 1 / 2 / 3;
 }
 
 .banniere-lieu {

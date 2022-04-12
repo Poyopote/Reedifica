@@ -122,8 +122,14 @@ footer{
   @include plus-large-que(Large){
     .fin{margin: 0 15px 0 auto;}
   }
-  
-  img{ min-height: calc(88px - 22px);}
+  .titre_logo{
+    font-family: $manuscrit,'Courier New', Courier, monospace;
+    font-size: 66px;
+    &:hover{
+      color: $couleursecon;
+    }
+  }
+  // img{ min-height: calc(88px - 22px);}
   nav {
     width: 80%;
     margin: 0 auto;

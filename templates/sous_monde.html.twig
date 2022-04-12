@@ -24,12 +24,12 @@
 {% endif %}
 <section>
 {% if histoires.nbr_histoire == 0 %}
-    <p>Il {{histoires.nbr_histoire}} récits, soyez le premier à la créer.</p>
+    <h2>Il {{histoires.nbr_histoire}} récits, soyez le premier à la créer.</h2>
 {% else %}
     {% if histoires.nbr_histoire == 1 %}
-    <p>Il y a {{histoires.nbr_histoire}} histoire dans ce lieu </p>
+    <h2>Il y a {{histoires.nbr_histoire}} histoire dans ce lieu </h2>
     {% else %}
-    <p>Il y a {{histoires.nbr_histoire}} histoires dans ce lieu </p>
+    <h2>Il y a {{histoires.nbr_histoire}} histoires dans ce lieu </h2>
     {% endif %}  
 {% endif %}
 

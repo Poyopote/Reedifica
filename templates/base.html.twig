@@ -44,11 +44,12 @@
       </li>
     </ul>
     <div id="user">
-      <p>{% if connecter %}
-      <i class="bi bi-person-circle"></i> <a href="{{connexion}}">Connexion</a> | <a href="{{inscription}}">Inscription</a>
-      {% else %}
-      <a href="{{Profil}}"><img src="{{chemin_image_user}}/{{user.pseudo}}/{{user.image}}" alt="image_profil"/></a> <a href='{{Profil}}'>Profil</a> | <a href='{{deconnexion}}'>Déconnexion</a>
-      {% endif %}
+      <p>
+{% if connecter %}
+        <i class="bi bi-person-circle"></i> <a href="{{connexion}}">Connexion</a> | <a href="{{inscription}}">Inscription</a>
+{% else %}
+        <a href="{{Profil}}"><img src="{{chemin_image_user}}/{{user.pseudo}}/{{user.image}}" alt="image_profil"/></a> <a href='{{Profil}}'>Profil</a> | <a href='{{deconnexion}}'>Déconnexion</a>
+{% endif %}
       </p>
     </div>
     </nav>
@@ -60,7 +61,8 @@
 <footer id="footer">
   <nav>
     <div class="boite">
-      <a href="{{index}}"><img src="{{reedifica}}" alt="logo-footer"></a>
+      <a href="{{index}}" class="titre_logo">Ré.édifica</a>
+      {# <a href="{{index}}"><img src="{{reedifica}}" alt="logo-footer"></a> #}
     </div>
     <div class="boite">
       <h3>Contacter Nous</h3>
