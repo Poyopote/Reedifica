@@ -73,6 +73,50 @@ select{
         border: solid 1px #CCC;
     }
 }
+#liste_rp{
+    width: 80%;
+    @include margin-droite-gauche(auto);
+    min-height: 50vh;
+}
+table {
+    border-radius: 5px;
+    text-align: center;
+
+    width: 100%;
+    table-layout: auto;
+
+    img{
+        object-fit:cover;
+        width:80px;
+        height:80px;
+        border: solid 1px #CCC;
+        border-radius: 50%
+    }
+    tr:nth-child(2n) {
+        background-color: #f8f6ff;
+      }
+      
+    th{
+        font-size: 18px;
+        color: #fff;
+        line-height: 1.4;
+        background-color: #6c7ae0;
+    }
+    tr:hover td{
+        background-color: #232d7a;
+        color: rgb(255, 255, 255);
+    }
+
+    td {
+        font-size: 15px;
+        color: gray;
+        line-height: 1.4;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        vertical-align: middle;
+        
+    }
+}
 
 form{
     margin-top: 0;

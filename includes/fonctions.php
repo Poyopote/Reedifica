@@ -217,6 +217,15 @@
 		return $resultat;
 	}
 
+	function tous_les_histoires_du_monde($bdd,$monde)
+	{
+		$info_sous_monde = $bdd->prepare("SELECT u.`pseudo`,`title`,s.`date`, COUNT(`id_rp`) rp FROM `user` AS u INNER JOIN story AS s ON u.`id_user` = s.`id_user` JOIN rp AS r ON r.`id_story` = s.`id_story` WHERE `id_under_world` = :monde GROUP BY s.`id_story`");
+		$info_sous_monde->bindParam(":monde", $monde);
+		$info_sous_monde->execute();
+		$resultat = $info_sous_monde->fetchAll();
+		return $resultat;
+	}
+
 	function nbr_histoire($bdd,$get_element)
 	{
 		$info_sous_monde = $bdd->prepare("SELECT COUNT(`id_story`) nbr_histoire FROM story WHERE `id_under_world` = :id");

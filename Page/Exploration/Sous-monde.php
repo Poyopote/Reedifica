@@ -32,7 +32,7 @@ require "../../includes/init_twig.php";
       $error =true;
     }
     
-    // print_r(nbr_histoire($bdd,$lieu)) ;
+    // print_r(tous_les_histoires_du_monde($bdd,$lieu)) ;
 
     echo $twig->render('sous_monde.html.twig', 
     array('lang' => $lang,
@@ -65,7 +65,8 @@ require "../../includes/init_twig.php";
     'error' => $error,
     'probleme' => $tableau,
     'source' => htmlspecialchars($_SERVER["PHP_SELF"])."?lieu=".$lieu,
-    'histoires' =>nbr_histoire($bdd,$lieu)
+    'histoires' =>nbr_histoire($bdd,$lieu),
+    'table' => tous_les_histoires_du_monde($bdd,$lieu)
 
     
 

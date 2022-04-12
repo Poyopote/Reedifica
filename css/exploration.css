@@ -97,6 +97,54 @@ select {
   border: solid 1px #CCC;
 }
 
+#liste_rp {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 50vh;
+}
+
+table {
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+  table-layout: auto;
+}
+
+table img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 80px;
+  height: 80px;
+  border: solid 1px #CCC;
+  border-radius: 50%;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f6ff;
+}
+
+table th {
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.4;
+  background-color: #6c7ae0;
+}
+
+table tr:hover td {
+  background-color: #232d7a;
+  color: white;
+}
+
+table td {
+  font-size: 15px;
+  color: gray;
+  line-height: 1.4;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  vertical-align: middle;
+}
+
 form {
   margin-top: 0;
   margin-left: auto;
