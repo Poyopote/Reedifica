@@ -130,7 +130,7 @@ if(empty($aventure)){
     }
     echo "</article><div class='clear'></div>";
     // Si le dernier RP.N'appartient pas à l'utilisateur.Il peut créer un nouveau RP.
-    if($tableau_utilisateur["id_user"] != $rp["id_user"] && ($rp["apres"] == NULL) && $vide_fichier == FALSE){
+    if(is_array($tableau_utilisateur) && ($tableau_utilisateur["id_user"] != $rp["id_user"]) && ($rp["apres"] == NULL) && $vide_fichier == FALSE){
       ?>
       <aside>
       <form action="Redaction.php" method="post">
@@ -140,7 +140,7 @@ if(empty($aventure)){
       </aside>
       <?php
     }
-    if($tableau_utilisateur["id_user"] == $rp["id_user"] && ($rp["apres"] == NULL)){
+    if(is_array($tableau_utilisateur) && ($tableau_utilisateur["id_user"] == $rp["id_user"]) && ($rp["apres"] == NULL)){
       ?>
       <aside>
       <form action="Redaction.php" method="post">
