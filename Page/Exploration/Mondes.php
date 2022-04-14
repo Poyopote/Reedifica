@@ -12,8 +12,7 @@
   $user_pseudo = user_connect();
   $choix = list_monde($bdd);
   $id_monde = 1;
-  $monde = recherche_monde($bdd,$id_monde);
-  $liste_sous_monde = recherche_sous_monde($bdd,$id_monde);
+
 
   $lang = "fr";
 
@@ -45,8 +44,8 @@
   'connecter' => !isset($_SESSION["login"]),
   'user' => info_utilisateur_profil($bdd,$user_pseudo),
   'choix' => $choix,
-  'monde' => $monde,
-  'liste' => $liste_sous_monde
+  'monde' => recherche_monde($bdd,$id_monde),
+  'liste' => recherche_sous_monde($bdd,$id_monde)
 
 ));
 

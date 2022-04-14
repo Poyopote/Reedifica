@@ -1,5 +1,9 @@
 @import "mixin"; @import "variables"; @import "responsive";
 
+main{
+    min-height: 80vh;
+}
+
 #monde{
     h2 + img.font{
         background-size: cover;
@@ -105,16 +109,24 @@ table {
     tr:hover td{
         background-color: #232d7a;
         color: rgb(255, 255, 255);
+        a{
+            &:visited {color: #fff;}
+        }
     }
 
     td {
+        transition: 0.2s;
         font-size: 15px;
-        color: gray;
+        color: $extremenoir;
         line-height: 1.4;
         padding-top: 16px;
         padding-bottom: 16px;
         vertical-align: middle;
-        
+        a{
+            font-weight: bold;
+            color: $extremenoir;
+            &:visited {color: $extremenoir;}
+        }
     }
 }
 

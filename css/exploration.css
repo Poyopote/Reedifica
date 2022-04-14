@@ -1,3 +1,7 @@
+main {
+  min-height: 80vh;
+}
+
 #monde h2 + img.font {
   background-size: cover;
   position: fixed;
@@ -136,13 +140,28 @@ table tr:hover td {
   color: white;
 }
 
+table tr:hover td a:visited {
+  color: #fff;
+}
+
 table td {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
   font-size: 15px;
-  color: gray;
+  color: #171717;
   line-height: 1.4;
   padding-top: 16px;
   padding-bottom: 16px;
   vertical-align: middle;
+}
+
+table td a {
+  font-weight: bold;
+  color: #171717;
+}
+
+table td a:visited {
+  color: #171717;
 }
 
 form {

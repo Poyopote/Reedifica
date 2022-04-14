@@ -166,9 +166,12 @@
       <img src="img/{{monde.media}}" alt="illustration_monde">
       <h4>{{monde.name_world}}</h4>
       <p>{{monde.bio_world}}</p>
-      <ul>
-        <li>Sous-lieu 1</li>
-        <li>Sous-lieu 2</li>
+        <ul>
+{% for key2, sous_monde in liste_choix %}
+{% if monde.id_world == sous_monde.id_world %}
+          <li><a href="Page/Exploration/sous-monde.php?lieu={{sous_monde.id_under_world}}">{{sous_monde.title}}</a></li>
+{% endif %}
+{% endfor %}
       </ul>
     </section>
     {% endfor %}

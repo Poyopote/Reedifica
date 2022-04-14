@@ -11,8 +11,6 @@ include("includes/fonctions.php");
     session_start();
     require "includes/init_twig.php";
 
-    // $user_pseudo = false;
-    // $user_pseudo = isset($_SESSION["login"]);
 
     // $monde = recherche_monde($bdd,$id_monde);
     // $sous_monde = recherche_sous_monde($bdd,$id_monde);
@@ -27,6 +25,7 @@ include("includes/fonctions.php");
     $css_page = "css/main.css";
     $icon = "img/Logo_favicon.svg";
     $choix = list_monde($bdd);
+    // var_dump($choix);
 
     echo $twig->render('index.html.twig', 
     array('lang' => $lang,
@@ -55,7 +54,9 @@ include("includes/fonctions.php");
     // donnée de la page
     'connecter' => !isset($_SESSION["login"]),
     'user' => info_utilisateur_profil($bdd,$user_pseudo),
-    'choix' => $choix
+    'choix' => $choix,
+    'liste_choix' => liste_index_sous_monde($bdd)
+    
 
   ));
 

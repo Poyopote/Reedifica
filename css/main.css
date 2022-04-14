@@ -177,11 +177,12 @@ section#accueil article + article {
 }
 
 #Exploration section {
-  max-width: 25vw;
+  width: 25vw;
   margin: 0 auto;
   background-color: #949aa1;
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
 }
 
 #Exploration img {
@@ -225,18 +226,28 @@ section#accueil article + article {
 }
 
 #Exploration h4, #Exploration p {
+  padding: 0.2em;
   padding-left: 16px;
 }
 
+#Exploration p {
+  margin-bottom: 100px;
+}
+
 #Exploration ul {
+  width: 100%;
+  position: absolute;
+  display: block;
+  bottom: 0;
   background-color: #3e434d;
 }
 
-#Exploration ul li {
+#Exploration ul li a {
   color: #edf0ea;
   font-size: 2em;
   padding: 0.2em;
   text-shadow: 2px 2px 2px #171717;
+  display: inline-block;
 }
 
 @media screen and (min-width: 1130px) {
