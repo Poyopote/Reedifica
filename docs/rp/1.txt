@@ -1,5 +1,4 @@
-<div class="refnamediv">
-<h1 class="refname"><span style="color: #34495e;">in_array</span></h1>
-<p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p>
-<p class="refpurpose"><span class="refname">in_array</span> &mdash; <span class="dc-title">Indique si une valeur appartient &agrave; un tableau</span></p>
-</div>
+<p style="background-color: #ff0000;">This is a paragraph.</p>
+<p style="background-color: #00ff00;">This is a paragraph.</p>
+<p style="background-color: #0000ff;">This is a paragraph.</p>
+<p>trop bien <img src="../../img/monster02.jpg" alt="" width="354" height="427" /></p>
