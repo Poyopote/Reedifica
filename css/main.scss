@@ -90,7 +90,9 @@ section#accueil{
   
     h2+img{
       height: 40vh;
-  
+      &:hover{
+        filter: contrast(110%);
+       }
     }
   }
 }
@@ -173,7 +175,15 @@ section#accueil{
     position: relative;
 
   }
-  img{    width: 100%;  object-fit:cover; max-height: 194px;}
+  img{    
+    width: 100%;
+      object-fit:cover;
+       max-height: 194px;
+       transition: .6s;
+       &:hover{
+        filter: contrast(150%);
+       }
+  }
 
   h3{
     grid-area: 1 / 1 / 2 / 4;

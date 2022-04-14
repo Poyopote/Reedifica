@@ -7,16 +7,25 @@
 }
 
 #connexion-main {
-  width: 50vw;
   margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
 }
 
+@media screen and (min-width: 1130px) {
+  #connexion-main {
+    width: 50vw;
+  }
+}
+
 #connexion-main input {
+  font-size: 24px;
+  -webkit-box-shadow: 0px 0px 0px 8px rgba(218, 221, 218, 0.463);
+  box-shadow: 0px 0px 0px 8px rgba(218, 221, 218, 0.463);
   color: #edf0ea;
   width: 100%;
   padding: 12px 20px;
+  max-height: 44px;
   margin: 8px 0;
   display: inline-block;
   background-color: #171717;
@@ -27,6 +36,7 @@
 }
 
 #connexion-main input[type="submit"] {
+  margin-top: 44px;
   width: 50%;
   border: double;
   margin-left: 25%;
@@ -46,14 +56,28 @@
 }
 
 #connexion-main nav {
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
+  display: table;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
 #connexion-main nav a {
+  display: table-cell;
+  min-width: 195px;
   padding: 1em;
   font-size: 2rem;
   color: #edf4e6;
   text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #54c0ff, 0 0 30px #54c0ff, 0 0 40px #54c0ff, 0 0 55px #54c0ff, 0 0 75px #54c0ff, 0px 1px 18px rgba(206, 206, 206, 0);
+}
+
+@media screen and (max-width: 768px) {
+  #connexion-main nav {
+    display: block;
+  }
+  #connexion-main nav a {
+    display: block;
+  }
 }
