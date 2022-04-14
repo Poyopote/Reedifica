@@ -2,54 +2,53 @@
 
 {% block main %}
 <h1><i class="bi bi-send"></i> Exploration</h1>
-<h6>Exploration <i class="bi bi-caret-right-fill"> </i> Le Bercail <i class="bi bi-caret-right-fill"></i> Le bureau des rencontres <i class="bi bi-caret-right-fill"></i> La fabuleuse histoire de  </h6>
+<h6>Exploration <i class="bi bi-caret-right-fill"> </i> {{monde.name_world}} <i class="bi bi-caret-right-fill"></i> {{sous_monde.title}} <i class="bi bi-caret-right-fill"></i> {{histoire.title}}  </h6>
 <hr>
 <header class="banniere-lieu">
-    <h2>La fabuleuse histoire de </h2>
-    <img src="../../img/_rose_texture_2.png" alt="image_du_lieu">    <p>gdfqgfgdf</p>
+    <h2>{{histoire.title}}</h2>
+    <img src="../../img/{{sous_monde.media}}" alt="image_du_lieu">
+    <p>{{histoire.bio}}</p>
 </header>
 <section id="histoire">
-    <aside><img src="../../docs/Voltamaster/Voltamaster.jpg" alt="image de profil"></aside><article class="rp"><h1>Histoire de nuit</h1>
-<p>je parle <span style="text-decoration: underline;">ici</span></p>
-<p>je peux changer de <span style="color: blue;">couleur </span>et de <strong>profondeur</strong>.</p></article><div class='clear'></div><aside><img src="../../docs/DameBleu/Damebleu.jpg" alt="image de profil"></aside><article class="rp"><h1>Histoire de nuit</h1>
-<p>je parle <span style="text-decoration: underline;">ici</span></p>
-<p>je peux changer de <span style="color: red;">couleur </span>et de <strong>profondeur</strong>.</p></article><div class='clear'></div><aside>jsddmq</aside><div class='clear'></div>        
-</section>
+{% for key, item in aventure %}
+    <aside>
+    <a href="../../Page/Utilisateur/Profil.php?utilisateur={{item.pseudo}}">
+    <img src="../../docs/{{item.pseudo}}/{{item.image}}" alt="image de profil"></a>
+    <p>{{item.prenom}} {{item.nom}}</p>
+    </aside>
+    <article class="rp">
+        {{item.contenu | raw}}
+    </article>
+    <div class='clear'></div>
+    {% if item.repondre %}
+     
+    <aside>
+      <form action="Redaction.php" method="post">
+        <input type="hidden" name="numero_H" value="{{numero_H}}">
+        <input type="submit" name="repondre"  value="Répondre">
+      </form>
+      </aside>
+    {% endif %}
+    {% if item.modifier %}
+        
+    <aside>
+      <form action="Redaction.php" method="post">
+        <input type="hidden" name="numero_H" value="{{numero_H}}">
+        <input type="submit" name="modifier" value="Modifier">
+        <input type="submit" name="supprimer" value="Supprimer">
+      </form>
+      </aside>
+
+    {% endif %}
+    
+    <div class='clear'></div>        
+
+{% endfor %}
+    </section>
 
 {% endblock %}
 
-
-{# <?php
-    echo $twig->render('Aventure.html.twig', 
-    array('lang' => $lang,
-    'titre' => "Aventure ".$histoire["title"]." - Ré.édifica",
-    'css_style' => "../../css/style.css",
-    'css_page' => "../../css/exploration.css",
-    'icon' => "../../img/Logo_favicon.svg",
-    'index' => "../../index.php",
-    'contexte' => "../../Page/Histoire/contexte.php",
-    'info' => "../../Page/Histoire/nouveauté/info.php",
-    'Mondes' => "../../Page/Exploration/Mondes.php",
-    'Liste' => "../../Page/Membres/Liste.php",
-    'Tutoriel' => "../../Page/Guide/Tutoriel.php",
-    'Réglementation' => "../../Page/Guide/Réglementation.php",
-    'FAQ' => "../../Page/Guide/F-A-Q.php",
-    'Profil' => "Profil.php",
-    'deconnexion' => "../../includes/deconnexion.php",
-    'connexion' => "../../Page/Utilisateur/connexion.php",
-    'inscription' => "../../Page/Utilisateur/inscription.php",
-    "chemin_image_user" => "../../docs",
-  
-    // lien footer
-    "reedifica" => "../../img/Logo_complet.svg",
-  
-    // donnée de la page
-    'connecter' => !isset($_SESSION["login"]),
-    'user' => info_utilisateur_profil($bdd,$user_pseudo),
-    'histoire' => $histoire,
-    'aventure' => $aventure,
-    'sous_monde' => $sous_monde,
-    'monde' => $monde,
-  
-  ));
-?> #}
+{% block script %}
+    <script src="../../script/select-monde.js" ></script>
+    <script src="../../script/menu.js"></script>
+{% endblock %}
