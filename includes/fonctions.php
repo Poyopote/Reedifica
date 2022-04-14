@@ -167,8 +167,10 @@
 		$info_user->bindParam(":user", $login);
 		$info_user->execute();
 
-		$resultat = $info_user->fetch();
-		return $resultat;
+		if($info_user){
+			return $info_user->fetch();
+		}
+		return FALSE;
 	}
 
 	function role($bdd,$id){
@@ -439,6 +441,13 @@
 		
 		// Display the alert box 
 		echo "<script>alert('$message');</script>";
+	}
+
+// BO
+
+	function EstClePrimaire($nom_champ) 
+	{
+		return strpos($nom_champ, "id_")===0;
 	}
 
 // NETTOYAGE

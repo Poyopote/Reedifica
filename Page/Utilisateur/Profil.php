@@ -9,8 +9,7 @@
   $bdd = connexion_bdd();
 
   session_start();
-  $error ="";
-  $les_histoire = "";
+  $les_histoire = $error = $table_selectionnee = "";
   $user_pseudo = user_connect();
 
   $mon_compte = false;
@@ -18,7 +17,7 @@
 // Vérifie si la personne est connecter
 if(isset($_SESSION["login"])){
   //   Vérifie si c'est Le profil d'un autre
-  if (isset($_GET['utilisateur']) && $_GET['utilisateur'] != $user_pseudo) {
+  if (isset($_GET['utilisateur']) && $_GET['utilisateur'] != "" && info_utilisateur_profil($bdd,$_GET['utilisateur']) && $_GET['utilisateur'] != $user_pseudo) {
     $tableau_utilisateur = info_utilisateur_profil($bdd,$_GET['utilisateur']);
     $filename = '../../Docs/'.$_GET['utilisateur'];
     $les_histoire = recherche_histoire_user($bdd,$tableau_utilisateur["id_user"]);
@@ -31,8 +30,10 @@ if(isset($_SESSION["login"])){
     $les_histoire = recherche_histoire_user($bdd,$tableau_utilisateur["id_user"]);
   }
 }
+
 // Sinon statut d'invité, vérifie si recherche_monde
-else if (isset($_GET['utilisateur']) && $_GET['utilisateur'] != ""){
+else if (isset($_GET['utilisateur']) && $_GET['utilisateur'] != "" && info_utilisateur_profil($bdd,$_GET['utilisateur'])){
+
   $tableau_utilisateur = info_utilisateur_profil($bdd,$_GET['utilisateur']);
   $filename = '../../Docs/'.$_GET['utilisateur'];
   $les_histoire = recherche_histoire_user($bdd,$tableau_utilisateur["id_user"]);
@@ -87,6 +88,13 @@ else header("Location: ../../Page/Utilisateur/connexion.php");
 
   $tables_req = $bdd->query("SHOW TABLES;");
   $lignes_tables = $tables_req->fetchAll();
+  if(isset($_POST['valider'])){
+    $table_selectionnee = $_POST['valider'];
+    $values_req = $bdd->query("SELECT * FROM $table_selectionnee");
+	$lignes_values = $values_req->fetchAll(PDO::FETCH_ASSOC);
+  }
+  
+  
 
   echo $twig->render('profil.html.twig', 
   array('lang' => $lang,
@@ -120,7 +128,10 @@ else header("Location: ../../Page/Utilisateur/connexion.php");
   'mon_compte' => $mon_compte,
   'user' => info_utilisateur_profil($bdd,$user_pseudo),
   'histoires' => $les_histoire,
-  'lignes_tables' =>  $lignes_tables
+  'lignes_tables' =>  $lignes_tables,
+  'bo_form' => isset($_POST['valider']),
+  'table_selectionnee' => $table_selectionnee
+
 
 ));
 ?>

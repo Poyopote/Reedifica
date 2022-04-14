@@ -58,7 +58,7 @@
 
     <input type="reset" value="Annuler"/>          
   </form>
-  <form method="POST" action="editable.php">
+  <form method="POST" action="profil.php">
       <fieldset>
         <legend>Sélectionnez une table :</legend>
 {% set retour_ligne = 0 %}
@@ -68,8 +68,35 @@
 <input type='submit' name='valider' value='{{ligne.Tables_in_reedifica_bdd }}'>
 {% endfor %}         
       </fieldset>
-    </form>
+    </form>   
 </aside>
+<div class="clear"></div>
+{% if bo_form %}
+<aside>
+  <h5>Administration</h5><br>
+  <h1>La table sélectionnée : <strong>{{table_selectionnee}}</strong></h1>
+    <form action="update.php" method="POST">
+      <input type="hidden" name="table" value="{{table_selectionnee}}" />
+      <input type="hidden" name="id" value="new" />
+      <input class="boutons" type="submit" name="insert" value="Ajouter" />
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Pseudo</th>
+          <th colspan="2">Surnom</th>
+          <th>grade</th>
+          <th>date</th>
+          <th>Nombre de message</th>
+        </tr>
+      </thead>
+  {# <tbody> #}
+    </table>
+  <a href="profil.php">Retour au choix de la table</a>
+</aside>
+{% endif %}
+
 <div class="clear"></div>
 {% endif %}
 
