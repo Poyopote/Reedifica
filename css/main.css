@@ -135,7 +135,13 @@ section#accueil article + article {
   padding: 1em;
 }
 
+#actualite #carousel_text {
+  padding-left: 50px;
+}
+
 #actualite #carousel_text button {
+  display: block;
+  text-align: center;
   margin: 1em auto;
   border: 1px solid #171717;
   color: #586171;

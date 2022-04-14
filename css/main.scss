@@ -117,7 +117,10 @@ section#accueil{
     // align-items: flex-start;
   }
   #carousel_text{
+    padding-left: 50px;
     button {
+      display: block;
+      text-align: center;
       margin: 1em auto;
       border: 1px solid $extremenoir;
       color: $extremegris;
