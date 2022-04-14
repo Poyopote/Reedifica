@@ -1,13 +1,25 @@
 @media screen and (min-width: 1023px) {
   main section {
     float: left;
-    width: 50%;
+    width: 48%;
     min-height: 70vh;
   }
 }
 
 main img {
   max-width: 50%;
+  height: 50vh;
+  background-size: contain;
+  float: left;
+}
+
+main img + p {
+  float: left;
+  width: 30%;
+}
+
+main section#presentation p {
+  padding-left: 16px;
 }
 
 .date {
@@ -17,6 +29,13 @@ main img {
 
 .clear {
   clear: both;
+}
+
+section#presentation + section {
+  overflow: auto;
+  height: 60vh;
+  border-left: 2px solid #171717;
+  padding: .5em;
 }
 
 article h4 {
@@ -30,6 +49,8 @@ article h4:hover {
 }
 
 aside {
+  color: #edf0ea;
+  margin-top: 20px;
   background: #383c44;
   clear: both;
   min-height: 30vw;

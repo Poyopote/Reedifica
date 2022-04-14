@@ -4,19 +4,21 @@
     main {
         section{
             float: left;
-            width: 50%;
+            width: 48%;
             min-height: 70vh;
-
-            
         }
-
     }
 }
 
 main{
     img{
         max-width: 50%;
+        height: 50vh;
+        background-size: contain;
+        float: left;
+        + p {float: left;width: 30%;}
     }
+    section#presentation p{padding-left: 16px;}
 }
 
 .date{
@@ -24,8 +26,14 @@ main{
 }
 
 .clear{clear: both;}
+section#presentation + section{
+    overflow: auto;
+    height: 60vh;
+    border-left: 2px solid $extremenoir;
+    padding: .5em;
+}
+
 article{
-    
     h4{
         @include Tonlook (2em, auto);
         font-family: police(police,classique);
@@ -37,6 +45,8 @@ article{
 }
 
 aside{
+    color: $extremeblanc;
+    margin-top: 20px;
     background: mix($extremenoir, $extremegris);
     clear: both;
     // padding: 1em;

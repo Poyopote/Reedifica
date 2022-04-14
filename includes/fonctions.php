@@ -143,15 +143,20 @@
 
 // PROFIL UTILISATEUR
 
-	function image_de_profil($bdd,$login,$valeur)
+	function image_de_profil($bdd,$login,$valeur1)
 	{
-		$change_image = $bdd->prepare("UPDATE `user` SET `image` = :valeur WHERE `user`.`pseudo` = :user");
-		$change_image->bindParam(":valeur", $valeur);
+		$change_image = $bdd->prepare("UPDATE `user` SET `image` = :valeur1 WHERE `user`.`pseudo` = :user");
+		$change_image->bindParam(":valeur1", $valeur1);
 		$change_image->bindParam(":user", $login);
 		$change_image->execute();
+	}
 
-		$resultat = $change_image->fetch();
-		return $resultat;
+	function image_de_bio($bdd,$login,$valeur2)
+	{
+		$change_bio = $bdd->prepare("UPDATE `user` SET `description` = :valeur2 WHERE `user`.`pseudo` = :user");
+		$change_bio->bindParam(":user", $login);
+		$change_bio->bindParam(":valeur2", $valeur2);
+		$change_bio->execute();
 	}
 
 
@@ -162,6 +167,20 @@
 		$info_user->execute();
 
 		$resultat = $info_user->fetch();
+		return $resultat;
+	}
+
+	function role($bdd,$id){
+		$role = $bdd->query("SELECT * FROM `role` WHERE `id_role` = $id");
+		$role->execute();
+		$resultat = $role->fetch();
+		return $resultat;
+	}
+
+	function role_user($bdd,$id){
+		$role_user = $bdd->query("SELECT * FROM `role` WHERE `id_role` = $id");
+		$role_user->execute();
+		$resultat = $role_user->fetch();
 		return $resultat;
 	}
 

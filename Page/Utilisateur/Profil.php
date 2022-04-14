@@ -41,7 +41,7 @@ else if (isset($_GET['utilisateur'])){
 }
 // sinon propose de se connecter
 else header("Location: ../../Page/Utilisateur/connexion.php");
-    if (isset($_POST['send'])) {
+    if (isset($_POST['send']) && $_POST['send'] == "Modifier l'image") {
 
       if (file_exists($filename)) {
         $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');//limite les types de fichiers qu'on importe --> l'user ne pourra pas importer un virus
@@ -55,7 +55,8 @@ else header("Location: ../../Page/Utilisateur/connexion.php");
             $resultat = move_uploaded_file($_FILES['userfile']['tmp_name'], $filename."/".$new_image);//déplacer le fichier de nom (paramètre1) jusqu'à (paramètre2). tmp_name = chemin temporaire du fichier
             
             if($resultat){//vérifier que le déplacement s'est bien effectué
-                image_de_profil($bdd,$user_pseudo,$new_image);
+                
+              image_de_profil($bdd,$user_pseudo,$new_image);
                 header('Location: Profil.php');
             }
             else{
@@ -76,6 +77,11 @@ else header("Location: ../../Page/Utilisateur/connexion.php");
         $error = function_alert("Une erreur est survenu, veuillez recommencer");
         mkdir($filename);
       }
+
+    }
+    if (isset($_POST['send']) && $_POST['send'] == "Modifier la description"){
+      image_de_bio($bdd,$user_pseudo,$_POST['bio']);
+      header('Location: Profil.php');
     }
 
   $toto= nombre_user($bdd);

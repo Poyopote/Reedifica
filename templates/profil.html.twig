@@ -1,10 +1,12 @@
 {% extends "base.html.twig" %}
 
 {% block main %}
-<h2>Mon compte</h2>
+<h2>Profil de {{tableau_utilisateur.pseudo}}</h2>
 <section id="presentation">
-  <h3>Bio</h3>
+  <h3>Description</h3>
   <img src='{{filename}}/{{tableau_utilisateur.image}}'  alt="image-de-profil">
+  <p><i class="bi bi-quote"></i>{{tableau_utilisateur.description}}<i class="bi bi-quote"></i></p>
+  <div class="clear"></div>
   <p>{{tableau_utilisateur.prenom}} {{tableau_utilisateur.nom}}</p>
   <p>Symbole : Lunette correctionnelle</p>
   <p>Grade : {{tableau_utilisateur.grade}}</p>
@@ -30,30 +32,36 @@
   {% endif %}
   
 </section>
+<div class="clear"></div>
+
 {% if mon_compte %}
 <aside>
   <h5>Que souhaites-tu changer ?</h5><br>
-  <input type="color" name="couleur">
-  <input type="button" value="Modifier profil">
+  {# <input type="color" name="couleur">
+  <input type="button" value="Modifier profil"> #}
   <form enctype="multipart/form-data" action="{{form}}" method="post">
     <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
     <input type="hidden" name="voir_form" value="1" />
     <fieldset>
       <legend>Biographie</legend>
       <h6>Texte actuel :</h6>
-      <p>fgdfgs</p>
-      <textarea id="bio" type="text" name="bio"></textarea>
+      <p><i class="bi bi-quote"></i>{{tableau_utilisateur.description}}<i class="bi bi-quote"></i></p>
+      <textarea id="bio" type="text" name="bio">{{tableau_utilisateur.description}}</textarea>
+      <input name="send" type="submit" value="Modifier la description"/>
     </fieldset>
+    <hr>
     <fieldset >
       <legend>Photo de profil</legend>
       <input id="idfile" name="userfile" type="file"/>
+      <input name="send" type="submit" value="Modifier l'image"/>
     </fieldset>
-    <input name="send" type="submit" value="Envoyer"/>
+
     <input type="reset" value="Annuler"/>          
   </form>
 </aside>
-{% endif %}
 <div class="clear"></div>
+{% endif %}
+
 {% endblock %}
 
 {% block script %}
