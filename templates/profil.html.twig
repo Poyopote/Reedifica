@@ -58,6 +58,17 @@
 
     <input type="reset" value="Annuler"/>          
   </form>
+  <form method="POST" action="editable.php">
+      <fieldset>
+        <legend>Sélectionnez une table :</legend>
+{% set retour_ligne = 0 %}
+{% for ligne in lignes_tables %}
+{% set retour_ligne = retour_ligne + 1 %}
+{% if retour_ligne is divisible by(3) == 0 %}<br/>{% endif %}  
+<input type='submit' name='valider' value='{{ligne.Tables_in_reedifica_bdd }}'>
+{% endfor %}         
+      </fieldset>
+    </form>
 </aside>
 <div class="clear"></div>
 {% endif %}

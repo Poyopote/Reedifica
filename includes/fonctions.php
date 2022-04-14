@@ -137,7 +137,8 @@
 	}
 
 	function user_connect(){
-		if (isset($_SESSION["login"])) return $_SESSION["login"];
+		if (isset($_SESSION["login"]))
+		return $_SESSION["login"];
 		else return "";
 	}
 
@@ -177,10 +178,10 @@
 		return $resultat;
 	}
 
-	function role_user($bdd,$id){
-		$role_user = $bdd->query("SELECT * FROM `role` WHERE `id_role` = $id");
+	function role_user($bdd,$login){
+		$role_user = $bdd->query("SELECT `name_role` FROM `role` AS r INNER JOIN userxrole as ur ON ur.id_statut = r.`id_role` JOIN user AS u ON u.id_user = ur.id_user WHERE u.pseudo = $login");
 		$role_user->execute();
-		$resultat = $role_user->fetch();
+		$resultat = $role_user->fetchAll();
 		return $resultat;
 	}
 
@@ -190,7 +191,6 @@
 		$info_user = $bdd->prepare("SELECT * FROM `user` WHERE `id_user` = :user");
 		$info_user->bindParam(":user", $id);
 		$info_user->execute();
-
 		$resultat = $info_user->fetch();
 		return $resultat;
 	}
@@ -383,6 +383,7 @@
 		$resultat = $histoire->fetchAll();
 		return $resultat;
 	}
+	
 	function recherche_histoire_user($bdd,$id_user){
 		$histoire = $bdd->query("SELECT * FROM `story` WHERE id_user = $id_user");
 		$histoire->execute();

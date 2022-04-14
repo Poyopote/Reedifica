@@ -7,18 +7,16 @@
 
   include("../../includes/init_BDD.php");
   $bdd = connexion_bdd();
-  
 
   session_start();
   $error ="";
-
   $les_histoire = "";
   $user_pseudo = user_connect();
-  
-$mon_compte = false;
+
+  $mon_compte = false;
+
 // Vérifie si la personne est connecter
 if(isset($_SESSION["login"])){
-  $user_pseudo = $_SESSION["login"];
   //   Vérifie si c'est Le profil d'un autre
   if (isset($_GET['utilisateur']) && $_GET['utilisateur'] != $user_pseudo) {
     $tableau_utilisateur = info_utilisateur_profil($bdd,$_GET['utilisateur']);
@@ -34,7 +32,7 @@ if(isset($_SESSION["login"])){
   }
 }
 // Sinon statut d'invité, vérifie si recherche_monde
-else if (isset($_GET['utilisateur'])){
+else if (isset($_GET['utilisateur']) && $_GET['utilisateur'] != ""){
   $tableau_utilisateur = info_utilisateur_profil($bdd,$_GET['utilisateur']);
   $filename = '../../Docs/'.$_GET['utilisateur'];
   $les_histoire = recherche_histoire_user($bdd,$tableau_utilisateur["id_user"]);
@@ -87,6 +85,9 @@ else header("Location: ../../Page/Utilisateur/connexion.php");
   $toto= nombre_user($bdd);
   $toto[] = "salut";
 
+  $tables_req = $bdd->query("SHOW TABLES;");
+  $lignes_tables = $tables_req->fetchAll();
+
   echo $twig->render('profil.html.twig', 
   array('lang' => $lang,
   'titre' => "Profil de ".$tableau_utilisateur["pseudo"]." - Ré.édifica",
@@ -118,7 +119,8 @@ else header("Location: ../../Page/Utilisateur/connexion.php");
   'error' => $error,
   'mon_compte' => $mon_compte,
   'user' => info_utilisateur_profil($bdd,$user_pseudo),
-  'histoires' => $les_histoire
+  'histoires' => $les_histoire,
+  'lignes_tables' =>  $lignes_tables
 
 ));
 ?>
