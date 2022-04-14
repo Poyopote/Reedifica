@@ -1,5 +1,3 @@
-<div class="refnamediv">
-<h1 class="refname"><span style="color: #34495e;">in_array</span></h1>
-<p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p>
-<p class="refpurpose"><span class="refname">in_array</span> &mdash; <span class="dc-title">Indique si une valeur appartient &agrave; un tableau</span></p>
-</div>
+<h1>Histoire du jour</h1>
+<p>je parle <span style="text-decoration: underline;">ici</span></p>
+<p>je peux changer de <span style="color: #3598db;">couleur </span>et de <strong>profondeur</strong>.</p>
