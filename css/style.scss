@@ -56,7 +56,9 @@ hr {
         transition: 0.5s;
         letter-spacing: 2px;
         color: $couleurancien;
-  
+        
+        
+
           ul{
             display: none;
             position: relative;         
@@ -75,6 +77,7 @@ hr {
 
       }
     }
+    span{font-weight: bold; text-decoration: underline;}
     a{
       text-decoration: none;
       color: $couleurancien;

@@ -1,8 +1,7 @@
 {% extends "base.html.twig" %}
 
 {% block main %}
-<h1><i class="bi bi-send"></i> Exploration</h1>
-<h6>Exploration <i class="bi bi-caret-right-fill"> </i> {{monde.name_world}} <i class="bi bi-caret-right-fill"></i> {{sous_monde.title}} <i class="bi bi-caret-right-fill"></i> {{histoire.title}}  </h6>
+<h6><a href="{{Mondes}}"> Exploration</a><i class="bi bi-caret-right-fill"> </i> {{monde.name_world}} <i class="bi bi-caret-right-fill"></i> {{sous_monde.title}} <i class="bi bi-caret-right-fill"></i> {{histoire.title}}  </h6>
 <hr>
 <header class="banniere-lieu">
     <h2>{{histoire.title}}</h2>

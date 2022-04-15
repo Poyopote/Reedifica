@@ -70,7 +70,7 @@
   padding: 1em;
   font-size: 2rem;
   color: #edf4e6;
-  text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #54c0ff, 0 0 30px #54c0ff, 0 0 40px #54c0ff, 0 0 55px #54c0ff, 0 0 75px #54c0ff, 0px 1px 18px rgba(206, 206, 206, 0);
+  text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #58ade1, 0 0 30px #58ade1, 0 0 40px #58ade1, 0 0 55px #58ade1, 0 0 75px #58ade1, 0px 1px 18px rgba(206, 206, 206, 0);
 }
 
 @media screen and (max-width: 768px) {

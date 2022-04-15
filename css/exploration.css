@@ -34,11 +34,6 @@ main {
   padding: 1em;
 }
 
-#monde #txtHint, #monde #txtHint2 {
-  float: left;
-  width: 45%;
-}
-
 #monde #txtHint p, #monde #txtHint2 p {
   background-color: #edf0ea;
   z-index: 20;
@@ -262,4 +257,11 @@ article.rp hr {
 
 .clear {
   clear: both;
+}
+
+@media screen and (min-width: 1023px) {
+  #txtHint, #txtHint2 {
+    float: left;
+    width: 45%;
+  }
 }

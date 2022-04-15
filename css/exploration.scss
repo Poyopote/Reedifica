@@ -30,9 +30,8 @@ main{
         padding: 1em;
     }
 
+
     #txtHint,#txtHint2{
-        float: left;
-        width: 45%;
         p{background-color: $extremeblanc; z-index: 20;}
         h3{
             color: #FFFFFF;
@@ -212,4 +211,12 @@ article.rp{
 }
 .clear{
 	clear: both;
+}
+
+
+@include plus-large-que(Large){
+    #txtHint,#txtHint2{
+        float: left;
+        width: 45%;
+    }
 }

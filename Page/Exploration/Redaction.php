@@ -19,7 +19,7 @@ include("../../includes/fonctions.php");
 
 
 if (!isset($_SESSION["histoire"])) {
-  if(isset($_POST["creer"]) ){
+  if(isset($_POST["creer"]) && (trim($_POST["titre"]) != "") ){
     $test = verification_histoire_non_existante($bdd,$_POST["id_createur"],$_POST["titre"]);
 
     if($test[0] == true){
