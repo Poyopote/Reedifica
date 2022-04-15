@@ -3,6 +3,7 @@ session_start();
     if(isset($_SESSION["message_erreur"])) 
     {
         $message_erreur = $_SESSION["message_erreur"];
+        $_SESSION["message_erreur"] = "";
     }
     else
     {
@@ -51,7 +52,7 @@ session_start();
                     <label for="mdp"><i class="bi bi-lock-fill"></i> Mot de passe :</label>
                     <input type="password" id="mdp" name="mdp" required>
                     <input name="formulaire" type="hidden" value="0">
-                    <p><?php printf($message_erreur); ?></p>
+                    <p><?php echo($message_erreur); ?></p>
                     <!-- <hr> -->
                     <input type="submit" value="Valider">
                 </fieldset>

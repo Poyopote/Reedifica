@@ -55,6 +55,11 @@
   font-size: 1em;
 }
 
+#connexion-main p {
+  color: #edf0ea;
+  font-weight: bold;
+}
+
 #connexion-main nav {
   margin-left: auto;
   margin-right: auto;
@@ -80,4 +85,56 @@
   #connexion-main nav a {
     display: block;
   }
+}
+
+#inscription-main h1 {
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+}
+
+#inscription-main h2 {
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+}
+
+#inscription-main h3 {
+  font-size: 1.17em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#inscription-main h4 {
+  font-size: 2em;
+  margin-top: 1.33em;
+  margin-bottom: 1.33em;
+}
+
+#inscription-main h5 {
+  font-size: .83em;
+  margin-top: 1.67em;
+  margin-bottom: 1.67em;
+}
+
+#inscription-main h6 {
+  font-size: .67em;
+  margin-top: 2.33em;
+  margin-bottom: 2.33em;
+}
+
+#inscription-main h1, #inscription-main h2, #inscription-main h3, #inscription-main h4, #inscription-main h5, #inscription-main h6 {
+  font-family: "Outfit";
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+#inscription-main article {
+  overflow: auto;
+  max-height: 60vh;
+}
+
+#inscription-main strong {
+  font-weight: bold;
 }

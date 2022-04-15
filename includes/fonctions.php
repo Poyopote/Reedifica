@@ -452,7 +452,11 @@
 	class administration
 	{
 	// BO
-
+	// $mdp = "1234";
+	// $mdp_crypte = password_hash($mdp, PASSWORD_DEFAULT);
+	
+	// echo $mdp_crypte;
+	
 		protected function EstClePrimaire($nom_champ) 
 		{
 			return strpos($nom_champ, "id_")===0;
