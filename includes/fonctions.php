@@ -449,32 +449,43 @@
 		echo "<script>alert('$message');</script>";
 	}
 
-// BO
-
-	function EstClePrimaire($nom_champ) 
+	class administration
 	{
-		return strpos($nom_champ, "id_")===0;
-	}
+	// BO
 
-// NETTOYAGE
-
-	function clear($bdd){
-		$info_table = $bdd->query("SELECT * FROM `story`");
-		$info_table->execute();
-		$resultat = $info_table->fetchAll();
-		$dir = $_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp";
-//		mkdir($dir);
-		if(empty($resultat)){
-			if (!is_dir($dir)) {
-				mkdir($dir);
-			}
-			else{
-				rmdir ($dir);
-				mkdir($dir);
-			}
-			$bdd->query("TRUNCATE TABLE `rp`");
-			return function_alert("la table story et vide rp va être reset");
+		protected function EstClePrimaire($nom_champ) 
+		{
+			return strpos($nom_champ, "id_")===0;
 		}
-		else return function_alert("tout va bien");
+
+	// NETTOYAGE
+
+		public function clear($bdd){
+			$info_table = $bdd->query("SELECT * FROM `story`");
+			$info_table->execute();
+			$resultat = $info_table->fetchAll();
+			$dir = $_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp";
+			if(empty($resultat)){
+				if (!is_dir($dir)) {
+					mkdir($dir);
+				}
+				else{
+					$files = glob($dir.'/*'); 
+					foreach($files as $file) {
+   
+						if(is_file($file)) 
+						
+							// Delete the given file
+							unlink($file); 
+					}
+					rmdir($dir);
+					mkdir($dir);
+				}
+				
+				$bdd->query("TRUNCATE TABLE `rp`");
+				return function_alert("la table story est vide, RP va être reset");
+			}
+			else return function_alert("tout va bien");
+		}
 	}
 ?>

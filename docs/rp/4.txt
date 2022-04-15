@@ -1,3 +1,0 @@
-<p>je parle <span style="text-decoration: underline;">ici</span></p>
-<p>je peux change</p>
-<div class="clear">&nbsp;</div>

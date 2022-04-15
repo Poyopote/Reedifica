@@ -14,6 +14,7 @@
 
   $mon_compte = false;
 
+
 // Vérifie si la personne est connecter
 if(isset($_SESSION["login"])){
   //   Vérifie si c'est Le profil d'un autre
@@ -93,7 +94,11 @@ else header("Location: ../../Page/Utilisateur/connexion.php");
     $values_req = $bdd->query("SELECT * FROM $table_selectionnee");
 	$lignes_values = $values_req->fetchAll(PDO::FETCH_ASSOC);
   }
-  
+
+if( $mon_compte == true && isset($_POST['valider']) ){
+  $BackOffice = new administration();
+  $BackOffice->clear($bdd);
+}
   
 
   echo $twig->render('profil.html.twig', 
