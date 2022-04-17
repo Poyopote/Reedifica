@@ -4,15 +4,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
 @import "mixin"; @import "variables"; @import "responsive";
 
+// DESKTOP FIRST
+
 body{
   font-family: 'Outfit', sans-serif;
   background-color: $extremeblanc; 
-}
-
-
-hr {
-  border: 1px solid $extremenoir;
-  margin-bottom: 25px;
 }
 
 main {
@@ -20,129 +16,235 @@ main {
 
   h1,h2,h3,h4{
     font-family: 'Marck Script', cursive;
+    z-index: 10;
   } 
 
-  h2{
-    @include Tonlook(5em, $couleursecon);
-  }
-  h3{
-    @include Tonlook(4em, $couleurprin);
-  }
+  h2{    @include Tonlook(5em, $couleursecon);  }
+  h3{    @include Tonlook(4em, $couleurprin);  }
   
-  h4{
-    @include Tonlook(3em, $extremenoir);
-  }
-
-  // article{
-  //   border: red 1px solid;
-  // }
+  h4{    @include Tonlook(3em, $extremenoir);  }
 }
 
-p{
-  font-size: 1.5em;
+p{  font-size: 1.5em;}
+
+hr {
+  border: 1px solid $extremenoir;
+  margin-bottom: 25px;
 }
 
-nav#navbar{
-  height: 6rem;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  transition: 0.6s;
-  text-transform: uppercase;
-
-.logo {
-  float: left;
-
-}
-
-
-  ul{
+@include plus-large-que(Moyen){
+  #navbar{
+    height: 6rem;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    
-    
+    transition: 0.6s;
+    text-transform: uppercase;
+    input:not(:checked), input:checked, label {display: none;}
+    .logo {    float: left;  }
+  
+    ul{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      li{
+        display: block;
+        cursor: pointer;
+        padding: 0 1.5rem;
+        transition: 0.5s;
+        letter-spacing: 2px;
+        color: $couleurancien;
+        
+        
 
-    li{
-      display: block;
-      cursor: pointer;
-      padding: 0 1.5rem;
-      transition: 0.5s;
-
-        ul{
-          display: none;
-          position: relative;         
-        }
-
-        &:hover{
-          a{
-            color: $extremenoir;
-          }
           ul{
-              display: block;
-              padding: 1em;
-               li:hover{
-                background: rgb(189, 176, 158);
+            display: none;
+            position: relative;         
+          }
+  
+          &:hover, &:focus{
+            color: $extremenoir;
+            ul{
+                display: block;
+                padding: 1em;
+                 li:hover{
+                  background: rgb(189, 176, 158);
+                }
               }
-            }
-        }
-       a{
-         text-decoration: none;
-         letter-spacing: 2px;
-         transition: 0.5s;
-         color: $couleurancien;
-       }
+          }
+
+      }
+    }
+    span{font-weight: bold; text-decoration: underline;}
+    a{
+      text-decoration: none;
+      color: $couleurancien;
+     &:visited {
+       color: $couleurancien;
+     }
+     &:hover{
+       color: $extremenoir;
+     }
     }
   }
 
+  
+  .sticky{
+    // padding: 5px 100px;
+    z-index: 99;
+
+    background: $extremeblanc;
+    position: fixed;
+    top: 0px;
+    ul li a{
+      color: $extremenoir;
+    }
+  }
 }
 
+#user{
+  a{display: inline-block;}
 
-.sticky{
-  padding: 5px 100px;
-  z-index: 99;
-
-  background: $extremeblanc;
-  position: fixed;
-  top: 0px;
-  ul li a{
-    color: $extremenoir;
+  img{
+    object-fit:cover;
+    width:44px;
+    height:44px;
+    border: solid 1px #CCC;
+    border-radius: 50%
   }
 }
 
 
 footer{
-    background: $couleurprin;
-    background: linear-gradient(90deg, $extremenoir 0%, $couleurprin 100%);
-    color: $extremeblanc;
-    display: flex;
-    flex-direction: row;
-    padding: 2em;
-    overflow: hidden;
-    .boite {
-      flex: 1;
+  background: $couleurprin;
+  background: linear-gradient(90deg, $couleurprin 0%, $extremenoir 100%);
+  color: $extremeblanc;
+  padding: 80px 0 50px;
+  .boite {   flex: 0 0 auto; padding: 0 15px; min-height: 100px;}
+  @include plus-large-que(Large){
+    .fin{margin: 0 15px 0 auto;}
+  }
+  .titre_logo{
+    font-family: $manuscrit,'Courier New', Courier, monospace;
+    font-size: 66px;
+    &:hover{
+      color: $couleursecon;
     }
-}
-
-// ------------------------------------
-
-@include plus-large-que(Geant){
-  nav#navbar{
-    #menu-bouton{
-      display: none;
+  }
+  // img{ min-height: calc(88px - 22px);}
+  nav {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    ul{
+      margin: 0 45px 0 0;
+      padding: 0 0 0 15px;
+      li {display: inline-block;margin-right: 24px;}
+    }
+    a{
+      text-decoration: none;
+      &:visited{
+        @include Tonlook(auto,$extremeblanc)
+      }
+      &:hover{
+        @include Tonlook(auto,mix($couleursecon,$couleurancien))
+      }
     }
   }
 }
 
-@include plus-petit-que(Geant){
-//  .sticky{
-//    position: relative;
-//  }
+// ------------------------------------
 
- nav#navbar{
-   ul{
-     display: none;
-   }
- }
+
+@include plus-petit-que(Moyen){
+  footer{
+    display: block;
+    div{display: inline-block;}
+  }
+}
+
+
+@include plus-petit-que(Geant){ nav#navbar{   flex-direction: column; }}
+
+@include plus-petit-que(Moyen){
+  nav#navbar{
+    line-height: 3rem;
+    display: block;
+
+    
+    input:not(:checked), input:checked {
+      position: absolute;
+      left: 0;
+      opacity: 0.01;
+      z-index: 10;
+      width:30px;
+      height:30px;
+    }
+    
+    input:not(:checked) + label::before,    input:checked + label::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width:30px;
+      height:30px;
+      border: 1px solid #aaa;
+      background: #FFF;
+      border-radius: .2em;
+      box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 rgba($couleursecon, .2);
+      -webkit-transition: all .275s;
+      transition: all .275s;
+    }
+
+
+    input:not(:checked) + label::after, input:checked + label::after {
+      content: '✕';
+      position: absolute;
+      top: .525em;
+      left: .18em;
+      font-size: 30px;
+      color: $couleurprin;
+      line-height: 0;
+      -webkit-transition: all .2s;
+      transition: all .2s;    
+    }
+
+        /* Aspect non cochée */
+    input:not(:checked) + label::after {
+      opacity: 0;
+      transform: scale(0) rotate(45deg);
+    }
+
+    /* Aspect cochée */
+    input:checked + label::after {
+      opacity: 1;
+      transform: scale(1) rotate(0);
+    }
+
+    #user{
+      text-align: center;      display: none;    }
+
+      label+ ul{ 
+      display: none;
+      transition: transform .2s;
+      will-change: transform;
+      padding: 2px;
+
+      > li{
+          display: list-item;
+          line-height: 3rem;
+          padding-left: 1rem;
+          ul li {display: inline-block;}
+          @include Tonlook(30px, $extremenoir)
+      }
+    }
+
+    input:checked + label+ ul, input:checked + label+ ul + #user{
+      // transform: translateX(25%);
+      display: list-item;
+    }
+  }
 }
