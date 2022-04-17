@@ -1,0 +1,17 @@
+@import "mixin"; @import "variables"; @import "responsive";
+
+table {
+    text-align: center;
+
+    width: 80%;
+    table-layout: auto;
+    td{vertical-align: middle;}
+    img{
+        object-fit:cover;
+        width:80px;
+        height:80px;
+        border: solid 1px #CCC;
+        border-radius: 50%
+    }
+}
+
