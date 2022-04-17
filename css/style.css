@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("reset.css");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap");
@@ -7,11 +8,6 @@ body {
   background-color: #edf0ea;
 }
 
-hr {
-  border: 1px solid #171717;
-  margin-bottom: 25px;
-}
-
 main {
   padding-left: 5vw;
   padding-right: 5vw;
@@ -19,10 +15,11 @@ main {
 
 main h1, main h2, main h3, main h4 {
   font-family: 'Marck Script', cursive;
+  z-index: 10;
 }
 
 main h2 {
-  color: #54c0ff;
+  color: #58ade1;
   font-size: 5em;
 }
 
@@ -40,115 +37,263 @@ p {
   font-size: 1.5em;
 }
 
-nav#navbar {
-  height: 6rem;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-  text-transform: uppercase;
+hr {
+  border: 1px solid #171717;
+  margin-bottom: 25px;
 }
 
-nav#navbar .logo {
-  float: left;
+@media screen and (min-width: 768px) {
+  #navbar {
+    height: 6rem;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-transition: 0.6s;
+    transition: 0.6s;
+    text-transform: uppercase;
+  }
+  #navbar input:not(:checked), #navbar input:checked, #navbar label {
+    display: none;
+  }
+  #navbar .logo {
+    float: left;
+  }
+  #navbar ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #navbar ul li {
+    display: block;
+    cursor: pointer;
+    padding: 0 1.5rem;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    letter-spacing: 2px;
+    color: #7d685b;
+  }
+  #navbar ul li ul {
+    display: none;
+    position: relative;
+  }
+  #navbar ul li:hover, #navbar ul li:focus {
+    color: #171717;
+  }
+  #navbar ul li:hover ul, #navbar ul li:focus ul {
+    display: block;
+    padding: 1em;
+  }
+  #navbar ul li:hover ul li:hover, #navbar ul li:focus ul li:hover {
+    background: #bdb09e;
+  }
+  #navbar span {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  #navbar a {
+    text-decoration: none;
+    color: #7d685b;
+  }
+  #navbar a:visited {
+    color: #7d685b;
+  }
+  #navbar a:hover {
+    color: #171717;
+  }
+  .sticky {
+    z-index: 99;
+    background: #edf0ea;
+    position: fixed;
+    top: 0px;
+  }
+  .sticky ul li a {
+    color: #171717;
+  }
 }
 
-nav#navbar ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+#user a {
+  display: inline-block;
 }
 
-nav#navbar ul li {
-  display: block;
-  cursor: pointer;
-  padding: 0 1.5rem;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-
-nav#navbar ul li ul {
-  display: none;
-  position: relative;
-}
-
-nav#navbar ul li:hover a {
-  color: #171717;
-}
-
-nav#navbar ul li:hover ul {
-  display: block;
-  padding: 1em;
-}
-
-nav#navbar ul li:hover ul li:hover {
-  background: #bdb09e;
-}
-
-nav#navbar ul li a {
-  text-decoration: none;
-  letter-spacing: 2px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  color: #7d685b;
-}
-
-.sticky {
-  padding: 5px 100px;
-  z-index: 99;
-  background: #edf0ea;
-  position: fixed;
-  top: 0px;
-}
-
-.sticky ul li a {
-  color: #171717;
+#user img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 44px;
+  height: 44px;
+  border: solid 1px #CCC;
+  border-radius: 50%;
 }
 
 footer {
   background: #040037;
-  background: -webkit-gradient(linear, left top, right top, from(#171717), to(#040037));
-  background: linear-gradient(90deg, #171717 0%, #040037 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#040037), to(#171717));
+  background: linear-gradient(90deg, #040037 0%, #171717 100%);
   color: #edf0ea;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  padding: 2em;
-  overflow: hidden;
+  padding: 80px 0 50px;
 }
 
 footer .boite {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  padding: 0 15px;
+  min-height: 100px;
 }
 
-@media screen and (min-width: 1130px) {
-  nav#navbar #menu-bouton {
-    display: none;
+@media screen and (min-width: 1023px) {
+  footer .fin {
+    margin: 0 15px 0 auto;
+  }
+}
+
+footer .titre_logo {
+  font-family: "Marck Script", "Courier New", Courier, monospace;
+  font-size: 66px;
+}
+
+footer .titre_logo:hover {
+  color: #58ade1;
+}
+
+footer nav {
+  width: 80%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+footer nav ul {
+  margin: 0 45px 0 0;
+  padding: 0 0 0 15px;
+}
+
+footer nav ul li {
+  display: inline-block;
+  margin-right: 24px;
+}
+
+footer nav a {
+  text-decoration: none;
+}
+
+footer nav a:visited {
+  color: #edf0ea;
+  font-size: auto;
+}
+
+footer nav a:hover {
+  color: #6b8b9e;
+  font-size: auto;
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    display: block;
+  }
+  footer div {
+    display: inline-block;
   }
 }
 
 @media screen and (max-width: 1130px) {
-  nav#navbar ul {
-    display: none;
+  nav#navbar {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
-/*# sourceMappingURL=style.css.map */
+
+@media screen and (max-width: 768px) {
+  nav#navbar {
+    line-height: 3rem;
+    display: block;
+    /* Aspect non cochée */
+    /* Aspect cochée */
+  }
+  nav#navbar input:not(:checked), nav#navbar input:checked {
+    position: absolute;
+    left: 0;
+    opacity: 0.01;
+    z-index: 10;
+    width: 30px;
+    height: 30px;
+  }
+  nav#navbar input:not(:checked) + label::before, nav#navbar input:checked + label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #aaa;
+    background: #FFF;
+    border-radius: .2em;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 0 rgba(88, 173, 225, 0.2);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 0 rgba(88, 173, 225, 0.2);
+    -webkit-transition: all .275s;
+    transition: all .275s;
+  }
+  nav#navbar input:not(:checked) + label::after, nav#navbar input:checked + label::after {
+    content: '✕';
+    position: absolute;
+    top: .525em;
+    left: .18em;
+    font-size: 30px;
+    color: #040037;
+    line-height: 0;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+  }
+  nav#navbar input:not(:checked) + label::after {
+    opacity: 0;
+    -webkit-transform: scale(0) rotate(45deg);
+            transform: scale(0) rotate(45deg);
+  }
+  nav#navbar input:checked + label::after {
+    opacity: 1;
+    -webkit-transform: scale(1) rotate(0);
+            transform: scale(1) rotate(0);
+  }
+  nav#navbar #user {
+    text-align: center;
+    display: none;
+  }
+  nav#navbar label + ul {
+    display: none;
+    -webkit-transition: -webkit-transform .2s;
+    transition: -webkit-transform .2s;
+    transition: transform .2s;
+    transition: transform .2s, -webkit-transform .2s;
+    will-change: transform;
+    padding: 2px;
+  }
+  nav#navbar label + ul > li {
+    display: list-item;
+    line-height: 3rem;
+    padding-left: 1rem;
+    color: #171717;
+    font-size: 30px;
+  }
+  nav#navbar label + ul > li ul li {
+    display: inline-block;
+  }
+  nav#navbar input:checked + label + ul, nav#navbar input:checked + label + ul + #user {
+    display: list-item;
+  }
+}
