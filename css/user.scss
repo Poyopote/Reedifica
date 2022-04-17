@@ -1,0 +1,119 @@
+@import "mixin"; @import "variables"; @import "responsive";
+
+#connexion-body{
+    background-image: url("../img/connexion.jpg");
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    overflow: hidden;
+    // background-repeat: no-repeat;
+}
+
+
+#connexion-main{
+   @include plus-large-que(Geant){
+    width: 50vw;
+   }
+
+    // background: rgba($extremeblanc, 0.1);
+    margin-top: 100px;
+    @include margin-droite-gauche(auto);
+    input {
+        font-size: 24px;
+        -webkit-box-shadow: 0px 0px 0px 8px rgba(218, 221, 218, 0.463); 
+        box-shadow: 0px 0px 0px 8px rgba(218, 221, 218, 0.463);
+        color: $extremeblanc;
+        width: 100%;
+        padding: 12px 20px;
+        max-height: 44px;
+        margin: 8px 0;
+        display: inline-block;
+        background-color: $extremenoir;
+        border: 1px double rgba($couleurprin, 0.6);
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="submit"]{
+        margin-top: 44px;
+        width: 50%;
+        border: double;
+        @include margin-droite-gauche(25%)
+    }
+
+    input[type="submit"]:hover {
+        
+        background-color: $extremeblanc;
+        color: $extremenoir;
+        border-color: $extremenoir;
+        cursor: pointer;
+    }
+
+    label{
+        @include Tonlook(1em, $extremeblanc)
+    }
+    p{color: $extremeblanc; font-weight: bold;}
+    nav{
+        @include margin-droite-gauche(auto);
+        text-align: center;
+        display: table;
+        @include margin-haut-bas(10px);
+        
+        a{
+            display:table-cell;
+            min-width: 195px;
+            padding: 1em;
+            font-size: 2rem;
+            color: saturate($extremeblanc,20%);
+            text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $couleursecon, 0 0 30px $couleursecon, 0 0 40px $couleursecon, 0 0 55px $couleursecon, 0 0 75px $couleursecon, 0px 1px 18px rgba(206,206,206,0);
+
+        }
+        @include plus-petit-que(Moyen){
+            display: block;
+            a{
+                display: block;
+            }
+        }
+    }
+}
+
+#inscription-main{
+    h1{
+        font-size: 2em;
+        @include margin-haut-bas(0.67em);
+    }
+    h2{
+        font-size: 1.5em;
+        @include margin-haut-bas(0.83em);
+    }
+    h4{
+        font-size: 1.17em;
+        @include margin-haut-bas(1em);
+    }
+    h3{
+        font-size: 2em;
+        @include margin-haut-bas(1.33em);
+    }
+    h5{
+        font-size: .83em;
+        @include margin-haut-bas(1.67em);
+    }
+    h6{
+        font-size: .67em;
+        @include margin-haut-bas(2.33em);
+    }
+
+    h1,h2,h3,h4,h5,h6{
+        font-family: police(police, classique);
+        margin-left: 0;
+        margin-right: 0;
+        font-weight: bold;
+    }
+    ul{ list-style: inside;}
+    article {
+        overflow: auto;
+        max-height: 60vh;
+    }
+    strong{
+        font-weight: bold;
+    }
+}
