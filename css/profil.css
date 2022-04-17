@@ -1,18 +1,41 @@
 @media screen and (min-width: 1023px) {
   main section {
     float: left;
-    width: 50%;
+    width: 48%;
     min-height: 70vh;
   }
 }
 
+main img {
+  max-width: 50%;
+  height: 50vh;
+  background-size: contain;
+  float: left;
+}
+
+main img + p {
+  float: left;
+  width: 30%;
+}
+
+main section#presentation p {
+  padding-left: 16px;
+}
+
 .date {
-  color: #5691b8;
+  color: #5887a9;
   font-size: auto;
 }
 
 .clear {
   clear: both;
+}
+
+section#presentation + section {
+  overflow: auto;
+  height: 60vh;
+  border-left: 2px solid #171717;
+  padding: .5em;
 }
 
 article h4 {
@@ -22,6 +45,35 @@ article h4 {
 }
 
 article h4:hover {
-  color: #6b91c6;
+  color: #6d87b7;
 }
-/*# sourceMappingURL=profil.css.map */
+
+aside {
+  color: #edf0ea;
+  margin-top: 20px;
+  background: #383c44;
+  clear: both;
+  min-height: 30vw;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.39);
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.39);
+  border-radius: 30px 30px 0 0;
+}
+
+aside form {
+  padding: 1em;
+}
+
+aside legend {
+  color: #edf0ea;
+  font-size: 2em;
+  background-color: none;
+}
+
+aside h5 {
+  color: #edf0ea;
+  font-size: 3em;
+  background-color: #6b6566;
+  border-radius: 30px 30px 0 0;
+  text-align: center;
+  padding: 0.3em;
+}
