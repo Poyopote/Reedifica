@@ -4,13 +4,21 @@
     main {
         section{
             float: left;
-            width: 50%;
+            width: 48%;
             min-height: 70vh;
-
-            
         }
-        
     }
+}
+
+main{
+    img{
+        max-width: 50%;
+        height: 50vh;
+        background-size: contain;
+        float: left;
+        + p {float: left;width: 30%;}
+    }
+    section#presentation p{padding-left: 16px;}
 }
 
 .date{
@@ -18,8 +26,14 @@
 }
 
 .clear{clear: both;}
+section#presentation + section{
+    overflow: auto;
+    height: 60vh;
+    border-left: 2px solid $extremenoir;
+    padding: .5em;
+}
+
 article{
-    
     h4{
         @include Tonlook (2em, auto);
         font-family: police(police,classique);
@@ -28,4 +42,38 @@ article{
        }
     }
     
+}
+
+aside{
+    color: $extremeblanc;
+    margin-top: 20px;
+    background: mix($extremenoir, $extremegris);
+    clear: both;
+    // padding: 1em;
+    min-height: 30vw;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.39); 
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.39);
+
+    border-radius: 30px 30px 0 0 ;
+
+    // legend {
+    //     padding: 3px 12px;
+    // }
+    form{
+        padding: 1em;
+      
+    }
+
+
+
+    legend{
+        @include texte(2em, $extremeblanc, none);
+    }
+
+    h5{
+        @include texte(3em, $extremeblanc, mix($couleurancien, $extremegris));
+        border-radius: 30px 30px 0 0 ;
+        text-align: center;
+        padding: 0.3em;
+    }
 }
