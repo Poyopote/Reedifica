@@ -30,7 +30,7 @@ session_start();
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/user.css">
     
-    <title>Page Connexion "Ravi de te voir" - Ré.édifica</title>
+    <title>Page Connexion "Ravi de te revoir" - Ré.édifica</title>
     <!-- SEO  -->
     <!-- <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/> -->
     <meta property="og:region" content="fr_FR"/>
@@ -47,10 +47,15 @@ session_start();
         <section>
             <form id="formulaire" action="../../includes/connexion_inscription.php" method="POST">
                 <fieldset>
-                    <label for="login"><i class="bi bi-person-fill"></i> Pseudo :</label>
-                    <input type="text" id="login" name="login" required>
-                    <label for="mdp"><i class="bi bi-lock-fill"></i> Mot de passe :</label>
-                    <input type="password" id="mdp" name="mdp" required>
+                    <div>
+                        <span><i class="bi bi-person-fill"></i></span>
+                        <input type="text" id="login" name="login" required placeholder="Pseudo">
+                    </div>
+                    <div>
+                        <span><i class="bi bi-lock-fill"></i></span>
+                        <input type="password" id="mdp" name="mdp" required placeholder="Mot de passe">
+                    </div>
+                    
                     <input name="formulaire" type="hidden" value="0">
                     <p><?php echo($message_erreur); ?></p>
                     <!-- <hr> -->

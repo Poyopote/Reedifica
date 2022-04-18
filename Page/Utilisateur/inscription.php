@@ -14,7 +14,8 @@ session_start();
         header("Location: ../../index.php");
     }
 
-
+    if(!isset($_SESSION["inscription"]))
+    $_SESSION["inscription"] = [];
 
     if (!isset($_SESSION["formulaire"]) || (isset($_SESSION["formulaire"]) && $_SESSION["formulaire"] == 0) ) //si n'y a pas de session
         $_SESSION["formulaire"] = $code = 0;
@@ -26,7 +27,11 @@ session_start();
         }   
         else $code = $_SESSION["formulaire"];
 
- 
+//  var_dump($_SESSION["inscription"]);
+//  var_dump($_SESSION["formulaire"]);
+ if ($_SESSION["formulaire"] == 7) {
+    $message_erreur ="Vous allez être redirigé vers la page de connexion.";
+ }
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +48,7 @@ session_start();
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/user.css">
     
-    <title>Page Connexion "Ravi de te voir" - Ré.édifica</title>
+    <title>Page Inscription "Ravi de te voir" - Ré.édifica</title>
     <!-- SEO  -->
     <!-- <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/> -->
     <meta property="og:region" content="fr_FR"/>
@@ -99,10 +104,13 @@ session_start();
             <form id="formulaire" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
                 <input type="checkbox" id="scales" name="scales" required>
                 <label for="scales">J'accepte les Conditions générales d'utilisation</label>
-                <input name="formulaire" type="hidden" value="1">
-                <input type="submit" value="Valider">
+                <input name="formulaire" type="hidden" value="1"><br>
+                <input type="submit" value="Suivant">
             </form>
         </section>
+        <aside>
+            <img src="../../img/Logo_complet.svg" alt="logo" height="88px">
+        </aside>
     </main>
 </body>
 </html>
@@ -114,26 +122,42 @@ session_start();
         <?php if(isset($_POST["submit"]) && $_POST["formulaire"] == 1 || $code == 1){
             $_SESSION["formulaire"] = 1;
         ?>
-
         <section>
-        <p>Champs &agrave; compl&eacute;ter obligatoirement.*</p>
-        <form id="formulaire" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
-        <fieldset>
+            
+            <form id="formulaire" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
+                <fieldset>
                     <input type="submit" value="Retour">
                     <input name="formulaire" type="hidden" value="0">
                 </fieldset>
-        </form>
+            </form>
+            <h4>Avant de commencer...</h4>
+            <p>Pour pouvoir t'inscrire et commencer &agrave; jouer, tu dois remplir un formulaire.</p>
+            <p>Il est <strong>important </strong>que tu sois pr&eacute;par&eacute; pour cette Aventure.</p>
+            <p>Pour cela, nous te conseillons : d'avoir visit&eacute; la page histoire et si possible avoir lu nos r&egrave;gles.</p><br>
+            <p>C'est bon, tu as tout compris ? Cr&eacute;ons ensemble ton personnage.</p>
             <form id="formulaire" action="../../includes/connexion_inscription.php" method="POST">
-                
+            
                 <fieldset>
-                    <label for="login"><i class="bi bi-person-fill"></i> Pseudo :</label>
-                    <input type="text" id="login" name="login" required>
-                    <label for="mdp"><i class="bi bi-lock-fill"></i> Mot de passe :</label>
-                    <input type="password" id="mdp" name="mdp" required>
-                    <input name="formulaire" type="hidden" value="8">
+                
+                    <div>
+                        <span><i class="bi bi-person-fill"></i></span>
+                        
+                        <input type="text" id="login" name="login" required placeholder="Pseudo">
+                    </div>
+                    <label for="login"><i class="bi bi-exclamation-triangle"></i>Ton pseudo te servira à t'identifier</label>
+                    <hr>
+                    <div>
+                        <span><i class="bi bi-envelope"></i></span>
+                        <input type="email" id="email" name="email" required placeholder="Adress Mail">
+                    </div>
+                    <div>
+                        <span><i class="bi bi-lock-fill"></i></span>
+                        <input type="password" id="mdp" name="mdp" required placeholder="Mot de passe">
+                    </div>
+                    <input name="formulaire" type="hidden" value="2">
                     <p><?php echo($message_erreur); ?></p>
                     <!-- <hr> -->
-                    <input type="submit" value="Valider">
+                    <input type="submit" value="Suivant">
                 </fieldset>
             </form>
         </section>
@@ -143,4 +167,99 @@ session_start();
         <?php 
         } 
         ?>
-        
+<?php if(isset($_POST["submit"]) && $_POST["formulaire"] == 3 || $code == 3){
+            $_SESSION["formulaire"] = 3;
+        ?>
+        <section>
+            
+            <form id="formulaire" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
+                <fieldset>
+                    <input type="submit" value="Retour">
+                    <input name="formulaire" type="hidden" value="1">
+                </fieldset>
+            </form>
+            <h4>De quelle mani&egrave;re serais-tu obtenir le don du pacificateur ?</h4>
+<h5>Coeur Noble</h5>
+<p>D&egrave;s ton premier souffle de vie, tu savais d&eacute;j&agrave; que ta destin&eacute;e &eacute;tait importante ! C'est pour cela que le pacificateur t'a donn&eacute; le don en main propre.</p>
+<h5>Cadeau du Coeur</h5>
+<p>Tu es maintenant un &eacute;l&egrave;ve d'un combattant de la lumi&egrave;re. C'est ton ma&icirc;tre qui t'a donn&eacute; le don et qui te demande de poursuivre sa qu&ecirc;te &agrave; sa place.</p>
+<h5>Dynastie parfaite</h5>
+<p>Famille n&eacute;e dans la bienveillance. Le don est un cadeau du sang. (le don est h&eacute;r&eacute;ditaire.)</p>
+            <br><hr>
+<form id="formulaire" action="../../includes/connexion_inscription.php" method="POST">
+                <fieldset>
+                    <legend>Selectionne ta catégorie</legend>
+                    <label for="CN">Coeur Noble</label>
+                    <input type="radio" name="don" value="CN" id="CN" checked>
+                    <label for="CC">Cadeau du Coeur</label>
+                    <input type="radio" name="don" value="CC" id="CC">
+                    <label for="DP"> Dynastie parfaite</label>
+                    <input type="radio" name="don" value="DP" id="DP">
+                
+                    <input name="formulaire" type="hidden" value="4">
+                    <p><?php echo($message_erreur); ?></p>
+                    <!-- <hr> -->
+                    <input type="submit" value="Suivant">
+                </fieldset>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
+        <?php 
+        } 
+        ?>
+<?php if(isset($_POST["submit"]) && $_POST["formulaire"] == 5 || $code == 5){
+            $_SESSION["formulaire"] = 5;
+        ?>
+        <section>
+            
+            <form id="formulaire" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
+                <fieldset>
+                    <input type="submit" value="Retour">
+                    <input name="formulaire" type="hidden" value="3">
+                </fieldset>
+            </form>
+            <h4>Bientôt fini</h4>
+            <p>Tu as ici 2 choix.</p>
+<p>Tu peux fournir un pr&eacute;nom et un nom. (C'est dans cet ordre) o&ugrave; uniquement un pr&eacute;nom / surnom.</p>
+            <form id="formulaire" action="../../includes/connexion_inscription.php" method="POST">
+                <fieldset>
+                    <div>
+                        <span><i class="bi bi-person-fill"></i></span>
+                        <input type="text" id="prenom" name="prenom" required placeholder="Prénom">
+                    </div>
+                    <div>
+                        <span><i class="bi bi-plus"></i></span>
+                        <input type="text" id="nom" name="nom" required placeholder="nom">
+                    </div>
+                
+                    <input name="formulaire" type="hidden" value="6">
+                    <p><?php echo($message_erreur); ?></p>
+                    <!-- <hr> -->
+                    <input type="submit" value="Terminer">
+                </fieldset>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
+        <?php 
+        } 
+        ?>
+<?php if(isset($_POST["submit"]) && $_POST["formulaire"] == 7 || $code == 7){
+            $_SESSION["formulaire"] = 7;
+        ?>
+        <section>
+            <h4>Terminer</h4>
+            <p><?php echo($message_erreur); ?></p>
+        </section>
+    </main>
+</body>
+</html>
+        <?php
+        sleep(1);
+        unset($_SESSION["formulaire"]);
+        header('Location: connexion.php');
+        } 
+        ?>

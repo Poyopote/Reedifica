@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 06 avr. 2022 à 21:01
+-- Généré le : lun. 18 avr. 2022 à 18:50
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
@@ -100,22 +100,7 @@ CREATE TABLE IF NOT EXISTS `rp` (
   PRIMARY KEY (`id_rp`),
   KEY `id_user` (`id_user`),
   KEY `id_story` (`id_story`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Déchargement des données de la table `rp`
---
-
-INSERT INTO `rp` (`id_rp`, `id_user`, `id_story`, `date`, `avant`, `apres`) VALUES
-(1, 1, 1, '2022-04-06 13:54:25', NULL, NULL),
-(2, 1, 2, '2022-04-06 14:32:56', NULL, NULL),
-(3, 2, 1, '2022-04-06 12:42:02', NULL, NULL),
-(4, 1, 3, '2022-04-06 14:43:58', NULL, NULL),
-(5, 1, 4, '2022-04-06 14:48:38', NULL, NULL),
-(6, 1, 5, '2022-04-06 14:48:51', NULL, NULL),
-(7, 1, 6, '2022-04-06 14:53:43', NULL, NULL),
-(8, 1, 7, '2022-04-06 14:56:36', NULL, NULL),
-(9, 1, 8, '2022-04-06 14:59:08', NULL, NULL);
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -134,21 +119,7 @@ CREATE TABLE IF NOT EXISTS `story` (
   PRIMARY KEY (`id_story`),
   KEY `id_user` (`id_user`),
   KEY `id_under_world` (`id_under_world`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Déchargement des données de la table `story`
---
-
-INSERT INTO `story` (`id_story`, `title`, `id_user`, `id_under_world`, `bio`, `date`) VALUES
-(1, 'La fabuleuse histoire de ', 1, 1, 'gdfqgfgdf', '2022-04-06 13:54:25'),
-(2, 'Petite baignade 2', 1, 1, 'dsffdgfds', '2022-04-06 14:32:56'),
-(3, 'dort', 1, 1, 'dfbrtzze&#039;&quot;(&quot;&#039;', '2022-04-06 14:43:58'),
-(4, 'La fabuleuse histoire de ', 1, 2, 'gfbfgs', '2022-04-06 14:48:38'),
-(5, 'dfgqfdgdf', 1, 2, 'dggqdgfd', '2022-04-06 14:48:51'),
-(6, 'sdfdq', 1, 1, 'sfdqsd', '2022-04-06 14:53:43'),
-(7, 'xsdfd', 1, 5, 'qvvfd', '2022-04-06 14:56:36'),
-(8, '(èè(&#039;', 1, 4, 'grrzt', '2022-04-06 14:59:08');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -167,18 +138,19 @@ CREATE TABLE IF NOT EXISTS `under_world` (
   PRIMARY KEY (`id_under_world`),
   KEY `id_world` (`id_world`),
   KEY `id_user` (`id_user`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `under_world`
 --
 
 INSERT INTO `under_world` (`id_under_world`, `id_world`, `title`, `bio`, `media`, `id_user`) VALUES
-(1, 1, 'Le bureau des rencontres', 'bla bla', '_rose_texture_2.png', 2),
-(2, 3, 'Le Lac', 'htytryry', 'lac.jpg', 1),
-(3, 2, 'Grotte de cristal', 'Maison de Rénata, elle accueille toujours les Bonnes âmes. Ici, tu peux découvrir ton avenir.', '86a5.jpg', 2),
-(4, 3, 'Sable rouge', '', 'Matte painting 98.jpg', 1),
-(5, 3, 'La Jungle', '', 'Matte painting 95.jpg', 2);
+(1, 1, 'Le bureau des rencontres', '[curriculum vitae] Lieu de paix et d\'harmonie. Ce lieu accueille toutes les histoires personnelles des membres.', 'Vision Oréan.jpg', 2),
+(2, 3, 'L\'étang', 'L\'étang soigne tout, même les blessures de guerre.', 'étant.jpg', 1),
+(3, 2, 'Grotte de cristal', 'Maison de Rénata, elle accueille toujours les Bonnes âmes. Ici, tu peux découvrir ton avenir et éprouver ton présent.', 'PhotoBASHING 1.jpg', 2),
+(4, 2, 'Sable rouge', 'Zone d\'affrontements principal. Représente un point stratégique pour une paix durable.', 'bataille_vue2.jpg', 1),
+(5, 3, 'La Jungle', 'Lieu prisé des combattants, dans une jungle luxuriante et dangereuse. Et des alchimistes, en quête de matériaux pour leurs potions.', 'Matte painting 95.jpg', 2),
+(6, 1, 'L\'Observatoire', 'C\'est ici que nous étudions l\'espace et l\'univers, pour élaborer un plan d\'attaque contre les ténèbres', 'observatoire_vue2.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -193,11 +165,12 @@ CREATE TABLE IF NOT EXISTS `user` (
   `nom` varchar(30) NOT NULL,
   `prenom` varchar(15) NOT NULL,
   `image` varchar(50) NOT NULL,
-  `grade` enum('Novise','Apprenti','Accompli','Soutien') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `grade` enum('Novise','Apprenti','Accompli','Soutien') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'Novise',
   `mdp` char(60) NOT NULL,
   `email` varchar(319) NOT NULL,
   `date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `don` enum('CC','CN','DP') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id_user`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -205,9 +178,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id_user`, `pseudo`, `nom`, `prenom`, `image`, `grade`, `mdp`, `email`, `date`, `description`) VALUES
-(1, 'Voltamaster', 'X', 'Valto', 'Voltamaster.jpg', 'Accompli', '$2y$10$DIHIo97eHPsA7OHoXOaKM.1ay0v9H7iZsfgG7CHJ1gntyyJLizfqK', 'exemple@email.fr', '2022-03-17 00:00:00', 'je suis génial'),
-(2, 'DameBleu', '', 'Rénata', 'Damebleu.jpg', 'Soutien', '$2y$10$.8md5emsNx6b4o5yMb3p2.6Fl997rEme3vvp6QcNpxKWw67jKx0wC', '', '2022-04-02 21:17:13', '');
+INSERT INTO `user` (`id_user`, `pseudo`, `nom`, `prenom`, `image`, `grade`, `mdp`, `email`, `date`, `description`, `don`) VALUES
+(1, 'Voltamaster', 'X', 'Valto', 'Voltamaster.png', 'Accompli', '$2y$10$DIHIo97eHPsA7OHoXOaKM.1ay0v9H7iZsfgG7CHJ1gntyyJLizfqK', 'exemple@email.fr', '2022-04-18 17:50:11', 'Vous êtes génial.', 'CN'),
+(2, 'DameBleu', '', 'Rénata', 'Damebleu.jpg', 'Soutien', '$2y$10$.8md5emsNx6b4o5yMb3p2.6Fl997rEme3vvp6QcNpxKWw67jKx0wC', '', '2022-04-18 17:50:17', 'je suis belle', NULL);
 
 -- --------------------------------------------------------
 
@@ -269,9 +242,9 @@ CREATE TABLE IF NOT EXISTS `world` (
 --
 
 INSERT INTO `world` (`id_world`, `name_world`, `bio_world`, `id_user`, `media`) VALUES
-(1, 'Le Bercail', 'Lieu de départ pour tous les aventuriers. C\'est notre maison mère.', 1, '696364.jpg'),
+(1, 'Le Bercail', 'Lieu de départ pour tous les aventuriers. C\'est notre maison mère.', 1, 'observatoire_vue1.jpg'),
 (2, 'Champ de bataille', 'Lieu d\'affrontement contre les ténèbres. Ici, c\'est la survie qui prime.\r\nUn conseil, trouve-toi de bons alliés et partez à l\'aventure ensemble.', 1, 'bataille_vue1.jpg'),
-(3, 'Bivouac', '', 2, 'Matte painting 94.jpg');
+(3, 'Bivouac', 'Les ténèbres n\'ont pas encore fait route. Il existe encore des lieux où la lumière est permanente. Ces zones de repos ont été prises pour lieu d\'entraînement afin d\'aguerrir de nouveaux pouvoirs.', 2, 'Matte_painting_94.jpg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

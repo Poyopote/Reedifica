@@ -59,7 +59,10 @@
 
 	function verification_donnees_inscription_non_nulles($email, $login, $mdp, $location, $message_erreur1, $message_erreur2)
 	{
-		if(isset($email) && isset($login) && isset($mdp) && !empty($email) && !empty($login) && !empty($mdp))
+		
+
+
+		if(isset($email) && isset($login) && isset($mdp) && !empty($email) && !empty(trim($login)) && !empty(trim($mdp)))
 		{
 			$tableau = verification_email_inscription_valide($email, $login, $mdp, $location, $message_erreur2);
 			return $tableau;
@@ -75,6 +78,10 @@
 		if(filter_var($email, FILTER_VALIDATE_EMAIL))
 		{
 			$tableau2 = [$email, trim($login), trim($mdp)];
+
+			$_SESSION["inscription"]['login'] = trim($login);
+			$_SESSION["inscription"]['mdp'] = trim($mdp);
+			$_SESSION["inscription"]['email'] = $email;
 			return $tableau2;
 		}
 		else
@@ -83,15 +90,27 @@
 		}
 	}
 
-	function requete_inscription ($bdd, $table, $champ_un, $champ_deux, $champ_trois, $email, $login, $mdp)
+	function requete_inscription ($bdd, $table, $nom, $prenom, $email, $pseudo, $mdp, $don)
 	{
-		$mdp_crypte = password_hash($mdp, PASSWORD_DEFAULT);
+		$BackOffice = new administration();
+		$mdp_crypte = $BackOffice->pass_hash($mdp);
+		$date = new DateTime("now", new DateTimeZone('Europe/Paris') );
+		$date = $date->format('Y-m-d H:i:s'); // Fournit la date de la FRANCE
 
-		$enregistrement_utilisateur = $bdd->prepare("INSERT INTO $table ($champ_un, $champ_deux, $champ_trois) VALUES (:email_bdd, :login_bdd, :mdp_bdd)");
+		$enregistrement_utilisateur = $bdd->prepare("INSERT INTO $table (`pseudo`, `nom`, `prenom`, `image`, `mdp`, `email`, `don`, `date`) VALUES (:pseudo_bdd, :nom_bdd, :prenom_bdd, 'profil.png', :mdp_bdd, :email_bdd, :don_bdd, :date_bdd)");
+		$enregistrement_utilisateur->bindParam(":nom_bdd", $nom);
+		$enregistrement_utilisateur->bindParam(":prenom_bdd", $prenom);
+		$enregistrement_utilisateur->bindParam(":pseudo_bdd", $pseudo);
+		$enregistrement_utilisateur->bindParam(":don_bdd", $don);
 		$enregistrement_utilisateur->bindParam(":email_bdd", $email);
-		$enregistrement_utilisateur->bindParam(":login_bdd", $login);
 		$enregistrement_utilisateur->bindParam(":mdp_bdd", $mdp_crypte);
+		$enregistrement_utilisateur->bindParam(":date_bdd", $date);
 		$enregistrement_utilisateur->execute();
+
+		$filename = $_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/".$pseudo;
+		$profil_image = $_SERVER['DOCUMENT_ROOT']. "/reedifica/img/profil.png";
+		mkdir($filename);
+		copy($profil_image, $filename."/profil.png");
 	}
 
 	function message_erreur_inscription ($location, $message_erreur)
@@ -102,18 +121,17 @@
 		exit();
 	}
 
-	function enregistrement_donnees ($variable1, $variable2, $bdd, $table, $champ_un, $champ_deux, $champ_trois, $email, $login, $mdp, $location, $message_erreur1, $message_erreur2)
+	function enregistrement_donnees_1 ($variable1, $variable2, $location, $message_erreur1, $message_erreur2)
 	{
 		if (!$variable1)
 		{
 			if (!$variable2)
 			{
-				requete_inscription ($bdd, $table, $champ_un, $champ_deux, $champ_trois, $email, $login, $mdp);
 				unset($_SESSION["message_erreur"]);	
-				unset($_SESSION["erreur_inscription"]);	
+				unset($_SESSION["erreur_inscription"]);
+				$_SESSION["formulaire"] = 3;
 				header("Location: $location");
 				exit();
-
 			}
 			else
 			{
@@ -124,6 +142,25 @@
 		{
 			message_erreur_inscription ($location, $message_erreur1);
 		}
+	}
+	function enregistrement_donnees_2 ($nom, $prenom, $bdd, $table, $email, $pseudo, $mdp, $don, $location, $message_erreur)
+	{
+		$_SESSION["formulaire"] = 5;
+		if (!empty(trim($prenom)))
+		{
+			requete_inscription ($bdd, $table, $nom, $prenom, $email, $pseudo, $mdp, $don);
+			unset($_SESSION["message_erreur"]);	
+			unset($_SESSION["erreur_inscription"]);
+			$_SESSION["formulaire"] = 7;
+			header("Location: $location");
+			exit();
+		}
+		else
+		{
+			message_erreur_inscription ($location, $message_erreur);
+		}
+		
+
 	}
 
 	function requete_verification_donnees_inscription ($bdd, $champ_un, $table, $condition, $valeur)
@@ -390,20 +427,12 @@
 
 	}
 	function supprimer_histoire($bdd,$numero_H){
-		$actuel_rp = $bdd->query("SELECT * FROM `rp` WHERE id_story = $numero_H AND `apres` IS NULL");
+		$actuel_rp = $bdd->query("SELECT * FROM `rp` WHERE id_story = $numero_H");
 		$actuel_rp->execute();
 		$resultat = $actuel_rp->fetch();
-		$apres_rp = $resultat["apres"];
-		$avant_rp = $resultat["avant"];
-
-		if($avant_rp == NULL && $apres_rp == NULL){
-			unlink($_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp/".$resultat["id_rp"].'.txt');
-		}
-		else{
-			$bdd->query("DELETE FROM `rp` WHERE id_story = $numero_H AND `apres` IS NULL");
-			$bdd->query("UPDATE `rp` SET `apres` = NULL WHERE `id_rp` = $avant_rp");
-			unlink($_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp/".$resultat["id_rp"].'.txt');
-		}
+		unlink($_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp/".$resultat["id_rp"].'.txt');
+		$bdd->query("DELETE FROM `rp` WHERE id_story = $numero_H");
+		$bdd->query("DELETE FROM `story` WHERE id_story = $numero_H");
 
 	}
 
@@ -474,10 +503,12 @@
 	class administration
 	{
 	// BO
-		// $mdp = "1234";
-		// $mdp_crypte = password_hash($mdp, PASSWORD_DEFAULT);
-		
-		// echo $mdp_crypte;
+	
+		public $_mdp;
+
+		public function pass_hash($mdp){
+			return $this->_mdp = password_hash($mdp, PASSWORD_DEFAULT); 	
+		}
 	
 		protected function EstClePrimaire($nom_champ) 
 		{

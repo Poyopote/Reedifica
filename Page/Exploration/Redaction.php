@@ -53,6 +53,7 @@ if (!isset($_SESSION["histoire"])) {
   else if(isset($_POST["reset"])){
     $numero_H = $_POST["numero_H"];
     supprimer_histoire($bdd,$numero_H);
+    function_alert("Histoire Supprimer");
     header('Location: ../../Page/Utilisateur/Profil.php');
   }
   else header('Location: sous-monde.php');

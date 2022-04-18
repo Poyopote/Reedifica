@@ -26,15 +26,28 @@
 		requete_connexion_verification ($utilisateur, $identifiants[1], $utilisateur["mdp"], $identifiants[0], $identifiants[1], "../Page/Utilisateur/connexion.php", "Le Pseudo ou le mot de passe est invalide !", "../Page/Utilisateur/Profil.php");
 
 	}
-	if($_SESSION["formulaire"] == 8)
+	if($_SESSION["formulaire"] == 2)
 	{
-		$donnees_inscription = verification_donnees_inscription_non_nulles($_POST["email"], $_POST["login"], $_POST["mdp"], "../index.php", "Veuillez renseigner tous les champs !", "email invalide !");
+		$_SESSION["formulaire"] = 1;
+		$donnees_inscription = verification_donnees_inscription_non_nulles($_POST["email"], htmlentities($_POST["login"], ENT_QUOTES), $_POST["mdp"], "../Page/Utilisateur/inscription.php", "Veuillez renseigner tous les champs !", "email invalide !");
 
-		$email = requete_verification_donnees_inscription ($bdd, "mail_utilisateur", "user", "mail_utilisateur", $donnees_inscription[0]);
+		$email = requete_verification_donnees_inscription ($bdd, "email", "user", "email", $donnees_inscription[0]);
 		$login = requete_verification_donnees_inscription ($bdd, "pseudo", "user", "pseudo", $donnees_inscription[1]);
-
-		enregistrement_donnees($email, $login, $bdd, "user", "mail_utilisateur", "pseudo", "mdp", $donnees_inscription[0], $donnees_inscription[1], $donnees_inscription[2], "../index.php", "Cet email est déjà utilisé !", "Ce login existe déjà !");
+		
+		enregistrement_donnees_1($email, $login, "../Page/Utilisateur/inscription.php", "Cet email est déjà utilisé !", "Ce login existe déjà !");
 	}
-
+	if($_SESSION["formulaire"] == 4)
+	{
+		$_SESSION["formulaire"] = 5;
+		$_SESSION["inscription"]['don'] = $_POST["don"];
+		header('Location: ../Page/Utilisateur/inscription.php');
+		
+		// enregistrement_donnees_2($email, $login, "../index.php", "Cet email est déjà utilisé !", "Ce login existe déjà !");
+	}
+	if($_SESSION["formulaire"] == 6)
+	{
+		
+		enregistrement_donnees_2(htmlentities($_POST["nom"], ENT_QUOTES), htmlentities($_POST["prenom"], ENT_QUOTES),$bdd, "user", $_SESSION["inscription"]['email'],$_SESSION["inscription"]['login'],$_SESSION["inscription"]['mdp'],$_SESSION["inscription"]['don'],	"../Page/Utilisateur/inscription.php", "Veuillez compléter le Prénom. !");
+	}
 
 ?>

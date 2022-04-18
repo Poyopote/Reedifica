@@ -1,5 +1,12 @@
 #connexion-body {
   background-image: url("../img/connexion.jpg");
+}
+
+#inscription-body {
+  background-image: url("../img/ciel_vue1.jpg");
+}
+
+#connexion-body, #inscription-body {
   width: 100vw;
   height: 100vh;
   background-size: cover;
@@ -19,20 +26,33 @@
 }
 
 #connexion-main input {
-  font-size: 24px;
-  -webkit-box-shadow: 0px 0px 0px 8px rgba(218, 221, 218, 0.463);
-  box-shadow: 0px 0px 0px 8px rgba(218, 221, 218, 0.463);
-  color: #edf0ea;
-  width: 100%;
-  padding: 12px 20px;
-  max-height: 44px;
-  margin: 8px 0;
-  display: inline-block;
-  background-color: #171717;
-  border: 1px double rgba(4, 0, 55, 0.6);
-  border-radius: 4px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #171717;
+  background-color: #edf0ea;
+  background-clip: padding-box;
+  border: 1px solid #edf0ea;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: .25rem;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  width: 1%;
+  min-width: 0;
+  margin-left: -1px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 #connexion-main input[type="submit"] {
@@ -41,12 +61,14 @@
   border: double;
   margin-left: 25%;
   margin-right: 25%;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
 #connexion-main input[type="submit"]:hover {
-  background-color: #edf0ea;
-  color: #171717;
-  border-color: #171717;
+  background-color: #171717;
+  color: #edf0ea;
+  border-color: #edf0ea;
   cursor: pointer;
 }
 
@@ -87,6 +109,43 @@
   }
 }
 
+fieldset div {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  margin: 8px 0;
+}
+
+span {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#inscription-main {
+  min-height: 100vh;
+  width: 50%;
+  background: radial-gradient(rgba(237, 240, 234, 0.87), #edf0ea);
+}
+
 #inscription-main h1 {
   font-size: 2em;
   margin-top: 0.67em;
@@ -97,6 +156,7 @@
   font-size: 1.5em;
   margin-top: 0.83em;
   margin-bottom: 0.83em;
+  color: #2e578c;
 }
 
 #inscription-main h4 {
@@ -141,4 +201,13 @@
 
 #inscription-main strong {
   font-weight: bold;
+}
+
+#inscription-main aside {
+  text-align: right;
+}
+
+#inscription-main section {
+  overflow: auto;
+  max-height: 80vh;
 }
