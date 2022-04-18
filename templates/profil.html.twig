@@ -23,9 +23,9 @@
   {% else %}
   {% for key, histoire in histoires %}
   <article>
-    <h4><a href="../../Page/Exploration/Aventure.php?num={{histoire.id_story}}">{{histoire.title}}</a></h4>
+    <h4><a href="../../Page/Exploration/Aventure.php?num={{histoire.id_story}}">{{histoire.title | raw}}</a></h4>
     <p class="date">Créé le {{histoire.date}}</p>
-    <p>{{histoire.bio}}<p>
+    <p>{{histoire.bio  | raw}}<p>
     <hr>
   </article>
   {% endfor %}

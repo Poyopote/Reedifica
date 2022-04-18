@@ -45,20 +45,21 @@ $vide_fichier = FALSE;
   
         if(!$lines && (trim($lines) == "") )
         {
-          $lines = file_get_contents('../../docs/rp/rien.txt');
+          $lines = file_get_contents('../../docs/rien.txt');
           $vide_fichier = TRUE;
   
         }
       }
       else{
         file_put_contents('../../docs/rp/'.$rp['id_rp'].'.txt', "");
-        $lines = file_get_contents('../../docs/rp/rien.txt');
+        $lines = file_get_contents('../../docs/rien.txt');
         $vide_fichier = TRUE;
         }
       $une_aventure["contenu"]= $lines;
   
       $une_aventure["repondre"] = is_array($tableau_utilisateur) && ($tableau_utilisateur["id_user"] != $rp["id_user"]) && ($rp["apres"] == NULL) && ($vide_fichier == FALSE);
-      $une_aventure["modifier"] = is_array($tableau_utilisateur) && ($tableau_utilisateur["id_user"] == $rp["id_user"]) && ($rp["apres"] == NULL);
+      $une_aventure["modifier"] = is_array($tableau_utilisateur) && ($tableau_utilisateur["id_user"] == $rp["id_user"]) && ($rp["avant"] != NULL ) && ($rp["apres"] == NULL );
+      $une_aventure["supprimer"] = is_array($tableau_utilisateur) && ($tableau_utilisateur["id_user"] == $rp["id_user"]) && ($rp["avant"] == NULL ) && ($rp["apres"] == NULL );
       $export_twig_aventure[] = $une_aventure;
   
     }
@@ -78,7 +79,7 @@ $vide_fichier = FALSE;
     'Tutoriel' => "../../Page/Guide/Tutoriel.php",
     'Réglementation' => "../../Page/Guide/Réglementation.php",
     'FAQ' => "../../Page/Guide/F-A-Q.php",
-    'Profil' => "Profil.php",
+    'Profil' => "../../Page/Utilisateur/Profil.php",
     'deconnexion' => "../../includes/deconnexion.php",
     'connexion' => "../../Page/Utilisateur/connexion.php",
     'inscription' => "../../Page/Utilisateur/inscription.php",

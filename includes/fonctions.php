@@ -372,16 +372,38 @@
 		$resultat = $apres_rp->fetch();
 		return $resultat;
 	}
-	function supprimer($bdd,$histoire){
-		$actuel_rp = $bdd->query("SELECT * FROM `rp` WHERE id_story = $histoire AND `apres` IS NULL");
+	function supprimer_rp($bdd,$numero_H){
+		$actuel_rp = $bdd->query("SELECT * FROM `rp` WHERE id_story = $numero_H AND `apres` IS NULL");
 		$actuel_rp->execute();
 		$resultat = $actuel_rp->fetch();
+		$apres_rp = $resultat["apres"];
 		$avant_rp = $resultat["avant"];
 
-		$bdd->query("DELETE FROM `rp` WHERE id_story = $histoire AND `apres` IS NULL");
-		$bdd->query("UPDATE `rp` SET `apres` = NULL WHERE `id_rp` = $avant_rp");
+		if($avant_rp == NULL && $apres_rp == NULL){
+			unlink($_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp/".$resultat["id_rp"].'.txt');
+		}
+		else{
+			$bdd->query("DELETE FROM `rp` WHERE id_story = $numero_H AND `apres` IS NULL");
+			$bdd->query("UPDATE `rp` SET `apres` = NULL WHERE `id_rp` = $avant_rp");
+			unlink($_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp/".$resultat["id_rp"].'.txt');
+		}
 
-		unlink($_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp/".$resultat["id_rp"].'.txt');
+	}
+	function supprimer_histoire($bdd,$numero_H){
+		$actuel_rp = $bdd->query("SELECT * FROM `rp` WHERE id_story = $numero_H AND `apres` IS NULL");
+		$actuel_rp->execute();
+		$resultat = $actuel_rp->fetch();
+		$apres_rp = $resultat["apres"];
+		$avant_rp = $resultat["avant"];
+
+		if($avant_rp == NULL && $apres_rp == NULL){
+			unlink($_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp/".$resultat["id_rp"].'.txt');
+		}
+		else{
+			$bdd->query("DELETE FROM `rp` WHERE id_story = $numero_H AND `apres` IS NULL");
+			$bdd->query("UPDATE `rp` SET `apres` = NULL WHERE `id_rp` = $avant_rp");
+			unlink($_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp/".$resultat["id_rp"].'.txt');
+		}
 
 	}
 
@@ -452,10 +474,10 @@
 	class administration
 	{
 	// BO
-	// $mdp = "1234";
-	// $mdp_crypte = password_hash($mdp, PASSWORD_DEFAULT);
-	
-	// echo $mdp_crypte;
+		// $mdp = "1234";
+		// $mdp_crypte = password_hash($mdp, PASSWORD_DEFAULT);
+		
+		// echo $mdp_crypte;
 	
 		protected function EstClePrimaire($nom_champ) 
 		{

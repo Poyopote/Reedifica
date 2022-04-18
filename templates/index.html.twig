@@ -104,7 +104,7 @@
   <header>
     <nav id="navbar">
       <input type="checkbox" id="menu-bouton">
-      <label for="menu" aria-describedby="label"><i class="bi bi-list-task"></i></label>
+      <label for="menu-bouton" ><i class="bi bi-list-task"></i></label>
       <ul>
           <li><a href="{{index}}"><i class="bi bi-house"></i><span> Accueil</span></a></li>
           <li><i class="bi bi-book"></i> Histoire
@@ -150,11 +150,11 @@
     <div id="carousel">
       <a class="carousel_button" onclick="changeImgLeft()"><i class="bi bi-arrow-left-circle-fill"></i></a>
       
-      <img id="slideImg" src="" name="slide" alt="actu">
+      <img id="slideImg" src="img/ciel_vue1.jpg" alt="actu">
       
       <div id="carousel_text">
-          <p name="carousel_text"></p>
-          <a href="" name="carousel_lien"><button name="carousel_bouton"></button></a>
+          <p id="carousel_p"></p>
+          <button id="carousel_bouton" onclick="window.location.href = 'index.php';"></button>
       </div>
       <a class="carousel_button" onclick="changeImgRight()"><i class="bi bi-arrow-right-circle-fill"></i></a>
     </div> 

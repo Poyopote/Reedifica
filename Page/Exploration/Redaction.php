@@ -17,13 +17,12 @@ include("../../includes/fonctions.php");
     //   $error = TRUE;
     // }
 
-
 if (!isset($_SESSION["histoire"])) {
   if(isset($_POST["creer"]) && (trim($_POST["titre"]) != "") ){
-    $test = verification_histoire_non_existante($bdd,$_POST["id_createur"],$_POST["titre"]);
+    $test = verification_histoire_non_existante($bdd,$_POST["id_createur"],htmlentities($_POST["titre"], ENT_QUOTES));
 
     if($test[0] == true){
-      $reponse = creer_une_histoire($bdd,$_POST["id_createur"],$_POST["lieu"],$_POST["titre"],$_POST["bio"]);
+      $reponse = creer_une_histoire($bdd,$_POST["id_createur"],$_POST["lieu"],htmlentities($_POST["titre"], ENT_QUOTES),htmlentities($_POST["bio"], ENT_QUOTES));
       echo $reponse[0];
       $_SESSION["histoire"] = $reponse[2][0];
       $_SESSION["rp"] = $reponse[1][0];
@@ -48,8 +47,13 @@ if (!isset($_SESSION["histoire"])) {
   }
   else if(isset($_POST["supprimer"])){
     $numero_H = $_POST["numero_H"];
-    supprimer($bdd,$numero_H);
+    supprimer_rp($bdd,$numero_H);
     header('Location: Aventure.php?num='.$numero_H);
+  }
+  else if(isset($_POST["reset"])){
+    $numero_H = $_POST["numero_H"];
+    supprimer_histoire($bdd,$numero_H);
+    header('Location: ../../Page/Utilisateur/Profil.php');
   }
   else header('Location: sous-monde.php');
 }

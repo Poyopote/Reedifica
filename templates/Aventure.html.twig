@@ -1,12 +1,16 @@
 {% extends "base.html.twig" %}
 
 {% block main %}
-<h6><a href="{{Mondes}}"> Exploration</a><i class="bi bi-caret-right-fill"> </i> {{monde.name_world}} <i class="bi bi-caret-right-fill"></i> {{sous_monde.title}} <i class="bi bi-caret-right-fill"></i> {{histoire.title}}  </h6>
+<h6><a href="{{Mondes}}"> Exploration</a>
+  <i class="bi bi-caret-right-fill"></i> {{monde.name_world}} 
+  <i class="bi bi-caret-right-fill"></i> {{sous_monde.title}} 
+  <i class="bi bi-caret-right-fill"></i> {{histoire.title | raw}}
+</h6>
 <hr>
 <header class="banniere-lieu">
-    <h2>{{histoire.title}}</h2>
+    <h2>{{histoire.title | raw}}</h2>
     <img src="../../img/{{sous_monde.media}}" alt="image_du_lieu">
-    <p>{{histoire.bio}}</p>
+    <p>{{histoire.bio | raw}}</p>
 </header>
 <section id="histoire">
 {% for key, item in aventure %}
@@ -39,7 +43,17 @@
       </aside>
 
     {% endif %}
-    
+    {% if item.supprimer %}
+        
+    <aside>
+      <form action="Redaction.php" method="post">
+        <input type="hidden" name="numero_H" value="{{numero_H}}">
+        <input type="submit" name="modifier" value="Modifier">
+        <input type="submit" name="reset" value="Supprimer l'Histoire">
+      </form>
+      </aside>
+
+    {% endif %}
     <div class='clear'></div>        
 
 {% endfor %}

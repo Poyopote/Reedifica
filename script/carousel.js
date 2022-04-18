@@ -20,9 +20,9 @@ bouton[1] = "Aller voir";
 bouton[2] = "Découvrir";
 
 // lien list
-lien[0] = "Page/Utilisateur/connexion.php";
-lien[1] = "Page/Histoire/contexte.php";
-lien[2] = "Page/Membres/Liste.php";
+lien[0] = "window.location.href = 'Page/Utilisateur/connexion.php'";
+lien[1] = "window.location.href = 'Page/Histoire/contexte.php'";
+lien[2] = "window.location.href = 'Page/Membres/Liste.php'";
 
 // change image
 function changeImgLeft() {
@@ -33,7 +33,7 @@ if (i > 0) {
     }
     changeTextLeft(i);
     
-    document.slide.src = images[i];
+    document.getElementById("slideImg").src = images[i];
 }
 
 function changeImgRight() {
@@ -44,23 +44,23 @@ if (i < images.length - 1) {
     }
     changeTextRight(i);
     
-    document.slide.src = images[i];
+    document.getElementById("slideImg").src = images[i];
 }
 
-window.onload = document.slide.src = images[i];
-window.onload = document.getElementsByName("carousel_text")[0].innerText = texts[i];
-window.onload = document.getElementsByName("carousel_bouton")[0].innerText = bouton[i];
-window.onload = document.getElementsByName("carousel_lien")[0].setAttribute("href", lien[i]);
+window.onload = document.getElementById("slideImg").src = images[i];
+window.onload = document.getElementById("carousel_p").innerText = texts[i];
+window.onload = document.getElementById("carousel_bouton").innerText = bouton[i];
+window.onload = document.getElementById("carousel_bouton").setAttribute("onclick", lien[i]);
 
 // change text
 function changeTextLeft(counter) {
-    document.getElementsByName("carousel_text")[0].innerText = texts[counter];
-    document.getElementsByName("carousel_bouton")[0].innerText = bouton[counter];
-    document.getElementsByName("carousel_lien")[0].setAttribute("href", lien[counter]);
+    document.getElementById("carousel_p").innerText = texts[counter];
+    document.getElementById("carousel_bouton").innerText = bouton[counter];
+    document.getElementById("carousel_bouton").setAttribute("onclick", lien[counter]);
 }
 
 function changeTextRight(counter) {
-    document.getElementsByName("carousel_text")[0].innerText = texts[counter];
-    document.getElementsByName("carousel_bouton")[0].innerText = bouton[counter];
-    document.getElementsByName("carousel_lien")[0].setAttribute("href", lien[counter]);
+    document.getElementById("carousel_p").innerText = texts[counter];
+    document.getElementById("carousel_bouton").innerText = bouton[counter];
+    document.getElementById("carousel_bouton").setAttribute("onclick", lien[counter]);
 }
