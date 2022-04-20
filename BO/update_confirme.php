@@ -103,11 +103,9 @@ if ($user_pseudo == "") {
 						// Récupération de la clé primaire
 						$columns_req = $bdd->query("SHOW COLUMNS FROM `$table_selectionnee`");
 					    $lignes_columns = $columns_req->fetchAll();
-						var_dump($lignes_columns);
 					    foreach($lignes_columns as $column) {	// Si c'est une clé primaire, on la récupère
 							if( $column['Key'] == "PRI" )
 								$cle_primaire = $column['Field'];
-								var_dump($cle_primaire);
 								
 						}
 						// Execution de la suppression

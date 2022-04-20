@@ -7,8 +7,7 @@
   <img src='{{filename}}/{{tableau_utilisateur.image}}'  alt="image-de-profil">
   <p><i class="bi bi-quote"></i>{{tableau_utilisateur.description}}<i class="bi bi-quote"></i></p>
   <div class="clear"></div>
-  <p>{{tableau_utilisateur.prenom}} {{tableau_utilisateur.nom}}</p>
-  <p>Symbole : Lunette correctionnelle</p>
+  <p>Je suis {{tableau_utilisateur.prenom}} {{tableau_utilisateur.nom}}</p>
   <p>Grade : {{tableau_utilisateur.grade}}</p>
   {% if tableau_utilisateur.don is null %}
   <p>Catégorie du DON : Aucun</p>
@@ -92,6 +91,7 @@
           <th>{{column.Field}}</th>
         {% endfor %}
           <th>#</th>
+          <th>~</th>
         </tr>
       </thead>
       <tbody>

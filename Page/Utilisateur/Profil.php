@@ -94,16 +94,22 @@ if (isset($_POST['send']) && $_POST['send'] == "Modifier la description"){
     {
       if( $column['Key'] == "PRI" ) {
         $cle_primaire = $column['Field'];
+        var_dump($cle_primaire);
         break;
       }
+      
+    }
+    foreach ($lignes_values as &$ligne) {
+
+      $ligne['clef_primaire_extraite_de_la_reponse'] =  $ligne["$cle_primaire"] ;
     }
   }
 
   $BackOffice = new administration();
-if( $mon_compte == true && isset($_POST['valider']) && ($_POST['valider'] == "story" || $_POST['valider'] == "rp")){
-  $BackOffice->clear($bdd);
+// if( $mon_compte == true && isset($_POST['valider']) && ($_POST['valider'] == "story" || $_POST['valider'] == "rp")){
+//   $BackOffice->clear($bdd);
  
-}
+// }
 
 
   echo $twig->render('profil.html.twig', 
