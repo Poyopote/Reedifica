@@ -1,6 +1,15 @@
 <?php
-include('initialisation.php');
-include("database.php");
+//INCLUSION DES FONCTIONS
+
+include($_SERVER['DOCUMENT_ROOT']. "/reedifica/includes/fonctions.php");
+//INCLUSION DE LA BDD
+
+include($_SERVER['DOCUMENT_ROOT']. "/reedifica/includes/init_BDD.php");
+$bdd = connexion_bdd();
+
+session_start();
+$user_pseudo = user_connect();
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -8,26 +17,24 @@ include("database.php");
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
  	<link rel="stylesheet" type="text/css" href="../css/admin.css">
-	<link rel="icon" type="image/svg" href="../img/mouv_mauve_1.svg" sizes="16x16">
+	<link rel="icon" type="image/svg" href="../img/Logo_favicon.svg" sizes="16x16">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="../script/menu-folio.js"></script>
 	<title>Administration</title>
-	<style type="text/css">
-		body{background: rgba(255, 255, 255, 0.7);}
-	</style>
+
 </head>
 <body>
 <?php
-include "veriflogin.php";
+if ($user_pseudo == "") {
+	header("Location: ".$_SERVER['DOCUMENT_ROOT']. "/reedifica/Page/Utilisateur/connexion.php");
+}
 ?>
 			<?php
-				function EstClePrimaire($nom_champ) 
-				{
-					return strpos($nom_champ, "id_")===0;
-				}	
+					
 				// Récupération des informations
 				$table_selectionnee = $_POST['table'];
 				$id                = $_POST['id'];
+				var_dump($id );
 				$cle_primaire      = '';
 			?>
 			<form action="update_confirme.php" method="POST" >
@@ -59,12 +66,18 @@ include "veriflogin.php";
 					// Récupération du nom de la clé primaire
 					$columns_req = $bdd->query("SHOW COLUMNS FROM $table_selectionnee");
 					$lignes_columns = $columns_req->fetchAll();
+					
 					foreach($lignes_columns as $column) {
-						if( estClePrimaire($column['Field']) )
+						// echo "<p>{$column['Key']}</p>";
+
+						if( $column['Key'] == "PRI" ) {
 							$cle_primaire = $column['Field'];
+							break;
+						}
 					}
+					var_dump($cle_primaire);
 					// Récupération de la ligne concernée
-					$laligne_req = $bdd->query("SELECT * FROM `$table_selectionnee` WHERE `$cle_primaire`=$id");
+					$laligne_req = $bdd->query("SELECT * FROM `$table_selectionnee` WHERE `$cle_primaire`= $id");
 					$leschamps = $laligne_req->fetchAll(PDO::FETCH_ASSOC);
 					// Pour chaque colonne
 					echo "<table>";
@@ -72,7 +85,7 @@ include "veriflogin.php";
 						echo "\t<tr>";
 						echo "\t\t<td>$champ</td>";
 						// Si ce n'est pas une clé primaire, ce n'est pas éditable
-						if( estClePrimaire($champ))
+						if( $champ == $cle_primaire)
 							echo "\t\t<td>$value</td>";
 						else
 							echo "\t\t<td> <input type=\"text\" name=\"$champ\" value=\"$value\" /> </td>";
@@ -92,6 +105,6 @@ include "veriflogin.php";
 			?>
 				<input type="submit" value="Valider" />
 			</form>
-			<a href="choixtable.php">&lt;&lt; Retour au choix de la table</a>
+			<a href="../Page/Utilisateur/Profil.php">&lt;&lt; Retour au choix de la table</a>
 </body>
 </html>

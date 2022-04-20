@@ -200,7 +200,7 @@
 
 	function info_utilisateur_profil($bdd,$login)
 	{
-		$info_user = $bdd->prepare("SELECT `id_user`, `pseudo`, `prenom`, `nom`,`image`, `grade`,`date`,`description` FROM `user` WHERE `pseudo` = :user");
+		$info_user = $bdd->prepare("SELECT * FROM `user` WHERE `pseudo` = :user");
 		$info_user->bindParam(":user", $login);
 		$info_user->execute();
 
@@ -500,20 +500,26 @@
 		echo "<script>alert('$message');</script>";
 	}
 
+
+//Clé primaire & class objet
+
+	function estClePrimaire($nom_champ) 
+	{
+		return strpos($nom_champ, "id_")===0;
+	}
+
 	class administration
 	{
 	// BO
 	
 		public $_mdp;
+		public $nom_champ;
 
 		public function pass_hash($mdp){
 			return $this->_mdp = password_hash($mdp, PASSWORD_DEFAULT); 	
 		}
 	
-		protected function EstClePrimaire($nom_champ) 
-		{
-			return strpos($nom_champ, "id_")===0;
-		}
+		
 
 	// NETTOYAGE
 

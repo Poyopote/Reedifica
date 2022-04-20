@@ -231,7 +231,7 @@ session_start();
                     </div>
                     <div>
                         <span><i class="bi bi-plus"></i></span>
-                        <input type="text" id="nom" name="nom" required placeholder="nom">
+                        <input type="text" id="nom" name="nom" placeholder="nom">
                     </div>
                 
                     <input name="formulaire" type="hidden" value="6">

@@ -44,6 +44,23 @@ article{
     
 }
 
+input[type=submit] {
+    text-align: center;
+    border: 1px solid #171717;
+    border-color: #58ade1;
+    color: #586171;
+    padding: 0 15px;
+    height: 36px;
+    background: none;
+    letter-spacing: 0.2em;
+
+    &:hover{
+        cursor: pointer;
+        border-color: rgb(23, 23, 23);
+        color: #58ade1;
+    }
+  }
+
 aside{
     color: $extremeblanc;
     margin-top: 20px;
@@ -56,15 +73,14 @@ aside{
 
     border-radius: 30px 30px 0 0 ;
 
-    // legend {
-    //     padding: 3px 12px;
-    // }
     form{
         padding: 1em;
       
     }
 
-
+    fieldset{
+        display: flex;
+    }
 
     legend{
         @include texte(2em, $extremeblanc, none);
@@ -76,4 +92,62 @@ aside{
         text-align: center;
         padding: 0.3em;
     }
+
+    a{
+        font-weight: bold;
+        color: $extremeblanc;
+        &:visited {color: $couleursecon;}
+    }
+}
+
+
+
+table {
+    border-radius: 5px;
+    text-align: center;
+
+    width: 100%;
+    table-layout: auto;
+
+    img{
+        object-fit:cover;
+        width:80px;
+        height:80px;
+        border: solid 1px #CCC;
+        border-radius: 50%
+    }
+    tr {
+        background-color: mix($extremeblanc, $couleurancien);
+
+    }
+    tr:nth-child(2n) {
+        background-color: #f8f6ff;
+      }
+      
+    th{
+        font-size: 18px;
+        color: #fff;
+        line-height: 1.4;
+        background-color: #6c7ae0;
+    }
+    tr:hover td{
+        background-color: #232d7a;
+        color: rgb(255, 255, 255);
+        a{
+
+            &:visited {color: #fff;}
+        }
+    }
+
+    td {
+        transition: 0.2s;
+        font-size: 15px;
+        color: $extremenoir;
+        line-height: 1.4;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        vertical-align: middle;
+        
+    }
+
 }

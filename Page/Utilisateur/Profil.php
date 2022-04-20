@@ -9,7 +9,8 @@
   $bdd = connexion_bdd();
 
   session_start();
-  $les_histoire = $error = $table_selectionnee = "";
+  $les_histoire = $error = $table_selectionnee = $lignes_values = $lignes_columns = "";
+  $cle_primaire ="valeur par defaut";
   $user_pseudo = user_connect();
 
   $mon_compte = false;
@@ -29,8 +30,6 @@ if(isset($_SESSION["login"])){
     $filename = '../../Docs/'.$user_pseudo;   
     $mon_compte = true;
     $les_histoire = recherche_histoire_user($bdd,$tableau_utilisateur["id_user"]);
-    $profil_image = $_SERVER['DOCUMENT_ROOT']. "/reedifica/img/profil.png";
-		copy($profil_image, $filename."/profil.png");
   }
 }
 
@@ -88,15 +87,30 @@ if (isset($_POST['send']) && $_POST['send'] == "Modifier la description"){
     $table_selectionnee = $_POST['valider'];
     $values_req = $bdd->query("SELECT * FROM $table_selectionnee");
 	$lignes_values = $values_req->fetchAll(PDO::FETCH_ASSOC);
+  $columns_req = $bdd->query("SHOW COLUMNS FROM $table_selectionnee");
+			$lignes_columns = $columns_req->fetchAll();
+
+      
+foreach($lignes_columns as $column) {
+
+  if( $column['Key'] == "PRI" ) {
+    $cle_primaire = $column['Field'];
+    break;
+  }
+}
+
+foreach ($lignes_values as &$ligne) {
+
+  $ligne['clef_primaire_extraite_de_la_reponse'] =  $ligne["$cle_primaire"] ;
+}
   }
 
   $BackOffice = new administration();
 if( $mon_compte == true && isset($_POST['valider']) && ($_POST['valider'] == "story" || $_POST['valider'] == "rp")){
-
   $BackOffice->clear($bdd);
+ 
 }
 
-  
 
   echo $twig->render('profil.html.twig', 
   array('lang' => $lang,
@@ -132,8 +146,9 @@ if( $mon_compte == true && isset($_POST['valider']) && ($_POST['valider'] == "st
   'histoires' => $les_histoire,
   'lignes_tables' =>  $lignes_tables,
   'bo_form' => isset($_POST['valider']),
-  'table_selectionnee' => $table_selectionnee
-
+  'table_selectionnee' => $table_selectionnee,
+  'lignes_values' => $lignes_values,
+  'lignes_columns' => $lignes_columns
 
 ));
 ?>

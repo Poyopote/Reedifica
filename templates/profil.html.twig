@@ -10,15 +10,24 @@
   <p>{{tableau_utilisateur.prenom}} {{tableau_utilisateur.nom}}</p>
   <p>Symbole : Lunette correctionnelle</p>
   <p>Grade : {{tableau_utilisateur.grade}}</p>
-  <p>Capacités : </p>
+  {% if tableau_utilisateur.don is null %}
+  <p>Catégorie du DON : Aucun</p>
+  {% else %}
+  <p>Catégorie du DON : {{tableau_utilisateur.don}}</p>
+  {% endif %}
   <p>Pseudo : {{tableau_utilisateur.pseudo}}</p>
 </section>
 <section>
+  
+  
   <h3>Mon Histoire</h3>
   {% if histoires is empty %}
   <article>
     <h4>Pas encore d'histoire ?</h4>
-    <p><a href="../../Page/Exploration/Mondes.php">Vient explorer notre monde</a></p>
+    {% if connecter == FALSE %}
+    <p><a href="../../Page/Guide/Tutoriel.php">Besoin d'aide ?</a></p>
+    {% endif %}
+
   </article>
   {% else %}
   {% for key, histoire in histoires %}
@@ -37,16 +46,14 @@
 {% if mon_compte %}
 <aside>
   <h5>Que souhaites-tu changer ?</h5><br>
-  {# <input type="color" name="couleur">
-  <input type="button" value="Modifier profil"> #}
   <form enctype="multipart/form-data" action="{{form}}" method="post">
     <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
     <input type="hidden" name="voir_form" value="1" />
     <fieldset>
       <legend>Biographie</legend>
       <h6>Texte actuel :</h6>
-      <p><i class="bi bi-quote"></i>{{tableau_utilisateur.description}}<i class="bi bi-quote"></i></p>
-      <textarea id="bio" type="text" name="bio">{{tableau_utilisateur.description}}</textarea>
+      
+      <i class="bi bi-quote"></i><textarea id="bio" type="text" name="bio">{{tableau_utilisateur.description}}</textarea><i class="bi bi-quote"></i>
       <input name="send" type="submit" value="Modifier la description"/>
     </fieldset>
     <hr>
@@ -55,10 +62,8 @@
       <input id="idfile" name="userfile" type="file"/>
       <input name="send" type="submit" value="Modifier l'image"/>
     </fieldset>
-
-    <input type="reset" value="Annuler"/>          
   </form>
-  <form method="POST" action="profil.php">
+  <form method="POST" action="profil.php#Administration">
       <fieldset>
         <legend>Sélectionnez une table :</legend>
 {% set retour_ligne = 0 %}
@@ -72,10 +77,10 @@
 </aside>
 <div class="clear"></div>
 {% if bo_form %}
-<aside>
-  <h5>Administration</h5><br>
+<aside id="Administration">
+  <h5 >Administration</h5><br>
   <h1>La table sélectionnée : <strong>{{table_selectionnee}}</strong></h1>
-    <form action="update.php" method="POST">
+    <form action="../../BO/update.php" method="POST">
       <input type="hidden" name="table" value="{{table_selectionnee}}" />
       <input type="hidden" name="id" value="new" />
       <input class="boutons" type="submit" name="insert" value="Ajouter" />
@@ -83,15 +88,28 @@
     <table>
       <thead>
         <tr>
-          <th>#</th>
-          <th>Pseudo</th>
-          <th colspan="2">Surnom</th>
-          <th>grade</th>
-          <th>date</th>
-          <th>Nombre de message</th>
+        {% for column in lignes_columns %}
+          <th>{{column.Field}}</th>
+        {% endfor %}
         </tr>
       </thead>
-  {# <tbody> #}
+      <tbody>
+      {% for ligne in lignes_values %}
+      <tr>
+      {% for champ, value in ligne %}
+        <td>{{value}}</td>
+      {% endfor %}
+        <td>
+          <form action="../../BO/update.php" method="POST">
+				    <input type="hidden" name="table" value="{{table_selectionnee}}" />
+				    <input type="hidden" name="id" value="{{ligne.clef_primaire_extraite_de_la_reponse}}" />
+				    <input class="boutons" type="submit" name="update" value="Editer" />
+				    <input class="boutons" type="submit" name="delete" value="Supprimer" />
+			    </form>
+        </td>
+      </tr>
+      {% endfor %}
+      </tbody>
     </table>
   <a href="profil.php">Retour au choix de la table</a>
 </aside>

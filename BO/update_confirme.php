@@ -1,6 +1,15 @@
 <?php
-include('initialisation.php');
-include("database.php");
+//INCLUSION DES FONCTIONS
+
+include($_SERVER['DOCUMENT_ROOT']. "/reedifica/includes/fonctions.php");
+//INCLUSION DE LA BDD
+
+include($_SERVER['DOCUMENT_ROOT']. "/reedifica/includes/init_BDD.php");
+$bdd = connexion_bdd();
+
+session_start();
+$user_pseudo = user_connect();
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -8,17 +17,17 @@ include("database.php");
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
  	<link rel="stylesheet" type="text/css" href="../css/admin.css">
-	<link rel="icon" type="image/svg" href="../img/mouv_mauve_1.svg" sizes="16x16">
+	<link rel="icon" type="image/svg" href="../img/Logo_favicon.svg" sizes="16x16">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="../script/menu-folio.js"></script>
 	<title>Administration</title>
-	<style type="text/css">
-		body{color: white;}
-	</style>
+
 </head>
 <body>
 <?php
-include "veriflogin.php";
+if ($user_pseudo == "") {
+	header("Location: ".$_SERVER['DOCUMENT_ROOT']. "/reedifica/Page/Utilisateur/connexion.php");
+}
 ?>
 			<?php //Doit être intégré dans un fichier EstClePrimaire.php à inclure si besoin 
 				function EstClePrimaire($nom_champ) 

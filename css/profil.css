@@ -48,6 +48,23 @@ article h4:hover {
   color: #6d87b7;
 }
 
+input[type=submit] {
+  text-align: center;
+  border: 1px solid #171717;
+  border-color: #58ade1;
+  color: #586171;
+  padding: 0 15px;
+  height: 36px;
+  background: none;
+  letter-spacing: 0.2em;
+}
+
+input[type=submit]:hover {
+  cursor: pointer;
+  border-color: #171717;
+  color: #58ade1;
+}
+
 aside {
   color: #edf0ea;
   margin-top: 20px;
@@ -63,6 +80,12 @@ aside form {
   padding: 1em;
 }
 
+aside fieldset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 aside legend {
   color: #edf0ea;
   font-size: 2em;
@@ -76,4 +99,64 @@ aside h5 {
   border-radius: 30px 30px 0 0;
   text-align: center;
   padding: 0.3em;
+}
+
+aside a {
+  font-weight: bold;
+  color: #edf0ea;
+}
+
+aside a:visited {
+  color: #58ade1;
+}
+
+table {
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+  table-layout: auto;
+}
+
+table img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 80px;
+  height: 80px;
+  border: solid 1px #CCC;
+  border-radius: 50%;
+}
+
+table tr {
+  background-color: #b5aca3;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f6ff;
+}
+
+table th {
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.4;
+  background-color: #6c7ae0;
+}
+
+table tr:hover td {
+  background-color: #232d7a;
+  color: white;
+}
+
+table tr:hover td a:visited {
+  color: #fff;
+}
+
+table td {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  font-size: 15px;
+  color: #171717;
+  line-height: 1.4;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  vertical-align: middle;
 }
