@@ -34,7 +34,6 @@ if ($user_pseudo == "") {
 				// Récupération des informations
 				$table_selectionnee = $_POST['table'];
 				$id                = $_POST['id'];
-				var_dump($id );
 				$cle_primaire      = '';
 			?>
 			<form action="update_confirme.php" method="POST" >
@@ -75,7 +74,6 @@ if ($user_pseudo == "") {
 							break;
 						}
 					}
-					var_dump($cle_primaire);
 					// Récupération de la ligne concernée
 					$laligne_req = $bdd->query("SELECT * FROM `$table_selectionnee` WHERE `$cle_primaire`= $id");
 					$leschamps = $laligne_req->fetchAll(PDO::FETCH_ASSOC);

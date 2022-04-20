@@ -52,7 +52,7 @@ input[type=submit] {
   text-align: center;
   border: 1px solid #171717;
   border-color: #58ade1;
-  color: #586171;
+  color: #58ade1;
   padding: 0 15px;
   height: 36px;
   background: none;
@@ -84,6 +84,9 @@ aside fieldset {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 aside legend {

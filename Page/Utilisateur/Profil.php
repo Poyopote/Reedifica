@@ -86,23 +86,17 @@ if (isset($_POST['send']) && $_POST['send'] == "Modifier la description"){
   if(isset($_POST['valider'])){
     $table_selectionnee = $_POST['valider'];
     $values_req = $bdd->query("SELECT * FROM $table_selectionnee");
-	$lignes_values = $values_req->fetchAll(PDO::FETCH_ASSOC);
-  $columns_req = $bdd->query("SHOW COLUMNS FROM $table_selectionnee");
-			$lignes_columns = $columns_req->fetchAll();
+    $lignes_values = $values_req->fetchAll(PDO::FETCH_ASSOC);
+    $columns_req = $bdd->query("SHOW COLUMNS FROM $table_selectionnee");
+    $lignes_columns = $columns_req->fetchAll();
 
-      
-foreach($lignes_columns as $column) {
-
-  if( $column['Key'] == "PRI" ) {
-    $cle_primaire = $column['Field'];
-    break;
-  }
-}
-
-foreach ($lignes_values as &$ligne) {
-
-  $ligne['clef_primaire_extraite_de_la_reponse'] =  $ligne["$cle_primaire"] ;
-}
+    foreach($lignes_columns as $column)
+    {
+      if( $column['Key'] == "PRI" ) {
+        $cle_primaire = $column['Field'];
+        break;
+      }
+    }
   }
 
   $BackOffice = new administration();

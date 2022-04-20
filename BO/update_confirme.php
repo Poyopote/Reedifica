@@ -30,10 +30,7 @@ if ($user_pseudo == "") {
 }
 ?>
 			<?php //Doit être intégré dans un fichier EstClePrimaire.php à inclure si besoin 
-				function EstClePrimaire($nom_champ) 
-				{
-					return strpos($nom_champ, "id_")===0;
-				}
+
 				// Récupération des informations
 				$table_selectionnee = $_POST['table'];
 				$id                = $_POST['id'];
@@ -51,7 +48,7 @@ if ($user_pseudo == "") {
 						$columns_req = $bdd->query("SHOW COLUMNS FROM `$table_selectionnee`");
 					    $lignes_columns = $columns_req->fetchAll();
 					    foreach($lignes_columns as $column) {	// On ne compte pas les clés primaines
-							if( !estClePrimaire($column['Field']) ) {
+							if( $column['Key'] != "PRI"  ) {
 								$colonne = $column['Field']; // Le nom de la colonne
 								$colonnes[] = "`$colonne`";
 								$value = $_POST[ $colonne ]; // La valeur qui se trouve dans POST
@@ -78,7 +75,7 @@ if ($user_pseudo == "") {
 						$columns_req = $bdd->query("SHOW COLUMNS FROM `$table_selectionnee`");
 					    $lignes_columns = $columns_req->fetchAll();
 					    foreach($lignes_columns as $column) {	// Si c'est une clé primaire, on la récupère
-							if( estClePrimaire($column['Field']) )
+							if( $column['Key'] == "PRI"  )
 								$cle_primaire = $column['Field'];
 							// Sinon, on prépare pour modifier
 							else {
@@ -106,9 +103,12 @@ if ($user_pseudo == "") {
 						// Récupération de la clé primaire
 						$columns_req = $bdd->query("SHOW COLUMNS FROM `$table_selectionnee`");
 					    $lignes_columns = $columns_req->fetchAll();
+						var_dump($lignes_columns);
 					    foreach($lignes_columns as $column) {	// Si c'est une clé primaire, on la récupère
-							if( estClePrimaire($column['Field']) )
+							if( $column['Key'] == "PRI" )
 								$cle_primaire = $column['Field'];
+								var_dump($cle_primaire);
+								
 						}
 						// Execution de la suppression
 						$insert_sql = $bdd->query("DELETE FROM `$table_selectionnee` WHERE `$cle_primaire`=$id");
@@ -118,7 +118,7 @@ if ($user_pseudo == "") {
 				}
 
 				?>	
-				<form action="editable.php" method="POST">
+				<form action="../Page/Utilisateur/Profil.php" method="POST">
 					<input type="submit" name="valider" VALUE="<?php echo $table_selectionnee; ?>" />
 				</form>
 
