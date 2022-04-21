@@ -1,25 +1,23 @@
 <?php
 //INCLUSION DES FONCTIONS
 
-  include("../../includes/fonctions.php");
-  require "../../includes/init_twig.php";
+    include("../../includes/fonctions.php");
+    require "../../includes/init_twig.php";
 
 //SESSION + INCLUSION DE LA BDD + Initialization
 
-  include("../../includes/init_BDD.php");
-  session_start();
-  $bdd = connexion_bdd();
+    include("../../includes/init_BDD.php");
+    session_start();
+    $bdd = connexion_bdd();
 
 // LES REQUETES
-$user_pseudo = user_connect();
-
-
+  $user_pseudo = user_connect();
 
 
   // Génération du Twig
   echo $twig->render('Tutoriel.html.twig', 
   array('lang' => $lang,
-  'titre' => "Profil de ".$tableau_utilisateur["pseudo"]." - Ré.édifica",
+  'titre' => "Tutorial - Ré.édifica",
   'css_style' => "../../css/style.css",
   'css_page' => "../../css/profil.css",
   'icon' => "../../img/Logo_favicon.svg",
@@ -43,13 +41,7 @@ $user_pseudo = user_connect();
 
   // donnée de la page
   'connecter' => !isset($_SESSION["login"]),
-  'filename' => $filename,
-  'tableau_utilisateur' => $tableau_utilisateur,
-  'error' => $error,
-  'mon_compte' => $mon_compte,
   'user' => info_utilisateur_profil($bdd,$user_pseudo),
-  'histoires' => $les_histoire,
-  'lignes_tables' =>  $lignes_tables,
 
 
 ));
