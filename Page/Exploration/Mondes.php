@@ -1,20 +1,18 @@
 <?php
 //INCLUSION DES FONCTIONS
 
-  include("../../includes/fonctions.php");
-  require "../../includes/init_twig.php";
-//INCLUSION DE LA BDD
+include("../../includes/fonctions.php");
+require "../../includes/init_twig.php";
 
-  include("../../includes/init_BDD.php");
-  $bdd = connexion_bdd();
+//SESSION + INCLUSION DE LA BDD + Initialization
 
-  session_start();
+include("../../includes/init_BDD.php");
+session_start();
+$bdd = connexion_bdd();
+
   $user_pseudo = user_connect();
   $choix = list_monde($bdd);
   $id_monde = 1;
-
-
-  $lang = "fr";
 
   echo $twig->render('monde.html.twig', 
   array('lang' => $lang,
