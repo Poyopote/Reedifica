@@ -44,6 +44,13 @@ article{
     
 }
 
+input:not(:checked)#img_p+fieldset{
+    display: none;
+}
+input:checked#img_p fieldset{
+    display: block;
+}
+
 input[type=submit] {
     text-align: center;
     border: 1px solid #171717;

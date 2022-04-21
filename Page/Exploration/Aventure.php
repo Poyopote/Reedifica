@@ -16,8 +16,7 @@
   $user_pseudo = user_connect();
   $tableau_utilisateur = info_utilisateur_profil($bdd,$user_pseudo);
 
-  $sous_monde = get_sous_monde($bdd,$histoire["id_under_world"]);
-  $monde = recherche_monde($bdd,$sous_monde["id_world"]);
+  
   
   $export_twig_aventure = [];
 
@@ -31,6 +30,8 @@
     header("Location: Mondes.php");
   }
   $aventure = recherche_histoire($bdd,$numero_H);
+  $sous_monde = get_sous_monde($bdd,$histoire["id_under_world"]);
+  $monde = recherche_monde($bdd,$sous_monde["id_world"]);
   if(empty($aventure)){
     correction_story($bdd,$numero_H,$histoire['id_user']);
     header('Location: Aventure.php?num='.$numero_H); //plus tard

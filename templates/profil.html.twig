@@ -44,17 +44,19 @@
   <form enctype="multipart/form-data" action="{{form}}" method="post">
     <input type="hidden" name="MAX_FILE_SIZE" value="3500000" />
     <input type="hidden" name="voir_form" value="1" />
+    
+    <input type="checkbox" name="" id="img_p">
     <fieldset>
       <legend>Biographie</legend>
       <h6>Texte actuel :</h6>
       <textarea id="bio" type="text" name="bio">{{tableau_utilisateur.description}}</textarea>
-      <input name="send" type="submit" value="Modifier la description"/>
+      <input name="send" type="submit" value="Valider la description"/>
     </fieldset>
     <hr>
     <fieldset>
       <legend>Photo de profil</legend>
       <input id="idfile" name="userfile" type="file"/>
-      <input name="send" type="submit" value="Modifier l'image"/>
+      <input name="send" type="submit" value="Valider l'image"/>
     </fieldset>
   </form>
   <form method="POST" action="profil.php#Administration">
