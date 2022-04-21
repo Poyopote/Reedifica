@@ -17,18 +17,15 @@
   <p>Pseudo : {{tableau_utilisateur.pseudo}}</p>
 </section>
 <section>
-  
-  
   <h3>Mon Histoire</h3>
-  {% if histoires is empty %}
+{% if histoires is empty %}
   <article>
     <h4>Pas encore d'histoire ?</h4>
     {% if connecter == FALSE %}
     <p><a href="../../Page/Guide/Tutoriel.php">Besoin d'aide ?</a></p>
     {% endif %}
-
   </article>
-  {% else %}
+{% else %}
   {% for key, histoire in histoires %}
   <article>
     <h4><a href="../../Page/Exploration/Aventure.php?num={{histoire.id_story}}">{{histoire.title | raw}}</a></h4>
@@ -37,8 +34,7 @@
     <hr>
   </article>
   {% endfor %}
-  {% endif %}
-  
+{% endif %}
 </section>
 <div class="clear"></div>
 
@@ -46,32 +42,31 @@
 <aside>
   <h5>Que souhaites-tu changer ?</h5><br>
   <form enctype="multipart/form-data" action="{{form}}" method="post">
-    <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
+    <input type="hidden" name="MAX_FILE_SIZE" value="3500000" />
     <input type="hidden" name="voir_form" value="1" />
     <fieldset>
       <legend>Biographie</legend>
       <h6>Texte actuel :</h6>
-      
-      <i class="bi bi-quote"></i><textarea id="bio" type="text" name="bio">{{tableau_utilisateur.description}}</textarea><i class="bi bi-quote"></i>
+      <textarea id="bio" type="text" name="bio">{{tableau_utilisateur.description}}</textarea>
       <input name="send" type="submit" value="Modifier la description"/>
     </fieldset>
     <hr>
-    <fieldset >
+    <fieldset>
       <legend>Photo de profil</legend>
       <input id="idfile" name="userfile" type="file"/>
       <input name="send" type="submit" value="Modifier l'image"/>
     </fieldset>
   </form>
   <form method="POST" action="profil.php#Administration">
-      <fieldset>
-        <legend>Sélectionnez une table :</legend>
+    <fieldset>
+      <legend>Sélectionnez une table :</legend>
 {% set retour_ligne = 0 %}
 {% for ligne in lignes_tables %}
 {% set retour_ligne = retour_ligne + 1 %}
-{% if retour_ligne is divisible by(3) == 0 %}<br/>{% endif %}  
-<input type='submit' name='valider' value='{{ligne.Tables_in_reedifica_bdd }}'>
+      {% if retour_ligne is divisible by(3) == 0 %}<br/>{% endif %}  
+      <input type='submit' name='valider' value='{{ligne.Tables_in_reedifica_bdd }}'>
 {% endfor %}         
-      </fieldset>
+    </fieldset>
     </form>   
 </aside>
 <div class="clear"></div>
