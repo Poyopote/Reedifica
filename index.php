@@ -10,7 +10,7 @@
   session_start();
   $bdd = connexion_bdd();
 
-// SESSION + Initialization + REQUETES
+//REQUETES
 
   $user_pseudo = user_connect();
   $choix = list_monde($bdd);
