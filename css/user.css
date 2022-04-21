@@ -204,10 +204,35 @@ span {
 }
 
 #inscription-main aside {
-  text-align: right;
+  position: absolute;
+  right: 50%;
+  bottom: 25px;
+}
+
+@media screen and (max-width: 1023px) {
+  #inscription-main aside {
+    display: none;
+  }
 }
 
 #inscription-main section {
   overflow: auto;
   max-height: 80vh;
+  position: relative;
+}
+
+#inscription-main input[type="submit"] {
+  font-size: 1.5em;
+  color: #2e578c;
+  font-family: "Outfit";
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  background: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#inscription-main input[type="submit"]:hover {
+  color: #171717;
 }

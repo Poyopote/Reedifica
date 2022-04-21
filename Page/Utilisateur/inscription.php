@@ -102,7 +102,7 @@ session_start();
             <p>Les pr&eacute;sentes Conditions&nbsp; peuvent &ecirc;tre modifi&eacute;es &agrave; tout moment, &agrave; la discr&eacute;tion de Réédifica. Ces modifications sont d'application imm&eacute;diate pour les nouveaux Utilisateurs. Tous les Utilisateurs pr&eacute;existants devront se conformer aux modifications apport&eacute;es dans un d&eacute;lai de 30 jours &agrave; compter de la notification qui leur en sera faite, par tout moyen.</p>
             </article>
             <form id="formulaire" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
-                <input type="checkbox" id="scales" name="scales" required>
+            <br><input type="checkbox" id="scales" name="scales" required>
                 <label for="scales">J'accepte les Conditions générales d'utilisation</label>
                 <input name="formulaire" type="hidden" value="1"><br>
                 <input type="submit" value="Suivant">
