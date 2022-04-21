@@ -100,6 +100,7 @@ session_start();
             <h3>Acceptation et modifications</h3>
             <p>En utilisant les services de Réédifica, l'Utilisateur reconnait sans r&eacute;serve, limitation ou qualification avoir lu et accept&eacute; les pr&eacute;sentes Conditions, et s'engage &agrave; satisfaire aux termes de celles-ci, sans pr&eacute;judice de l'application &eacute;ventuelle d'autres conditions ou r&egrave;gles propres &agrave; certains services sp&eacute;cifiques.</p>
             <p>Les pr&eacute;sentes Conditions&nbsp; peuvent &ecirc;tre modifi&eacute;es &agrave; tout moment, &agrave; la discr&eacute;tion de Réédifica. Ces modifications sont d'application imm&eacute;diate pour les nouveaux Utilisateurs. Tous les Utilisateurs pr&eacute;existants devront se conformer aux modifications apport&eacute;es dans un d&eacute;lai de 30 jours &agrave; compter de la notification qui leur en sera faite, par tout moyen.</p>
+            <img src="../../img/Logo_complet.svg" alt="logo" height="88px">
             </article>
             <form id="formulaire" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
             <br><input type="checkbox" id="scales" name="scales" required>
@@ -108,9 +109,6 @@ session_start();
                 <input type="submit" value="Suivant">
             </form>
         </section>
-        <aside>
-            <img src="../../img/Logo_complet.svg" alt="logo" height="88px">
-        </aside>
     </main>
 </body>
 </html>
@@ -178,27 +176,29 @@ session_start();
                     <input name="formulaire" type="hidden" value="1">
                 </fieldset>
             </form>
-            <h4>De quelle mani&egrave;re serais-tu obtenir le don du pacificateur ?</h4>
-<h5>Coeur Noble</h5>
-<p>D&egrave;s ton premier souffle de vie, tu savais d&eacute;j&agrave; que ta destin&eacute;e &eacute;tait importante ! C'est pour cela que le pacificateur t'a donn&eacute; le don en main propre.</p>
-<h5>Cadeau du Coeur</h5>
-<p>Tu es maintenant un &eacute;l&egrave;ve d'un combattant de la lumi&egrave;re. C'est ton ma&icirc;tre qui t'a donn&eacute; le don et qui te demande de poursuivre sa qu&ecirc;te &agrave; sa place.</p>
-<h5>Dynastie parfaite</h5>
-<p>Famille n&eacute;e dans la bienveillance. Le don est un cadeau du sang. (le don est h&eacute;r&eacute;ditaire.)</p>
-            <br><hr>
+            <h4>De quelle mani&egrave;re serais-tu obtenir le don du <a href="../Histoire/contexte.php#pacificateur">pacificateur</a> ?</h4>
+
 <form id="formulaire" action="../../includes/connexion_inscription.php" method="POST">
-                <fieldset>
-                    <legend>Selectionne ta catégorie</legend>
+                <fieldset class="don">
+                    <legend>Selectionne ta catégorie</legend><br>
                     <label for="CN">Coeur Noble</label>
                     <input type="radio" name="don" value="CN" id="CN" checked>
-                    <label for="CC">Cadeau du Coeur</label>
+                    <p>D&egrave;s ton premier souffle de vie, tu savais d&eacute;j&agrave; que ta destin&eacute;e &eacute;tait importante !
+                         C'est pour cela que le pacificateur t'a donn&eacute;
+                          le don en main propre.</p>
+                    <br><hr><label for="CC">Cadeau du Coeur</label>
                     <input type="radio" name="don" value="CC" id="CC">
-                    <label for="DP"> Dynastie parfaite</label>
+                    <p>Tu es maintenant un &eacute;l&egrave;ve d'un combattant de la lumi&egrave;re.
+                         C'est ton ma&icirc;tre qui t'a donn&eacute;
+                          le don et qui te demande de poursuivre
+                           sa qu&ecirc;te &agrave; sa place.</p>
+                    <br><hr><label for="DP"> Dynastie parfaite</label>
                     <input type="radio" name="don" value="DP" id="DP">
-                
+                    <p>Famille n&eacute;e dans la bienveillance.
+                         Le don est un cadeau du sang. (le don est h&eacute;r&eacute;ditaire.)</p>
+                    <br><hr>
                     <input name="formulaire" type="hidden" value="4">
                     <p><?php echo($message_erreur); ?></p>
-                    <!-- <hr> -->
                     <input type="submit" value="Suivant">
                 </fieldset>
             </form>
@@ -222,7 +222,9 @@ session_start();
             </form>
             <h4>Bientôt fini</h4>
             <p>Tu as ici 2 choix.</p>
-<p>Tu peux fournir un pr&eacute;nom et un nom. (C'est dans cet ordre) o&ugrave; uniquement un pr&eacute;nom / surnom.</p>
+<p>Tu peux fournir un pr&eacute;nom / surnom uniquement</p>
+<p> o&ugrave;</p>
+<p> un pr&eacute;nom et un nom. (Dans cet ordre)</p>
             <form id="formulaire" action="../../includes/connexion_inscription.php" method="POST">
                 <fieldset>
                     <div>

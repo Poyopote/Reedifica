@@ -159,7 +159,7 @@ span {
   color: #2e578c;
 }
 
-#inscription-main h4 {
+#inscription-main h4, #inscription-main .don label {
   font-size: 1.17em;
   margin-top: 1em;
   margin-bottom: 1em;
@@ -183,7 +183,7 @@ span {
   margin-bottom: 2.33em;
 }
 
-#inscription-main h1, #inscription-main h2, #inscription-main h3, #inscription-main h4, #inscription-main h5, #inscription-main h6 {
+#inscription-main h1, #inscription-main h2, #inscription-main h3, #inscription-main h4, #inscription-main h5, #inscription-main h6, #inscription-main .don label {
   font-family: "Outfit";
   margin-left: 0;
   margin-right: 0;
@@ -201,18 +201,6 @@ span {
 
 #inscription-main strong {
   font-weight: bold;
-}
-
-#inscription-main aside {
-  position: absolute;
-  right: 50%;
-  bottom: 25px;
-}
-
-@media screen and (max-width: 1023px) {
-  #inscription-main aside {
-    display: none;
-  }
 }
 
 #inscription-main section {

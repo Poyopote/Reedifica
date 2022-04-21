@@ -134,7 +134,7 @@ span{
         @include margin-haut-bas(0.83em);
         color: mix($couleurprin,$couleursecon);
     }
-    h4{
+    h4, .don label{
         font-size: 1.17em;
         @include margin-haut-bas(1em);
     }
@@ -151,7 +151,7 @@ span{
         @include margin-haut-bas(2.33em);
     }
 
-    h1,h2,h3,h4,h5,h6{
+    h1,h2,h3,h4,h5,h6, .don label{
         font-family: police(police, classique);
         margin-left: 0;
         margin-right: 0;
@@ -165,17 +165,9 @@ span{
     strong{
         font-weight: bold;
     }
-    aside{
-        position: absolute;
-        right: 50%;
-        bottom: 25px;
-    }
-    @include plus-petit-que(Large){
-        aside{
-            display: none;
-        }
-        
-    }
+
+    
+    
     section{
         overflow: auto;
         max-height: 80vh;
