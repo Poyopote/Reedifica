@@ -158,6 +158,10 @@
 		return $resultat;
 	}
 
+	/**
+	 * Vérifie s'il y a une session utilisateur.
+	 * @return string $_SESSION["login"] = pseudo de l'utilisateur connecté | string ""
+	 */
 	function user_connect(){
 		if (isset($_SESSION["login"]))
 		return $_SESSION["login"];
@@ -202,8 +206,14 @@
 		return $resultat;
 	}
 
+	/**
+	 * Fournit les rôles assignés à un utilisateur.
+	 * @param string $login le pseudo du l'user
+	 * @param PDO $bdd
+	 * @return array $resultat de la requête
+	 */
 	function role_user($bdd,$login){
-		$sql = "SELECT `name_role` FROM `role` AS r INNER JOIN userxrole as ur ON ur.id_statut = r.`id_role` JOIN user AS u ON u.id_user = ur.id_user WHERE u.pseudo = $login";
+		$sql = "SELECT `name_role` FROM `role` AS r INNER JOIN userxrole as ur ON ur.id_statut = r.`id_role` JOIN user AS u ON u.id_user = ur.id_user WHERE u.pseudo = '$login'";
 		$role_user = $bdd->query($sql);
 		$role_user->execute();
 		$resultat = $role_user->fetchAll();
@@ -505,7 +515,7 @@
 	 * Recherche toutes les histoires appartenant à un utilisateur à partir de son $id_user.
 	 * @param PDO $bdd
 	 * @param int $id_user
-	 * @return array $resultat;
+	 * @return array $resultat histoire de l'user;
 	 */
 	function recherche_histoire_user($bdd,$id_user){
 		$histoire = $bdd->query("SELECT * FROM `story` WHERE id_user = $id_user");
@@ -532,27 +542,14 @@
 
 
 //LANGUE
-	if (isset($_SESSION["lang"])) {
-		$lang = "en";
-	}
-	else {
-		$lang = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+	$lang = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+
+
+	function langue($bdd, $lang)
+	{
+		return $bdd->query("SELECT `$lang` FROM `langue`;")->fetchAll();
 	}
 
-	function accueil($bdd, $lang)
-	{
-		return $bdd->query("SELECT `$lang` FROM `accueil`;")->fetchAll();
-	}
-
-	function footer($bdd, $lang)
-	{
-		return $bdd->query("SELECT `$lang` FROM `footer`;")->fetchAll();
-	}
-
-	function menu($bdd)
-	{
-		return $bdd->query("SELECT * FROM `projet` WHERE 1;")->fetchAll();
-	}
 	
 
 // ALERT

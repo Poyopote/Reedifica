@@ -4,9 +4,8 @@
 <h2>Profil de {{tableau_utilisateur.pseudo}}</h2>
 <section id="presentation">
   <h3>Description</h3>
-  <img src='{{filename}}/{{tableau_utilisateur.image}}'  alt="image-de-profil">
-  <p><i class="bi bi-quote"></i>{{tableau_utilisateur.description}}<i class="bi bi-quote"></i></p>
-  <div class="clear"></div>
+  <p><img src='{{filename}}/{{tableau_utilisateur.image}}' width="220px" height="340px"  alt="image-de-profil"><i class="bi bi-quote"></i>{{tableau_utilisateur.description}}<i class="bi bi-quote"></i></p>
+  <div class="clear"></div><br>
   <p>Je suis {{tableau_utilisateur.prenom}} {{tableau_utilisateur.nom}}</p>
   <p>Grade : {{tableau_utilisateur.grade}}</p>
   {% if tableau_utilisateur.don is null %}
@@ -45,22 +44,28 @@
     <input type="hidden" name="MAX_FILE_SIZE" value="3500000" />
     <input type="hidden" name="voir_form" value="1" />
     
-    <input type="checkbox" name="" id="img_p">
+    <input type="checkbox" name="img_t" class="tp">
+    <label for="img_t">Modifier la description</label>
     <fieldset>
       <legend>Biographie</legend>
       <h6>Texte actuel :</h6>
-      <textarea id="bio" type="text" name="bio">{{tableau_utilisateur.description}}</textarea>
+      <textarea id="bio" type="text" name="bio" maxlength="250">{{tableau_utilisateur.description}}</textarea>
       <input name="send" type="submit" value="Valider la description"/>
     </fieldset>
+
     <hr>
+
+    <input type="checkbox" name="img_p" class="tp">
+    <label for="img_p">Modifier l'image</label>
     <fieldset>
       <legend>Photo de profil</legend>
       <input id="idfile" name="userfile" type="file"/>
       <input name="send" type="submit" value="Valider l'image"/>
     </fieldset>
   </form>
-  <form method="POST" action="profil.php#Administration">
-    <fieldset>
+{% if admin  %}
+  <form method="POST" action="profil.php#Administration" style="overflow-x: auto;">
+    <fieldset >
       <legend>Sélectionnez une table :</legend>
 {% set retour_ligne = 0 %}
 {% for ligne in lignes_tables %}
@@ -69,7 +74,8 @@
       <input type='submit' name='valider' value='{{ligne.Tables_in_reedifica_bdd }}'>
 {% endfor %}         
     </fieldset>
-    </form>   
+  </form>
+{% endif %}
 </aside>
 <div class="clear"></div>
 {% if bo_form %}
@@ -81,6 +87,7 @@
       <input type="hidden" name="id" value="new" />
       <input class="boutons" type="submit" name="insert" value="Ajouter" />
     </form>
+    <div style="overflow-x: auto;">
     <table>
       <thead>
         <tr>
@@ -95,7 +102,7 @@
       {% for ligne in lignes_values %}
       <tr>
       {% for champ, value in ligne %}
-        <td>{{value}}</td>
+        <td>{{value | raw}}</td>
       {% endfor %}
         <td>
           <form action="../../BO/update.php" method="POST">
@@ -109,6 +116,7 @@
       {% endfor %}
       </tbody>
     </table>
+    </div>
   <a href="profil.php">Retour au choix de la table</a>
 </aside>
 {% endif %}

@@ -19,7 +19,7 @@
   array('lang' => $lang,
   'titre' => "Tutorial - Ré.édifica",
   'css_style' => "../../css/style.css",
-  'css_page' => "../../css/profil.css",
+  'css_page' => "../../css/tutoriel.css",
   'icon' => "../../img/Logo_favicon.svg",
   "chemin_image_user" => "../../docs",
   "reedifica" => "../../img/Logo_complet.svg",
@@ -33,10 +33,10 @@
   'Tutoriel' => "../../Page/Guide/Tutoriel.php",
   'Réglementation' => "../../Page/Guide/Réglementation.php",
   'FAQ' => "../../Page/Guide/F-A-Q.php",
-  'Profil' => "Profil.php",
+  'Profil' => "../../Page/Utilisateur/Profil.php",
   'deconnexion' => "../../includes/deconnexion.php",
-  'connexion' => "connexion.php",
-  'inscription' => "inscription.php",
+  'connexion' => "../../includes/connexion.php",
+  'inscription' => "../../includes/inscription.php",
 
 
   // donnée de la page

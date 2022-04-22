@@ -12,13 +12,11 @@
 
 main{
     img{
-        max-width: 50%;
-        height: 50vh;
-        background-size: contain;
         float: left;
         + p {float: left;width: 30%;}
     }
-    section#presentation p{padding-left: 16px;}
+    section#presentation p{padding-left: 16px; max-width: 100%; max-height: 700px;
+        overflow: hidden;text-overflow: " [..]";}
 }
 
 .date{
@@ -44,10 +42,10 @@ article{
     
 }
 
-input:not(:checked)#img_p+fieldset{
+input:not(:checked).tp+label+fieldset{
     display: none;
 }
-input:checked#img_p fieldset{
+input:checked.tp +label+ fieldset{
     display: block;
 }
 
@@ -69,11 +67,12 @@ input[type=submit] {
   }
 
 aside{
+    width: 100%;
     color: $extremeblanc;
     margin-top: 20px;
     background: mix($extremenoir, $extremegris);
     clear: both;
-    min-height: 30vw;
+    // min-height: 30vw;
     -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.39); 
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.39);
     border-radius: 30px 30px 0 0 ;
@@ -111,17 +110,10 @@ aside{
 table {
     border-radius: 5px;
     text-align: center;
-
-    width: 100%;
+    overflow: auto;
+    max-width: 100%;
     table-layout: auto;
 
-    img{
-        object-fit:cover;
-        width:80px;
-        height:80px;
-        border: solid 1px #CCC;
-        border-radius: 50%
-    }
     tr {
         background-color: mix($extremeblanc, $couleurancien);
 
@@ -143,6 +135,12 @@ table {
 
             &:visited {color: #fff;}
         }
+        input[type=submit]{
+            color: $couleursecon;
+            &:hover {
+                color: $extremeblanc;
+            }
+        }
     }
 
     td {
@@ -153,7 +151,19 @@ table {
         padding-top: 16px;
         padding-bottom: 16px;
         vertical-align: middle;
+        max-width: 90%;
         
     }
+    input[type=submit] {
+        font-size: 1.5em;
+        color: mix($couleurprin,$couleursecon);
+        font-family: police(police, classique);
+        font-weight: bold;
+        text-transform: uppercase;
+        border: none;
+        background: none;
+        transition: 0.5s;
+    
 
+      }
 }

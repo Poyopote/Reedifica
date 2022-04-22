@@ -1,0 +1,37 @@
+@import "mixin"; @import "variables"; @import "responsive";
+
+
+main{
+    h1{
+        font-size: 2em;
+        @include margin-haut-bas(0.67em);
+    }
+    h2{
+        font-size: 1.5em;
+        @include margin-haut-bas(0.83em);
+        color: mix($couleurprin,$couleursecon);
+    }
+    h4{
+        font-size: 1.17em;
+        @include margin-haut-bas(1em);
+    }
+    h3{
+        font-size: 2em;
+        // @include margin-haut-bas(1.33em);
+    }
+    h5{
+        font-size: .83em;
+        @include margin-haut-bas(1.67em);
+    }
+    h6{
+        font-size: .67em;
+        @include margin-haut-bas(2.33em);
+    }
+    
+    h2,h3,h4,h5,h6{
+        font-family: police(police, classique);
+        margin-left: 0;
+        margin-right: 0;
+        font-weight: bold;
+    }
+}

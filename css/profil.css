@@ -7,9 +7,6 @@
 }
 
 main img {
-  max-width: 50%;
-  height: 50vh;
-  background-size: contain;
   float: left;
 }
 
@@ -20,6 +17,10 @@ main img + p {
 
 main section#presentation p {
   padding-left: 16px;
+  max-width: 100%;
+  max-height: 700px;
+  overflow: hidden;
+  text-overflow: " [..]";
 }
 
 .date {
@@ -48,11 +49,11 @@ article h4:hover {
   color: #6d87b7;
 }
 
-input:not(:checked)#img_p + fieldset {
+input:not(:checked).tp + label + fieldset {
   display: none;
 }
 
-input:checked#img_p fieldset {
+input:checked.tp + label + fieldset {
   display: block;
 }
 
@@ -74,11 +75,11 @@ input[type=submit]:hover {
 }
 
 aside {
+  width: 100%;
   color: #edf0ea;
   margin-top: 20px;
   background: #383c44;
   clear: both;
-  min-height: 30vw;
   -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.39);
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.39);
   border-radius: 30px 30px 0 0;
@@ -124,17 +125,9 @@ aside a:visited {
 table {
   border-radius: 5px;
   text-align: center;
-  width: 100%;
+  overflow: auto;
+  max-width: 100%;
   table-layout: auto;
-}
-
-table img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 80px;
-  height: 80px;
-  border: solid 1px #CCC;
-  border-radius: 50%;
 }
 
 table tr {
@@ -161,6 +154,14 @@ table tr:hover td a:visited {
   color: #fff;
 }
 
+table tr:hover td input[type=submit] {
+  color: #58ade1;
+}
+
+table tr:hover td input[type=submit]:hover {
+  color: #edf0ea;
+}
+
 table td {
   -webkit-transition: 0.2s;
   transition: 0.2s;
@@ -170,4 +171,17 @@ table td {
   padding-top: 16px;
   padding-bottom: 16px;
   vertical-align: middle;
+  max-width: 90%;
+}
+
+table input[type=submit] {
+  font-size: 1.5em;
+  color: #2e578c;
+  font-family: "Outfit";
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  background: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }

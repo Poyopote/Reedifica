@@ -12,7 +12,7 @@
 
   $les_histoire = $error = $table_selectionnee = $lignes_values = $lignes_columns = "";
   $cle_primaire ="valeur par defaut";
-  $mon_compte = false;
+  $admin = $mon_compte = false;
 
 // BACK OFFICE
   $BackOffice = new administration();
@@ -62,7 +62,17 @@
       $tableau_utilisateur = info_utilisateur_profil($bdd,$user_pseudo);
       $filename = '../../Docs/'.$user_pseudo;   
       $mon_compte = true;
+      if($tableau_utilisateur)
       $les_histoire = recherche_histoire_user($bdd,$tableau_utilisateur["id_user"]);
+      else header("Location: ../../includes/deconnexion.php");
+      $roles = role_user($bdd,$user_pseudo);
+      
+      foreach($roles as $role){
+        if( $role['name_role'] == "Administrateur" ) {
+          $admin = true;
+          break;
+        }
+      }
     }
   }
 
@@ -117,7 +127,8 @@
   'bo_form' => isset($_POST['valider']),
   'table_selectionnee' => $table_selectionnee,
   'lignes_values' => $lignes_values,
-  'lignes_columns' => $lignes_columns
+  'lignes_columns' => $lignes_columns,
+  'admin' => $admin
 
 ));
 ?>

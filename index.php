@@ -9,11 +9,13 @@
   include("includes/init_BDD.php");
   session_start();
   $bdd = connexion_bdd();
+  include("includes/initialisation.php");
 
 //REQUETES
 
   $user_pseudo = user_connect();
   $choix = list_monde($bdd);
+  $langue = langue($bdd, $lang);
 
   // Génération du Twig
   echo $twig->render('index.html.twig', 
@@ -44,7 +46,23 @@
   'connecter' => !isset($_SESSION["login"]),
   'user' => info_utilisateur_profil($bdd,$user_pseudo),
   'choix' => $choix,
-  'liste_choix' => liste_index_sous_monde($bdd)
+  'liste_choix' => liste_index_sous_monde($bdd),
+
+  //langue texte
+  'menu_index' => $langue[0][$lang],
+  'menu_histoire' => $langue[1][$lang],
+  'menu_il_était' => $langue[2][$lang],
+  'menu_nouveaute' => $langue[3][$lang],
+  'menu_exploration' => $langue[4][$lang],
+  'menu_membres' => $langue[5][$lang],
+  'menu_guide' => $langue[6][$lang],
+  'menu_tutoriel' => $langue[7][$lang],
+  'menu_reglementation' => $langue[8][$lang],
+  'menu_faq' => $langue[9][$lang],
+  'menu_connexion' => $langue[10][$lang],
+  'menu_inscription' => $langue[11][$lang],
+  'menu_profil' => $langue[12][$lang],
+  'menu_deconnexion' => $langue[13][$lang],
   
 
 ));

@@ -106,28 +106,28 @@
       <input type="checkbox" id="menu-bouton">
       <label for="menu-bouton" ><i class="bi bi-list-task"></i></label>
       <ul>
-          <li><a href="{{index}}"><i class="bi bi-house"></i><span> Accueil</span></a></li>
-          <li><i class="bi bi-book"></i> Histoire
+          <li><a href="{{index}}"><i class="bi bi-house"></i><span> {{menu_index | raw}}</span></a></li>
+          <li><i class="bi bi-book"></i> {{menu_histoire | raw}}
               <ul>
-              <li><a href="{{contexte}}">Il était une fois...</a></li>
-              <li><a href="{{info}}">Nouveauté</a></li>
+              <li><a href="{{contexte}}">{{menu_il_était | raw}}</a></li>
+              <li><a href="{{info}}">{{menu_nouveaute | raw}}</a></li>
               </ul>
           </li> 
-          <li><a href="{{Mondes}}"><i class="bi bi-send"></i> Exploration</a></li>
-          <li><a href="{{Liste}}"><i class="bi bi-people"></i> Membres</a></li>
-          <li><i class="bi bi-question-octagon-fill"></i> Guide
+          <li><a href="{{Mondes}}"><i class="bi bi-send"></i> {{menu_exploration | raw}}</a></li>
+          <li><a href="{{Liste}}"><i class="bi bi-people"></i> {{menu_membres | raw}}</a></li>
+          <li><i class="bi bi-question-octagon-fill"></i> {{menu_guide | raw}}
               <ul>
-              <li><a href="{{Tutoriel}}">Tutoriel</a></li>
-              <li><a href="{{Réglementation}}">Réglementation</a></li>
-              <li><a href="{{FAQ}}">F.A.Q</a></li>
+              <li><a href="{{Tutoriel}}">{{menu_tutoriel | raw}}</a></li>
+              <li><a href="{{Réglementation}}">{{menu_reglementation | raw}}</a></li>
+              <li><a href="{{FAQ}}">{{menu_faq | raw}}</a></li>
               </ul>
           </li>
       </ul>
       <div id="user">
         <p>{% if connecter %}
-            <i class="bi bi-person-circle"></i> <a href="{{connexion}}">Connexion</a> | <a href="{{inscription}}">Inscription</a>
+            <i class="bi bi-person-circle"></i> <a href="{{connexion}}">{{menu_connexion | raw}}</a> | <a href="{{inscription}}">{{menu_inscription | raw}}</a>
           {% else %}
-          <a href="{{Profil}}"><img src="{{chemin_image_user}}/{{user.pseudo}}/{{user.image}}" alt="image_profil"/></a> <a href='{{Profil}}'>Profil</a> | <a href='{{deconnexion}}'>Déconnexion</a>
+          <a href="{{Profil}}"><img src="{{chemin_image_user}}/{{user.pseudo}}/{{user.image}}" alt="image_profil"/></a> <a href='{{Profil}}'>{{menu_profil | raw}}</a> | <a href='{{deconnexion}}'>{{menu_deconnexion | raw}}</a>
 {% endif %}</p>
       </div>
     </nav>

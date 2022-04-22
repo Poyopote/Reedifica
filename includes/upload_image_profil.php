@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['send']) && $_POST['send'] == "Modifier l'image") {
+if (isset($_POST['send']) && $_POST['send'] == "Valider l'image") {
 
     if (file_exists($filename)) {
       $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');//limite les types de fichiers qu'on importe --> l'user ne pourra pas importer un virus
@@ -29,7 +29,7 @@ if (isset($_POST['send']) && $_POST['send'] == "Modifier l'image") {
       mkdir($filename);
     }
   }
-  if (isset($_POST['send']) && $_POST['send'] == "Modifier la description"){
+  if (isset($_POST['send']) && $_POST['send'] == "Valider la description"){
     image_de_bio($bdd,$user_pseudo,$_POST['bio']);
     header('Location: Profil.php');
   }
