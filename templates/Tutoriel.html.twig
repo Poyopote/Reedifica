@@ -37,38 +37,72 @@
 {% endblock %}
 
 {% block main %}
-  <h1>Tutoriel</h1>
-    <h2>Si tu es perdu, c'est ici que tu trouveras tes réponses.</h2>
-    <section>
-        <h3>Tu es invité ?</h3>
-        <p>Invités est le statut réservé aux utilisateurs qui visiteur (non-inscrit). Si c'est ton cas, cette rubrique est faites pour toi.</p>
-        <h4>Où sommes nous ?</h4>
-        <p>Tu es ici sur le forum RP réédification.Tu peux découvrir l'histoire que propose ce forum en allant dans la rubrique "il était une fois..." du menu Histoire.</p>
-        <h4>Comment fonctionne ce forum RP ?</h4>
-        <p>Ici à réédification. Nous privilégions la clarté de l'information.</p>
-        <p>Si tu souhaites RP.Il te faut être inscrit sur notre plateforme.</p>
-    </section>
-    <section>
-        <h3>Tu es Joueur&middot;euse ?</h3>
-        <p>Ce statut est réservé à tous les membres inscrits.</p>
-        {% if connecter == TRUE %}
-        <article>
-            <h4>Pour en savoir plus, connecte-toi.</h4>
-        </article>
-        {% else %}
-        <article>
-            <h4>Comment fonctionne le profil ?</h4>
-            <p>Lorsque tu cr&eacute;es ton profil, tu as une image de profil d&eacute;sign&eacute; et une zone de citation vide. Que tu peux changer en allant dans la rubrique "Que souhaites-tu changer ?"</p>
-            <p>Pour le changement d'image, nous acceptons :</p>
-            <p>jpg/jpeg - png - gif c'est tout.</p>
-            <p>Ton image doit &ecirc;tre rectangulaire en mode Portrait. Si ton image est en monde Paysage, elle sera d&eacute;form&eacute;e.</p>
-            <p>Pour la description du texte, tu es libre de mettre ton humeur du moment dans le respect de nos r&egrave;gles bien s&ucirc;r.</p>
-        </article>          
-        {% endif %}
-        
+<h1><i class="bi bi-info-circle"></i> Tutoriel</h1>
+<h2>Si tu es perdu, c'est ici que tu trouveras tes réponses.</h2>
+<hr>
+<section>
+    <h3><i class="bi bi-check2-circle"></i> Tu es invité ?</h3>
+    <p>Invités est le statut réservé aux utilisateurs qui visiteur (non-inscrit). Si c'est ton cas, cette rubrique est faites pour toi.</p>
+    <h4>Où sommes nous ?</h4>
+    <p>Tu es ici sur le forum RP réédification.Tu peux découvrir l'histoire que propose ce forum</p>
+    <p> en allant dans la rubrique "<a href="../Histoire/contexte.php">il était une fois...</a>" du menu Histoire.</p>
+    <h4>Comment fonctionne ce forum RP ?</h4>
+    <p>Ici à réédification. Nous privilégions la clarté de l'information.</p>
+    <p>Si tu souhaites RP.Il te faut être inscrit sur notre plateforme.</p>
+</section>
+<hr>
+<section>
+  <h3><i class="bi bi-check2-circle"></i> Tu es Joueur&middot;euse ?</h3>
+  <p>Ce statut est réservé à tous les membres inscrits.</p>
+  {% if connecter == TRUE %}
+  <article>
+    <h4><i class="bi bi-star"></i> Pour en savoir plus, <a href="../Utilisateur/connexion.php">connecte-toi</a>.</h4>
+  </article>
+  {% else %}
+  <article>
+    <h4><i class="bi bi-star"></i> Comment fonctionne le profil ?</h4>
+    <p>Lorsque tu cr&eacute;es ton profil, tu as une image de profil d&eacute;sign&eacute; et une zone de citation vide. Que tu peux changer en allant dans la rubrique "Que souhaites-tu changer ?"</p>
+    <img src="../../img/Screenshot 2022-04-23 at 20-55-20 Profil de DameBleu - Ré.édifica.png" alt="tuto02">
+    <p>Pour la description du texte, tu es libre de mettre ton humeur du moment dans le respect de nos r&egrave;gles bien s&ucirc;r.</p>
+    <p>Pour le changement d'image, nous acceptons :</p>
+    <img src="../../img/profil.png" alt="tuto01">
+    <ul>
+        <li>jpg/jpeg - png - gif c'est tout.</li>
+        <li>Ton image doit &ecirc;tre rectangulaire en mode Portrait. Si ton image est en mode Paysage, elle sera d&eacute;form&eacute;e.</li>
+    </ul>
+    <div class="clear"></div><br>
+  </article>
+  <h3><i class="bi bi-star-fill"></i> Créer une histoire.</h3>
+  <article>
+    <h4><i class="bi bi-star"></i> Étape 1 - L'exploration</h4>
+    <p>Pour créer une histoire, il faut d'abord explorer les mondes et trouver un sous-lieu. Tu as 2 moyens, soit en passant par le menu d'accueil et en cliquant sur le lieu dans lequel tu veux écrire ton histoire.</p>
+    <a href="../../index.php#Exploration"><img src="../../img/Screenshot 2022-04-23 at 23-34-03 Exploration - Ré.édifica.jpg" alt="tuto03"></a>
+    <a href="../Exploration/Mondes.php"><img src="../../img/Screenshot 2022-04-23 at 23-31-03 Exploration - Ré.édifica.png" alt="tuto03"></a>
+    <p>Ou en allant la page exploration. Sur cette page, il y a un sélecteur de monde. Sélectionne le monde désiré, puis clique sur l'image du sous-lieu proposé.</p>
+    <h4><i class="bi bi-star"></i> Étape 2 - Créations de l'histoire.</h4>
+    <p>Pour cette étape il faut fournir un titre à l'histoire ainsi qu'un préface si tu le désires qui sert d'introduction d'ambiance à l'histoire ou encore un message adressé aux futurs lecteurs.</p>
+    <p>Une fois ce formulaire rempli correctement, tu es redirigé vers la page de rédaction de ton histoire.</p>
+    <p>C'est ici que tu pourras écrire la toute première aventure de ton personnage (ton RP).</p>
+    <p><i class="bi bi-exclamation-triangle"></i> Il est important que tu sauvegardes régulièrement ce que tu as écrit.</p>
+    <h4><i class="bi bi-star"></i> Étape 3 - Modération</h4>
+    <p>Il t'est possible de :</p>
+    <ul>
+        <li>modifier/supprimer ton RP tant que tu es le dernier à avoir écrit.</li>
+        <li>répondre à un RP d'un autre Joueur&middot;euse.</li>
+        <li>accéder aux histoires créées à travers ton profil.</li>
+    </ul>
+  </article><br>
+  <h3><i class="bi bi-star-fill"></i> Commencer dans un monde</h3>
+  <article>
+    <h4><i class="bi bi-star"></i> Pour débuter</h4>
+    <p><a href="../Exploration/sous-monde.php?lieu=1">Le bureau des rencontres</a> : Le réserver pour ta première histoire. Si tu souhaites faire connaître ton personnage à la Communauté, c'est par ici qu'il faut commencer.</p>
+    <p><a href="../Exploration/sous-monde.php?lieu=6">L'Observatoire</a> : Le principe de ce lieu est de t'aider à te mêler à la Communauté. Faire des rencontres, élaborer des aventures ensemble.</p>
 
-
-    </section>
+    <h4><i class="bi bi-star"></i> Liberté</h4>
+    <p>Les autres lieux accueilleront avec grand plaisir tes histoires.</p><br>
+  </article>            
+  {% endif %}
+</section>
 {% endblock %}
 
 {% block script %}

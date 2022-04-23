@@ -28,10 +28,6 @@ main section#presentation p {
   font-size: auto;
 }
 
-.clear {
-  clear: both;
-}
-
 section#presentation + section {
   overflow: auto;
   height: 60vh;

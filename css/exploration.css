@@ -253,10 +253,6 @@ article.rp hr {
   }
 }
 
-.clear {
-  clear: both;
-}
-
 @media screen and (min-width: 1023px) {
   #txtHint, #txtHint2 {
     float: left;

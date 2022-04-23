@@ -132,10 +132,8 @@ else {
         echo "<p>une histoire est déjà en cours d'écriture</p>";
       }
     ?>
-    </main>
-<div>
     <form method="post">
-      <textarea id="tiny" rows="15" cols="80" style="width: 80%">
+      <textarea id="tiny" rows="15" cols="80" style="width: 100%">
       <?php
         if (file_exists('../../docs/rp/'.$table_rp['id_rp'].'.txt')) {
           $lines = file('../../docs/rp/'.$table_rp['id_rp'].'.txt');
@@ -146,7 +144,15 @@ else {
       ?>
       </textarea>
    </form>
- </div>
+   
+   <section>
+     <p>Sauvegarder et terminer ?</p>
+     <p><img src="../../img/save2.png" alt="aide">GRIS : tant qu'il n'y a pas de modification en cours...</p>
+     <p><img src="../../img/save.png" alt="aide">NOIR : Pour la moindre modification. (Sauvegarde possible !)</p>
+     <p><i class="bi bi-exclamation-triangle"></i> Il est important que tu sauvegardes régulièrement ce que tu as écrit.</p>
+   </section>
+   <br>
+    </main>
   <script src="../../script/redaction.js"></script>
     <script src="../../script/menu.js"></script>
 

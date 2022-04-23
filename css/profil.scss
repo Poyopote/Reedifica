@@ -23,7 +23,7 @@ main{
     @include Tonlook (auto, mix($extremegris, $couleursecon));
 }
 
-.clear{clear: both;}
+
 section#presentation + section{
     overflow: auto;
     height: 60vh;

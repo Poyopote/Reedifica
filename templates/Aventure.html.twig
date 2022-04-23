@@ -10,7 +10,10 @@
 <header class="banniere-lieu">
     <h2>{{histoire.title | raw}}</h2>
     <img src="../../img/{{sous_monde.media}}" alt="image_du_lieu">
+    {% if histoire.bio != null %}
     <p>Préface : {{histoire.bio | raw}}</p><br><hr>
+    {% endif %}
+    
 </header>
 <section id="histoire">
 {% for key, item in aventure %}

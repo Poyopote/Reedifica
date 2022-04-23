@@ -35,8 +35,8 @@
   'FAQ' => "../../Page/Guide/F-A-Q.php",
   'Profil' => "../../Page/Utilisateur/Profil.php",
   'deconnexion' => "../../includes/deconnexion.php",
-  'connexion' => "../../includes/connexion.php",
-  'inscription' => "../../includes/inscription.php",
+  'connexion' => "../../Page/Utilisateur/connexion.php",
+  'inscription' => "../../Page/Utilisateur/inscription.php",
 
 
   // donnée de la page

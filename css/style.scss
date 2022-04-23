@@ -31,6 +31,9 @@ hr {
   border: 1px solid $extremenoir;
   margin-bottom: 25px;
 }
+.clear{
+	clear: both;
+}
 
 @include plus-large-que(Moyen){
   #navbar{

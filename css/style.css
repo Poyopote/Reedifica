@@ -42,6 +42,10 @@ hr {
   margin-bottom: 25px;
 }
 
+.clear {
+  clear: both;
+}
+
 @media screen and (min-width: 768px) {
   #navbar {
     height: 6rem;
