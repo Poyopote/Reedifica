@@ -63,6 +63,9 @@
   'menu_inscription' => $langue[11][$lang],
   'menu_profil' => $langue[12][$lang],
   'menu_deconnexion' => $langue[13][$lang],
+
+  'titre_bienvenue' => $langue[14][$lang],
+  'text_bienvenue' => $langue[15][$lang],
   
 
 ));

@@ -1,0 +1,33 @@
+@import "mixin"; @import "variables"; @import "responsive";
+body{
+    background: url("../img/20210407_160305.gif");
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    overflow: hidden;
+}
+header nav#navbar{
+    background: $extremeblanc;
+}
+main {
+
+    section{
+        width: 50%;
+        position: fixed;
+        top: 50%;
+        right: 0;
+        h1,h2{
+            font-family: $classique;
+            color: $extremeblanc;
+            animation: 3s infinite couleur;
+        }
+        @keyframes couleur {
+            from { color: $extremeblanc; }
+            to   { color: $extremenoir; }
+          }
+    }
+}
+
+footer{
+    display: none;
+}

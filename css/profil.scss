@@ -12,6 +12,7 @@
 
 main{
     img{
+        object-fit: cover;
         float: left;
         + p {float: left;width: 30%;}
     }
@@ -111,7 +112,7 @@ table {
     border-radius: 5px;
     text-align: center;
     overflow: auto;
-    max-width: 100%;
+    width: 100%;
     table-layout: auto;
 
     tr {

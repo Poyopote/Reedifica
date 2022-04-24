@@ -136,14 +136,10 @@
 {% block main %}
 <section id="accueil">
   <header id="intro">
-    <h2>Bienvenue</h2>
+    <h2>{{titre_bienvenue}}</h2>
 
     <img src="img/bienvenue.jpg" alt="image">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. 
-        Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, 
-        nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
-    </p>
+    <p>{{text_bienvenue | raw}}</p>
   </header>
   <article id="actualite">
     <h3>Actualités</h3>

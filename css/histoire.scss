@@ -1,21 +1,33 @@
 @import "mixin"; @import "variables";
 
 main{
-    // background: $couleurancien;
+    h3{
+        color: $extremeblanc;
+    }
 
     section{
+        overflow: hidden;
+        text-align: center;
         border-radius: 50px;
         padding: 1em;
-        @include texte(16px, $extremeblanc, $couleurancien);
-        p{
+        @include texte(16px, $extremeblanc, $couleurprin);
+        p,ul{
             padding: 1em; 
-            
+            text-align: left;
         }
         img{
             display: block;
             margin: 0 auto;
             width: 30vw;
         }
+        img[alt="story1"] {display: inline-block; height:300px; object-fit: contain;width: initial;}
+        li{ font-size: 1.5em;list-style: inside url('../img/Logo_favicon.svg'); padding: 4px;}
+
+    }
+
+    h2,h4{
+        color: $couleursecon;
+        font-family: $classique;
     }
 }
 

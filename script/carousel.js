@@ -21,7 +21,7 @@ bouton[2] = "Découvrir";
 
 // lien list
 lien[0] = "window.location.href = 'Page/Utilisateur/connexion.php'";
-lien[1] = "window.location.href = 'Page/Histoire/contexte.php'";
+lien[1] = "window.location.href = 'Page/Histoire/contexte.php#arc'";
 lien[2] = "window.location.href = 'Page/Membres/Liste.php'";
 
 // change image

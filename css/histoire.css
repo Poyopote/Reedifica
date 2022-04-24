@@ -1,17 +1,43 @@
+main h3 {
+  color: #edf0ea;
+}
+
 main section {
+  overflow: hidden;
+  text-align: center;
   border-radius: 50px;
   padding: 1em;
   color: #edf0ea;
   font-size: 16px;
-  background-color: #7d685b;
+  background-color: #040037;
 }
 
-main section p {
+main section p, main section ul {
   padding: 1em;
+  text-align: left;
 }
 
 main section img {
   display: block;
   margin: 0 auto;
   width: 30vw;
+}
+
+main section img[alt="story1"] {
+  display: inline-block;
+  height: 300px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: initial;
+}
+
+main section li {
+  font-size: 1.5em;
+  list-style: inside url("../img/Logo_favicon.svg");
+  padding: 4px;
+}
+
+main h2, main h4 {
+  color: #58ade1;
+  font-family: "Outfit";
 }
