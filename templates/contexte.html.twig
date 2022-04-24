@@ -1,85 +1,64 @@
 {% extends "base.html.twig" %}
 {% block nav %}
 <header>
-  <nav id="navbar">
+<nav id="navbar">
   <input type="checkbox" id="menu-bouton">
   <label for="menu-bouton" ><i class="bi bi-list-task"></i></label>
   <ul>
-    <li><a href="{{index}}"><i class="bi bi-house"></i> Accueil</a></li>
-    <li><i class="bi bi-book"></i><span> Histoire</span>
+    <li><a href="{{index}}"><i class="bi bi-house"></i><span> {{menu_index | raw}}</span></a></li>
+    <li><i class="bi bi-book"></i> {{menu_histoire | raw}}
       <ul>
-        <li><a href="{{contexte}}">Il était une fois...</a></li>
-        <li><a href="{{info}}">Nouveauté</a></li>
+        <li><a href="{{contexte}}">{{menu_il_était | raw}}</a></li>
+        <li><a href="{{info}}">{{menu_nouveaute | raw}}</a></li>
       </ul>
     </li> 
-    <li><a href="{{Mondes}}"><i class="bi bi-send"></i> Exploration</a></li>
-    <li><a href="{{Liste}}"><i class="bi bi-people"></i> Membres</a></li>
-    <li><i class="bi bi-question-octagon-fill"></i> Guide
+    <li><a href="{{Mondes}}"><i class="bi bi-send"></i> {{menu_exploration | raw}}</a></li>
+    <li><a href="{{Liste}}"><i class="bi bi-people"></i> {{menu_membres | raw}}</a></li>
+    <li><i class="bi bi-question-octagon-fill"></i> {{menu_guide | raw}}
       <ul>
-        <li><a href="{{Tutoriel}}">Tutoriel</a></li>
-        <li><a href="{{Réglementation}}">Réglementation</a></li>
-        <li><a href="{{FAQ}}">F.A.Q</a></li>
+        <li><a href="{{Tutoriel}}">{{menu_tutoriel | raw}}</a></li>
+        <li><a href="{{Réglementation}}">{{menu_reglementation | raw}}</a></li>
+        <li><a href="{{FAQ}}">{{menu_faq | raw}}</a></li>
       </ul>
     </li>
   </ul>
   <div id="user">
-    <p>
-{% if connecter %}
-      <i class="bi bi-person-circle"></i><a href="{{connexion}}">&nbsp;Connexion</a> | <a href="{{inscription}}">Inscription</a>
-{% else %}
-      <a href="{{Profil}}"><img src="{{chemin_image_user}}/{{user.pseudo}}/{{user.image}}" alt="image_profil"/></a> <a href='{{Profil}}'>Profil</a> | <a href='{{deconnexion}}'>Déconnexion</a>
-{% endif %}
-    </p>
+    <p>{% if connecter %}
+        <i class="bi bi-person-circle"></i> <a href="{{connexion}}">{{menu_connexion | raw}}</a> | <a href="{{inscription}}">{{menu_inscription | raw}}</a>
+      {% else %}
+      <a href="{{Profil}}"><img src="{{chemin_image_user}}/{{user.pseudo}}/{{user.image}}" alt="image_profil"/></a> <a href='{{Profil}}'>{{menu_profil | raw}}</a> | <a href='{{deconnexion}}'>{{menu_deconnexion | raw}}</a>
+{% endif %}</p>
   </div>
-  </nav>
+</nav>
 </header>
 {% endblock %}
 {% block main %}
-<h2><i class="bi bi-book"></i> Histoire - contexte</h2>
+<h2><i class="bi bi-book"></i> {{titre_histoire1 | raw}}</h2>
 <section>
-  <h3><i class="bi bi-book-fill"></i> Notre histoire</h3>
-  <p>Promis, &ccedil;a ne sera pas long. Notre site r&eacute;&eacute;difica a vu le jour en avril 2022, pour un projet d'&eacute;tude. Son nom lui vient de r&eacute;&eacute;difica qui signifie reconstruire, car nous cr&eacute;ons ensemble une histoire, l'Histoire de R&eacute;&eacute;difica.</p>
-  <p>
-    L'univers pr&eacute;sent&eacute; est tout droit sorti de la BD Chronique of Celestiens.
-    Cette &oelig;uvre, toujours en cours, pr&eacute;sente la vie d'un groupe de C&eacute;lestiens (Combattant de la lumi&egrave;re).
-  </p>
-  <p>
-    On y d&eacute;couvre leurs p&eacute;rip&eacute;ties. Comment de solides amiti&eacute;s vont na&icirc;tre ?
-    De puissants pouvoirs seront d&eacute;velopp&eacute;s ou encore leurs interventions &eacute;piques,
-    afin de d&eacute;jouer les sinistres plans des antagonistes.
-  </p>
+  <h3><i class="bi bi-book-fill"></i> {{titre_histoire2 | raw}}</h3>
+  {{paragraphe_histoire_1 | raw}}
   <img src="../../img/Chapitre 1 - Couverture 3.jpg" alt="story1">
   <img src="../../img/Chapitre 4 Page 10.jpg" alt="story1">
   <img src="../../img/Scénario_space_titré.jpg" alt="story1">
   <img src="../../img/Chapitre 4 Page 12.jpg" alt="story1">
   <img src="../../img/Chapitre 4 Page 17.jpg" alt="story1">
-<p>Et r&eacute;&eacute;difica dans tout &ccedil;a ? Nous avons d&eacute;cid&eacute; pour ce forum de pr&eacute;senter un des arcs narratifs ant&eacute;rieur &agrave; l'arc principal et c'est pour cela que vous &ecirc;tes l&agrave; !</p>
-  <h3 id="arc"><i class="bi bi-yin-yang"></i> L'arc du Pacificateur <i class="bi bi-yin-yang"></i></h3>
-  <p>Dans notre univers, toute chose &agrave; sa place. Tout est ordonn&eacute;. L'&eacute;quilibre persiste et dans le domaine de la magie, ce sont les illustres qui en sont les minist&egrave;res. Gr&acirc;ce &agrave; eux, la magie et dans son harmonie compl&egrave;te, mais cette s&eacute;r&eacute;nit&eacute; ne persista pas. Arena - Illustre de la destruction, rompu l'ordre, sous les conseils d'un &ecirc;tre encore myst&eacute;rieux &agrave; ce jour. Elle prit l'objet le plus convoit&eacute; au Panth&eacute;on des illustres et lib&eacute;ra Les T&eacute;n&egrave;bres, d&eacute;vorant sur tout l'univers.</p>
+<p>{{paragraphe_histoire2}}</p>
+<div id="arc"></div>
+  <h3><i class="bi bi-yin-yang"></i> {{titre_histoire3}} <i class="bi bi-yin-yang"></i></h3>
+  <p>{{paragraphe_histoire3}}</p>
     <video autoplay="" muted="" loop=""  width="800">
       <source src="../../img/20210407_161217" type="video/mp4">
     </video>
-<p>Si les autres illustrent l'ont abandonn&eacute; dans sa folie. Piter - Illustre de l'offrande, persiste &agrave; vouloir la sauver. Il tenta seul, mais en vain. Il d&eacute;cida alors de s'enfuir... Attrist&eacute;, d&eacute;sesp&eacute;r&eacute;, vagabond, il trouva sur sa route, le peuple des C&eacute;lestiens. Un peuple bienveillant, qui ignorerait le statut que portait cet homme.</p>
-<p>Il fut accueilli, restaur&eacute; et se fit des amis loin de son tr&ocirc;ne. Mais la r&eacute;alit&eacute; le rattrape, les t&eacute;n&egrave;bres sont en route, en direction de la contr&eacute;e qu'il a accueilli. Personne ne doit mourir, ils se les jur&eacute;s. Il partit au front et comprit tr&egrave;s vite qu'il n'&eacute;tait plus tout seul.</p>
-<p>C'est l&agrave; qu'une id&eacute;e lui vient. Il sait que les lois de la magie l'interdit de se confronter aux t&eacute;n&egrave;bres, mais en revanche, ce n'est pas le cas des autres. C'est ainsi que na&icirc;t le don, celui de repousser les t&eacute;n&egrave;bres. Capable de ma&icirc;triser n'importe quel type de magie, de les combiner, de les fusionner, d'en cr&eacute;er de nouveaux et tout cela &agrave; la seule force de la volont&eacute;.</p>
-<p>Maintenant, les C&eacute;lestiens sont munis du don, mais ils sont peu nombreux. Pour pallier, Le don fut &Agrave; la port&eacute;e de tous ceux qui en &eacute;taient dignes. On appela le don, le don du C&eacute;lestien car ils &eacute;taient les premiers &agrave; l'avoir obtenu. Piter prit le nom du pacificateur, cr&eacute;ateur du mouvement. &Agrave; pr&eacute;sent, la paix est peut-&ecirc;tre possible.</p>
+    {{paragraphe_histoire_4 | raw}}
 </section>
 <section>
-  <h3><i class="bi bi-book-fill"></i> Votre histoire</h3>
-  <p>Tu viens d'obtenir le don, on t'a envoyé au bercail afin de rejoindre les rangs des Célestins combattants. 
-  Nous avons besoin de toi pour faire reculer les ténèbres. Sur ta route, de nombreuses créatures émaneront des ombres.</p>
+  <h3><i class="bi bi-book-fill"></i> {{titre_histoire4}}</h3>
+  <p>{{paragraphe_histoire5}}</p>
     <img src="../../img/monster01.jpg" alt="story1">
     <img src="../../img/monster02.jpg" alt="story1">
-  <p>Tu fais partie de la première ère des Célestins. Quand tu commences, tu as 1 pouvoir au choix. Lorsque tu montes en grade tu obtiens de nouveau pouvoir. Au maximum 3, de quoi te rendre très puissant.</p>
-  <ul>
-    <li>Feu : Utile quand il fait froid. Permet de s'éclairer quand il fait nuit et surtout brûler tes ennemis!</li>
-    <li>Foudre : Parfait pour des attaques à distance. En plus de faire très mal, déplacement instantané sur 250m.</li>
-    <li>Glace : Utile quand il fait chaud. Permet de geler tes ennemis, de les ralentir, de créer des aschberg et par conséquent faire sombrer n'importe quel Titanic.</li>
-    <li>Nature : Si tu es végétarien, tu vas aimer, faire pousser des légumes et des fruits. Mais également invoque de la terre (Racines, lianes, Ronces, Feuilles tranchantes, Spores toxiques et pour tes alliés Plante médicinale).</li>
-    <li>Spectral : Traverser la matière, drainer l'énergie vital (la vie) des autres. Encaisser les attaques physiques.</li>
-    <li>Vent : Génère de l'oxygène. Capacité de vole. Créateur de bourrasque et de tornade.</li>
-  </ul>
-  <p>D'autres pouvoirs sont en cours de ajout.</p>
+  <p>{{paragraphe_histoire6}}</p>
+  {{paragraphe_histoire_7 | raw}}
+  <p>{{paragraphe_histoire8}}</p>
 </section>
 {% endblock %}
 

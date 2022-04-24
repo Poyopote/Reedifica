@@ -176,7 +176,7 @@ session_start();
                     <input name="formulaire" type="hidden" value="1">
                 </fieldset>
             </form>
-            <h4>De quelle mani&egrave;re serais-tu obtenir le don du <a href="../Histoire/contexte.php#pacificateur">pacificateur</a> ?</h4>
+            <h4>De quelle mani&egrave;re serais-tu obtenir le don du <a href="../Histoire/contexte.php#arc">pacificateur</a> ?</h4>
 
 <form id="formulaire" action="../../includes/connexion_inscription.php" method="POST">
                 <fieldset class="don">

@@ -64,6 +64,7 @@
   'menu_profil' => $langue[12][$lang],
   'menu_deconnexion' => $langue[13][$lang],
 
+  'text_banniere' => $langue[28][$lang],
   'titre_bienvenue' => $langue[14][$lang],
   'text_bienvenue' => $langue[15][$lang],
   

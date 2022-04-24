@@ -52,7 +52,7 @@
   if(isset($_SESSION["login"])){
 
     // CAS 1: l'utilisateur est connecté et voir le profil d'un autre.
-    if (isset($_GET['utilisateur']) && $_GET['utilisateur'] != "" && info_utilisateur_profil($bdd,$_GET['utilisateur']) && $_GET['utilisateur'] != $user_pseudo) {
+    if (isset($_GET['utilisateur']) && !empty($_GET['utilisateur']) && info_utilisateur_profil($bdd,$_GET['utilisateur']) && (strtolower($_GET['utilisateur']) != strtolower($user_pseudo))) {
       $tableau_utilisateur = info_utilisateur_profil($bdd,$_GET['utilisateur']);
       $filename = '../../Docs/'.$_GET['utilisateur'];
       $les_histoire = recherche_histoire_user($bdd,$tableau_utilisateur["id_user"]);
@@ -77,7 +77,7 @@
   }
 
   // Invité ?
-  else if (isset($_GET['utilisateur']) && $_GET['utilisateur'] != "" && info_utilisateur_profil($bdd,$_GET['utilisateur'])){
+  else if (isset($_GET['utilisateur']) && !empty($_GET['utilisateur']) && info_utilisateur_profil($bdd,$_GET['utilisateur'])){
     $tableau_utilisateur = info_utilisateur_profil($bdd,$_GET['utilisateur']);
     $filename = '../../Docs/'.$_GET['utilisateur'];
     $les_histoire = recherche_histoire_user($bdd,$tableau_utilisateur["id_user"]);

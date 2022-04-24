@@ -132,19 +132,38 @@ table {
             &:visited {color: $extremenoir;}
         }
     }
+
+    + section {
+        @include margin-droite-gauche(50px);
+    }
 }
 
 form{
+    width: 90%;
     margin-top: 0;
     @include margin-droite-gauche(auto);
+    input[type="submit"]{
+        font-size: 1.5em;
+        color: mix($couleurprin,$couleursecon);
+        font-family: police(police, classique);
+        font-weight: bold;
+        text-transform: uppercase;
+        border: none;
+        background: none;
+        transition: 0.5s;
+
+        &:hover {
+            color: $extremenoir;
+        }
+    }
     
 }
 
 #titre,#bio {
-    width: calc(60% - 1em);
+    width: 100%;
     min-height: 40px;
-    font-size: larger;
-    padding: 1em;
+    font-size: larger;   
+    max-width: 100%;;
 }
 
 

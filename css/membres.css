@@ -1,3 +1,7 @@
+main {
+  min-height: calc(calc(100vh - 96px) - 246px);
+}
+
 table {
   text-align: center;
   width: 80%;
