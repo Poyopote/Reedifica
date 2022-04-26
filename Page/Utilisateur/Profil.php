@@ -82,7 +82,7 @@
     $filename = '../../Docs/'.$_GET['utilisateur'];
     $les_histoire = recherche_histoire_user($bdd,$tableau_utilisateur["id_user"]);
   }
-  // S'il url est bidon propose de se connecter.
+  // S'il url est nul ou incorrect propose de se connecter.
   else header("Location: ../../Page/Utilisateur/connexion.php");
 
   include("../../includes/upload_image_profil.php");
