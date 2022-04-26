@@ -172,19 +172,12 @@ section#accueil{
 
 #Exploration{
   margin-top: 44px;
-  // text-align: center;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(auto, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;  
-  // padding: 1em;
-  // @include padding-haut-bas(30px);
-  // background-color: $extremegris;
 
-  // box-shadow: inset 0px 0px 10px 4px rgba($extremenoir, .75);
-  // -moz-box-shadow: inset 0px 0px 10px 4px rgba($extremenoir, .75);
-  // -webkit-box-shadow: inset 0px 0px 10px 4px rgba($extremenoir, .75);
 
   section{
     width: 25vw;
