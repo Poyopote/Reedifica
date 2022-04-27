@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 24 avr. 2022 à 21:40
+-- Généré le : mer. 27 avr. 2022 à 20:43
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
@@ -93,7 +93,7 @@ INSERT INTO `langue` (`id_lang`, `fr`, `en`) VALUES
 (13, 'Profil', 'Profile'),
 (14, 'D&eacute;connexion', 'Sign out'),
 (15, 'Bienvenue', 'Welcome'),
-(16, 'R&eacute;.&eacute;difica ouvre enfin ses portes. Le site o&ugrave; tu peux lib&eacute;rer ton imagination pour le partager &agrave; tous. <strong>Connecte-toi / inscris-toi</strong> et viens rejoindre la liste de nos <strong>Membres</strong>. D&eacute;couvre <strong>l\'histoire</strong> de R&eacute;.&eacute;difica, puis part &agrave; <strong>l\'exploration</strong> et raconte-nous l\'histoire ton personnage ! Tu es perdu, <strong>guide </strong>est l&agrave; pour toi.', 'Re.edifica finally opens its doors. The site where you can free your imagination to share it with everyone. <strong>Log in/register</strong> and join the list of our <strong>Members</strong>. Discover <strong>the history</strong> of Re.edifica, then go <strong>exploring</strong> and tell us the story of your character! You are lost, <strong>guide </strong>is here for you.<br> We recommend speaking French.'),
+(16, 'R&eacute;.&eacute;difica ouvre enfin ses portes. Le site o&ugrave; tu peux lib&eacute;rer ton imagination pour le partager &agrave; tous. <strong>Connecte-toi / inscris-toi</strong> et viens rejoindre la liste de nos <strong>Membres</strong>. D&eacute;couvre <strong>l\'histoire</strong> de R&eacute;.&eacute;difica, puis part &agrave; <strong>l\'exploration</strong> et raconte-nous l\'histoire ton personnage ! Tu es perdu, <strong>Guide </strong>est l&agrave; pour toi.', 'Re.edifica finally opens its doors. The site where you can free your imagination to share it with everyone. <strong>Log in/register</strong> and join the list of our <strong>Members</strong>. Discover <strong>the history</strong> of Re.edifica, then go <strong>exploring</strong> and tell us the story of your character! You are lost, <strong>Guide </strong>is here for you.<br> We recommend speaking French.'),
 (17, 'Histoire - contexte', 'History - context'),
 (18, 'Notre histoire', 'Our history'),
 (19, '<p>Promis, &ccedil;a ne sera pas long. Notre site r&eacute;&eacute;difica a vu le jour en avril 2022, pour un projet d\'&eacute;tude. Son nom lui vient de r&eacute;&eacute;difica qui signifie reconstruire, car nous cr&eacute;ons ensemble une histoire, l\'Histoire de R&eacute;&eacute;difica.</p>\r\n<p>L\'univers pr&eacute;sent&eacute; est tout droit sorti de la BD Chronique of Celestiens. Cette &oelig;uvre, toujours en cours, pr&eacute;sente la vie d\'un groupe de C&eacute;lestiens (Combattant de la lumi&egrave;re).</p>\r\n<p>On y d&eacute;couvre leurs p&eacute;rip&eacute;ties. Comment de solides amiti&eacute;s vont na&icirc;tre ? De puissants pouvoirs seront d&eacute;velopp&eacute;s ou encore leurs interventions &eacute;piques, afin de d&eacute;jouer les sinistres plans des antagonistes</p>', '<p>I promise, it won\'t be long. Our website re&eacute;difica was created in April 2022, for a study project. Its name comes from re&eacute;difica which means to rebuild, because we create together a story, the History of R&eacute;&eacute;difica.</p>\r\n<p>The universe presented is straight out of the comic book Chronicle of Celestians. This work, still in progress, presents the life of a group of Celestians (Fighters of the Light).</p>\r\n<p>We discover their adventures. How strong friendships will be born? Powerful powers will be developed or their epic interventions, in order to thwart the sinister plans of the antagonists.</p>'),
@@ -149,14 +149,15 @@ CREATE TABLE IF NOT EXISTS `rp` (
   PRIMARY KEY (`id_rp`),
   KEY `id_user` (`id_user`),
   KEY `id_story` (`id_story`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `rp`
 --
 
 INSERT INTO `rp` (`id_rp`, `id_user`, `id_story`, `date`, `avant`, `apres`) VALUES
-(1, 2, 1, '2022-04-24 01:09:27', NULL, NULL);
+(1, 2, 1, '2022-04-24 01:09:27', NULL, NULL),
+(2, 1, 2, '2022-04-27 13:13:58', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -175,14 +176,15 @@ CREATE TABLE IF NOT EXISTS `story` (
   PRIMARY KEY (`id_story`),
   KEY `id_user` (`id_user`),
   KEY `id_under_world` (`id_under_world`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `story`
 --
 
 INSERT INTO `story` (`id_story`, `title`, `id_user`, `id_under_world`, `bio`, `date`) VALUES
-(1, 'La femme bleu ?', 2, 1, '', '2022-04-24 01:55:30');
+(1, 'La femme bleu ?', 2, 1, '', '2022-04-24 01:55:30'),
+(2, 'C koi sa enkor !', 1, 1, 'Je me pr&eacute;sente, je suis Robin BLUE. On me conna&icirc;t sous le nom de Valto X. Mon m&eacute;tier, je vole, je pille et je fume. C&#039;est pas l&eacute;gal, mais &ccedil;a paye mon loyer.  Si j&#039;avais su qu&#039;un truc comme &ccedil;a allait&hellip;. J&#039;vous jure ! J&#039;&eacute;tais dans ma bagnole en train de fuir la police quand c&#039;est arriv&eacute;...', '2022-04-27 13:13:58');
 
 -- --------------------------------------------------------
 
@@ -242,7 +244,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id_user`, `pseudo`, `nom`, `prenom`, `image`, `grade`, `mdp`, `email`, `date`, `description`, `don`) VALUES
-(1, 'Voltamaster', 'X', 'Valto', 'Voltamaster.jpg', 'Accompli', '$2y$10$DIHIo97eHPsA7OHoXOaKM.1ay0v9H7iZsfgG7CHJ1gntyyJLizfqK', 'exemple@email.fr', '2022-04-24 11:53:19', 'http://localhost/reedifica/Page/Utilisateur/Profil.php', 'CN'),
+(1, 'Voltamaster', 'X', 'Valto', 'Voltamaster.jpg', 'Accompli', '$2y$10$DIHIo97eHPsA7OHoXOaKM.1ay0v9H7iZsfgG7CHJ1gntyyJLizfqK', 'exemple@email.fr', '2022-04-27 10:14:28', 'http://localhost/reedifica/Page/Utilisateur/Profil.php', 'CN'),
 (2, 'DameBleu', '', 'Rénata', 'Damebleu.jpg', 'Soutien', '$2y$10$.8md5emsNx6b4o5yMb3p2.6Fl997rEme3vvp6QcNpxKWw67jKx0wC', '', '2022-04-24 23:22:26', 'Tu es seul, désespéré, en proie au doute, laisse-moi donc t\'aider.', NULL),
 (3, 'Bel Apollon', 'Vieira', 'Oliver', 'Bel Apollon.jpg', 'Novise', '$2y$10$AzPQNl68DriwNyVuH4ar8e0IUIeN5crr33DN0TVyYzyfdQOo9x2hC', 'jean.dupont@gmail.fr', '2022-04-24 22:47:50', 'Acteur, Danseur & Chorégraphe, Mannequin, Je sais, j\'ai tous les talents. Est-ce que je vous ai déjà dit que je savais faire Jouer du piano comme personne.\r\nQuoi, moi, vantard ? Cela faisait longtemps...', 'DP');
 
