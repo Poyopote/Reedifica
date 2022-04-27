@@ -15,10 +15,6 @@ if ( array_key_exists('text', $_POST) ) {
     
     $text = $_POST["text"];
     $text = urldecode($text);
-    // do stuff with params  echo($text);
-    
-
-
     
 $file = $_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp/".$table_rp["id_rp"].'.txt';
 
@@ -31,6 +27,5 @@ $file = $_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp/".$table_rp["id_rp"].'.tx
 
 } else {
     echo 'Invalid parameters!';
-    // header('Location: '.$_SERVER['DOCUMENT_ROOT'].'/'."reedifica/");
 }
 ?>
