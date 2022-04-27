@@ -1,7 +1,7 @@
 @import "mixin"; @import "variables"; @import "responsive";
 
 main{
-    min-height: 80vh;
+    min-height: calc(calc(100vh - 96px) - 246px);
 }
 
 #monde{
@@ -169,6 +169,7 @@ form{
 
 article.rp{
     border: solid 2px black;
+    background: mix($extremeblanc, #FFFFFF);
     padding: 1em;
     max-width: 80%;
     @include margin-haut-bas(10px);
