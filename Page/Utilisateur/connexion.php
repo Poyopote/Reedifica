@@ -32,7 +32,7 @@ session_start();
     
     <title>Page Connexion "Ravi de te revoir" - Ré.édifica</title>
     <!-- SEO  -->
-    <!-- <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/> -->
+    <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
     <meta property="og:region" content="fr_FR"/>
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="Ré.édifica"/>
