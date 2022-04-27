@@ -5,7 +5,7 @@ if (isset($_POST['send']) && $_POST['send'] == "Valider l'image") {
       $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');//limite les types de fichiers qu'on importe --> l'user ne pourra pas importer un virus
       $extensionUpload = strtolower(substr(strrchr($_FILES['userfile']['name'], '.'), 1)); //extension du fichier chargé. substr = ignorer un caractère (ici le premier de la chaîne car on a mis le 1 comme limite). strrchr = prendre l'extension du fichier (avec le point) puisqu'on prend à partir du point. '.' = caractère que la chaîne ne va pas prendre en compte. 1 = limite de la chaîne
       
-      if($_FILES['userfile']['size'] <= 7000000 ) {
+      if($_FILES['userfile']['size'] <= $_POST['MAX_FILE_SIZE'] ) {
         if(in_array($extensionUpload, $extensionsValides)) {//vérifie que l'extension du fichier chargé correspond aux extensions acceptées (d'abord la variable sur laquelle on applique la fonction in_array et ensuite les variables qu'on veut tester sur la chaîne
           
           // $filename.".".$extensionUpload;//chemin où sera upload la photo
@@ -30,7 +30,7 @@ if (isset($_POST['send']) && $_POST['send'] == "Valider l'image") {
     }
   }
   if (isset($_POST['send']) && $_POST['send'] == "Valider la description"){
-    image_de_bio($bdd,$user_pseudo,$_POST['bio']);
+    bio_de_profil($bdd,$user_pseudo,$_POST['bio']);
     header('Location: Profil.php');
   }
 ?>
