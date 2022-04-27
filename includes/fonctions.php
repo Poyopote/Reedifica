@@ -2,6 +2,16 @@
 
 //CONNEXION
 
+
+	/**
+	 * Vérifie les données de connexion. Si elles ne sont pas égales à nulles.
+	 * @param string $login pseudo fournir par l'utilisateur
+	 * @param string $mdp mot de passe fournir par l'utilisateur
+	 * @param string $location Nom de la page en cas d'échec ?
+	 * @param string $message_erreur Message à retourner en pas d'échec.
+	 * @return array $tableau qui contient $login et $mdp
+	 * ou fonction message_erreur_connexion()
+	 */
 	function verification_donnees_connexion_non_nulles($login, $mdp, $location, $message_erreur)
 	{
 
@@ -14,6 +24,11 @@
 
 	}
 
+	/**
+	 * Redirigent vers la page de location en cas d'erreur et affiche l'erreur stocké dans la session erreur
+	 * @param string $location pour Location: $location
+	 * @param string $message_erreur qui devient $_SESSION["message_erreur"]
+	 */
 	function message_erreur_connexion ($location, $message_erreur)
 	{
 
@@ -170,6 +185,12 @@
 
 // PROFIL UTILISATEUR
 
+	/**
+	 * Changent l'image de profil de l'utilisateur.
+	 * @param PDO $bdd
+	 * @param string $login le pseudo du l'user
+	 * @param string $valeur1 nom de l'image
+	 */
 	function image_de_profil($bdd,$login,$valeur1)
 	{
 		$change_image = $bdd->prepare("UPDATE `user` SET `image` = :valeur1 WHERE `user`.`pseudo` = :user");
@@ -177,8 +198,12 @@
 		$change_image->bindParam(":user", $login);
 		$change_image->execute();
 	}
-
-	function image_de_bio($bdd,$login,$valeur2)
+	/**
+	 * Changent la description de l'utilisateur.
+	 * @param string $login le pseudo du l'user
+	 * @param string $valeur2 texte fourni par l'user
+	 */
+	function bio_de_profil($bdd,$login,$valeur2)
 	{
 		$change_bio = $bdd->prepare("UPDATE `user` SET `description` = :valeur2 WHERE `user`.`pseudo` = :user");
 		$change_bio->bindParam(":user", $login);
@@ -186,7 +211,12 @@
 		$change_bio->execute();
 	}
 
-
+	/**
+	 * Recherche toutes les informations d'un d'utilisateur à partir de son pseudo.
+	 * @param string $login le pseudo du l'user
+	 * @param PDO $bdd
+	 * Si la requête ne retourne pas un tableau vide. @return array de la requête | @return false
+	 */
 	function info_utilisateur_profil($bdd,$login)
 	{
 		$info_user = $bdd->prepare("SELECT * FROM `user` WHERE `pseudo` = :user");
@@ -544,7 +574,11 @@
 //LANGUE
 	$lang = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
 
-
+	/**
+	 * Sélectionne dans le tableau de langue le français ou l'anglais salon, le paramètre $lang demandée.
+	 * @param PDO $bdd
+	 * @param string $lang fr ou en
+	 */
 	function langue($bdd, $lang)
 	{
 		return $bdd->query("SELECT `$lang` FROM `langue`;")->fetchAll();
