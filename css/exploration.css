@@ -1,5 +1,5 @@
 main {
-  min-height: 80vh;
+  min-height: calc(calc(100vh - 96px) - 246px);
 }
 
 #monde h2 {
@@ -201,6 +201,7 @@ form input[type="submit"]:hover {
 
 article.rp {
   border: solid 2px black;
+  background: #f6f8f5;
   padding: 1em;
   max-width: 80%;
   margin-top: 10px;
