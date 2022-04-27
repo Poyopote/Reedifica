@@ -75,27 +75,27 @@ else {
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="Language" content="fr" />
-    <meta name="copyright" content="© REEDIFICA.FR 2022" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#5b99c2">
-    <meta name="Author" content="Steven Ladour" />
-    <link rel="icon" href="../../img/Logo_favicon.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../../css/style.css">
-    <!-- <link rel="stylesheet" type="text/css" href="../../css/exploration.css"> -->
+  <meta charset="UTF-8">
+  <meta name="Language" content="fr" />
+  <meta name="copyright" content="© REEDIFICA.FR 2022" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#5b99c2">
+  <meta name="Author" content="Steven Ladour" />
+  <link rel="icon" href="../../img/Logo_favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../../css/style.css">
+  <link rel="stylesheet" type="text/css" href="../../css/exploration.css">
 
-    <title><?php echo htmlspecialchars_decode($table_histoire["title"])?> - Ré.édifica</title>
-    <!-- SEO  -->
-    <!-- <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/> -->
-    <meta property="og:region" content="fr_FR"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:site_name" content="Ré.édifica"/>
-    <meta property=”og:title” content="Laissez parler votre imaginaire." />
-    <meta name="description" content="Ré.édifica, le forum RP. "/>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.tiny.cloud/1/9l9qq4nwdkgka6q0qswr6rxerpw48f28hg6hpzbpf3a79g48/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <title><?php echo htmlspecialchars_decode($table_histoire["title"])?> - Ré.édifica</title>
+  <!-- SEO  -->
+  <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+  <meta property="og:region" content="fr_FR"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Ré.édifica"/>
+  <meta property=”og:title” content="Laissez parler votre imaginaire." />
+  <meta name="description" content="Ré.édifica, le forum RP. "/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.tiny.cloud/1/9l9qq4nwdkgka6q0qswr6rxerpw48f28hg6hpzbpf3a79g48/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body>
     <header>
@@ -126,13 +126,12 @@ else {
             </div>
         </nav>
     </header>
-    <main>
+    <main id="ecrire">
     <?php
       if ($error) {
         echo "<p>une histoire est déjà en cours d'écriture</p>";
       }
     ?>
-    <form method="post">
       <textarea id="tiny" rows="15" cols="80" style="width: 100%">
       <?php
         if (file_exists('../../docs/rp/'.$table_rp['id_rp'].'.txt')) {
@@ -143,18 +142,15 @@ else {
         }
       ?>
       </textarea>
-   </form>
    
    <section>
      <p>Sauvegarder et terminer ?</p>
-     <p><img src="../../img/save2.png" alt="aide">GRIS : tant qu'il n'y a pas de modification en cours...</p>
+     <p><img src="../../img/save2.png" alt="aide">GRIS : tu dois écris quelque chose ou tant qu'il n'y a pas de modification en cours...</p>
      <p><img src="../../img/save.png" alt="aide">NOIR : Pour la moindre modification. (Sauvegarde possible !)</p>
      <p><i class="bi bi-exclamation-triangle"></i> Il est important que tu sauvegardes régulièrement ce que tu as écrit.</p>
    </section>
    <br>
     </main>
   <script src="../../script/redaction.js"></script>
-    <script src="../../script/menu.js"></script>
-
 </body>
 </html>
