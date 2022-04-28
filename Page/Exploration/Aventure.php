@@ -17,12 +17,11 @@
   $tableau_utilisateur = info_utilisateur_profil($bdd,$user_pseudo);
 
   
-  
   $export_twig_aventure = [];
 
 
   if(!isset($_GET["num"])){
-      header("Location: Mondes.php");
+    header("Location: Mondes.php");
   }
   $numero_H = $_GET["num"];
   $histoire = get_histoire($bdd,$numero_H);
@@ -34,7 +33,7 @@
   $monde = recherche_monde($bdd,$sous_monde["id_world"]);
   if(empty($aventure)){
     correction_story($bdd,$numero_H,$histoire['id_user']);
-    header('Location: Aventure.php?num='.$numero_H); //plus tard
+    header('Location: Aventure.php?num='.$numero_H);
   }
 
   foreach($aventure as $key => $rp)

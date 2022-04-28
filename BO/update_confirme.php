@@ -1,10 +1,10 @@
 <?php
 //INCLUSION DES FONCTIONS
 
-include($_SERVER['DOCUMENT_ROOT']. "/reedifica/includes/fonctions.php");
+include(__DIR__ . "../../includes/fonctions.php");
 //INCLUSION DE LA BDD
 
-include($_SERVER['DOCUMENT_ROOT']. "/reedifica/includes/init_BDD.php");
+include(__DIR__ . "../../includes/init_BDD.php");
 $bdd = connexion_bdd();
 
 session_start();
@@ -26,7 +26,7 @@ $user_pseudo = user_connect();
 <body>
 <?php
 if ($user_pseudo == "") {
-	header("Location: ".$_SERVER['DOCUMENT_ROOT']. "/reedifica/Page/Utilisateur/connexion.php");
+	header("Location: ".__DIR__ . "../../Page/Utilisateur/connexion.php");
 }
 ?>
 			<?php //Doit être intégré dans un fichier EstClePrimaire.php à inclure si besoin 

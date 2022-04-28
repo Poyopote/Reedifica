@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mer. 27 avr. 2022 à 20:43
--- Version du serveur : 8.0.27
--- Version de PHP : 7.4.26
+-- Hôte : 127.0.0.1:3308
+-- Généré le :  jeu. 28 avr. 2022 à 10:29
+-- Version du serveur :  8.0.18
+-- Version de PHP :  7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `reedifica_bdd`
+-- Base de données :  `pt2021_2022_ladour`
 --
 
 -- --------------------------------------------------------
@@ -29,19 +30,12 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `ability`;
 CREATE TABLE IF NOT EXISTS `ability` (
-  `id_ability` int NOT NULL AUTO_INCREMENT,
+  `id_ability` int(11) NOT NULL AUTO_INCREMENT,
   `name_ability` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `bio_ability` text NOT NULL,
   `symbole` varchar(50) NOT NULL,
   PRIMARY KEY (`id_ability`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Déchargement des données de la table `ability`
---
-
-INSERT INTO `ability` (`id_ability`, `name_ability`, `bio_ability`, `symbole`) VALUES
-(1, 'Feu', '<h2>3 niveaux de puissance</h2>', '001.png');
 
 -- --------------------------------------------------------
 
@@ -51,8 +45,8 @@ INSERT INTO `ability` (`id_ability`, `name_ability`, `bio_ability`, `symbole`) V
 
 DROP TABLE IF EXISTS `actu`;
 CREATE TABLE IF NOT EXISTS `actu` (
-  `id_actu` int NOT NULL AUTO_INCREMENT,
-  `id_user` int NOT NULL,
+  `id_actu` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
   `content` text NOT NULL,
   `media` varchar(20) NOT NULL,
   PRIMARY KEY (`id_actu`),
@@ -67,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `actu` (
 
 DROP TABLE IF EXISTS `langue`;
 CREATE TABLE IF NOT EXISTS `langue` (
-  `id_lang` int NOT NULL AUTO_INCREMENT,
+  `id_lang` int(11) NOT NULL AUTO_INCREMENT,
   `fr` text NOT NULL,
   `en` text NOT NULL,
   PRIMARY KEY (`id_lang`)
@@ -116,7 +110,7 @@ INSERT INTO `langue` (`id_lang`, `fr`, `en`) VALUES
 
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE IF NOT EXISTS `role` (
-  `id_role` int NOT NULL AUTO_INCREMENT,
+  `id_role` int(11) NOT NULL AUTO_INCREMENT,
   `name_role` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `bio_role` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_role`)
@@ -140,12 +134,12 @@ INSERT INTO `role` (`id_role`, `name_role`, `bio_role`) VALUES
 
 DROP TABLE IF EXISTS `rp`;
 CREATE TABLE IF NOT EXISTS `rp` (
-  `id_rp` int NOT NULL AUTO_INCREMENT,
-  `id_user` int NOT NULL,
-  `id_story` int NOT NULL,
+  `id_rp` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
+  `id_story` int(11) NOT NULL,
   `date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `avant` int DEFAULT NULL,
-  `apres` int DEFAULT NULL,
+  `avant` int(11) DEFAULT NULL,
+  `apres` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_rp`),
   KEY `id_user` (`id_user`),
   KEY `id_story` (`id_story`)
@@ -167,10 +161,10 @@ INSERT INTO `rp` (`id_rp`, `id_user`, `id_story`, `date`, `avant`, `apres`) VALU
 
 DROP TABLE IF EXISTS `story`;
 CREATE TABLE IF NOT EXISTS `story` (
-  `id_story` int NOT NULL AUTO_INCREMENT,
+  `id_story` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(25) NOT NULL,
-  `id_user` int NOT NULL,
-  `id_under_world` int NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_under_world` int(11) NOT NULL,
   `bio` text NOT NULL,
   `date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_story`),
@@ -184,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `story` (
 
 INSERT INTO `story` (`id_story`, `title`, `id_user`, `id_under_world`, `bio`, `date`) VALUES
 (1, 'La femme bleu ?', 2, 1, '', '2022-04-24 01:55:30'),
-(2, 'C koi sa enkor !', 1, 1, 'Je me pr&eacute;sente, je suis Robin BLUE. On me conna&icirc;t sous le nom de Valto X. Mon m&eacute;tier, je vole, je pille et je fume. C&#039;est pas l&eacute;gal, mais &ccedil;a paye mon loyer.  Si j&#039;avais su qu&#039;un truc comme &ccedil;a allait&hellip;. J&#039;vous jure ! J&#039;&eacute;tais dans ma bagnole en train de fuir la police quand c&#039;est arriv&eacute;...', '2022-04-27 13:13:58');
+(2, 'C koi sa enkor !', 1, 1, 'Mon m&eacute;tier, je vole, je pille et je fume. C&#039;est pas l&eacute;gal, mais &ccedil;a paye mon loyer.  Si j&#039;avais su qu&#039;un truc comme &ccedil;a allait&hellip;. J&#039;vous jure ! J&#039;&eacute;tais dans ma bagnole en train de fuir la police quand c&#039;est arriv&eacute;...', '2022-04-28 11:25:57');
 
 -- --------------------------------------------------------
 
@@ -194,12 +188,12 @@ INSERT INTO `story` (`id_story`, `title`, `id_user`, `id_under_world`, `bio`, `d
 
 DROP TABLE IF EXISTS `under_world`;
 CREATE TABLE IF NOT EXISTS `under_world` (
-  `id_under_world` int NOT NULL AUTO_INCREMENT,
-  `id_world` int NOT NULL,
+  `id_under_world` int(11) NOT NULL AUTO_INCREMENT,
+  `id_world` int(11) NOT NULL,
   `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `bio` text NOT NULL,
   `media` varchar(30) NOT NULL,
-  `id_user` int NOT NULL,
+  `id_user` int(11) NOT NULL,
   PRIMARY KEY (`id_under_world`),
   KEY `id_world` (`id_world`),
   KEY `id_user` (`id_user`)
@@ -225,7 +219,7 @@ INSERT INTO `under_world` (`id_under_world`, `id_world`, `title`, `bio`, `media`
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
-  `id_user` int NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `pseudo` varchar(25) NOT NULL,
   `nom` varchar(30) NOT NULL,
   `prenom` varchar(15) NOT NULL,
@@ -244,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id_user`, `pseudo`, `nom`, `prenom`, `image`, `grade`, `mdp`, `email`, `date`, `description`, `don`) VALUES
-(1, 'Voltamaster', 'X', 'Valto', 'Voltamaster.jpg', 'Accompli', '$2y$10$DIHIo97eHPsA7OHoXOaKM.1ay0v9H7iZsfgG7CHJ1gntyyJLizfqK', 'exemple@email.fr', '2022-04-27 10:14:28', 'http://localhost/reedifica/Page/Utilisateur/Profil.php', 'CN'),
+(1, 'Voltamaster', 'X', 'Valto', 'Voltamaster.jpg', 'Accompli', '$2y$10$DIHIo97eHPsA7OHoXOaKM.1ay0v9H7iZsfgG7CHJ1gntyyJLizfqK', 'exemple@email.fr', '2022-04-28 11:25:30', 'Je me présente, je suis Robin BLUE. On me connaît sous le nom de Valto X.', 'CN'),
 (2, 'DameBleu', '', 'Rénata', 'Damebleu.jpg', 'Soutien', '$2y$10$.8md5emsNx6b4o5yMb3p2.6Fl997rEme3vvp6QcNpxKWw67jKx0wC', '', '2022-04-24 23:22:26', 'Tu es seul, désespéré, en proie au doute, laisse-moi donc t\'aider.', NULL),
 (3, 'Bel Apollon', 'Vieira', 'Oliver', 'Bel Apollon.jpg', 'Novise', '$2y$10$AzPQNl68DriwNyVuH4ar8e0IUIeN5crr33DN0TVyYzyfdQOo9x2hC', 'jean.dupont@gmail.fr', '2022-04-24 22:47:50', 'Acteur, Danseur & Chorégraphe, Mannequin, Je sais, j\'ai tous les talents. Est-ce que je vous ai déjà dit que je savais faire Jouer du piano comme personne.\r\nQuoi, moi, vantard ? Cela faisait longtemps...', 'DP');
 
@@ -256,8 +250,8 @@ INSERT INTO `user` (`id_user`, `pseudo`, `nom`, `prenom`, `image`, `grade`, `mdp
 
 DROP TABLE IF EXISTS `userxability`;
 CREATE TABLE IF NOT EXISTS `userxability` (
-  `id_user` int NOT NULL,
-  `id_ability` int NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_ability` int(11) NOT NULL,
   KEY `id_user` (`id_user`),
   KEY `id_ability` (`id_ability`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -270,8 +264,8 @@ CREATE TABLE IF NOT EXISTS `userxability` (
 
 DROP TABLE IF EXISTS `userxrole`;
 CREATE TABLE IF NOT EXISTS `userxrole` (
-  `id_statut` int NOT NULL,
-  `id_user` int NOT NULL,
+  `id_statut` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   KEY `id_statut` (`id_statut`),
   KEY `id_user` (`id_user`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -294,10 +288,10 @@ INSERT INTO `userxrole` (`id_statut`, `id_user`) VALUES
 
 DROP TABLE IF EXISTS `world`;
 CREATE TABLE IF NOT EXISTS `world` (
-  `id_world` int NOT NULL AUTO_INCREMENT,
+  `id_world` int(11) NOT NULL AUTO_INCREMENT,
   `name_world` varchar(25) NOT NULL,
   `bio_world` text NOT NULL,
-  `id_user` int NOT NULL,
+  `id_user` int(11) NOT NULL,
   `media` varchar(30) NOT NULL,
   PRIMARY KEY (`id_world`),
   KEY `id_user` (`id_user`) USING BTREE

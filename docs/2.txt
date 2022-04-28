@@ -1,0 +1,5 @@
+<h1><span style="font-family: Outfit;">Chapitre 1 : D&eacute;but d'embrouille !</span></h1>
+<p><em>J'&eacute;tais avec la bande habituelle, tous va bien dans le meilleur des mondes.</em></p>
+<p><em>On r&eacute;fl&eacute;chissait encore &agrave; notre prochain coup qu'on allait mener.</em></p>
+<p style="text-align: center;"><iframe class="giphy-embed" style="width: 222px; height: 167px;" src="https://giphy.com/embed/12Eo7WogCAoj84" width="222" height="167" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
+<p style="text-align: center;"><em>Et cette fois-ci, le b&eacute;n&eacute;fice serait gros.</em></p>

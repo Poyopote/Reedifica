@@ -1,7 +1,5 @@
 <?php 
-
 //CONNEXION
-
 
 	/**
 	 * Vérifie les données de connexion. Si elles ne sont pas égales à nulles.
@@ -113,8 +111,8 @@
 		$enregistrement_utilisateur->bindParam(":date_bdd", $date);
 		$enregistrement_utilisateur->execute();
 
-		$filename = $_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/".$pseudo;
-		$profil_image = $_SERVER['DOCUMENT_ROOT']. "/reedifica/img/profil.png";
+		$filename = __DIR__ . "../../docs/".$pseudo;
+		$profil_image = __DIR__ . "../../img/profil.png";
 		mkdir($filename);
 		copy($profil_image, $filename."/profil.png");
 
@@ -427,7 +425,7 @@
 		VALUES ('$user','$histoire','$date',NULL,NULL)");
 		$last_id_creer = $bdd->lastInsertId(); // Récupère la clé primaire, créé par la requête précédente.
 
-		$file = $_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp/".$last_id_creer.'.txt';
+		$file = __DIR__ . "../../docs/rp/".$last_id_creer.'.txt';
 
 		file_put_contents($file, "");
 	}
@@ -500,12 +498,12 @@
 		$avant_rp = $resultat["avant"];
 
 		if($avant_rp == NULL && $apres_rp == NULL){
-			unlink($_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp/".$resultat["id_rp"].'.txt');
+			unlink(__DIR__ . "../../docs/rp/".$resultat["id_rp"].'.txt');
 		}
 		else{
 			$bdd->query("DELETE FROM `rp` WHERE id_story = $numero_H AND `apres` IS NULL");
 			$bdd->query("UPDATE `rp` SET `apres` = NULL WHERE `id_rp` = $avant_rp");
-			unlink($_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp/".$resultat["id_rp"].'.txt');
+			unlink(__DIR__ . "../../docs/rp/".$resultat["id_rp"].'.txt');
 		}
 
 	}
@@ -523,7 +521,7 @@
 		$actuel_rp = $bdd->query("SELECT * FROM `rp` WHERE id_story = $numero_H");
 		$actuel_rp->execute();
 		$resultat = $actuel_rp->fetch();
-		unlink($_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp/".$resultat["id_rp"].'.txt');
+		unlink(__DIR__ . "../../docs/rp/".$resultat["id_rp"].'.txt');
 		$bdd->query("DELETE FROM `rp` WHERE id_story = $numero_H");
 		$bdd->query("DELETE FROM `story` WHERE id_story = $numero_H");
 	}
@@ -628,7 +626,7 @@
 			$info_table = $bdd->query("SELECT * FROM `story`");
 			$info_table->execute();
 			$resultat = $info_table->fetchAll();
-			$dir = $_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp";
+			$dir = __DIR__ . "../../docs/rp";
 			if(empty($resultat)){
 				if (!is_dir($dir)) {
 					mkdir($dir);

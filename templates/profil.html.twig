@@ -4,7 +4,7 @@
 <h2>Profil de {{tableau_utilisateur.pseudo}}</h2>
 <section id="presentation">
   <h3>Description</h3>
-  <p><img src='{{filename}}/{{tableau_utilisateur.image}}' width="220px" height="340px"  alt="image-de-profil"><i class="bi bi-quote"></i>{{tableau_utilisateur.description}}<i class="bi bi-quote"></i></p>
+  <p><img src='{{filename}}/{{tableau_utilisateur.image}}' width="220px" height="340px"  alt="image-de-profil"><i class="bi bi-quote"></i>{{tableau_utilisateur.description  | raw}}<i class="bi bi-quote"></i></p>
   <div class="clear"></div><br>
   <p>Je suis {{tableau_utilisateur.prenom}} {{tableau_utilisateur.nom}}</p>
   <p>Grade : {{tableau_utilisateur.grade}}</p>
@@ -71,7 +71,7 @@
 {% for ligne in lignes_tables %}
 {% set retour_ligne = retour_ligne + 1 %}
       {% if retour_ligne is divisible by(3) == 0 %}<br/>{% endif %}  
-      <input type='submit' name='valider' value='{{ligne.Tables_in_reedifica_bdd }}'>
+      <input type='submit' name='valider' value='{{ligne.Tables_in_pt2021_2022_ladour }}'>
 {% endfor %}         
     </fieldset>
   </form>

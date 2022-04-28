@@ -7,7 +7,7 @@ tinymce.init({
     'searchreplace visualblocks code fullscreen emoticons',
     'insertdatetime media table paste imagetools wordcount'
   ], //le plugine sont des modul qu'on rajoute
-  toolbar: 'undo redo | save | styleselect | forecolor backcolor | bold italic emoticons| alignleft aligncenter alignright | bullist numlist outdent indent | link image media | code',
+  toolbar: 'undo redo | save | styleselect | fontselect | forecolor backcolor | bold italic emoticons| alignleft aligncenter alignright | bullist numlist outdent indent | link image media | code',
   menubar: false,
   save_enablewhendirty: true,
   fontsize_formats: '8pt 10pt 12pt 14pt 16pt 18pt 24pt 36pt 48pt',

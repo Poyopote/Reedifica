@@ -42,6 +42,10 @@ hr {
   margin-bottom: 25px;
 }
 
+em {
+  font-style: italic;
+}
+
 .clear {
   clear: both;
 }

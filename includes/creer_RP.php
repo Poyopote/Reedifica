@@ -16,7 +16,7 @@ if ( array_key_exists('text', $_POST) ) {
     $text = $_POST["text"];
     $text = urldecode($text);
     
-$file = $_SERVER['DOCUMENT_ROOT']. "/reedifica/docs/rp/".$table_rp["id_rp"].'.txt';
+$file = __DIR__ . "../../docs/rp/".$table_rp["id_rp"].'.txt';
 
     file_put_contents($file, $text);
 
