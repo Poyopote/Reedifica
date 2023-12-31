@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#5b99c2">
   <meta name="Author" content="Steven Ladour"/>
-  <link rel="icon" href="img/Logo_favicon.svg">
+  <link rel="icon" href="img/Logo_favicon.svg" sizes="16x16">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <title>Accueil - Ré.édifica</title>
-  <!-- SEO  -->
-  <!-- <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/> -->
+    <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
   <meta property="og:region" content="fr_FR"/>
   <meta property="og:type" content="website"/>
+  <meta property="og:image" content="img/Logo_favicon.svg"/>
   <meta property="og:site_name" content="Ré.édifica"/>
   <meta name="description" content="Ré.édifica, le forum RP. "/>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -124,13 +125,13 @@
   <header>
     <nav id="navbar">
       <input type="checkbox" id="menu-bouton">
-      <label for="menu" aria-describedby="label"><i class="bi bi-list-task"></i></label>
+      <label for="menu-bouton" ><i class="bi bi-list-task"></i></label>
       <ul>
-          <li><a href="index.php"><i class="bi bi-house"></i><span> Accueil</span></a></li>
+          <li><a href="index.html"><i class="bi bi-house"></i><span> Accueil</span></a></li>
           <li><i class="bi bi-book"></i> Histoire
               <ul>
-              <li><a href="Page/Histoire/contexte.php">Il était une fois...</a></li>
-              <li><a href="Page/Histoire/nouveauté/info.php">Nouveauté</a></li>
+              <li><a href="Page/Histoire/contexte.html">Il &eacute;tait une fois...</a></li>
+              <li><a href="Page/Histoire/nouveauté/info.html">Nouveaut&eacute;</a></li>
               </ul>
           </li> 
           <li><a href="Page/Exploration/Mondes.html"><i class="bi bi-send"></i> Exploration</a></li>
@@ -138,7 +139,7 @@
           <li><i class="bi bi-question-octagon-fill"></i> Guide
               <ul>
               <li><a href="Page/Guide/Tutoriel.html">Tutoriel</a></li>
-              <li><a href="Page/Guide/Réglementation.html">Réglementation</a></li>
+              <li><a href="Page/Guide/Réglementation.html">R&eacute;glementation</a></li>
               <li><a href="Page/Guide/F-A-Q.html">F.A.Q</a></li>
               </ul>
           </li>
@@ -155,22 +156,18 @@
     <h2>Bienvenue</h2>
 
     <img src="img/bienvenue.jpg" alt="image">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. 
-        Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, 
-        nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
-    </p>
+    <p>R&eacute;.&eacute;difica ouvre enfin ses portes. Le site o&ugrave; tu peux lib&eacute;rer ton imagination pour le partager &agrave; tous. <strong>Connecte-toi / inscris-toi</strong> et viens rejoindre la liste de nos <strong>Membres</strong>. D&eacute;couvre <strong>l'histoire</strong> de R&eacute;.&eacute;difica, puis part &agrave; <strong>l'exploration</strong> et raconte-nous l'histoire ton personnage ! Tu es perdu, <strong>Guide </strong>est l&agrave; pour toi.</p>
   </header>
   <article id="actualite">
     <h3>Actualités</h3>
     <div id="carousel">
       <a class="carousel_button" onclick="changeImgLeft()"><i class="bi bi-arrow-left-circle-fill"></i></a>
       
-      <img id="slideImg" src="" name="slide" alt="actu">
+      <img id="slideImg" src="img/ciel_vue1.jpg" alt="actu">
       
       <div id="carousel_text">
-          <p name="carousel_text"></p>
-          <a href="" name="carousel_lien"><button name="carousel_bouton"></button></a>
+          <p id="carousel_p"></p>
+          <button id="carousel_bouton" onclick="window.location.href = 'index.html';"></button>
       </div>
       <a class="carousel_button" onclick="changeImgRight()"><i class="bi bi-arrow-right-circle-fill"></i></a>
     </div> 
@@ -219,7 +216,7 @@ Un conseil, trouve-toi de bons alliés et partez à l&#039;aventure ensemble.</p
     </div>
     <div class="boite">
       <h3>En détails</h3>
-      <p><i class="bi bi-patch-check"></i> Mentions Légals</p>
+      <p><i class="bi bi-patch-check"></i> <a href="Page/Guide/Réglementation.html#mention">Mentions Légals</a></p>
       <p><i class="bi bi-github"></i><a href="https://github.com/Poyopote/Reedifica/tree/php"> Poyopote/Réédifica</a></p>
     </div>
     <div class="boite fin">
@@ -229,11 +226,11 @@ Un conseil, trouve-toi de bons alliés et partez à l&#039;aventure ensemble.</p
     </div>
     <div>
     <ul>
-      <li><a href="index.php"><i class="bi bi-house"></i> Accueil</a></li>
-      <li>Histoire <i class="bi bi-book"></i> <a href="Page/Histoire/contexte.php">Il était une fois...</a> | <a href="Page/Histoire/nouveauté/info.php">Nouveauté</a></li>
-      <li><a href="Page/Exploration/Mondes.php"><i class="bi bi-send"></i> Exploration</a></li>
-      <li><a href="Page/Membres/Liste.php"><i class="bi bi-people"></i> Membres</a></li>
-      <li>Guide <i class="bi bi-question-octagon-fill"></i> <a href="Page/Guide/Tutoriel.php">Tutoriel</a> | <a href="Page/Guide/Réglementation.php">Réglementation</a> | <a href="Page/Guide/F-A-Q.php">F.A.Q</a></li>
+      <li><a href="index.html"><i class="bi bi-house"></i> Accueil</a></li>
+      <li>Histoire <i class="bi bi-book"></i> <a href="Page/Histoire/contexte.html">Il était une fois...</a> | <a href="Page/Histoire/nouveauté/info.html">Nouveauté</a></li>
+      <li><a href="Page/Exploration/Mondes.html"><i class="bi bi-send"></i> Exploration</a></li>
+      <li><a href="Page/Membres/Liste.html"><i class="bi bi-people"></i> Membres</a></li>
+      <li>Guide <i class="bi bi-question-octagon-fill"></i> <a href="Page/Guide/Tutoriel.html">Tutoriel</a> | <a href="Page/Guide/Réglementation.html">Réglementation</a> | <a href="Page/Guide/F-A-Q.html">F.A.Q</a></li>
     </ul>
     </div>
   </nav>

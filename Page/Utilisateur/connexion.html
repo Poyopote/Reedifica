@@ -12,28 +12,34 @@
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/user.css">
     
-    <title>Page Connexion "Ravi de te voir" - Ré.édifica</title>
+    <title>Page Connexion "Ravi de te revoir" - Ré.édifica</title>
     <!-- SEO  -->
-    <!-- <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/> -->
+    <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
     <meta property="og:region" content="fr_FR"/>
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="Ré.édifica"/>
     <meta name="description" content="Ré.édifica, le forum RP. "/>
 </head>
-<body>
+<body id="connexion-body">
     <main id="connexion-main">
         <nav>
             <a href="../../index.html">Retour à l'accueil</a>
             <a href="inscription.html">Je veux m'inscrire</a>
         </nav>
         <section>
-            <form id="formulaire" action="">
+            <form id="formulaire" action="" method="POST">
                 <fieldset>
-                    <label for="login"><i class="bi bi-person-fill"></i> Pseudo :</label>
-                    <input type="text" id="login" name="login">
-                    <label for="mdp"><i class="bi bi-lock-fill"></i> Mot de passe :</label>
-                    <input type="password" id="mdp" name="mdp">
+                    <div>
+                        <span><i class="bi bi-person-fill"></i></span>
+                        <input type="text" id="login" name="login" required placeholder="Pseudo">
+                    </div>
+                    <div>
+                        <span><i class="bi bi-lock-fill"></i></span>
+                        <input type="password" id="mdp" name="mdp" required placeholder="Mot de passe">
+                    </div>
+                    
                     <input name="formulaire" type="hidden" value="0">
+                    <p></p>
                     <!-- <hr> -->
                     <input type="submit" value="Valider">
                 </fieldset>
