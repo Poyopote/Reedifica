@@ -110,6 +110,9 @@ section#accueil article + article {
     -webkit-filter: contrast(110%);
             filter: contrast(110%);
   }
+  strong {
+    font-weight: bold;
+  }
 }
 
 #actualite #carousel {

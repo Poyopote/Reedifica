@@ -1,50 +1,66 @@
 @import "mixin"; @import "variables"; @import "responsive";
 
+
 #connexion-body{
     background-image: url("../img/connexion.jpg");
+}
+#inscription-body{
+    background-image: url("../img/ciel_vue1.jpg");
+}
+#connexion-body,#inscription-body{
     width: 100vw;
     height: 100vh;
     background-size: cover;
     overflow: hidden;
-    // background-repeat: no-repeat;
+    
 }
-
 
 #connexion-main{
    @include plus-large-que(Geant){
     width: 50vw;
+    
    }
 
-    // background: rgba($extremeblanc, 0.1);
     margin-top: 100px;
     @include margin-droite-gauche(auto);
     input {
-        font-size: 24px;
-        -webkit-box-shadow: 0px 0px 0px 8px rgba(218, 221, 218, 0.463); 
-        box-shadow: 0px 0px 0px 8px rgba(218, 221, 218, 0.463);
-        color: $extremeblanc;
-        width: 100%;
-        padding: 12px 20px;
-        max-height: 44px;
-        margin: 8px 0;
-        display: inline-block;
-        background-color: $extremenoir;
-        border: 1px double rgba($couleurprin, 0.6);
-        border-radius: 4px;
-        box-sizing: border-box;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: $extremenoir;
+        background-color: $extremeblanc;
+        background-clip: padding-box;
+        border: 1px solid $extremeblanc;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: .25rem;
+        border-top-left-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        position: relative;
+        flex: 1 1 auto;
+        width: 1%;
+        min-width: 0;
+        margin-left: -1px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        
     }
     input[type="submit"]{
         margin-top: 44px;
         width: 50%;
         border: double;
-        @include margin-droite-gauche(25%)
+        @include margin-droite-gauche(25%);
+        transition: .3s;
     }
 
     input[type="submit"]:hover {
         
-        background-color: $extremeblanc;
-        color: $extremenoir;
-        border-color: $extremenoir;
+        background-color: $extremenoir;
+        color: $extremeblanc;
+        border-color: $extremeblanc;
         cursor: pointer;
     }
 
@@ -76,7 +92,37 @@
     }
 }
 
+fieldset div{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin: 8px 0;
+}
+
+
+
+span{
+    align-items: center;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
 #inscription-main{
+    
+    min-height: 100vh;
+    width: 50%;
+    background: radial-gradient(rgba($extremeblanc, .87), $extremeblanc);
     h1{
         font-size: 2em;
         @include margin-haut-bas(0.67em);
@@ -84,8 +130,9 @@
     h2{
         font-size: 1.5em;
         @include margin-haut-bas(0.83em);
+        color: mix($couleurprin,$couleursecon);
     }
-    h4{
+    h4, .don label{
         font-size: 1.17em;
         @include margin-haut-bas(1em);
     }
@@ -102,7 +149,7 @@
         @include margin-haut-bas(2.33em);
     }
 
-    h1,h2,h3,h4,h5,h6{
+    h1,h2,h3,h4,h5,h6, .don label{
         font-family: police(police, classique);
         margin-left: 0;
         margin-right: 0;
@@ -116,4 +163,30 @@
     strong{
         font-weight: bold;
     }
+
+    
+    
+    section{
+        overflow: auto;
+        max-height: 80vh;
+        position: relative;
+    }
+
+
+    input[type="submit"]{
+        font-size: 1.5em;
+        color: mix($couleurprin,$couleursecon);
+        font-family: police(police, classique);
+        font-weight: bold;
+        text-transform: uppercase;
+        border: none;
+        background: none;
+        transition: 0.5s;
+
+        &:hover {
+            color: $extremenoir;
+        }
+    }
 }
+
+

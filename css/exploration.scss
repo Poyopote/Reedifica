@@ -1,7 +1,7 @@
 @import "mixin"; @import "variables"; @import "responsive";
 
 main{
-    min-height: 80vh;
+    min-height: calc(calc(100vh - 96px) - 246px);
 }
 
 #monde{
@@ -51,8 +51,6 @@ main{
 
 
 select{
-    color: $extremeblanc;
-    background-color: rgb(0, 0, 0);
     padding: 8px 16px;
     border: 1px solid transparent;
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
@@ -134,24 +132,44 @@ table {
             &:visited {color: $extremenoir;}
         }
     }
+
+    + section {
+        @include margin-droite-gauche(50px);
+    }
 }
 
 form{
+    width: 90%;
     margin-top: 0;
     @include margin-droite-gauche(auto);
+    input[type="submit"]{
+        font-size: 1.5em;
+        color: mix($couleurprin,$couleursecon);
+        font-family: police(police, classique);
+        font-weight: bold;
+        text-transform: uppercase;
+        border: none;
+        background: none;
+        transition: 0.5s;
+
+        &:hover {
+            color: $extremenoir;
+        }
+    }
     
 }
 
 #titre,#bio {
-    width: calc(60% - 1em);
+    width: 100%;
     min-height: 40px;
-    font-size: larger;
-    padding: 1em;
+    font-size: larger;   
+    max-width: 100%;;
 }
 
 
 article.rp{
     border: solid 2px black;
+    background: mix($extremeblanc, #FFFFFF);
     padding: 1em;
     max-width: 80%;
     @include margin-haut-bas(10px);
@@ -209,9 +227,7 @@ article.rp{
         float: left;
     }
 }
-.clear{
-	clear: both;
-}
+
 
 
 @include plus-large-que(Large){

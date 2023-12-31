@@ -31,6 +31,12 @@ hr {
   border: 1px solid $extremenoir;
   margin-bottom: 25px;
 }
+em{
+  font-style: italic;
+}
+.clear{
+	clear: both;
+}
 
 @include plus-large-que(Moyen){
   #navbar{
@@ -92,7 +98,6 @@ hr {
 
   
   .sticky{
-    // padding: 5px 100px;
     z-index: 99;
 
     background: $extremeblanc;
@@ -133,7 +138,6 @@ footer{
       color: $couleursecon;
     }
   }
-  // img{ min-height: calc(88px - 22px);}
   nav {
     width: 80%;
     margin: 0 auto;
@@ -243,7 +247,6 @@ footer{
     }
 
     input:checked + label+ ul, input:checked + label+ ul + #user{
-      // transform: translateX(25%);
       display: list-item;
     }
   }

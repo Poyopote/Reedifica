@@ -1,5 +1,5 @@
 main {
-  min-height: 80vh;
+  min-height: calc(calc(100vh - 96px) - 246px);
 }
 
 #monde h2 {
@@ -54,8 +54,6 @@ main {
 }
 
 select {
-  color: #edf0ea;
-  background-color: black;
   padding: 8px 16px;
   border: 1px solid transparent;
   border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
@@ -166,21 +164,44 @@ table td a:visited {
   color: #171717;
 }
 
+table + section {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
 form {
+  width: 90%;
   margin-top: 0;
   margin-left: auto;
   margin-right: auto;
 }
 
+form input[type="submit"] {
+  font-size: 1.5em;
+  color: #2e578c;
+  font-family: "Outfit";
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  background: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+form input[type="submit"]:hover {
+  color: #171717;
+}
+
 #titre, #bio {
-  width: calc(60% - 1em);
+  width: 100%;
   min-height: 40px;
   font-size: larger;
-  padding: 1em;
+  max-width: 100%;
 }
 
 article.rp {
   border: solid 2px black;
+  background: #f6f8f5;
   padding: 1em;
   max-width: 80%;
   margin-top: 10px;
@@ -253,10 +274,6 @@ article.rp hr {
   article.rp {
     float: left;
   }
-}
-
-.clear {
-  clear: both;
 }
 
 @media screen and (min-width: 1023px) {

@@ -1,0 +1,54 @@
+@import "mixin"; @import "variables"; @import "responsive"; @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+
+
+main{
+    h1{
+        font-size: 2em;
+        @include margin-haut-bas(0.67em);
+    }
+    h2{
+        font-size: 1.5em;
+        @include margin-haut-bas(0.83em);
+        color: mix($couleurprin,$couleursecon);
+    }
+    h4{
+        font-size: 1.17em;
+        @include margin-haut-bas(1em);
+    }
+    h3{
+        font-size: 2em;
+    }
+    h5{
+        font-size: .83em;
+        @include margin-haut-bas(1.67em);
+    }
+    h6{
+        font-size: .67em;
+        @include margin-haut-bas(2.33em);
+    }
+    
+    h2,h3,h4,h5,h6{
+        font-family: police(police, classique);
+        margin-left: 0;
+        margin-right: 0;
+        font-weight: bold;
+    }
+    li{ font-size: 1.5em;list-style: inside url('../img/check-square-fill.svg'); padding: 4px;}
+
+    img {
+        max-width: 50%;
+        &:hover{
+            opacity: 90%;
+        }
+    }
+    img[alt="tuto01"],img[alt="tuto01"] +ul {
+        display: block;
+        float: left;
+        max-width: 50%;
+    }
+    img[alt="tuto03"]{
+        display: inline-block;
+        width: 45%;
+        text-align: center;
+    }
+}

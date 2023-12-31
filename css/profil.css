@@ -7,9 +7,8 @@
 }
 
 main img {
-  max-width: 50%;
-  height: 50vh;
-  background-size: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
   float: left;
 }
 
@@ -20,15 +19,15 @@ main img + p {
 
 main section#presentation p {
   padding-left: 16px;
+  max-width: 100%;
+  max-height: 700px;
+  overflow: hidden;
+  text-overflow: " [..]";
 }
 
 .date {
   color: #5887a9;
   font-size: auto;
-}
-
-.clear {
-  clear: both;
 }
 
 section#presentation + section {
@@ -48,12 +47,37 @@ article h4:hover {
   color: #6d87b7;
 }
 
+input:not(:checked).tp + label + fieldset {
+  display: none;
+}
+
+input:checked.tp + label + fieldset {
+  display: block;
+}
+
+input[type=submit] {
+  text-align: center;
+  border: 1px solid #171717;
+  border-color: #58ade1;
+  color: #58ade1;
+  padding: 0 15px;
+  height: 36px;
+  background: none;
+  letter-spacing: 0.2em;
+}
+
+input[type=submit]:hover {
+  cursor: pointer;
+  border-color: #171717;
+  color: #58ade1;
+}
+
 aside {
+  width: 100%;
   color: #edf0ea;
   margin-top: 20px;
   background: #383c44;
   clear: both;
-  min-height: 30vw;
   -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.39);
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.39);
   border-radius: 30px 30px 0 0;
@@ -61,6 +85,15 @@ aside {
 
 aside form {
   padding: 1em;
+}
+
+aside fieldset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 aside legend {
@@ -76,4 +109,77 @@ aside h5 {
   border-radius: 30px 30px 0 0;
   text-align: center;
   padding: 0.3em;
+}
+
+aside a {
+  font-weight: bold;
+  color: #edf0ea;
+}
+
+aside a:visited {
+  color: #58ade1;
+}
+
+table {
+  border-radius: 5px;
+  text-align: center;
+  overflow: auto;
+  width: 100%;
+  table-layout: auto;
+}
+
+table tr {
+  background-color: #b5aca3;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f6ff;
+}
+
+table th {
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.4;
+  background-color: #6c7ae0;
+}
+
+table tr:hover td {
+  background-color: #232d7a;
+  color: white;
+}
+
+table tr:hover td a:visited {
+  color: #fff;
+}
+
+table tr:hover td input[type=submit] {
+  color: #58ade1;
+}
+
+table tr:hover td input[type=submit]:hover {
+  color: #edf0ea;
+}
+
+table td {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  font-size: 15px;
+  color: #171717;
+  line-height: 1.4;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  vertical-align: middle;
+  max-width: 90%;
+}
+
+table input[type=submit] {
+  font-size: 1.5em;
+  color: #2e578c;
+  font-family: "Outfit";
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  background: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
