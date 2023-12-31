@@ -15,7 +15,7 @@ Le projet Ré.édifica se décline en deux branches :
 
 2. **Version PHP (V1 - Première Version) :**
    - Offre toutes les fonctionnalités promises pour la V1 du projet.
-   - Inclut des fonctionnalités telles que le profil utilisateur, les notifications, la modération utilisateur, la connexion/déconnexion, la F.A.Q, et la rédaction de sujets RP.
+   - Inclut des fonctionnalités telles que le profil utilisateur, les notifications, la modération utilisateur, la connexion/déconnexion, la F.A.Q, et la rédaction de sujets RP. + (Changement de langue partielle)
 
 ## Fonctionnalités de la Version PHP (V1 - Première Version)
 
