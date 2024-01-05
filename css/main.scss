@@ -68,37 +68,46 @@ section#accueil{
     margin-top: 100px;
   }
 }
+#intro {
+  p{
+      
+    border: $extremenoir 1px dotted;
 
-@include plus-large-que(Moyen){
-  #intro{
-    padding: 0.3%; 
-    h2{color: darken($couleursecon, 40);}
+    @include Tonlook (2em, $extremegris );
+    overflow: auto;
+    height: 40vh;
 
-    h2+img+p, h2+img{
-      display:inline-block;
-  
-    }
-    h2+img+p{
-      width: 60%; 
-      border: $extremenoir 1px dotted;
-      margin-left: 10px;
-      @include Tonlook (2em, $extremegris );
-      overflow: auto;
-      height: 40vh;
-      @include padding-droite-gauche(0.3%);
-    }
-  
-    h2+img{
-      height: 40vh;
-      &:hover{
-        filter: contrast(110%);
-       }
-    }
   }
+
+  img{
+    height: 40vh;
+    &:hover{
+      filter: contrast(110%);
+     }
+  }
+
   strong{
     font-weight: bold;
   }
+  @include plus-large-que(Moyen){
+
+
+      .flex-intro{
+        display: flex;
+        div:first-child{
+          width: 40%;
+          margin-left: 10px;
+          @include padding-droite-gauche(0.3%);
+        }
+        div{
+          width: 60%; 
+        }
+      }
+
+  }
 }
+
+
 
 
 
