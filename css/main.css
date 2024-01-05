@@ -189,7 +189,11 @@ section#accueil article + article {
 }
 #Exploration h3 {
   grid-area: 1/1/2/4;
-  margin-bottom: 44px;
+}
+@media screen and (min-width: 768px) {
+  #Exploration h3 {
+    margin-bottom: 44px;
+  }
 }
 #Exploration h3 + section {
   grid-area: 2/1/3/2;
@@ -216,7 +220,7 @@ section#accueil article + article {
 }
 #Exploration ul li a {
   color: #edf0ea;
-  font-size: 2em;
+  font-size: calc(1.5em + 0.5vw);
   padding: 0.2em;
   text-shadow: 2px 2px 2px #171717;
   display: inline-block;

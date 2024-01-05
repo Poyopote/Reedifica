@@ -3,7 +3,7 @@
 }
 
 #inscription-body {
-  background-image: url("../img/ciel_vue1.jpg");
+  background-image: url("../img/ciel_vue1.webp");
 }
 
 #connexion-body, #inscription-body {
@@ -18,15 +18,13 @@
   margin-left: auto;
   margin-right: auto;
 }
-
 @media screen and (min-width: 1130px) {
   #connexion-main {
     width: 50vw;
   }
 }
-
 #connexion-main input {
-  padding: .375rem .75rem;
+  padding: 0.375rem 0.75rem;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -37,51 +35,40 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
-  -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-  transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   position: relative;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+  flex: 1 1 auto;
   width: 1%;
   min-width: 0;
   margin-left: -1px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-
-#connexion-main input[type="submit"] {
+#connexion-main input[type=submit] {
   margin-top: 44px;
   width: 50%;
   border: double;
   margin-left: 25%;
   margin-right: 25%;
-  -webkit-transition: .3s;
-  transition: .3s;
+  transition: 0.3s;
 }
-
-#connexion-main input[type="submit"]:hover {
+#connexion-main input[type=submit]:hover {
   background-color: #171717;
   color: #edf0ea;
   border-color: #edf0ea;
   cursor: pointer;
 }
-
 #connexion-main label {
   color: #edf0ea;
   font-size: 1em;
 }
-
 #connexion-main p {
   color: #edf0ea;
   font-weight: bold;
 }
-
 #connexion-main nav {
   margin-left: auto;
   margin-right: auto;
@@ -90,7 +77,6 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
 #connexion-main nav a {
   display: table-cell;
   min-width: 195px;
@@ -99,7 +85,6 @@
   color: #edf4e6;
   text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #58ade1, 0 0 30px #58ade1, 0 0 40px #58ade1, 0 0 55px #58ade1, 0 0 75px #58ade1, 0px 1px 18px rgba(206, 206, 206, 0);
 }
-
 @media screen and (max-width: 768px) {
   #connexion-main nav {
     display: block;
@@ -111,22 +96,15 @@
 
 fieldset div {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  flex-wrap: wrap;
+  align-items: stretch;
   margin: 8px 0;
 }
 
 span {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: .375rem .75rem;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -135,7 +113,7 @@ span {
   white-space: nowrap;
   background-color: #e9ecef;
   border: 1px solid #ced4da;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -145,71 +123,59 @@ span {
   width: 50%;
   background: radial-gradient(rgba(237, 240, 234, 0.87), #edf0ea);
 }
-
 #inscription-main h1 {
   font-size: 2em;
   margin-top: 0.67em;
   margin-bottom: 0.67em;
 }
-
 #inscription-main h2 {
   font-size: 1.5em;
   margin-top: 0.83em;
   margin-bottom: 0.83em;
   color: #2e578c;
 }
-
 #inscription-main h4, #inscription-main .don label {
   font-size: 1.17em;
   margin-top: 1em;
   margin-bottom: 1em;
 }
-
 #inscription-main h3 {
   font-size: 2em;
   margin-top: 1.33em;
   margin-bottom: 1.33em;
 }
-
 #inscription-main h5 {
-  font-size: .83em;
+  font-size: 0.83em;
   margin-top: 1.67em;
   margin-bottom: 1.67em;
 }
-
 #inscription-main h6 {
-  font-size: .67em;
+  font-size: 0.67em;
   margin-top: 2.33em;
   margin-bottom: 2.33em;
 }
-
 #inscription-main h1, #inscription-main h2, #inscription-main h3, #inscription-main h4, #inscription-main h5, #inscription-main h6, #inscription-main .don label {
   font-family: "Outfit";
   margin-left: 0;
   margin-right: 0;
   font-weight: bold;
 }
-
 #inscription-main ul {
   list-style: inside;
 }
-
 #inscription-main article {
   overflow: auto;
   max-height: 60vh;
 }
-
 #inscription-main strong {
   font-weight: bold;
 }
-
 #inscription-main section {
   overflow: auto;
   max-height: 80vh;
   position: relative;
 }
-
-#inscription-main input[type="submit"] {
+#inscription-main input[type=submit] {
   font-size: 1.5em;
   color: #2e578c;
   font-family: "Outfit";
@@ -217,10 +183,8 @@ span {
   text-transform: uppercase;
   border: none;
   background: none;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-
-#inscription-main input[type="submit"]:hover {
+#inscription-main input[type=submit]:hover {
   color: #171717;
 }

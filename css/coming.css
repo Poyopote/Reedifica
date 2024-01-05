@@ -1,5 +1,5 @@
 body {
-  background: url("../img/20210407_160305.gif");
+  background: url("../img/Reedifica-img03.webp");
   width: 100vw;
   height: 100vh;
   background-size: cover;
@@ -16,23 +16,11 @@ main section {
   top: 50%;
   right: 0;
 }
-
 main section h1, main section h2 {
   font-family: "Outfit";
   color: #edf0ea;
-  -webkit-animation: 3s infinite couleur;
-          animation: 3s infinite couleur;
+  animation: 3s infinite couleur;
 }
-
-@-webkit-keyframes couleur {
-  from {
-    color: #edf0ea;
-  }
-  to {
-    color: #171717;
-  }
-}
-
 @keyframes couleur {
   from {
     color: #edf0ea;

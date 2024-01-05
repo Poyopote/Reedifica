@@ -5,9 +5,9 @@ var bouton = [];
 var lien = [];
 
 // image list
-images[0] = 'img/20210407_160305.gif';
-images[1] = 'img/20210407_161306.gif';
-images[2] = 'img/20210729_191043.gif';
+images[0] = 'img/Reedifica-img03.webp';
+images[1] = 'img/Reedifica-img01.webp';
+images[2] = 'img/Reedifica-img02.webp';
 
 // text list
 texts[0] = "À l'intention de nos chers Explorateurs, merci de faire partie des nôtres. Notre équipe travaille actuellement sur de nouvelles fonctionnalités, qui arriveront prochainement. (Alors un peu de patience!)";
