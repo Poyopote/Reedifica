@@ -60,37 +60,37 @@ section#accueil article + article {
   margin-top: 100px;
 }
 
+#intro p {
+  border: #171717 1px dotted;
+  color: #586171;
+  font-size: 2em;
+  overflow: auto;
+  height: 40vh;
+}
+#intro img {
+  height: 40vh;
+}
+#intro img:hover {
+  filter: contrast(110%);
+}
+#intro strong {
+  font-weight: bold;
+}
 @media screen and (min-width: 768px) {
-  #intro {
-    padding: 0.3%;
+  #intro .flex-intro {
+    display: flex;
   }
-  #intro h2 {
-    color: #11405c;
-  }
-  #intro h2 + img + p, #intro h2 + img {
-    display: inline-block;
-  }
-  #intro h2 + img + p {
-    width: 60%;
-    border: #171717 1px dotted;
+  #intro .flex-intro div:first-child {
+    width: 40%;
     margin-left: 10px;
-    color: #586171;
-    font-size: 2em;
-    overflow: auto;
-    height: 40vh;
     padding-left: 0.3%;
     padding-right: 0.3%;
   }
-  #intro h2 + img {
-    height: 40vh;
-  }
-  #intro h2 + img:hover {
-    filter: contrast(110%);
-  }
-  strong {
-    font-weight: bold;
+  #intro .flex-intro div {
+    width: 60%;
   }
 }
+
 #actualite #carousel {
   display: flex;
   align-items: center;
