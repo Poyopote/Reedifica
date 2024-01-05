@@ -4,64 +4,53 @@ main h1 {
   margin-top: 0.67em;
   margin-bottom: 0.67em;
 }
-
 main h2 {
   font-size: 1.5em;
   margin-top: 0.83em;
   margin-bottom: 0.83em;
   color: #2e578c;
 }
-
 main h4 {
   font-size: 1.17em;
   margin-top: 1em;
   margin-bottom: 1em;
 }
-
 main h3 {
   font-size: 2em;
 }
-
 main h5 {
-  font-size: .83em;
+  font-size: 0.83em;
   margin-top: 1.67em;
   margin-bottom: 1.67em;
 }
-
 main h6 {
-  font-size: .67em;
+  font-size: 0.67em;
   margin-top: 2.33em;
   margin-bottom: 2.33em;
 }
-
 main h2, main h3, main h4, main h5, main h6 {
   font-family: "Outfit";
   margin-left: 0;
   margin-right: 0;
   font-weight: bold;
 }
-
 main li {
   font-size: 1.5em;
   list-style: inside url("../img/check-square-fill.svg");
   padding: 4px;
 }
-
 main img {
   max-width: 50%;
 }
-
 main img:hover {
   opacity: 90%;
 }
-
-main img[alt="tuto01"], main img[alt="tuto01"] + ul {
+main img[alt=tuto01], main img[alt=tuto01] + ul {
   display: block;
   float: left;
   max-width: 50%;
 }
-
-main img[alt="tuto03"] {
+main img[alt=tuto03] {
   display: inline-block;
   width: 45%;
   text-align: center;
