@@ -69,18 +69,13 @@ section#accueil{
   }
 }
 #intro {
-  p{
-      
+  p{  
     border: $extremenoir 1px dotted;
-
     @include Tonlook (2em, $extremegris );
-    overflow: auto;
-    height: 40vh;
-
   }
 
   img{
-    height: 40vh;
+    width: 100%;
     &:hover{
       filter: contrast(110%);
      }
@@ -90,14 +85,26 @@ section#accueil{
     font-weight: bold;
   }
   @include plus-large-que(Moyen){
+    img{
+      // width: auto;
+      // height: 100%;
+   
+    }
 
+    p{
+      height: 100%;
+      overflow: auto;
+    }
 
       .flex-intro{
         display: flex;
+        gap: 0.5em;
+        max-height: 40vh;
+    
         div:first-child{
           width: 40%;
-          margin-left: 10px;
           @include padding-droite-gauche(0.3%);
+          overflow: hidden;
         }
         div{
           width: 60%; 
