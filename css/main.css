@@ -64,11 +64,9 @@ section#accueil article + article {
   border: #171717 1px dotted;
   color: #586171;
   font-size: 2em;
-  overflow: auto;
-  height: 40vh;
 }
 #intro img {
-  height: 40vh;
+  width: 100%;
 }
 #intro img:hover {
   filter: contrast(110%);
@@ -77,14 +75,20 @@ section#accueil article + article {
   font-weight: bold;
 }
 @media screen and (min-width: 768px) {
+  #intro p {
+    height: 100%;
+    overflow: auto;
+  }
   #intro .flex-intro {
     display: flex;
+    gap: 0.5em;
+    max-height: 40vh;
   }
   #intro .flex-intro div:first-child {
     width: 40%;
-    margin-left: 10px;
     padding-left: 0.3%;
     padding-right: 0.3%;
+    overflow: hidden;
   }
   #intro .flex-intro div {
     width: 60%;
