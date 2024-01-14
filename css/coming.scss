@@ -1,21 +1,29 @@
 @import "mixin"; @import "variables"; @import "responsive";
+
 body{
-    background: url("../img/Reedifica-img03.webp");
-    width: 100vw;
-    height: 100vh;
+    background: url("../img/forest.jpg");
     background-size: cover;
-    overflow: hidden;
+        overflow: hidden;
+
 }
+
+
 header nav#navbar{
     background: $extremeblanc;
 }
 main {
-
+    width: 100vw;
+    height: 100vh;
     section{
         width: 50%;
         position: fixed;
         top: 50%;
+        @include plus-large-que(Large){
         right: 0;
+        }
+    
+
+
         h1,h2{
             font-family: $classique;
             color: $extremeblanc;

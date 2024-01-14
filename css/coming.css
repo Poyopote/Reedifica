@@ -1,7 +1,5 @@
 body {
-  background: url("../img/Reedifica-img03.webp");
-  width: 100vw;
-  height: 100vh;
+  background: url("../img/forest.jpg");
   background-size: cover;
   overflow: hidden;
 }
@@ -10,11 +8,19 @@ header nav#navbar {
   background: #edf0ea;
 }
 
+main {
+  width: 100vw;
+  height: 100vh;
+}
 main section {
   width: 50%;
   position: fixed;
   top: 50%;
-  right: 0;
+}
+@media screen and (min-width: 1023px) {
+  main section {
+    right: 0;
+  }
 }
 main section h1, main section h2 {
   font-family: "Outfit";
