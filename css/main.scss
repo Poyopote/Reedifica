@@ -201,6 +201,11 @@ section#accueil{
     border-radius: 10px;
     overflow: hidden;
     position: relative;
+  // cursor: pointer;
+    
+       &:hover img{
+        filter: contrast(150%);
+       }
   }
 
   img{    
@@ -208,9 +213,7 @@ section#accueil{
       object-fit:cover;
        max-height: 194px;
        transition: .6s;
-       &:hover{
-        filter: contrast(150%);
-       }
+       
   }
 
   h3{
