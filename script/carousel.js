@@ -6,7 +6,7 @@ var lien = [];
 
 // image list
 images[0] = 'img/Reedifica-img03.webp';
-images[1] = 'img/Reedifica-img01.webp';
+images[1] = 'img/Reedifica-img01.gif';
 images[2] = 'img/Reedifica-img02.webp';
 
 // text list
