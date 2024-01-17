@@ -5,7 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Marck+Script&display=swap");
 body {
   font-family: "Outfit", sans-serif;
-  background-color: #edf0ea;
+  background-color: #FEFCE9;
 }
 
 main {
@@ -116,7 +116,7 @@ em {
   }
   .sticky {
     z-index: 99;
-    background: #edf0ea;
+    background: #FEFCE9;
     position: fixed;
     top: 0px;
   }
@@ -139,7 +139,7 @@ em {
 footer {
   background: #040037;
   background: linear-gradient(90deg, #040037 0%, #171717 100%);
-  color: #edf0ea;
+  color: #FEFCE9;
   padding: 80px 0 50px;
 }
 footer h3 + p, footer h3 + p + p, footer li {
@@ -182,7 +182,7 @@ footer nav ul li {
   margin-right: 24px;
 }
 footer nav a {
-  color: #edf0ea;
+  color: #FEFCE9;
   text-decoration: none;
 }
 footer nav a:focus {

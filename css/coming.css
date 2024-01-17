@@ -5,7 +5,7 @@ body {
 }
 
 header nav#navbar {
-  background: #edf0ea;
+  background: #FEFCE9;
 }
 
 main {
@@ -24,12 +24,12 @@ main section {
 }
 main section h1, main section h2 {
   font-family: "Outfit";
-  color: #edf0ea;
+  color: #FEFCE9;
   animation: 3s infinite couleur;
 }
 @keyframes couleur {
   from {
-    color: #edf0ea;
+    color: #FEFCE9;
   }
   to {
     color: #171717;

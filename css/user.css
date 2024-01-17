@@ -29,9 +29,9 @@
   font-weight: 400;
   line-height: 1.5;
   color: #171717;
-  background-color: #edf0ea;
+  background-color: #FEFCE9;
   background-clip: padding-box;
-  border: 1px solid #edf0ea;
+  border: 1px solid #FEFCE9;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -57,16 +57,16 @@
 }
 #connexion-main input[type=submit]:hover {
   background-color: #171717;
-  color: #edf0ea;
-  border-color: #edf0ea;
+  color: #FEFCE9;
+  border-color: #FEFCE9;
   cursor: pointer;
 }
 #connexion-main label {
-  color: #edf0ea;
+  color: #FEFCE9;
   font-size: 1em;
 }
 #connexion-main p {
-  color: #edf0ea;
+  color: #FEFCE9;
   font-weight: bold;
 }
 #connexion-main nav {
@@ -82,7 +82,7 @@
   min-width: 195px;
   padding: 1em;
   font-size: 2rem;
-  color: #edf4e6;
+  color: #fffde8;
   text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #58ade1, 0 0 30px #58ade1, 0 0 40px #58ade1, 0 0 55px #58ade1, 0 0 75px #58ade1, 0px 1px 18px rgba(206, 206, 206, 0);
 }
 @media screen and (max-width: 768px) {
@@ -120,7 +120,7 @@ span {
 
 #inscription-main {
   min-height: 100vh;
-  background: radial-gradient(rgba(237, 240, 234, 0.87), #edf0ea);
+  background: radial-gradient(rgba(254, 252, 233, 0.87), #FEFCE9);
 }
 @media screen and (min-width: 320px) {
   #inscription-main {

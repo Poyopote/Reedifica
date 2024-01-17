@@ -48,12 +48,12 @@ h1.logo svg {
 
 @media screen and (min-width: 1023px) {
   #navbar {
-    background: #edf0ea;
-    background: linear-gradient(0deg, #edf0ea 75%, #586171 100%);
+    background: #FEFCE9;
+    background: linear-gradient(0deg, #FEFCE9 75%, #586171 100%);
   }
 }
 #navbar.sticky {
-  background: #edf0ea;
+  background: #FEFCE9;
 }
 
 section#accueil article + article {
@@ -159,7 +159,7 @@ section#accueil article + article {
   padding: 1em;
 }
 #actualite a.carousel_button:hover {
-  color: #828481;
+  color: #8b8a80;
 }
 #actualite a.carousel_button:active {
   color: #2e578c;
@@ -176,7 +176,7 @@ section#accueil article + article {
 #Exploration section {
   width: 25vw;
   margin: 0 auto;
-  background-color: #949aa1;
+  background-color: #9a9fa1;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -223,7 +223,7 @@ section#accueil article + article {
   background-color: #3e434d;
 }
 #Exploration ul li a {
-  color: #edf0ea;
+  color: #FEFCE9;
   font-size: calc(1.5em + 0.5vw);
   padding: 0.2em;
   text-shadow: 2px 2px 2px #171717;
